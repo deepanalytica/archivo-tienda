@@ -248,6 +248,7 @@ function renderProductView() {
   const isArtwork = state.view === 'artwork' && product.print;
   const finish = state.view === 'detail' ? brand.finishes?.[state.finish] : null;
   const alternate = state.view === 'alternate' ? product.alternate : null;
+  $('#detail-image').dataset.filmView = isArtwork ? 'artwork' : state.view === 'campaign' ? 'editorial' : 'product';
   $('#detail-image').src = alternate ? alternate.image : isArtwork ? product.print.svg : state.view === 'product' ? product.image : state.view === 'campaign' ? (product.campaign || collections[product.collection].campaign) : finish?.image || brand.detail;
   $('#detail-image').alt = alternate ? alternate.alt : finish ? finish.alt : isArtwork ? `Arte original ${product.name}, ${product.print.widthCm} por ${product.print.heightCm} centímetros` : state.view === 'product' ? `${product.name}, ${product.color}, ${product.view}` : `${state.view === 'campaign' ? 'Campaña de colección' : 'Etiquetas y terminaciones de la marca'} ${brand.name}`;
   $('#finish-views').hidden = !finish;

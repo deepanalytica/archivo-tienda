@@ -124,6 +124,8 @@ Capturas e informe: `output/playwright/`.
 
 ## Imágenes
 
+Las fotografías se muestran con un revelado fílmico no destructivo: curvas RGB cálidas, sombras suaves y grano monocromo estático en campañas; tratamiento más neutro en producto. Las vistas de arte, archivos descargables, logos y controles quedan fuera del efecto. Implementación y alcance: `docs/film-look.md` y `film-look.css`.
+
 `assets/products/` contiene las 51 prendas en WebP, además de la vista frontal micro de Refract Isles. Se conservan los PNG originales disponibles. `assets/brands/` reúne campañas anteriores y detalles de las marcas iniciales. IMAGO y Self Defined de OWN FORM agregan seis imágenes de concepto cada una: cuatro prendas y dos editoriales, con PNG local y WebP para la web. Prompts de Self Defined: `docs/ownform-image-prompts.json`.
 
 OTHER NATURE incorpora nueve mockups finales: siete vistas de prenda y dos editoriales. Artes y terminaciones: `assets/prints/other-nature/` y `assets/trims/other-nature/`. Dirección, medidas y precauciones de fabricación: `docs/other-nature.md`. Prompts exactos: `docs/other-nature-image-prompts.json`.

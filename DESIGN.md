@@ -431,3 +431,9 @@ Tabs accesibles con Home, End y flechas; controles anterior/siguiente ciclicos y
 - Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.
 - Don't convertir una descarga de Pages en una confirmación de pedido, reserva o cobro.
 - Don't reemplazar el sistema de paneles rectos y separación tonal por tarjetas redondeadas con sombras.
+
+## Revelado Filmico
+
+La peticion de acabado cinematografico sustituye la restriccion previa de `filter: none` en fotos de catalogo. `film-look.css`, cargado despues de la capa editorial, conecta dos filtros SVG estaticos definidos en `index.html`: `film-editorial` para campanas, con sombras frias, luces calidas, saturacion contenida y grano fino; `film-product` para prendas y terminaciones, con color casi neutro y menor intensidad de grano. No hay parpadeo ni animacion de ruido.
+
+La ficha cambia de tratamiento segun la vista: Campana usa el revelado editorial, Prenda y Frente micro usan producto, Arte original conserva `filter: none`. No se altera ningun archivo de produccion, descarga, logo, paleta o control. Parametros y alcance en `docs/film-look.md`.

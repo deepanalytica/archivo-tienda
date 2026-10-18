@@ -1,0 +1,38 @@
+/* Static, non-destructive film treatment. Print artwork and logos stay untouched. */
+:root {
+  --film-editorial: url('#film-editorial');
+  --film-product: url('#film-product');
+}
+
+.film-filter-library {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+img[src$=".webp"] {
+  filter: var(--film-product);
+}
+
+:is(
+  #hero-image,
+  #summer-image,
+  .summer-tabs img,
+  .nature-photo img,
+  .collection-picture img,
+  .brand-photo img,
+  .brand-dialog-image,
+  .escape-photograph img,
+  .ownform-editorial-photo img,
+  .imago-editorial-photo img,
+  .inner-signal-study > img,
+  #detail-image[data-film-view="editorial"]
+)[src$=".webp"] {
+  filter: var(--film-editorial);
+}
+
+#detail-image.is-print-art {
+  filter: none;
+}
