@@ -27,6 +27,8 @@ img[src$=".webp"] {
   .escape-photograph img,
   .ownform-editorial-photo img,
   .imago-editorial-photo img,
+  .archivo-editorial-card img,
+  .campaign img,
   .inner-signal-study > img,
   #detail-image[data-film-view="editorial"]
 )[src$=".webp"] {

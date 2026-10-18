@@ -3,8 +3,36 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3eddf">
 <meta name="description" content="Doce universos creativos de ropa de autor: campañas, diseño gráfico, estampados y terminaciones de ARCHIVO Clothing & Art.">
 <title>ARCHIVO / Estudio creativo de las marcas</title>
-<link rel="icon" type="image/svg+xml" href="assets/identities/archivo-favicon.svg"><link rel="stylesheet" href="estudio.css"><link rel="stylesheet" href="archivo-platform.css"><script defer src="catalog.js"></script><script defer src="estudio.js"></script>
+<link rel="icon" type="image/svg+xml" href="assets/identities/archivo-favicon.svg"><link rel="stylesheet" href="estudio.css"><link rel="stylesheet" href="archivo-platform.css"><link rel="stylesheet" href="archivo-premium.css"><link rel="stylesheet" href="film-look.css"><script defer src="catalog.js"></script><script defer src="estudio.js"></script>
 </head><body>
+  <svg class="film-filter-library" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="film-editorial" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix type="saturate" values="0.9"/>
+        <feComponentTransfer result="film-tone">
+          <feFuncR type="table" tableValues=".035 .095 .20 .35 .51 .68 .82 .925 .985"/>
+          <feFuncG type="table" tableValues=".04 .10 .205 .35 .50 .66 .80 .91 .97"/>
+          <feFuncB type="table" tableValues=".055 .12 .22 .355 .49 .635 .765 .875 .94"/>
+        </feComponentTransfer>
+        <feTurbulence type="fractalNoise" baseFrequency=".84" numOctaves="3" seed="17" stitchTiles="stitch" result="film-noise"/>
+        <feColorMatrix in="film-noise" type="saturate" values="0" result="film-grain"/>
+        <feComposite in="film-tone" in2="film-grain" operator="arithmetic" k2="1" k3=".32" k4="-.16" result="film-exposed"/>
+        <feComposite in="film-exposed" in2="SourceAlpha" operator="in"/>
+      </filter>
+      <filter id="film-product" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix type="saturate" values=".985"/>
+        <feComponentTransfer result="product-tone">
+          <feFuncR type="table" tableValues=".014 .12 .247 .375 .501 .627 .752 .876 .995"/>
+          <feFuncG type="table" tableValues=".016 .122 .248 .375 .50 .625 .75 .873 .99"/>
+          <feFuncB type="table" tableValues=".02 .126 .25 .375 .498 .622 .746 .868 .98"/>
+        </feComponentTransfer>
+        <feTurbulence type="fractalNoise" baseFrequency=".88" numOctaves="3" seed="29" stitchTiles="stitch" result="product-noise"/>
+        <feColorMatrix in="product-noise" type="saturate" values="0" result="product-grain"/>
+        <feComposite in="product-tone" in2="product-grain" operator="arithmetic" k2="1" k3=".16" k4="-.08" result="product-exposed"/>
+        <feComposite in="product-exposed" in2="SourceAlpha" operator="in"/>
+      </filter>
+    </defs>
+  </svg>
 <a class="skip" href="#universos">Ir a las marcas</a>
 <div class="topline"><span>ARCHIVO CLOTHING &amp; ART</span><span>UN ARCHIVO DE MUNDOS PROPIOS / 2026</span></div>
 <header class="head"><a class="lockup" href="index.html" aria-label="Volver a ARCHIVO"><img src="assets/identities/archivo-lockup.svg" alt="ARCHIVO"><small>CLOTHING &amp; ART</small></a><nav aria-label="Navegación"><a href="index.html#catalogo">Catálogo</a><a href="index.html#marcas">Las marcas</a><a href="index.html">Volver a la tienda ↗</a></nav></header>
