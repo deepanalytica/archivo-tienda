@@ -10,7 +10,7 @@ async function build() {
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
   if (!html.includes('<html lang="es">')) throw new Error('No se encontró la etiqueta raíz para configurar Pages.');
   await fs.writeFile(path.join(destination, 'index.html'), html.replace('<html lang="es">', '<html lang="es" data-store-mode="static">'));
-  for (const file of ['styles.css', 'identities.css', 'editorial.css', 'film-look.css', 'catalog.js', 'identities.js', 'app.js', 'escapes.js', 'identity-ui.js', 'summer-editorial.js']) {
+  for (const file of ['styles.css', 'identities.css', 'editorial.css', 'film-look.css', 'catalog.js', 'identities.js', 'app.js', 'escapes.js', 'identity-ui.js', 'summer-editorial.js', 'estudio.html', 'estudio.css', 'estudio.js']) {
     await fs.copyFile(path.join(root, file), path.join(destination, file));
   }
   for (const folder of ['brands', 'products']) {
@@ -29,6 +29,18 @@ async function build() {
       await fs.mkdir(target, { recursive: true });
       for (const file of await fs.readdir(source)) {
         if (/^[a-z0-9-]+\.(svg|png)$/.test(file)) await fs.copyFile(path.join(source, file), path.join(target, file));
+      }
+    }
+  }
+  // Publicar sólo SVG vectoriales del laboratorio, nunca archivos administrativos.
+  const labBrands=['imago','umbral','neblina','logic','solar','marea','orbita','salitre','alto','limen','brava'];
+  for (const category of ['prints','trims']) {
+    for(const id of labBrands){
+      const origin=path.join(root,'assets',category,'brand-lab',id);
+      const target=path.join(destination,'assets',category,'brand-lab',id);
+      await fs.mkdir(target,{recursive:true});
+      for(const name of await fs.readdir(origin)){
+        if(name.endsWith('.svg')) await fs.copyFile(path.join(origin,name),path.join(target,name));
       }
     }
   }
