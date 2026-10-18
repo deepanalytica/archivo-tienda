@@ -147,3 +147,15 @@ Validación de los 99 SVG: `python scripts/verify-brand-production.py`. Rasteriz
 La portada `index.html` separa la **marca madre** de las 12 campañas autónomas: un único lockup en cabecera, hero manifiesto «Un archivo. Muchos mundos.», índice curado y acceso a `estudio.html`. Logotipo combinado, monograma, favicon y retícula están en `assets/identities/archivo-*.svg`; reglas de uso en `docs/archivo-brand-system-v2.md` y estilos en `archivo-platform.css`.
 
 Las nuevas secciones **no cambian el catálogo ni convierten las imágenes conceptuales en productos fabricados**. El despliegue en GitHub Pages continúa sin pasarela de pago. El control de regresión `node scripts/verify-brand-platform.cjs` comprueba que el logo no se repita en el hero y que los recursos estén publicados.
+
+## Brand Office — Dirección integral de 12 marcas (en revisión)
+
+La carpeta [`docs/brand-office/`](docs/brand-office/index.md) reúne el sistema editorial y operativo para gobernar ARCHIVO como casa de marcas: doce biblias específicas, registro de las dieciséis colecciones, diferenciación, arquetipos propuestos, método de diseño y dirección de arte, tratamiento fotográfico, control de calidad, lanzamientos, plantillas y roadmap.
+
+- [Centro de dirección de marcas](docs/brand-office/index.md)
+- [Matriz para evitar que las marcas se parezcan](docs/brand-office/differentiation.md)
+- [Registro de colecciones](docs/brand-office/collections.md)
+- [Operación de drops](docs/brand-office/launch-playbook.md)
+- [Control de calidad textil y prepress](docs/brand-office/quality-and-production.md)
+
+Ejecutar `npm run test:brand-office` para auditar la correspondencia entre `catalog.js`, las 12 biblias y el registro editorial; `node scripts/verify-brand-office.cjs --csv` genera un inventario de los SKU actuales por consola. Los arquetipos, públicos y nuevas extensiones son propuestas de trabajo, **no investigación comercial validada**. Este añadido documental no habilita checkout, stock ni fabricación real.
