@@ -1,5 +1,7 @@
 # ARCHIVO / Un archivo de mundos propios
 
+Esta es la dirección de la primera ampliación de seis marcas. La edición actual de diez marcas, con playa, montaña y ciudad, se documenta en [escapes-art-direction.md](escapes-art-direction.md) y conserva estos seis universos.
+
 ## Scope and mode
 
 Extensión de la tienda existente. Modo Experience para campañas y marcas; catálogo y bolsa orientados a elegir prendas. Se conservan el nombre, el soporte editorial en papel cálido y la función local y pública.

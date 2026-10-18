@@ -12,7 +12,7 @@ Reunir propuestas de ropa de autor con identidades propias en una tienda que per
 
 ## Users
 
-Visitantes que exploran ropa y el dueño que gestiona solicitudes en su equipo. El público demográfico preciso queda abierto; se consultó durante esta ampliación sin convertir la respuesta en un requisito para avanzar. La propuesta creativa actual explora streetwear de siluetas amplias para uso cotidiano.
+Personas de alto poder adquisitivo que buscan ropa de autor colorida y reconocible para la playa, la montaña y la ciudad, según la indicación explícita del usuario. La propuesta debe despertar el deseo de imaginarse vistiendo las prendas en esas experiencias. El dueño gestiona solicitudes locales en su equipo.
 
 ## Operating Context
 
@@ -20,7 +20,9 @@ Sitio público en GitHub Pages, repositorio deepanalytica/archivo-tienda y publi
 
 ## Capabilities and Constraints
 
-- Catálogo, búsqueda, filtros por marca, colección y prenda, orden por precio o nombre, favoritos, fichas y bolsa persistente.
+- Catálogo de 37 prendas, diez marcas y trece colecciones; búsqueda, filtros por destino, marca, colección y prenda; carga progresiva, favoritos, fichas y bolsa persistente.
+- Poleras, polerones, gorros, camisas, shorts y chaquetas. Tres escapadas con conjuntos de tres piezas y elección individual de talla e inclusión.
+- Dos cintas cromáticas móviles con pausa manual, parada fuera de pantalla y alternativa para movimiento reducido.
 - La versión pública permite descargar una selección; no recibe pedidos, no recoge datos de contacto ni procesa pagos.
 - El servidor local guarda solicitudes y permite gestionar estados sin enviar notificaciones.
 - Imágenes de concepto y precios referenciales en CLP. No representan stock fabricado ni precios finales aprobados.
@@ -28,11 +30,11 @@ Sitio público en GitHub Pages, repositorio deepanalytica/archivo-tienda y publi
 
 ## Brand Commitments
 
-Conservar ARCHIVO, UMBRAL, NEBLINA y WE ARE LOGIC. La solicitud actual autoriza ampliar el universo con más marcas, colecciones coloridas, direcciones de arte propias y una página con más vida. SOLAR CLUB, MAREA y ÓRBITA son las nuevas propuestas creativas desarrolladas para esa ampliación.
+Conservar la identidad editorial de ARCHIVO y las seis marcas anteriores, que el usuario valoró positivamente. La expansión debe ser ambiciosa: más marcas, prendas coloridas con diseños simples y llamativos, micrográficas, campañas aspiracionales y banners móviles. SALITRE, ALTO SUR, LIMEN e ISLA BRAVA son las cuatro nuevas propuestas creativas.
 
 ## Evidence on Hand
 
-Nueve imágenes de prendas y campañas originales. Dieciocho imágenes nuevas generadas con ImageGen: doce productos y seis campañas. Prompts en docs/image-prompts.json y junto a las imágenes. Pruebas locales y de Pages en verify.cjs y verify-pages.cjs.
+Nueve prendas y campañas originales, conservadas. Las dos ampliaciones incorporan 38 imágenes de ImageGen: la primera añadió doce productos y seis campañas; la actual, dieciséis productos y cuatro campañas. Prompts en docs/image-prompts.json y junto a las imágenes. Pruebas locales y de Pages en verify.cjs y verify-pages.cjs.
 
 ## Product Principles
 

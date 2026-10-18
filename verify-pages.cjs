@@ -49,7 +49,7 @@ const catalog = require('./catalog.js');
       page.on('pageerror', (error) => errors.push(error.message));
       page.on('request', (request) => { if (new URL(request.url()).pathname.includes('/api/')) apiRequests.push(request.url()); });
       await page.goto(base);
-      await page.waitForFunction((count) => document.querySelectorAll('.product-card').length === count, catalog.products.length);
+      await page.waitForFunction((count) => document.querySelectorAll('.product-card').length === count, Math.min(12, catalog.products.length));
       await page.evaluate(() => document.fonts.ready);
       await page.evaluate(async () => {
         for (const image of document.images) image.loading = 'eager';
@@ -58,9 +58,9 @@ const catalog = require('./catalog.js');
       assert.deepEqual(await page.evaluate(() => [...document.images].filter((image) => !image.naturalWidth).map((image) => image.src)), []);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
       assert.equal(await page.locator('a[href="admin.html"]').count(), 0);
-      assert.equal(await page.locator('#hero-brands button').count(), 6);
-      assert.equal(await page.locator('#brand-editorials article').count(), 6);
-      assert.equal(await page.locator('#collection-tabs button').count(), 9);
+      assert.equal(await page.locator('#hero-brands button').count(), Object.keys(catalog.brands).length);
+      assert.equal(await page.locator('#brand-editorials article').count(), Object.keys(catalog.brands).length);
+      assert.equal(await page.locator('#collection-tabs button').count(), Object.keys(catalog.collections).length);
       await page.screenshot({ path: path.join(output, `${name}-hero.png`) });
       await page.screenshot({ path: path.join(output, `${name}-full.png`), fullPage: true });
       await page.locator('#search').focus();
@@ -69,6 +69,46 @@ const catalog = require('./catalog.js');
       assert.equal(await page.evaluate(() => document.activeElement.matches('.product-open')), true);
       assert.equal(await page.locator('.product-open').first().evaluate((button) => Number.parseFloat(getComputedStyle(button).outlineOffset) < 0), true);
       await page.locator('.product-picture').first().screenshot({ path: path.join(output, `${name}-keyboard.png`) });
+      for (const [id, escape] of Object.entries(catalog.destinations)) {
+        await page.locator(`[data-escape="${id}"]`).click();
+        assert.equal(await page.locator('#escape-stage h3').innerText(), escape.title);
+        await page.locator('#escape-stage').screenshot({ path: path.join(output, `${name}-${id}.png`) });
+        await page.locator(`[data-open-look="${id}"]`).click();
+        await page.locator('#add-look').click();
+        assert.match(await page.locator('#look-error').innerText(), /Elige una talla/);
+        assert.equal(await page.locator('#cart-count').innerText(), '0');
+        for (const productId of escape.look) {
+          const product = catalog.products.find((item) => item.id === productId);
+          if (product.sizes.length > 1) await page.locator(`[data-look-size="${productId}"]`).selectOption('M');
+        }
+        if (id === 'beach') await page.screenshot({ path: path.join(output, `${name}-look.png`) });
+        await page.locator('#add-look').click();
+        assert.equal(await page.locator('#cart-count').innerText(), '3');
+        assert.equal(await page.locator('.cart-line').count(), 3);
+        for (const productId of escape.look) {
+          const product = catalog.products.find((item) => item.id === productId);
+          const size = product.sizes.length > 1 ? 'M' : product.sizes[0];
+          await page.getByRole('button', { name: `Quitar ${product.name}, talla ${size}`, exact: true }).click();
+        }
+        await page.getByRole('button', { name: 'Cerrar bolsa', exact: true }).click();
+        await page.locator(`[data-destination-catalog="${id}"]`).click();
+        assert.equal(await page.locator('#destination-filter').inputValue(), id);
+        assert.equal(await page.locator('.product-card').count(), Math.min(12, catalog.products.filter((product) => catalog.brands[product.brand].destination === id).length));
+        await page.locator('#clear-filters').click();
+      }
+      await page.locator('[data-escape="beach"]').click();
+      await page.locator('[data-escape="beach"]').focus();
+      await page.keyboard.press('ArrowRight');
+      assert.equal(await page.locator('[data-escape="mountain"]').getAttribute('aria-selected'), 'true');
+      await page.locator('[data-escape="beach"]').click();
+      for (const category of ['Camisas', 'Shorts', 'Chaquetas']) {
+        await page.locator('#category-filter').selectOption(category);
+        assert.equal(await page.locator('.product-card').count(), catalog.products.filter((product) => product.category === category).length);
+      }
+      await page.locator('#clear-filters').click();
+      while (await page.locator('#load-more').isVisible()) await page.locator('#load-more').click();
+      assert.equal(await page.locator('.product-card').count(), catalog.products.length);
+      await page.evaluate(async () => { for (const image of document.querySelectorAll('#product-grid img')) { image.loading = 'eager'; await image.decode(); } });
       for (const [id, collection] of Object.entries(catalog.collections)) {
         await page.locator(`[data-explore-collection="${id}"]`).click();
         assert.equal(await page.locator('#collection-feature h3').innerText(), collection.name);
@@ -105,6 +145,7 @@ const catalog = require('./catalog.js');
       await page.locator('#search').fill('ninguna-coincidencia');
       assert.equal(await page.locator('.product-card').count(), 0);
       await page.getByRole('button', { name: 'Ver toda la selección' }).click();
+      while (await page.locator('#load-more').isVisible()) await page.locator('#load-more').click();
       await page.locator('[data-save="umbral-tee"]').click();
       await page.getByRole('button', { name: 'Ver Polera Desfase de UMBRAL', exact: true }).click();
       await page.getByRole('button', { name: 'Talla M', exact: true }).click();
@@ -133,11 +174,46 @@ const catalog = require('./catalog.js');
       assert.equal(await page.locator('#cart-count').innerText(), '2');
       await page.screenshot({ path: path.join(output, `${name}-selection.png`) });
       await context.close();
-      results.push({ viewport: name, catalog: `${catalog.products.length} products`, brands: '6 distinct stories / campaigns', collections: '9 filters verified', images: 'ok', cart: 'new and original brands / persisted', download: 'accurate / no submission', projectSubpath: 'ok' });
+      results.push({ viewport: name, catalog: `${catalog.products.length} products / progressive loading`, brands: `${Object.keys(catalog.brands).length} stories and campaigns`, collections: `${Object.keys(catalog.collections).length} filters verified`, escapes: '3 looks / required sizes / complete cart additions', images: 'all decoded', cart: 'new and original brands / persisted', download: 'accurate / no submission', projectSubpath: 'ok' });
     }
+    const motionContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
+    const motionPage = await motionContext.newPage();
+    motionPage.on('pageerror', (error) => errors.push(error.message));
+    motionPage.on('request', (request) => { if (new URL(request.url()).pathname.includes('/api/')) apiRequests.push(request.url()); });
+    await motionPage.goto(base);
+    await motionPage.locator('#ticker-destinations').scrollIntoViewIfNeeded();
+    await motionPage.mouse.move(1, 1);
+    await motionPage.waitForFunction(() => document.querySelector('#ticker-destinations').dataset.running === 'true');
+    const initialTransform = await motionPage.locator('#ticker-destinations .ticker-track').evaluate((track) => getComputedStyle(track).transform);
+    await motionPage.waitForFunction((initial) => getComputedStyle(document.querySelector('#ticker-destinations .ticker-track')).transform !== initial, initialTransform);
+    await motionPage.locator('#motion-toggle').click();
+    assert.equal(await motionPage.locator('#ticker-destinations').getAttribute('data-running'), 'false');
+    assert.equal(await motionPage.locator('#ticker-destinations .ticker-track').evaluate((track) => getComputedStyle(track).animationPlayState), 'paused');
+    await motionPage.locator('#motion-toggle').click();
+    await motionPage.waitForFunction(() => document.querySelector('#ticker-destinations').dataset.running === 'true');
+    await motionPage.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); });
+    await motionPage.waitForFunction(() => document.querySelector('#ticker-destinations').dataset.running === 'false');
+    await motionPage.emulateMedia({ reducedMotion: 'reduce' });
+    await motionPage.waitForFunction(() => document.querySelector('#motion-toggle').disabled);
+    assert.equal(await motionPage.locator('#motion-toggle').isDisabled(), true);
+    assert.equal(await motionPage.locator('#ticker-destinations .ticker-track').evaluate((track) => getComputedStyle(track).animationName), 'none');
+    await motionPage.evaluate(() => localStorage.setItem('archivo-cart-v1', JSON.stringify([{ id: 'salitre-shirt', size: 'M', quantity: 10 }])));
+    await motionPage.reload();
+    await motionPage.locator('[data-open-look="beach"]').click();
+    await motionPage.locator('[data-look-size="salitre-shirt"]').selectOption('M');
+    await motionPage.locator('[data-look-size="salitre-shorts"]').selectOption('M');
+    await motionPage.locator('#add-look').click();
+    assert.match(await motionPage.locator('#look-error').innerText(), /máximo de 10/);
+    assert.deepEqual(await motionPage.evaluate(() => JSON.parse(localStorage.getItem('archivo-cart-v1'))), [{ id: 'salitre-shirt', size: 'M', quantity: 10 }]);
+    await motionPage.evaluate((items) => localStorage.setItem('archivo-cart-v1', JSON.stringify(items)), catalog.products.map((product) => ({ id: product.id, size: product.sizes[0], quantity: 1 })));
+    await motionPage.reload();
+    assert.equal(await motionPage.locator('#cart-count').innerText(), String(catalog.products.length));
+    await motionPage.locator('#cart-toggle').click();
+    assert.equal(await motionPage.locator('.cart-line').count(), catalog.products.length);
+    await motionContext.close();
     assert.deepEqual(errors, []);
     assert.deepEqual(apiRequests, []);
-    const report = { results, errors, apiRequests, privateFiles: 'excluded' };
+    const report = { results, motion: 'runs when visible / manual pause / stops offscreen / reduced motion respected', outfitLimit: 'atomic rejection at maximum quantity', expandedCart: `${catalog.products.length} lines persist after reload`, errors, apiRequests, privateFiles: 'excluded' };
     await fs.writeFile(path.join(output, 'verification.json'), JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report));
   } finally {

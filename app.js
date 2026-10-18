@@ -1,4 +1,4 @@
-const { products, brands, collections, maxQuantity } = ARCHIVO_CATALOG;
+const { products, brands, collections, destinations, maxQuantity, maxCartLines } = ARCHIVO_CATALOG;
 const isStaticStore = document.documentElement.dataset.storeMode === 'static';
 const money = (value) => new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(value);
 const $ = (selector) => document.querySelector(selector);
@@ -10,12 +10,12 @@ function save(key, value) { try { localStorage.setItem(key, JSON.stringify(value
 const storedFavorites = load('archivo-favorites-v1', []);
 const storedCart = load('archivo-cart-v1', []);
 const state = {
-  brand: 'all', collection: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'solar', feature: 'fuera-oficina',
+  brand: 'all', collection: 'all', destination: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'salitre', feature: 'costa-privada', limit: 12,
   favorites: new Set(Array.isArray(storedFavorites) ? storedFavorites.filter((id) => byId(id)) : []),
   cart: [], product: null, size: null, quantity: 1, view: 'product', requestKey: null, order: null,
 };
 if (Array.isArray(storedCart)) {
-  for (const item of storedCart.slice(0, 36)) {
+  for (const item of storedCart.slice(0, maxCartLines)) {
     const product = byId(item?.id);
     if (product && product.sizes.includes(item.size) && Number.isInteger(item.quantity) && item.quantity >= 1 && item.quantity <= maxQuantity) {
       const existing = state.cart.find((line) => line.id === item.id && line.size === item.size);
@@ -25,7 +25,8 @@ if (Array.isArray(storedCart)) {
   }
 }
 const heart = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6c-2-2-5.1-1.9-7.1.1L12 6.4l-1.7-1.7c-2-2-5.1-2.1-7.1-.1s-1.9 5.1.1 7.1L12 20l8.7-8.3c2-2 2.1-5.1.1-7.1Z"/></svg>';
-const universeOrder = ['solar', 'marea', 'orbita', 'umbral', 'neblina', 'logic'];
+const universeOrder = ['salitre', 'alto', 'limen', 'brava', 'solar', 'marea', 'orbita', 'umbral', 'neblina', 'logic'];
+const collectionOrder = [...new Set([...universeOrder.map((id) => brands[id].latest), ...Object.keys(collections)])];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 function scrollToCatalog() { $('#catalogo').scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth' }); }
 function brandSymbol(mark) {
@@ -36,6 +37,10 @@ function brandSymbol(mark) {
     portal: '<path d="M7 40V8h23v32M18 40V18h23v22"/>',
     landscape: '<path d="m3 32 12-14 10 9 9-14 11 19M3 40h42"/>',
     angles: '<path d="M6 7h35v34M6 18h24v23M6 29h13v12"/>',
+    horizon: '<path d="M3 24h16m10 0h16M12 33h24"/>',
+    peak: '<path d="m5 37 19-26 19 26M17 21l7 8 7-8"/>',
+    bars: '<path d="M6 17h28M14 31h28"/>',
+    flower: [0, 72, 144, 216, 288].map((angle) => `<ellipse cx="24" cy="14" rx="6" ry="10" transform="rotate(${angle} 24 24)"/>`).join('') + '<circle cx="24" cy="24" r="3" fill="currentColor"/>',
   };
   return `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">${shapes[mark]}</svg>`;
 }
@@ -44,10 +49,11 @@ function paletteHtml(brand) {
 }
 function renderUniverseNavigation() {
   $('#hero-brands').innerHTML = universeOrder.map((id) => `<button type="button" data-campaign="${id}" aria-pressed="${id === state.campaign}">${brands[id].name}</button>`).join('');
-  $('#brand-line').innerHTML = universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" class="wordmark wordmark-${id}" style="--brand-bg:${brands[id].palette[0]};--brand-fg:${id === 'orbita' || id === 'neblina' ? '#352044' : id === 'solar' ? '#502719' : '#fff'}">${brandSymbol(brands[id].mark)}<span>${brands[id].name}</span></button>`).join('');
+  $('#brand-line').innerHTML = universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" class="wordmark wordmark-${id}" style="--brand-bg:${brands[id].palette[0]};--brand-fg:${brands[id].ink || (id === 'orbita' || id === 'neblina' ? '#352044' : id === 'solar' ? '#502719' : '#fff')}">${brandSymbol(brands[id].mark)}<span>${brands[id].name}</span></button>`).join('');
   $('#brand-filters').innerHTML = '<button type="button" data-filter-brand="all" aria-pressed="true">Todas las marcas</button>' + universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" aria-pressed="false">${brands[id].name}</button>`).join('');
-  $('#collection-filter').innerHTML = '<option value="all">Todas las colecciones</option>' + Object.entries(collections).map(([id, collection]) => `<option value="${id}">${brands[collection.brand].name} / ${collection.name}</option>`).join('');
-  $('#collection-tabs').innerHTML = Object.entries(collections).map(([id, collection]) => `<button type="button" data-explore-collection="${id}" aria-pressed="${id === state.feature}">${collection.name}</button>`).join('');
+  $('#collection-filter').innerHTML = '<option value="all">Todas las colecciones</option>' + collectionOrder.map((id) => `<option value="${id}">${brands[collections[id].brand].name} / ${collections[id].name}</option>`).join('');
+  $('#category-filter').innerHTML = '<option value="all">Todas las prendas</option>' + [...new Set(products.map((product) => product.category))].map((category) => `<option>${category}</option>`).join('');
+  $('#collection-tabs').innerHTML = collectionOrder.map((id) => `<button type="button" data-explore-collection="${id}" aria-pressed="${id === state.feature}">${collections[id].name}</button>`).join('');
   $('#brand-editorials').innerHTML = universeOrder.map((id) => {
     const brand = brands[id];
     return `<article class="brand-story brand-${id}" style="--story-bg:${collections[brand.latest].color};--story-ink:${collections[brand.latest].ink}"><button type="button" class="brand-photo" data-brand-story="${id}" aria-label="Conocer ${brand.name}"><img src="${brand.campaign}" alt="${brand.name}: ${brand.world}" loading="lazy" width="1536" height="1024"><span class="wordmark wordmark-${id}">${brand.name}</span></button><div class="brand-story-copy"><div class="brand-story-title"><h3>${brand.world}</h3>${brandSymbol(brand.mark)}</div><p>${brand.description}</p><div class="brand-story-bottom">${paletteHtml(brand)}<button type="button" class="line-link" data-brand-story="${id}">Su universo <span aria-hidden="true">↗</span></button></div></div></article>`;
@@ -87,23 +93,29 @@ all('dialog').forEach((dialog) => {
 });
 all('[data-close]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
 
-function renderCatalog() {
+function renderCatalog(preserveLimit = false) {
+  if (!preserveLimit) state.limit = 12;
   const query = normalize(state.search.trim());
   let visible = products.filter((product) =>
     (state.brand === 'all' || product.brand === state.brand) &&
     (state.collection === 'all' || product.collection === state.collection) &&
+    (state.destination === 'all' || brands[product.brand].destination === state.destination) &&
     (state.category === 'all' || product.category === state.category) &&
     (!state.favoritesOnly || state.favorites.has(product.id)) &&
-    (!query || normalize([product.name, product.color, product.category, brands[product.brand].name, collections[product.collection].name].join(' ')).includes(query))
+    (!query || normalize([product.name, product.color, product.category, brands[product.brand].name, collections[product.collection].name, destinations[brands[product.brand].destination].name].join(' ')).includes(query))
   );
-  if (state.sort === 'featured') visible.sort((a, b) => Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)));
+  if (state.sort === 'featured') visible.sort((a, b) => (a.featuredRank ?? 100) - (b.featuredRank ?? 100) || Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)));
   if (state.sort === 'price-asc') visible.sort((a, b) => a.price - b.price);
   if (state.sort === 'price-desc') visible.sort((a, b) => b.price - a.price);
   if (state.sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name, 'es'));
-  $('#product-grid').innerHTML = visible.map((product) => `<article class="product-card" data-product="${product.id}"><div class="product-picture"><button type="button" class="product-open" data-open-product="${product.id}" aria-label="Ver ${product.name} de ${brands[product.brand].name}"><img src="${product.image}" alt="${product.name}, ${product.color}, vista ${product.view.toLowerCase()}" width="1000" height="1000" loading="lazy"></button><button type="button" class="save-product" data-save="${product.id}" aria-label="Guardar ${product.name} en favoritos" aria-pressed="${state.favorites.has(product.id)}">${heart}</button><span class="product-view">${product.view}</span></div><div class="product-caption"><div><p class="eyebrow">${brands[product.brand].name}</p><h3 class="product-title"><button type="button" data-open-product="${product.id}">${product.name}</button></h3><p class="product-color"><i style="background:${product.swatch}"></i>${product.color}</p></div><span class="product-price">${money(product.price)}</span></div></article>`).join('');
+  $('#product-grid').innerHTML = visible.slice(0, state.limit).map((product) => `<article class="product-card" data-product="${product.id}"><div class="product-picture"><button type="button" class="product-open" data-open-product="${product.id}" aria-label="Ver ${product.name} de ${brands[product.brand].name}"><img src="${product.image}" alt="${product.name}, ${product.color}, vista ${product.view.toLowerCase()}" width="1000" height="1000" loading="lazy"></button><button type="button" class="save-product" data-save="${product.id}" aria-label="Guardar ${product.name} en favoritos" aria-pressed="${state.favorites.has(product.id)}">${heart}</button><span class="product-view">${product.graphic === 'micro' ? 'Micrográfica' : product.graphic === 'macro' ? 'Estampado de autor' : product.view}</span></div><div class="product-caption"><div><p class="eyebrow">${brands[product.brand].name}</p><h3 class="product-title"><button type="button" data-open-product="${product.id}">${product.name}</button></h3><p class="product-color"><i style="background:${product.swatch}"></i>${product.color}</p></div><span class="product-price">${money(product.price)}</span></div></article>`).join('');
   $('#empty-catalog').hidden = visible.length > 0;
-  $('#result-count').textContent = `${visible.length} ${visible.length === 1 ? 'prenda' : 'prendas'}${state.favoritesOnly ? ' en favoritos' : ''}`;
-  $('#clear-filters').hidden = state.brand === 'all' && state.collection === 'all' && state.category === 'all' && !state.search && !state.favoritesOnly;
+  $('#result-count').textContent = `${Math.min(state.limit, visible.length)} de ${visible.length} ${visible.length === 1 ? 'prenda' : 'prendas'}${state.favoritesOnly ? ' en favoritos' : ''}`;
+  $('#load-more').hidden = visible.length <= state.limit;
+  $('#load-more').textContent = `Ver más prendas (${Math.max(0, visible.length - state.limit)})`;
+  $('#catalog-progress').textContent = visible.length > state.limit ? 'Todavía hay más por descubrir.' : visible.length ? 'Estás viendo toda esta selección.' : '';
+  $('#clear-filters').hidden = state.brand === 'all' && state.collection === 'all' && state.destination === 'all' && state.category === 'all' && !state.search && !state.favoritesOnly;
+  $('#destination-filter').value = state.destination;
   $('#collection-filter').value = state.collection;
   all('#collection-filter option').forEach((option) => { option.disabled = option.value !== 'all' && state.brand !== 'all' && collections[option.value].brand !== state.brand; });
   all('.brand-filters [data-filter-brand]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filterBrand === state.brand)));
@@ -111,12 +123,13 @@ function renderCatalog() {
   $('#favorite-count').textContent = state.favorites.size;
 }
 function resetFilters() {
-  Object.assign(state, { brand: 'all', collection: 'all', category: 'all', search: '', favoritesOnly: false, sort: 'featured' });
-  $('#category-filter').value = 'all'; $('#collection-filter').value = 'all'; $('#search').value = ''; $('#sort').value = 'featured'; renderCatalog();
+  Object.assign(state, { brand: 'all', collection: 'all', destination: 'all', category: 'all', search: '', favoritesOnly: false, sort: 'featured' });
+  $('#category-filter').value = 'all'; $('#collection-filter').value = 'all'; $('#destination-filter').value = 'all'; $('#search').value = ''; $('#sort').value = 'featured'; renderCatalog();
 }
 function filterBrand(brand, reset = true) {
   if (reset) resetFilters();
   state.brand = brand;
+  if (brand !== 'all' && state.destination !== 'all' && brands[brand].destination !== state.destination) state.destination = 'all';
   if (state.collection !== 'all' && collections[state.collection].brand !== brand) state.collection = 'all';
   renderCatalog();
   if (reset) scrollToCatalog();
@@ -140,33 +153,48 @@ document.addEventListener('click', (event) => {
   if (favoriteButton) {
     const id = favoriteButton.dataset.save;
     if (state.favorites.has(id)) state.favorites.delete(id); else state.favorites.add(id);
-    save('archivo-favorites-v1', [...state.favorites]); renderCatalog();
+    save('archivo-favorites-v1', [...state.favorites]); renderCatalog(true);
     $(`[data-save="${id}"]`)?.focus({ preventScroll: true });
   }
 });
 $('#search').addEventListener('input', (event) => { state.search = event.target.value; renderCatalog(); });
 $('#category-filter').addEventListener('change', (event) => { state.category = event.target.value; renderCatalog(); });
 $('#collection-filter').addEventListener('change', (event) => { state.collection = event.target.value; renderCatalog(); });
+$('#destination-filter').addEventListener('change', (event) => {
+  state.destination = event.target.value;
+  if (state.brand !== 'all' && state.destination !== 'all' && brands[state.brand].destination !== state.destination) { state.brand = 'all'; state.collection = 'all'; }
+  if (state.collection !== 'all' && state.destination !== 'all' && brands[collections[state.collection].brand].destination !== state.destination) state.collection = 'all';
+  renderCatalog();
+});
+$('#load-more').addEventListener('click', () => {
+  const previousLimit = state.limit; state.limit += 12; renderCatalog(true);
+  if ($('#load-more').hidden) all('.product-open')[previousLimit]?.focus();
+});
 $('#sort').addEventListener('change', (event) => { state.sort = event.target.value; renderCatalog(); });
 $('#clear-filters').addEventListener('click', resetFilters);
 $('#reset-empty').addEventListener('click', resetFilters);
 all('[data-reset]').forEach((link) => link.addEventListener('click', resetFilters));
 $('#favorites-toggle').addEventListener('click', () => { state.favoritesOnly = !state.favoritesOnly; renderCatalog(); scrollToCatalog(); });
 
-all('[data-campaign]').forEach((button) => button.addEventListener('click', () => {
-  state.campaign = button.dataset.campaign;
+function showCampaign(id) {
+  state.campaign = id;
   const brand = brands[state.campaign];
   $('#hero-image').src = brand.campaign;
   $('#hero-image').alt = `Campaña ${brand.name}: ${brand.description}`;
   $('#hero-cta').replaceChildren(document.createTextNode(`Explorar ${brand.name} `), Object.assign(document.createElement('span'), { textContent: '↗' }));
   const headlines = { solar: 'Nos vemos\nafuera.', marea: 'Llévate\nla costa.', orbita: 'Cambia\nde órbita.', umbral: 'El taller\nsale a la calle.', neblina: 'Otra forma\nde florecer.', logic: 'Sube el\nvolumen.' };
-  $('#hero-title').textContent = headlines[state.campaign];
+  $('#hero-title').textContent = brand.headline || headlines[state.campaign];
   $('#hero-sub').textContent = `${brand.name} / ${collections[brand.latest].name}`;
   $('#inicio').dataset.activeBrand = state.campaign;
   if (!reducedMotion.matches) $('#hero-image').animate([{ opacity: .5, transform: 'scale(1.025)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 550, easing: 'cubic-bezier(.16,1,.3,1)' });
   $('#hero-tagline').textContent = brand.tagline;
-  all('[data-campaign]').forEach((option) => option.setAttribute('aria-pressed', String(option === button)));
-}));
+  all('[data-campaign]').forEach((option) => option.setAttribute('aria-pressed', String(option.dataset.campaign === id)));
+  const button = $(`#hero-brands [data-campaign="${id}"]`);
+  $('#hero-brands').scrollTo({ left: button.offsetLeft - $('#hero-brands').offsetLeft - 15, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+}
+all('[data-campaign]').forEach((button) => button.addEventListener('click', () => showCampaign(button.dataset.campaign)));
+$('#campaign-prev').addEventListener('click', () => showCampaign(universeOrder[(universeOrder.indexOf(state.campaign) + universeOrder.length - 1) % universeOrder.length]));
+$('#campaign-next').addEventListener('click', () => showCampaign(universeOrder[(universeOrder.indexOf(state.campaign) + 1) % universeOrder.length]));
 $('#hero-cta').addEventListener('click', () => filterBrand(state.campaign));
 
 function showProduct(id) {

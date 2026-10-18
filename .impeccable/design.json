@@ -1,23 +1,35 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T03:09:57.559314+00:00",
+  "generatedAt": "2026-10-18T03:54:39.504660+00:00",
   "title": "Design System: ARCHIVO",
   "extensions": {
     "provenance": {
       "mode": "scan",
       "sources": [
-        "styles.css",
+        "styles.css (final Escapes edition block)",
         "catalog.js",
+        "escapes.js",
         "app.js",
         "index.html",
-        "docs/art-direction.md",
-        "PRODUCT.md"
+        "docs/escapes-art-direction.md",
+        "PRODUCT.md",
+        "docs/art-direction.md"
       ],
       "visualEvidence": [
         "output/pages/desktop-hero.png",
+        "output/pages/desktop-beach.png",
+        "output/pages/desktop-mountain.png",
+        "output/pages/desktop-city.png",
+        "output/pages/desktop-look.png",
+        "output/pages/desktop-brand.png",
+        "output/pages/mobile-hero.png",
+        "output/pages/mobile-beach.png",
+        "output/pages/mobile-mountain.png",
+        "output/pages/mobile-city.png",
+        "output/pages/mobile-look.png",
         "output/pages/mobile-brand.png"
       ],
-      "note": "Built ground truth. No approved comp or seed. Tonal ramps are synthesized OKLCH preview metadata, not implemented palette additions; the line ramp is opaque preview metadata for an alpha token. Snippets are static visual extractions, not replacements for app.js behavior."
+      "note": "Refresh/merge of the approved Escapes edition; incumbent North Star and shared tokens retained. CSS cascade includes the final Escapes edition block. Tonal ramps are synthesized OKLCH preview metadata, not implemented palette additions; the line ramp is opaque preview metadata for an alpha token. Snippets are self-contained static visual excerpts, not replacements for app.js or escapes.js behavior."
     },
     "colorMeta": {
       "paper": {
@@ -635,6 +647,314 @@
           "oklch(84% 0.06830 309.65)",
           "oklch(95% 0.06830 309.65)"
         ]
+      },
+      "salitre-turquoise": {
+        "role": "secondary",
+        "displayName": "Salitre Turquoise",
+        "tonalRamp": [
+          "oklch(15% 0.09105 189.18)",
+          "oklch(26% 0.09105 189.18)",
+          "oklch(38% 0.09105 189.18)",
+          "oklch(49% 0.09105 189.18)",
+          "oklch(61% 0.09105 189.18)",
+          "oklch(72% 0.09105 189.18)",
+          "oklch(84% 0.09105 189.18)",
+          "oklch(95% 0.09105 189.18)"
+        ]
+      },
+      "salitre-papaya": {
+        "role": "secondary",
+        "displayName": "Salitre Papaya",
+        "tonalRamp": [
+          "oklch(15% 0.13212 37.21)",
+          "oklch(26% 0.13212 37.21)",
+          "oklch(38% 0.13212 37.21)",
+          "oklch(49% 0.13212 37.21)",
+          "oklch(61% 0.13212 37.21)",
+          "oklch(72% 0.13212 37.21)",
+          "oklch(84% 0.13212 37.21)",
+          "oklch(95% 0.13212 37.21)"
+        ]
+      },
+      "salitre-ivory": {
+        "role": "secondary",
+        "displayName": "Salitre Ivory",
+        "tonalRamp": [
+          "oklch(15% 0.02250 87.15)",
+          "oklch(26% 0.02250 87.15)",
+          "oklch(38% 0.02250 87.15)",
+          "oklch(49% 0.02250 87.15)",
+          "oklch(61% 0.02250 87.15)",
+          "oklch(72% 0.02250 87.15)",
+          "oklch(84% 0.02250 87.15)",
+          "oklch(95% 0.02250 87.15)"
+        ]
+      },
+      "salitre-ink": {
+        "role": "secondary",
+        "displayName": "Salitre Ink",
+        "tonalRamp": [
+          "oklch(15% 0.04507 188.57)",
+          "oklch(26% 0.04507 188.57)",
+          "oklch(38% 0.04507 188.57)",
+          "oklch(49% 0.04507 188.57)",
+          "oklch(61% 0.04507 188.57)",
+          "oklch(72% 0.04507 188.57)",
+          "oklch(84% 0.04507 188.57)",
+          "oklch(95% 0.04507 188.57)"
+        ]
+      },
+      "alto-rust": {
+        "role": "secondary",
+        "displayName": "Alto Rust",
+        "tonalRamp": [
+          "oklch(15% 0.14948 36.05)",
+          "oklch(26% 0.14948 36.05)",
+          "oklch(38% 0.14948 36.05)",
+          "oklch(49% 0.14948 36.05)",
+          "oklch(61% 0.14948 36.05)",
+          "oklch(72% 0.14948 36.05)",
+          "oklch(84% 0.14948 36.05)",
+          "oklch(95% 0.14948 36.05)"
+        ]
+      },
+      "alto-celadon": {
+        "role": "secondary",
+        "displayName": "Alto Celadon",
+        "tonalRamp": [
+          "oklch(15% 0.03861 145.21)",
+          "oklch(26% 0.03861 145.21)",
+          "oklch(38% 0.03861 145.21)",
+          "oklch(49% 0.03861 145.21)",
+          "oklch(61% 0.03861 145.21)",
+          "oklch(72% 0.03861 145.21)",
+          "oklch(84% 0.03861 145.21)",
+          "oklch(95% 0.03861 145.21)"
+        ]
+      },
+      "alto-ink": {
+        "role": "secondary",
+        "displayName": "Alto Ink",
+        "tonalRamp": [
+          "oklch(15% 0.02739 227.38)",
+          "oklch(26% 0.02739 227.38)",
+          "oklch(38% 0.02739 227.38)",
+          "oklch(49% 0.02739 227.38)",
+          "oklch(61% 0.02739 227.38)",
+          "oklch(72% 0.02739 227.38)",
+          "oklch(84% 0.02739 227.38)",
+          "oklch(95% 0.02739 227.38)"
+        ]
+      },
+      "alto-panel-ink": {
+        "role": "secondary",
+        "displayName": "Alto Panel Ink",
+        "tonalRamp": [
+          "oklch(15% 0.01751 81.33)",
+          "oklch(26% 0.01751 81.33)",
+          "oklch(38% 0.01751 81.33)",
+          "oklch(49% 0.01751 81.33)",
+          "oklch(61% 0.01751 81.33)",
+          "oklch(72% 0.01751 81.33)",
+          "oklch(84% 0.01751 81.33)",
+          "oklch(95% 0.01751 81.33)"
+        ]
+      },
+      "limen-cobalt": {
+        "role": "secondary",
+        "displayName": "Limen Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.15483 267.09)",
+          "oklch(26% 0.15483 267.09)",
+          "oklch(38% 0.15483 267.09)",
+          "oklch(49% 0.15483 267.09)",
+          "oklch(61% 0.15483 267.09)",
+          "oklch(72% 0.15483 267.09)",
+          "oklch(84% 0.15483 267.09)",
+          "oklch(95% 0.15483 267.09)"
+        ]
+      },
+      "limen-burgundy": {
+        "role": "secondary",
+        "displayName": "Limen Burgundy",
+        "tonalRamp": [
+          "oklch(15% 0.09193 357.51)",
+          "oklch(26% 0.09193 357.51)",
+          "oklch(38% 0.09193 357.51)",
+          "oklch(49% 0.09193 357.51)",
+          "oklch(61% 0.09193 357.51)",
+          "oklch(72% 0.09193 357.51)",
+          "oklch(84% 0.09193 357.51)",
+          "oklch(95% 0.09193 357.51)"
+        ]
+      },
+      "limen-butter": {
+        "role": "secondary",
+        "displayName": "Limen Butter",
+        "tonalRamp": [
+          "oklch(15% 0.05876 94.58)",
+          "oklch(26% 0.05876 94.58)",
+          "oklch(38% 0.05876 94.58)",
+          "oklch(49% 0.05876 94.58)",
+          "oklch(61% 0.05876 94.58)",
+          "oklch(72% 0.05876 94.58)",
+          "oklch(84% 0.05876 94.58)",
+          "oklch(95% 0.05876 94.58)"
+        ]
+      },
+      "limen-panel-ink": {
+        "role": "secondary",
+        "displayName": "Limen Panel Ink",
+        "tonalRamp": [
+          "oklch(15% 0.01422 84.58)",
+          "oklch(26% 0.01422 84.58)",
+          "oklch(38% 0.01422 84.58)",
+          "oklch(49% 0.01422 84.58)",
+          "oklch(61% 0.01422 84.58)",
+          "oklch(72% 0.01422 84.58)",
+          "oklch(84% 0.01422 84.58)",
+          "oklch(95% 0.01422 84.58)"
+        ]
+      },
+      "brava-pink": {
+        "role": "secondary",
+        "displayName": "Brava Pink",
+        "tonalRamp": [
+          "oklch(15% 0.10726 355.41)",
+          "oklch(26% 0.10726 355.41)",
+          "oklch(38% 0.10726 355.41)",
+          "oklch(49% 0.10726 355.41)",
+          "oklch(61% 0.10726 355.41)",
+          "oklch(72% 0.10726 355.41)",
+          "oklch(84% 0.10726 355.41)",
+          "oklch(95% 0.10726 355.41)"
+        ]
+      },
+      "brava-papaya": {
+        "role": "secondary",
+        "displayName": "Brava Papaya",
+        "tonalRamp": [
+          "oklch(15% 0.16104 42.92)",
+          "oklch(26% 0.16104 42.92)",
+          "oklch(38% 0.16104 42.92)",
+          "oklch(49% 0.16104 42.92)",
+          "oklch(61% 0.16104 42.92)",
+          "oklch(72% 0.16104 42.92)",
+          "oklch(84% 0.16104 42.92)",
+          "oklch(95% 0.16104 42.92)"
+        ]
+      },
+      "brava-lavender": {
+        "role": "secondary",
+        "displayName": "Brava Lavender",
+        "tonalRamp": [
+          "oklch(15% 0.05757 306.01)",
+          "oklch(26% 0.05757 306.01)",
+          "oklch(38% 0.05757 306.01)",
+          "oklch(49% 0.05757 306.01)",
+          "oklch(61% 0.05757 306.01)",
+          "oklch(72% 0.05757 306.01)",
+          "oklch(84% 0.05757 306.01)",
+          "oklch(95% 0.05757 306.01)"
+        ]
+      },
+      "brava-ink": {
+        "role": "secondary",
+        "displayName": "Brava Ink",
+        "tonalRamp": [
+          "oklch(15% 0.07806 352.46)",
+          "oklch(26% 0.07806 352.46)",
+          "oklch(38% 0.07806 352.46)",
+          "oklch(49% 0.07806 352.46)",
+          "oklch(61% 0.07806 352.46)",
+          "oklch(72% 0.07806 352.46)",
+          "oklch(84% 0.07806 352.46)",
+          "oklch(95% 0.07806 352.46)"
+        ]
+      },
+      "city-panel": {
+        "role": "neutral",
+        "displayName": "City Panel",
+        "tonalRamp": [
+          "oklch(15% 0.02031 354.04)",
+          "oklch(26% 0.02031 354.04)",
+          "oklch(38% 0.02031 354.04)",
+          "oklch(49% 0.02031 354.04)",
+          "oklch(61% 0.02031 354.04)",
+          "oklch(72% 0.02031 354.04)",
+          "oklch(84% 0.02031 354.04)",
+          "oklch(95% 0.02031 354.04)"
+        ]
+      },
+      "city-panel-ink": {
+        "role": "secondary",
+        "displayName": "City Panel Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06570 350.17)",
+          "oklch(26% 0.06570 350.17)",
+          "oklch(38% 0.06570 350.17)",
+          "oklch(49% 0.06570 350.17)",
+          "oklch(61% 0.06570 350.17)",
+          "oklch(72% 0.06570 350.17)",
+          "oklch(84% 0.06570 350.17)",
+          "oklch(95% 0.06570 350.17)"
+        ]
+      },
+      "destination-ribbon": {
+        "role": "secondary",
+        "displayName": "Destination Ribbon",
+        "tonalRamp": [
+          "oklch(15% 0.11226 41.93)",
+          "oklch(26% 0.11226 41.93)",
+          "oklch(38% 0.11226 41.93)",
+          "oklch(49% 0.11226 41.93)",
+          "oklch(61% 0.11226 41.93)",
+          "oklch(72% 0.11226 41.93)",
+          "oklch(84% 0.11226 41.93)",
+          "oklch(95% 0.11226 41.93)"
+        ]
+      },
+      "destination-ribbon-ink": {
+        "role": "secondary",
+        "displayName": "Destination Ribbon Ink",
+        "tonalRamp": [
+          "oklch(15% 0.05924 0.82)",
+          "oklch(26% 0.05924 0.82)",
+          "oklch(38% 0.05924 0.82)",
+          "oklch(49% 0.05924 0.82)",
+          "oklch(61% 0.05924 0.82)",
+          "oklch(72% 0.05924 0.82)",
+          "oklch(84% 0.05924 0.82)",
+          "oklch(95% 0.05924 0.82)"
+        ]
+      },
+      "brand-ribbon": {
+        "role": "secondary",
+        "displayName": "Brand Ribbon",
+        "tonalRamp": [
+          "oklch(15% 0.05356 276.98)",
+          "oklch(26% 0.05356 276.98)",
+          "oklch(38% 0.05356 276.98)",
+          "oklch(49% 0.05356 276.98)",
+          "oklch(61% 0.05356 276.98)",
+          "oklch(72% 0.05356 276.98)",
+          "oklch(84% 0.05356 276.98)",
+          "oklch(95% 0.05356 276.98)"
+        ]
+      },
+      "brand-ribbon-ink": {
+        "role": "secondary",
+        "displayName": "Brand Ribbon Ink",
+        "tonalRamp": [
+          "oklch(15% 0.09796 271.44)",
+          "oklch(26% 0.09796 271.44)",
+          "oklch(38% 0.09796 271.44)",
+          "oklch(49% 0.09796 271.44)",
+          "oklch(61% 0.09796 271.44)",
+          "oklch(72% 0.09796 271.44)",
+          "oklch(84% 0.09796 271.44)",
+          "oklch(95% 0.09796 271.44)"
+        ]
       }
     },
     "typographyMeta": {
@@ -669,6 +989,18 @@
       "label": {
         "displayName": "Label",
         "purpose": "Marca sobre el nombre de producto."
+      },
+      "escape-title": {
+        "displayName": "Escape Title",
+        "purpose": "Titular del panel aspiracional de destino."
+      },
+      "destination-ribbon": {
+        "displayName": "Destination Ribbon",
+        "purpose": "Cinta de destinos en Archivo."
+      },
+      "brand-ribbon": {
+        "displayName": "Brand Ribbon",
+        "purpose": "Cinta de marcas en Fraunces."
       }
     },
     "shadows": [],
@@ -699,6 +1031,31 @@
         "name": "reduced-motion",
         "value": "animation:none!important;transition:none!important",
         "purpose": "CSS global; app.js además omite animación y usa scroll automático."
+      },
+      {
+        "name": "destination-ribbon",
+        "value": "color-journey 38s linear infinite; translateX(0) to translateX(-50%)",
+        "purpose": "Dos grupos duplicados; pausada por defecto hasta estar visible y habilitada."
+      },
+      {
+        "name": "brand-ribbon",
+        "value": "color-journey 65s linear infinite reverse",
+        "purpose": "Segunda cinta en sentido inverso; comparte el control manual."
+      },
+      {
+        "name": "ribbon-control",
+        "value": "userPausedMotion || reducedMotion.matches || document.hidden || inView !== true",
+        "purpose": "Pausa manual persistente archivo-motion-paused-v1; pausa fuera de pantalla por IntersectionObserver y con documento oculto. Foco y hover pausan por CSS. Sin IntersectionObserver permanece pausada."
+      },
+      {
+        "name": "ribbon-reduced-motion",
+        "value": "animation:none!important;transform:none;overflow-x:auto; duplicated group display:none",
+        "purpose": "Alternativa estática desplazable; botón deshabilitado con texto Movimiento reducido."
+      },
+      {
+        "name": "escape-piece-hover",
+        "value": "transform:translateY(-4px);transition:transform .4s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Respuesta de miniaturas de prenda; se omite con movimiento reducido."
       }
     ],
     "focus": [
@@ -721,7 +1078,7 @@
         "value": "1050px"
       },
       {
-        "name": "stacked-collection",
+        "name": "stacked-collection-and-destination",
         "value": "760px"
       },
       {
@@ -732,6 +1089,84 @@
         "name": "small-mobile",
         "value": "375px"
       }
+    ],
+    "catalog": {
+      "brands": 10,
+      "collections": 13,
+      "products": 37,
+      "progressiveBatch": 12,
+      "categories": [
+        "Poleras",
+        "Polerones",
+        "Gorros",
+        "Camisas",
+        "Shorts",
+        "Chaquetas"
+      ]
+    },
+    "layouts": [
+      {
+        "name": "brand-strip",
+        "desktop": "repeat(5,minmax(0,1fr)); 10 brands in 2 rows; min-height:92px (85px at 1050px)",
+        "mobile": "680px: grid-template-rows:repeat(2,74px); grid-auto-flow:column; grid-auto-columns:45%; overflow-x:auto; scroll-snap-type:x mandatory"
+      },
+      {
+        "name": "campaign-navigation",
+        "value": "10 manual selectors; horizontal scroll; x proximity snap; flex-basis:145px / 120px at 1050px / 116px at 680px; previous/next arrows"
+      },
+      {
+        "name": "destination-stage",
+        "value": "1.15fr 1fr; min-height:580px; 1050px:1fr 1fr,550px; 760px:stacked,photo1.5; 680px:photo1.35,padding28px24px"
+      },
+      {
+        "name": "catalog-filters",
+        "value": "1fr 1.5fr 1fr 1fr; 680px:repeat(2,minmax(0,1fr))"
+      },
+      {
+        "name": "look-dialog",
+        "value": "width:680px;padding:45px; line:110px 1fr,gap23px,photo110x125; 680px:full screen,padding37px22px,line86px1fr,gap16px,photo86x105"
+      }
+    ],
+    "destinations": [
+      {
+        "id": "beach",
+        "name": "Playa",
+        "brand": "SALITRE",
+        "backgroundRef": "salitre-turquoise",
+        "inkRef": "salitre-ink",
+        "lookName": "Un día junto al mar",
+        "products": [
+          "salitre-shirt",
+          "salitre-shorts",
+          "salitre-cap"
+        ]
+      },
+      {
+        "id": "mountain",
+        "name": "Montaña",
+        "brand": "ALTO SUR",
+        "backgroundRef": "alto-celadon",
+        "inkRef": "alto-ink",
+        "lookName": "Aire de montaña",
+        "products": [
+          "alto-jacket",
+          "alto-tee",
+          "alto-cap"
+        ]
+      },
+      {
+        "id": "city",
+        "name": "Ciudad",
+        "brand": "LIMEN",
+        "backgroundRef": "city-panel",
+        "inkRef": "city-panel-ink",
+        "lookName": "La ciudad sin agenda",
+        "products": [
+          "limen-shirt",
+          "limen-shorts",
+          "limen-cap"
+        ]
+      }
     ]
   },
   "components": [
@@ -741,7 +1176,7 @@
       "refersTo": "button-primary",
       "description": "Botón compartido; la llamada del hero ajusta tamaño y relleno por contexto.",
       "html": "<button type=\"button\" class=\"ds-primary\">Explorar la selección <span aria-hidden=\"true\">↗</span></button>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;border:1px solid transparent;padding:18px 22px;min-height:52px;font:12px var(--sans,Archivo,Arial,sans-serif);letter-spacing:.03em;border-radius:0;cursor:pointer;transition:background .2s,transform .2s;background:var(--purple,#402650);color:#fff;}.ds-primary:hover{transform:translateY(-2px);background:#573763;}.ds-primary:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;border:1px solid transparent;padding:18px 22px;min-height:52px;font:12px var(--sans,Archivo,Arial,sans-serif);letter-spacing:.03em;border-radius:0;cursor:pointer;transition:background .2s,transform .2s;background:var(--purple,#402650);color:#fff;}.ds-primary:hover{transform:translateY(-2px);background:#573763;}.ds-primary:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
       "name": "Light button",
@@ -749,7 +1184,7 @@
       "refersTo": "button-light",
       "description": "Botón compartido; la llamada del hero ajusta tamaño y relleno por contexto.",
       "html": "<button type=\"button\" class=\"ds-light\">Explorar la selección <span aria-hidden=\"true\">↗</span></button>",
-      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;border:1px solid transparent;padding:18px 22px;min-height:52px;font:12px var(--sans,Archivo,Arial,sans-serif);letter-spacing:.03em;border-radius:0;cursor:pointer;transition:background .2s,transform .2s;background:var(--paper,#f6f4ee);color:var(--ink,#21221f);}.ds-light:hover{transform:translateY(-2px);}.ds-light:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;border:1px solid transparent;padding:18px 22px;min-height:52px;font:12px var(--sans,Archivo,Arial,sans-serif);letter-spacing:.03em;border-radius:0;cursor:pointer;transition:background .2s,transform .2s;background:var(--paper,#f6f4ee);color:var(--ink,#21221f);}.ds-light:hover{transform:translateY(-2px);}.ds-light:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
       "name": "Collection button",
@@ -757,7 +1192,7 @@
       "refersTo": "button-collection",
       "description": "Ejemplo del par Fuera de oficina; la inversión de colores depende de la colección.",
       "html": "<button type=\"button\" class=\"ds-collection\">Ver la colección <span aria-hidden=\"true\">↗</span></button>",
-      "css": ".ds-collection{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;padding:15px 18px;min-height:48px;border:1px solid currentColor;border-radius:0;background:transparent;color:#67351c;font:12px var(--sans,Archivo,Arial,sans-serif);cursor:pointer;transition:background .2s,transform .2s}.ds-collection:hover{background:#67351c;color:#f6e39e;transform:translateY(-2px)}.ds-collection:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "css": ".ds-collection{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;padding:15px 18px;min-height:48px;border:1px solid currentColor;border-radius:0;background:transparent;color:#67351c;font:12px var(--sans,Archivo,Arial,sans-serif);cursor:pointer;transition:background .2s,transform .2s}.ds-collection:hover{background:#67351c;color:#f6e39e;transform:translateY(-2px)}.ds-collection:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
       "name": "Product search",
@@ -765,15 +1200,15 @@
       "refersTo": "search",
       "description": "Campo abierto con foco visible; el icono usa el SVG de la implementación.",
       "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m16 16 5 5\"/></svg><input type=\"search\" aria-label=\"Buscar productos\" placeholder=\"Busca una prenda, color o colección…\"></label>",
-      "css": ".ds-search{display:flex;align-items:center;gap:10px;max-width:480px}.ds-search svg{width:16px;height:16px;fill:none;stroke:var(--ink,#21221f);stroke-width:1.4;flex-shrink:0}.ds-search input{width:100%;font:12px var(--sans,Archivo,Arial,sans-serif);border:0;border-bottom:1px solid transparent;border-radius:0;background:none;min-height:44px;color:var(--ink,#21221f)}.ds-search input::placeholder{color:#62645c;opacity:1}.ds-search input:focus{border-bottom-color:var(--line,#21221f25);outline:0}.ds-search input:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:3px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "css": ".ds-search{display:flex;align-items:center;gap:10px;max-width:480px}.ds-search svg{width:16px;height:16px;fill:none;stroke:var(--ink,#21221f);stroke-width:1.4;flex-shrink:0}.ds-search input{width:100%;font:12px var(--sans,Archivo,Arial,sans-serif);border:0;border-bottom:1px solid transparent;border-radius:0;background:none;min-height:44px;color:var(--ink,#21221f)}.ds-search input::placeholder{color:#62645c;opacity:1}.ds-search input:focus{border-bottom-color:var(--line,#21221f25);outline:0}.ds-search input:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:3px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
       "name": "Editorial navigation",
       "kind": "nav",
       "refersTo": "navigation",
       "description": "Enlaces del centro de la navegación, ocultos bajo 680px.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><a href=\"#colecciones\">Colecciones</a><a href=\"#catalogo\">La selección</a><a href=\"#marcas\">Las marcas</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;height:78px;background:var(--paper,#f6f4ee);color:var(--ink,#21221f);font:12px var(--sans,Archivo,Arial,sans-serif)}.ds-nav a{position:relative;padding:15px 0;color:inherit;text-decoration:none}.ds-nav a:after{content:\"\";position:absolute;bottom:8px;left:0;right:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-nav{display:none}}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><a href=\"#escapadas\">Escapadas</a><a href=\"#colecciones\">Colecciones</a><a href=\"#catalogo\">La selección</a><a href=\"#marcas\">Las marcas</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;height:78px;background:var(--paper,#f6f4ee);color:var(--ink,#21221f);font:12px var(--sans,Archivo,Arial,sans-serif)}.ds-nav a{position:relative;padding:15px 0;color:inherit;text-decoration:none}.ds-nav a:after{content:\"\";position:absolute;bottom:8px;left:0;right:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-nav{display:none}}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
       "name": "Brand filter",
@@ -781,31 +1216,7 @@
       "refersTo": "filter-selected",
       "description": "Estado seleccionado de filtro por marca; sin comportamiento de filtrado en este muestrario.",
       "html": "<button type=\"button\" class=\"ds-filter\" aria-pressed=\"true\">SOLAR CLUB</button>",
-      "css": ".ds-filter{min-height:44px;padding:11px 15px;border:0;border-radius:0;background:none;color:#4b4d45;font:11px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-filter[aria-pressed=\"true\"]{background:var(--purple,#402650);color:#fff}.ds-filter:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
-    },
-    {
-      "name": "Collection explorer tab",
-      "kind": "chip",
-      "refersTo": "collection-tab",
-      "description": "Botón manual con borde inferior activo; no es una pestaña ARIA.",
-      "html": "<button type=\"button\" class=\"ds-tab\" aria-pressed=\"true\">Fuera de oficina</button>",
-      "css": ".ds-tab{border:0;border-bottom:2px solid transparent;background:none;min-height:48px;white-space:nowrap;padding:12px 0;font:12px var(--sans,Archivo,Arial,sans-serif);color:var(--muted,#595b52);cursor:pointer}.ds-tab[aria-pressed=\"true\"]{border-color:var(--purple,#402650);color:var(--purple,#402650);font-weight:650}.ds-tab:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
-    },
-    {
-      "name": "Campaign selector",
-      "kind": "custom",
-      "refersTo": "campaign-switch",
-      "description": "Una de seis campañas manuales; el panel oscuro solo da contexto de contraste al muestrario.",
-      "html": "<div class=\"ds-campaign-canvas\"><button type=\"button\" class=\"ds-campaign\" aria-pressed=\"true\">SOLAR CLUB</button></div>",
-      "css": ".ds-campaign-canvas{background:#ac5839;padding:15px}.ds-campaign{font:10px var(--sans,Archivo,Arial,sans-serif);min-height:44px;padding:14px 0;text-align:left;color:#fff;border:0;border-top:1px solid #ffffff75;background:none;cursor:pointer;transition:border-color .3s,color .3s}.ds-campaign[aria-pressed=\"true\"]{border-color:#fff;border-top-width:3px;padding-top:12px}.ds-campaign:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
-    },
-    {
-      "name": "SOLAR CLUB brand tile",
-      "kind": "custom",
-      "refersTo": "brand-tile-solar",
-      "description": "Franja de marca con símbolo solar y firma Fraunces.",
-      "html": "<button type=\"button\" class=\"ds-brand-tile\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg><span>SOLAR CLUB</span></button>",
-      "css": ".ds-brand-tile{min-height:112px;background:#f36b36;color:#502719;display:flex;align-items:center;justify-content:center;gap:12px;padding:22px 12px;border:0;border-radius:0;font:750 clamp(14px,1.5vw,22px)/1.15 var(--serif,Fraunces,Georgia,serif);letter-spacing:-.035em;cursor:pointer}.ds-brand-tile svg{width:32px;height:32px;flex-shrink:0;transition:transform .6s var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-brand-tile:hover{filter:brightness(1.04)}.ds-brand-tile:hover svg{transform:rotate(-18deg) scale(1.1)}.ds-brand-tile:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "css": ".ds-filter{min-height:44px;padding:11px 15px;border:0;border-radius:0;background:none;color:#4b4d45;font:11px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-filter[aria-pressed=\"true\"]{background:var(--purple,#402650);color:#fff}.ds-filter:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
       "name": "Brand story text panel",
@@ -813,18 +1224,43 @@
       "refersTo": "brand-story-solar",
       "description": "Parte textual de la tarjeta editorial SOLAR CLUB; la tarjeta completa incorpora la foto de campaña encima.",
       "html": "<article class=\"ds-story\"><div class=\"ds-story-title\"><h3>Nos vemos afuera.</h3><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg></div><p>Un club sin horario. Algodón, rayos de sol y colores que alargan la tarde.</p><div class=\"ds-story-bottom\"><div class=\"ds-palette\" aria-label=\"Paleta de SOLAR CLUB\"><span></span><span></span><span></span></div><button type=\"button\" class=\"ds-story-link\">Su universo ↗</button></div></article>",
-      "css": ".ds-story{padding:30px;background:#f6e39e;color:#67351c;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-story-title{display:flex;align-items:flex-start;justify-content:space-between;gap:25px}.ds-story h3{margin:0;font-size:28px;line-height:1.18;max-width:20ch;font-weight:550;letter-spacing:-.025em;text-wrap:balance}.ds-story-title svg{width:38px;height:38px;flex-shrink:0}.ds-story>p{font-size:13px;line-height:1.8;margin:20px 0 0;max-width:48ch}.ds-story-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:30px}.ds-palette{display:flex;gap:5px}.ds-palette span{width:26px;height:26px;border:1px solid #21221f25;display:block}.ds-palette span:nth-child(1){background:#f36b36}.ds-palette span:nth-child(2){background:#f6e39e}.ds-palette span:nth-child(3){background:#234ac6}.ds-story-link{padding:8px 0;border:0;border-bottom:1px solid currentColor;background:none;font:12px var(--sans,Archivo,Arial,sans-serif);color:inherit;min-height:44px;cursor:pointer}.ds-story-link:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+      "css": ".ds-story{padding:30px;background:#f6e39e;color:#67351c;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-story-title{display:flex;align-items:flex-start;justify-content:space-between;gap:25px}.ds-story h3{margin:0;font-size:28px;line-height:1.18;max-width:20ch;font-weight:550;letter-spacing:-.025em;text-wrap:balance}.ds-story-title svg{width:38px;height:38px;flex-shrink:0}.ds-story>p{font-size:13px;line-height:1.8;margin:20px 0 0;max-width:48ch}.ds-story-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:30px}.ds-palette{display:flex;gap:5px}.ds-palette span{width:26px;height:26px;border:1px solid #21221f25;display:block}.ds-palette span:nth-child(1){background:#f36b36}.ds-palette span:nth-child(2){background:#f6e39e}.ds-palette span:nth-child(3){background:#234ac6}.ds-story-link{padding:8px 0;border:0;border-bottom:1px solid currentColor;background:none;font:12px var(--sans,Archivo,Arial,sans-serif);color:inherit;min-height:44px;cursor:pointer}.ds-story-link:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Destination tabs",
+      "kind": "nav",
+      "refersTo": "escape-tab",
+      "description": "Tres pestañas de destino; muestra estática de selección Playa. escapes.js aporta teclado, foco y cambio de panel.",
+      "html": "<div class=\"ds-escape-tabs\" role=\"tablist\" aria-label=\"Elige tu escapada\"><button type=\"button\" role=\"tab\" aria-selected=\"true\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 24h16m10 0h16M12 33h24\"/></svg>Playa</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 37 19-26 19 26M17 21l7 8 7-8\"/></svg>Montaña</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M6 17h28M14 31h28\"/></svg>Ciudad</button></div>",
+      "css": ".ds-escape-tabs{display:flex;gap:35px;border-bottom:1px solid var(--line,#21221f25);margin-bottom:30px}.ds-escape-tab{display:flex;align-items:center;gap:12px;min-height:60px;padding:12px 4px;border:0;border-bottom:3px solid transparent;background:none;color:var(--muted,#595b52);font:17px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-escape-tab[aria-selected=\"true\"]{color:var(--purple,#402650);border-bottom-color:var(--purple,#402650)}.ds-escape-tab svg{width:28px;height:28px;flex-shrink:0}.ds-escape-tab:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-escape-tabs{gap:22px;margin-bottom:24px}.ds-escape-tab{font-size:15px;gap:9px;min-height:54px;padding-inline:0}.ds-escape-tab svg{width:24px;height:24px}}@media(max-width:375px){.ds-escape-tabs{gap:15px}.ds-escape-tab{font-size:13px;gap:7px}}"
+    },
+    {
+      "name": "Look selection controls",
+      "kind": "input",
+      "refersTo": "look-size",
+      "description": "Extracto de controles de una prenda y subtotal referencial; muestra estática con una prenda incluida. La validación y el subtotal dinámico pertenecen a escapes.js.",
+      "html": "<div class=\"ds-look\"><label class=\"ds-look-include\"><input type=\"checkbox\" checked><span>Camisa Horizonte</span></label><p>SALITRE · $79.990</p><label class=\"ds-look-size\">Talla<select aria-label=\"Talla de Camisa Horizonte\"><option>Elegir talla</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></label><div class=\"ds-look-summary\"><span>Subtotal referencial</span><strong>$79.990</strong></div><p>Precios de concepto en CLP. Añadir a la bolsa no realiza un cobro ni reserva prendas.</p></div>",
+      "css": ".ds-look{font-family:var(--sans,Archivo,Arial,sans-serif);background:var(--paper,#f6f4ee);color:var(--ink,#21221f)}.ds-look-include{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:550;line-height:1.4;cursor:pointer}.ds-look-include input{accent-color:var(--purple,#402650);width:18px;height:18px;flex-shrink:0}.ds-look>p{font-size:11px;line-height:1.7;color:var(--muted,#595b52);margin:9px 0 12px}.ds-look-size{display:flex;align-items:center;gap:12px;font-size:12px}.ds-look-size select{min-height:40px;border:1px solid var(--line,#21221f25);border-radius:0;background:transparent;padding:8px 12px;font:12px var(--sans,Archivo,Arial,sans-serif);min-width:130px;color:var(--ink,#21221f)}.ds-look-size select:focus-visible,.ds-look-include input:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}.ds-look-summary{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line,#21221f25);padding:22px 0;margin-top:20px;font-size:13px;gap:20px}.ds-look-summary strong{font-size:21px;font-weight:550;font-variant-numeric:tabular-nums}@media(max-width:680px){.ds-look-include{font-size:14px;gap:8px}.ds-look-size{font-size:11px;gap:10px}.ds-look-size select{min-width:118px;font-size:11px}.ds-look-summary{font-size:12px}.ds-look-summary strong{font-size:19px}}"
+    },
+    {
+      "name": "Controlled destination ribbon",
+      "kind": "custom",
+      "refersTo": "destination-ribbon",
+      "description": "Extracto estático de la cinta y su control en pausa. El sitio duplica la pista, anima 38s y sincroniza ambas cintas con escapes.js; este muestrario no inicia movimiento.",
+      "html": "<section class=\"ds-ribbon\" aria-label=\"Playa, montaña, ciudad. Tu próximo buen recuerdo.\" tabindex=\"0\"><div class=\"ds-ribbon-window\"><div class=\"ds-ribbon-words\" aria-hidden=\"true\"><span>PLAYA</span><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg><span>MONTAÑA</span><span>CIUDAD</span></div></div><button type=\"button\" class=\"ds-motion\" aria-pressed=\"true\">Reanudar movimiento</button></section>",
+      "css": ".ds-ribbon{position:relative;background:#ef9a79;color:#4b2531;padding-bottom:34px;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-ribbon-window{overflow-x:auto;max-width:100%}.ds-ribbon-words{display:flex;align-items:center;gap:40px;width:max-content;padding:22px 20px}.ds-ribbon-words span{font-size:clamp(25px,3.4vw,48px);font-weight:750;letter-spacing:-.025em;white-space:nowrap;line-height:1.15}.ds-ribbon-words svg{width:38px;height:38px;flex-shrink:0}.ds-motion{position:absolute;right:clamp(20px,4vw,64px);bottom:5px;border:0;border-bottom:1px solid currentColor;border-radius:0;background:none;color:inherit;padding:5px 0;min-height:28px;font:11px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-ribbon:focus-visible,.ds-motion:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-ribbon{padding-bottom:32px}.ds-ribbon-window{overflow-x:auto;max-width:100%}.ds-ribbon-words{padding-block:20px;gap:26px}.ds-ribbon-words span{font-size:31px}.ds-ribbon-words svg{width:29px;height:29px}}"
     }
   ],
   "narrative": {
     "northStar": "Un archivo de mundos propios",
-    "overview": "ARCHIVO reúne seis universos reconocibles dentro de una estructura editorial común. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.\n\nLa extensión conserva el mundo de UMBRAL, NEBLINA y WE ARE LOGIC e incorpora SOLAR CLUB, MAREA y ÓRBITA. Esta documentación describe la implementación existente en `styles.css`, `catalog.js`, `app.js` e `index.html`, contrastada con `docs/art-direction.md` y capturas de `output/pages/`. No hubo una composición aprobada previa ni una semilla de diseño: la autoridad es la superficie construida y su contrato de dirección.",
+    "overview": "ARCHIVO reúne diez universos reconocibles dentro de una estructura editorial común. Playa, montaña y ciudad acercan esas identidades a escenas aspiracionales de luz, color y pausa, con prendas de líneas simples y pequeñas firmas gráficas. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.\n\nLa edición Escapes conserva UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA e incorpora SALITRE, ALTO SUR, LIMEN e ISLA BRAVA. Sus trece colecciones y treinta y siete prendas amplían el mundo aprobado. Esta documentación registra la implementación vigente en el bloque final de `styles.css`, `catalog.js`, `escapes.js`, `app.js` e `index.html`, según `docs/escapes-art-direction.md`, `PRODUCT.md` y las capturas finales de `output/pages/`. Los destinos y conjuntos ayudan a imaginar cómo vestir esas escenas; la base editorial y sus tokens compartidos permanecen vigentes.",
     "keyCharacteristics": [
       "Fotografía protagonista, con prendas y campañas como imágenes distintas.",
       "Papel cálido compartido y paneles cromáticos propios por marca y colección.",
       "Archivo para estructura y Fraunces para titulares expresivos y determinadas firmas.",
       "Esquinas rectas, líneas finas y jerarquía por escala y color.",
-      "Exploración manual, estados de selección explícitos y movimiento opcional."
+      "Diez marcas, tres destinos y conjuntos editables dentro de una misma selección.",
+      "Exploración manual, estados de selección explícitos y dos cintas de movimiento opcional."
     ],
     "rules": [
       {
@@ -839,19 +1275,22 @@
       },
       {
         "name": "Optional Motion",
-        "body": "Con movimiento reducido, desactiva animaciones y transiciones CSS, omite la animación JavaScript del hero y usa desplazamiento automático al catálogo. Conserva todo el contenido y las acciones visibles.",
+        "body": "Con movimiento reducido, desactiva animaciones y transiciones CSS, omite la animación JavaScript del hero y usa desplazamiento automático al catálogo y al selector de campaña. Conserva todo el contenido y las acciones visibles; las cintas quedan estáticas, sin copia y con desplazamiento manual.",
         "section": "components"
       }
     ],
     "dos": [
-      "Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las seis marcas.",
+      "Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las diez marcas.",
       "Do tomar los pares de colección y las paletas del catálogo, manteniendo cada símbolo y firma asociados a su marca.",
       "Do conservar fotos cuadradas para prendas y composiciones editoriales amplias para campañas.",
       "Do mantener el foco visible de foto y buscador, los estados `aria-pressed` y el movimiento reducido.",
+      "Do conservar la pausa manual de ambas cintas, su parada fuera de pantalla o con documento oculto y su alternativa estática.",
+      "Do mantener inclusión, talla y subtotal de conjunto antes de añadir prendas a la bolsa.",
       "Do distinguir la descarga pública de selección y la solicitud guardada en el servidor local en cada mensaje de estado."
     ],
     "donts": [
-      "Don't sustituir las seis identidades por un único color o una única firma de marca.",
+      "Don't sustituir las diez identidades por un único color o una única firma de marca.",
+      "Don't ocultar prendas al final del primer bloque: conserva la carga progresiva de doce y su contador.",
       "Don't añadir avance automático a las campañas manuales.",
       "Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.",
       "Don't convertir una descarga de Pages en una confirmación de pedido, reserva o cobro.",

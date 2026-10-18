@@ -47,7 +47,7 @@ function createStoreServer(options = {}) {
     if (!customer || !text(customer.name, 2, 100) || !text(customer.email, 5, 150) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email.trim()) || !text(customer.city, 2, 100)) throw Object.assign(new Error('Revisa nombre, correo y ciudad.'), { status: 400 });
     if (customer.phone && (!text(customer.phone, 6, 30) || !/^[+\d ()-]+$/.test(customer.phone))) throw Object.assign(new Error('Revisa el teléfono de contacto.'), { status: 400 });
     if (customer.note && !text(customer.note, 0, 600)) throw Object.assign(new Error('La nota admite hasta 600 caracteres.'), { status: 400 });
-    if (!Array.isArray(input.items) || !input.items.length || input.items.length > 36) throw Object.assign(new Error('La bolsa no contiene productos válidos.'), { status: 400 });
+    if (!Array.isArray(input.items) || !input.items.length || input.items.length > catalog.maxCartLines) throw Object.assign(new Error('La bolsa no contiene productos válidos.'), { status: 400 });
     const consolidated = new Map();
     for (const item of input.items) {
       const product = catalog.products.find((p) => p.id === item?.id);
@@ -101,7 +101,7 @@ function createStoreServer(options = {}) {
       }
       if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 405, { error: 'Método no permitido.' });
       const pathname = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);
-      const publicFiles = ['/index.html', '/styles.css', '/catalog.js', '/app.js', '/admin.html', '/admin.js'];
+      const publicFiles = ['/index.html', '/styles.css', '/catalog.js', '/app.js', '/escapes.js', '/admin.html', '/admin.js'];
       if (!publicFiles.includes(pathname) && !/^\/assets\/[a-z0-9_./-]+\.(webp|png|svg|ttf)$/.test(pathname)) return json(res, 404, { error: 'Página no encontrada.' });
       const target = path.resolve(__dirname, `.${pathname}`);
       if (!target.startsWith(__dirname + path.sep)) return json(res, 403, { error: 'Ruta no permitida.' });

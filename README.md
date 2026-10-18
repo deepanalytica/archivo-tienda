@@ -1,8 +1,13 @@
-# ARCHIVO / Seis marcas. Más formas de mirar.
+# ARCHIVO / Viste tu próximo buen recuerdo.
 
-UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA en una tienda de ropa de autor. Nueve colecciones y 21 prendas.
+SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA. Diez marcas de ropa de autor, trece colecciones y 37 prendas para playa, montaña y ciudad.
 
 ## Marcas y colecciones
+
+- SALITRE: Costa privada. Resort de autor, turquesa, papaya y pequeños horizontes bordados.
+- ALTO SUR: Aire abierto. Descanso alpino, óxido, celadón y micrográficas de cumbre.
+- LIMEN: Entre horas. Galería urbana, cobalto, cielo, burdeos y pequeñas barras desplazadas.
+- ISLA BRAVA: Flor de un día. Papaya, buganvilla y flores de cinco pétalos a distintas escalas.
 
 - UMBRAL: Desfase y Patio. Taller, arquitectura, cobalto y arcilla.
 - NEBLINA: Entre capas y Jardín eléctrico. Paisaje, lavanda y pistacho.
@@ -11,7 +16,15 @@ UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA en una tienda de ropa
 - MAREA: Pleamar. Olas libres, azul Pacífico y coral.
 - ÓRBITA: Club del futuro. Retro futuro, lima, lila y uva.
 
-Cada marca tiene campaña, manifiesto, paleta, símbolo y un perfil para explorar sus colecciones. La portada cambia de campaña al elegir una marca. El explorador permite recorrer las nueve colecciones y filtrar el catálogo desde cada una. Dirección de arte: `docs/art-direction.md`.
+Cada marca tiene campaña, manifiesto, paleta, símbolo y un perfil para explorar sus colecciones. La franja de campañas se puede deslizar; elegir una marca o usar sus flechas cambia la portada. El explorador permite recorrer las trece colecciones y filtrar el catálogo desde cada una. Dirección actual: `docs/escapes-art-direction.md`; universos anteriores: `docs/art-direction.md`.
+
+## Escapadas y movimiento
+
+Playa, Montaña y Ciudad tienen fotografía, relato, color y un conjunto de tres prendas. Puedes elegir tallas, excluir piezas y añadir el conjunto a la bolsa. La operación comprueba todas las prendas antes de añadirlas; un error de talla o cantidad no añade parte del conjunto.
+
+Dos cintas tipográficas dan ritmo al recorrido. El control de pausa se conserva en el navegador. Las cintas paran cuando salen de pantalla, se oculta la pestaña, se pasa el cursor o el foco queda dentro; el movimiento reducido las convierte en franjas estáticas desplazables.
+
+El catálogo comienza con doce prendas y permite cargar más sin perder filtros. Las seis categorías incluyen camisas, shorts y chaquetas además de las prendas iniciales. La bolsa conserva hasta las 118 combinaciones posibles de producto y talla, con un máximo de diez unidades por combinación; el servidor local comparte este límite con el catálogo.
 
 ## GitHub y versión pública
 
@@ -43,12 +56,12 @@ La tienda se debe abrir mediante este servidor, no como un archivo `file://`, pa
 
 ## Qué funciona
 
-- 21 prendas con fotografías individuales de producto: los nueve originales y doce propuestas nuevas.
-- Seis campañas nuevas, perfiles de marca y explorador de nueve colecciones.
-- Búsqueda por prenda, color, marca o colección; filtros combinados por marca, colección y tipo; ordenamiento por precio y favoritos.
+- 37 prendas con fotografías individuales de producto, incluyendo los nueve productos originales.
+- Diez perfiles de marca, trece colecciones y tres escapadas con conjuntos completos.
+- Búsqueda por prenda, color, marca, colección o destino; filtros por destino, marca, colección y tipo; ordenamiento por precio y favoritos.
 - Ficha de producto con prenda, campaña y detalle de marca. Estas últimas son vistas editoriales de la colección, no fotografías adicionales del mismo SKU.
 - Tallas S, M, L, XL para prendas y Única para gorros; cantidades de 1 a 10 por producto/talla.
-- Bolsa persistente en el navegador. Se pueden mezclar productos de las seis marcas, conservando las selecciones anteriores.
+- Bolsa persistente en el navegador. Se pueden mezclar productos de las diez marcas, conservando las selecciones anteriores.
 - Solicitud sin cobro: nombre, correo, ciudad y campos opcionales para teléfono y nota.
 - Guardado real de las solicitudes en `data/orders.json` dentro de este equipo.
 - Resumen descargable para la persona que solicita.
@@ -59,7 +72,7 @@ La tienda se debe abrir mediante este servidor, no como un archivo `file://`, pa
 
 `catalog.js` es la fuente de productos, precios y tallas. El servidor usa el mismo catálogo y vuelve a calcular el subtotal; nunca acepta precios enviados por el navegador.
 
-Los precios son cifras referenciales para diseñar y probar la tienda: poleras entre $24.990 y $28.990, polerones entre $54.990 y $59.990 y gorros entre $16.990 y $19.990 CLP. No son una cotización de producción ni precios aprobados por el dueño. La interfaz indica que el precio final, disponibilidad, medidas y entrega se confirman al revisar la solicitud.
+Los precios son cifras referenciales para diseñar y probar la tienda: poleras $24.990–$38.990; polerones $54.990–$79.990; gorros $16.990–$29.990; camisas $79.990–$89.990; shorts $49.990–$54.990; chaqueta $119.990 CLP. No son una cotización de producción ni precios aprobados por el dueño. Precio final, disponibilidad, medidas, composición y entrega se confirman antes de un pedido real.
 
 Cada fotografía fue generada como mockup de concepto. No acredita stock fabricado. Los nombres de marca no tienen disponibilidad registral verificada en este trabajo.
 
@@ -93,9 +106,9 @@ Capturas e informe: `output/playwright/`.
 
 ## Imágenes
 
-`assets/products/` contiene los 21 productos en WebP. Se conservan los nueve PNG originales. `assets/brands/` reúne campañas anteriores, seis nuevas campañas y detalles de las marcas iniciales.
+`assets/products/` contiene las 37 prendas en WebP. Se conservan los nueve PNG originales. `assets/brands/` reúne campañas anteriores, diez campañas nuevas de las dos ampliaciones y detalles de las marcas iniciales.
 
-La ampliación incorpora 18 imágenes generadas mediante ImageGen integrado: doce prendas y seis campañas. Prompts exactos y correspondencia con archivos: `docs/image-prompts.json`. Cada WebP nuevo tiene un archivo `.prompt.txt` y metadatos de procedencia; los PNG nuevos se conservan localmente en `output/imagegen/`. La publicación incluye los WebP y las tipografías alojadas localmente.
+Las ampliaciones incorporan 38 imágenes de ImageGen integrado: 18 de la primera edición y 20 de esta edición de escapadas. Prompts exactos y correspondencia con archivos: `docs/image-prompts.json`. Cada WebP nuevo tiene `.prompt.txt` y procedencia; los PNG nuevos se conservan localmente en `output/imagegen/`. La publicación incluye WebP y tipografías alojadas localmente.
 
 Generación mediante `imagegen` integrado, con las cápsulas anteriores como referencia. Prompt base de cada producto: fotografía de catálogo de una sola prenda, preservar símbolo/paleta/estampado de la referencia, fondo de yeso gris cálido, luz difusa, algodón y costuras reales, formato cuadrado, sin otros productos, personas, maniquíes, marcas ajenas ni watermark. Para poleras y polerones se conserva el frente o espalda indicado en `catalog.js`; para gorros, ángulo frontal de tres cuartos.
 

@@ -51,7 +51,52 @@
   for (const [id, brand, collection, category, name, price, color, swatch, view, description] of additions) {
     products.push({ id, brand, collection, category, name, price, color, swatch, view, description, sizes: category === 'Gorros' ? ['Única'] : sizes, fit: category === 'Gorros' ? 'Ajustable / seis paneles' : category === 'Polerones' ? 'Oversized / hombro caído' : 'Boxy / hombro caído', image: `assets/products/${id}.webp`, isNew: true });
   }
-  const catalog = { brands, collections, products, currency: 'CLP', referencePrices: true, maxQuantity: 10 };
+  const nextBrands = {
+    salitre: { name: 'SALITRE', collection: 'COSTA PRIVADA', tagline: 'Quédate un poco más.', description: 'Una camisa abierta, el agua cerca y todo el día por delante.', color: '#64c9c3', palette: ['#69c8c1', '#ef896b', '#f4eddd'], ink: '#173f3c', campaign: 'assets/brands/salitre-campaign.webp', latest: 'costa-privada', world: 'Tu próximo buen recuerdo.', headline: 'Quédate\nun poco más.', manifesto: 'SALITRE guarda algo de esos días que no quieres terminar: una cala tranquila, la luz sobre la piedra y una conversación sin hora de cierre. Turquesa, papaya y marfil se encuentran en prendas sueltas con una pequeña firma de horizonte. El resto del espacio es tuyo.', art: 'Resort de autor · turquesa · papaya · horizonte mínimo', mood: 'Costa & pausa', mark: 'horizon', destination: 'beach' },
+    alto: { name: 'ALTO SUR', collection: 'AIRE ABIERTO', tagline: 'Arriba, todo cambia.', description: 'Color de abrigo. Aire de montaña. Otra forma de tomar distancia.', color: '#b84a2c', palette: ['#b84a2c', '#b5cbb5', '#23353d'], ink: '#fff8ec', campaign: 'assets/brands/alto-campaign.webp', latest: 'aire-abierto', world: 'Haz sitio para el horizonte.', headline: 'Respira\notra altura.', manifesto: 'ALTO SUR mira la montaña desde el momento en que paras a contemplarla. El óxido de la piedra, el verde frío y un azul de última luz se convierten en capas de líneas limpias. Una pequeña cumbre identifica el camino; la experiencia la pones tú.', art: 'Descanso alpino · óxido · celadón · cumbre mínima', mood: 'Altura & aire', mark: 'peak', destination: 'mountain' },
+    limen: { name: 'LIMEN', collection: 'ENTRE HORAS', tagline: 'El día todavía es tuyo.', description: 'De una galería a una terraza. Color, proporción y una firma casi íntima.', color: '#4564cc', palette: ['#496acb', '#71334b', '#f1e5b9'], ink: '#fffaf0', campaign: 'assets/brands/limen-campaign.webp', latest: 'entre-horas', world: 'Entre un plan y el siguiente.', headline: 'La ciudad,\na tu ritmo.', manifesto: 'Hay un espacio entre salir de una exposición y sentarse en una terraza. LIMEN vive ahí: en las horas que no necesitan agenda. Cobalto, cielo y burdeos; prendas de proporciones relajadas y dos pequeñas barras desplazadas. La presencia está en el gesto.', art: 'Galería urbana · cielo · burdeos · dos barras', mood: 'Ciudad & cultura', mark: 'bars', destination: 'city' },
+    brava: { name: 'ISLA BRAVA', collection: 'FLOR DE UN DÍA', tagline: 'Que el verano te encuentre.', description: 'Papaya, buganvilla y flores que no necesitan pedir espacio.', color: '#ed94bd', palette: ['#ef9bbb', '#ef7844', '#c7b5dc'], ink: '#58273e', campaign: 'assets/brands/brava-campaign.webp', latest: 'flor-un-dia', world: 'Un poco de verano salvaje.', headline: 'El verano\nse lleva puesto.', manifesto: 'ISLA BRAVA prefiere las flores simples y los días intensos. Una flor puede ser un pequeño bordado o tomar una camisa entera; el color hace el resto. Papaya, buganvilla y lavanda para salir a la luz con la seguridad de quien se siente bien en su propia piel.', art: 'Verano gráfico · papaya · buganvilla · flor de cinco pétalos', mood: 'Sol & expresión', mark: 'flower', destination: 'beach' },
+  };
+  Object.assign(brands, nextBrands);
+  const previousDestinations = { umbral: 'city', neblina: 'mountain', logic: 'city', solar: 'beach', marea: 'beach', orbita: 'city' };
+  for (const [id, destination] of Object.entries(previousDestinations)) brands[id].destination = destination;
+  const nextCollections = [
+    ['costa-privada', 'salitre', 'Costa privada', 'El día puede esperar.', 'El agua cerca, las líneas limpias y una pequeña firma de horizonte.'],
+    ['aire-abierto', 'alto', 'Aire abierto', 'Haz sitio para respirar.', 'Óxido, celadón y tinta para acompañar los días de montaña.'],
+    ['entre-horas', 'limen', 'Entre horas', 'Tu mejor plan es salir.', 'Sobrecamisas, tonos de galería y pequeños gestos de color.'],
+    ['flor-un-dia', 'brava', 'Flor de un día', 'El color también se siente.', 'Flores de pocos trazos y colores que se quedan en la memoria.'],
+  ];
+  for (const [id, brand, name, line, description] of nextCollections) {
+    collections[id] = { name, brand, line, description, campaign: brands[brand].campaign, color: brands[brand].palette[0], ink: brands[brand].ink, isNew: true };
+  }
+  const nextProducts = [
+    ['salitre-shirt', 'salitre', 'Camisas', 'Camisa Horizonte', 79990, 'Marfil / turquesa', '#f0e8d8', 'Una línea de horizonte bordada a pequeña escala. Cuello abierto, botones claros y espacio para que entre la brisa.'],
+    ['alto-jacket', 'alto', 'Chaquetas', 'Chaqueta Cumbre', 119990, 'Óxido / tinta', '#bc5733', 'Una cumbre mínima sobre naranja óxido. Cuello alto, cierre frontal y una silueta limpia para construir tus capas.'],
+    ['limen-shirt', 'limen', 'Camisas', 'Sobrecamisa Intervalo', 89990, 'Cobalto / burdeos', '#4266c5', 'Dos barras bordadas junto al bolsillo. Una sobrecamisa cobalto para moverse entre una exposición y el siguiente encuentro.'],
+    ['brava-tee', 'brava', 'Poleras', 'Polera Buganvilla', 38990, 'Buganvilla / papaya', '#d44691', 'Una flor mínima sobre rosa intenso. Un gesto pequeño en un color que no pasa de largo.'],
+    ['salitre-shorts', 'salitre', 'Shorts', 'Short Caleta', 49990, 'Turquesa / coral', '#65beb9', 'Turquesa, una línea coral y el horizonte a escala íntima. Cintura con cordón y una proporción relajada.'],
+    ['brava-shirt', 'brava', 'Camisas', 'Camisa Flor Abierta', 84990, 'Papaya / rojo flor', '#ea7a42', 'Dos flores amplias, cinco pétalos cada una. El estampado deja respirar el naranja y convierte la camisa en una pieza de color.'],
+    ['alto-hoodie', 'alto', 'Polerones', 'Polerón Refugio', 79990, 'Celadón / óxido', '#b3c6b0', 'Curvas de nivel diminutas sobre celadón. Una capa de silueta amplia para las pausas de aire frío.'],
+    ['limen-tee', 'limen', 'Poleras', 'Polera Umbral de Luz', 38990, 'Mantequilla / burdeos', '#efe3b7', 'Un pequeño cuadrado abierto sobre mantequilla. La calma de una prenda que se reconoce por la proporción.'],
+    ['brava-shorts', 'brava', 'Shorts', 'Short Lavanda', 49990, 'Lavanda / papaya', '#c7b4db', 'Una flor papaya junto al dobladillo. Lavanda, cintura con cordón y libertad para alargar el día.'],
+    ['limen-shorts', 'limen', 'Shorts', 'Short Pasaje', 54990, 'Cielo / burdeos', '#a1bce0', 'Una pinza, bolsillos discretos y dos barras junto al bajo. Un short de trazo urbano en azul cielo.'],
+    ['salitre-tee', 'salitre', 'Poleras', 'Polera Última Luz', 36990, 'Papaya / marfil', '#e58e73', 'El color de la última hora y una línea marfil al pecho. Simple, amplia y lista para salir.'],
+    ['alto-tee', 'alto', 'Poleras', 'Polera Altitud', 38990, 'Tinta / lima', '#23343d', 'Una cumbre lima sobre azul tinta. Una micrográfica de un solo trazo para mirar un poco más lejos.'],
+    ['salitre-cap', 'salitre', 'Gorros', 'Gorro Sombra Clara', 29990, 'Marfil / turquesa / coral', '#f0e9db', 'Una firma de horizonte y el borde de visera en coral. El detalle justo para cerrar el conjunto de costa.'],
+    ['alto-cap', 'alto', 'Gorros', 'Gorro Mirador', 29990, 'Óxido / tinta', '#bb5836', 'Cinco paneles y una cumbre bordada en tinta. Naranja cálido para una mirada de altura.'],
+    ['limen-cap', 'limen', 'Gorros', 'Gorro Contrapunto', 29990, 'Burdeos / cielo', '#71344d', 'Un cuadrado abierto en cielo sobre burdeos. Un contrapunto de color para las horas de ciudad.'],
+    ['brava-cap', 'brava', 'Gorros', 'Gorro Flor de Sal', 29990, 'Arena / buganvilla', '#dbcaab', 'Una pequeña flor buganvilla en una base arena. La versión más discreta del verano de ISLA BRAVA.'],
+  ];
+  const fits = { Camisas: 'Relajado / cuello de autor', Chaquetas: 'Relajado / cuello alto y cierre frontal', Shorts: 'Relajado / largo sobre la rodilla', Poleras: 'Boxy / hombro caído', Polerones: 'Oversized / hombro caído', Gorros: 'Ajustable / paneles de algodón' };
+  for (const [featuredRank, [id, brand, category, name, price, color, swatch, description]] of nextProducts.entries()) {
+    products.push({ id, brand, collection: brands[brand].latest, category, name, price, color, swatch, description, sizes: category === 'Gorros' ? ['Única'] : sizes, fit: fits[category], view: category === 'Gorros' ? 'Producto' : 'Frente', image: `assets/products/${id}.webp`, isNew: true, featuredRank, graphic: id === 'brava-shirt' ? 'macro' : 'micro' });
+  }
+  const destinations = {
+    beach: { name: 'Playa', title: 'Ese día que\nno quieres terminar.', description: 'Una cala, una sobremesa, el último baño. Turquesa y marfil para llevar la pausa contigo.', brand: 'salitre', color: '#69c8c1', ink: '#173f3c', look: ['salitre-shirt', 'salitre-shorts', 'salitre-cap'], lookName: 'Un día junto al mar' },
+    mountain: { name: 'Montaña', title: 'Respira.\nEstás aquí.', description: 'El lago en silencio, la luz sobre la piedra. Capas de color para cambiar de perspectiva.', brand: 'alto', color: '#b5cbb5', ink: '#23353d', look: ['alto-jacket', 'alto-tee', 'alto-cap'], lookName: 'Aire de montaña' },
+    city: { name: 'Ciudad', title: 'Entre una galería\ny tu próxima historia.', description: 'Una terraza al sol, un pasaje que no conocías. Proporciones relajadas y pequeños gestos de color.', brand: 'limen', color: '#e9d8de', ink: '#593044', look: ['limen-shirt', 'limen-shorts', 'limen-cap'], lookName: 'La ciudad sin agenda' },
+  };
+  const catalog = { brands, collections, destinations, products, currency: 'CLP', referencePrices: true, maxQuantity: 10, maxCartLines: products.reduce((sum, product) => sum + product.sizes.length, 0) };
   if (typeof module !== 'undefined' && module.exports) module.exports = catalog;
   else root.ARCHIVO_CATALOG = catalog;
 })(globalThis);

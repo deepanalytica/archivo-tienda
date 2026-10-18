@@ -10,7 +10,7 @@ async function build() {
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
   if (!html.includes('<html lang="es">')) throw new Error('No se encontró la etiqueta raíz para configurar Pages.');
   await fs.writeFile(path.join(destination, 'index.html'), html.replace('<html lang="es">', '<html lang="es" data-store-mode="static">'));
-  for (const file of ['styles.css', 'catalog.js', 'app.js']) {
+  for (const file of ['styles.css', 'catalog.js', 'app.js', 'escapes.js']) {
     await fs.copyFile(path.join(root, file), path.join(destination, file));
   }
   for (const folder of ['brands', 'products']) {

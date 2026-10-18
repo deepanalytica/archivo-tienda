@@ -1,6 +1,6 @@
 ---
 name: ARCHIVO
-description: Un archivo de mundos propios; fotografía, papel cálido y seis identidades de ropa de autor.
+description: Un archivo de mundos propios; fotografía, papel cálido y diez identidades de ropa de autor para playa, montaña y ciudad.
 colors:
   paper: "#f6f4ee"
   ink: "#21221f"
@@ -46,6 +46,28 @@ colors:
   principio-ink: "#373329"
   solar-strip-ink: "#502719"
   botanical-strip-ink: "#352044"
+  salitre-turquoise: "#69c8c1"
+  salitre-papaya: "#ef896b"
+  salitre-ivory: "#f4eddd"
+  salitre-ink: "#173f3c"
+  alto-rust: "#b84a2c"
+  alto-celadon: "#b5cbb5"
+  alto-ink: "#23353d"
+  alto-panel-ink: "#fff8ec"
+  limen-cobalt: "#496acb"
+  limen-burgundy: "#71334b"
+  limen-butter: "#f1e5b9"
+  limen-panel-ink: "#fffaf0"
+  brava-pink: "#ef9bbb"
+  brava-papaya: "#ef7844"
+  brava-lavender: "#c7b5dc"
+  brava-ink: "#58273e"
+  city-panel: "#e9d8de"
+  city-panel-ink: "#593044"
+  destination-ribbon: "#ef9a79"
+  destination-ribbon-ink: "#4b2531"
+  brand-ribbon: "#c2c9ef"
+  brand-ribbon-ink: "#313e77"
 typography:
   display:
     fontFamily: "Archivo, Arial, sans-serif"
@@ -89,6 +111,24 @@ typography:
     fontSize: "10px"
     lineHeight: 1.6
     letterSpacing: "0.065em"
+  escape-title:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(35px, 3.5vw, 53px)"
+    fontWeight: 500
+    lineHeight: 1.08
+    letterSpacing: "-0.03em"
+  destination-ribbon:
+    fontFamily: "Archivo, Arial, sans-serif"
+    fontSize: "clamp(25px, 3.4vw, 48px)"
+    fontWeight: 750
+    lineHeight: 1.15
+    letterSpacing: "-0.025em"
+  brand-ribbon:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(30px, 4vw, 58px)"
+    fontWeight: 550
+    lineHeight: 1.15
+    letterSpacing: "-0.025em"
 rounded:
   square: "0px"
   circular: "50%"
@@ -146,6 +186,27 @@ components:
     backgroundColor: "{colors.solar-tangerine}"
     textColor: "{colors.solar-strip-ink}"
     padding: "22px 12px"
+  escape-tab:
+    backgroundColor: "transparent"
+    textColor: "{colors.muted}"
+    padding: "12px 4px"
+  escape-button-beach:
+    backgroundColor: "{colors.salitre-ink}"
+    textColor: "{colors.salitre-turquoise}"
+    rounded: "{rounded.square}"
+    padding: "15px 18px"
+  destination-ribbon:
+    backgroundColor: "{colors.destination-ribbon}"
+    textColor: "{colors.destination-ribbon-ink}"
+    typography: "{typography.destination-ribbon}"
+  brand-ribbon:
+    backgroundColor: "{colors.brand-ribbon}"
+    textColor: "{colors.brand-ribbon-ink}"
+    typography: "{typography.brand-ribbon}"
+  look-size:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    padding: "8px 12px"
   brand-story-solar:
     backgroundColor: "{colors.solar-butter}"
     textColor: "{colors.solar-panel-ink}"
@@ -158,16 +219,17 @@ components:
 
 **Creative North Star: "Un archivo de mundos propios"**
 
-ARCHIVO reúne seis universos reconocibles dentro de una estructura editorial común. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.
+ARCHIVO reúne diez universos reconocibles dentro de una estructura editorial común. Playa, montaña y ciudad acercan esas identidades a escenas aspiracionales de luz, color y pausa, con prendas de líneas simples y pequeñas firmas gráficas. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.
 
-La extensión conserva el mundo de UMBRAL, NEBLINA y WE ARE LOGIC e incorpora SOLAR CLUB, MAREA y ÓRBITA. Esta documentación describe la implementación existente en `styles.css`, `catalog.js`, `app.js` e `index.html`, contrastada con `docs/art-direction.md` y capturas de `output/pages/`. No hubo una composición aprobada previa ni una semilla de diseño: la autoridad es la superficie construida y su contrato de dirección.
+La edición Escapes conserva UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA e incorpora SALITRE, ALTO SUR, LIMEN e ISLA BRAVA. Sus trece colecciones y treinta y siete prendas amplían el mundo aprobado. Esta documentación registra la implementación vigente en el bloque final de `styles.css`, `catalog.js`, `escapes.js`, `app.js` e `index.html`, según `docs/escapes-art-direction.md`, `PRODUCT.md` y las capturas finales de `output/pages/`. Los destinos y conjuntos ayudan a imaginar cómo vestir esas escenas; la base editorial y sus tokens compartidos permanecen vigentes.
 
 **Key Characteristics:**
 - Fotografía protagonista, con prendas y campañas como imágenes distintas.
 - Papel cálido compartido y paneles cromáticos propios por marca y colección.
 - Archivo para estructura y Fraunces para titulares expresivos y determinadas firmas.
 - Esquinas rectas, líneas finas y jerarquía por escala y color.
-- Exploración manual, estados de selección explícitos y movimiento opcional.
+- Diez marcas, tres destinos y conjuntos editables dentro de una misma selección.
+- Exploración manual, estados de selección explícitos y dos cintas de movimiento opcional.
 
 ## Colors
 
@@ -181,6 +243,10 @@ Las primitivas del frontmatter son normativas; los colores de marca y los pares 
 
 | Marca | Paleta | Aplicación y símbolo |
 | --- | --- | --- |
+| SALITRE | `salitre-turquoise`, `salitre-papaya`, `salitre-ivory` | Resort de líneas limpias; horizonte interrumpido. |
+| ALTO SUR | `alto-rust`, `alto-celadon`, `alto-ink` | Descanso alpino; cumbre angular y curvas de nivel mínimas. |
+| LIMEN | `limen-cobalt`, `limen-burgundy`, `limen-butter` | Galería y arquitectura urbana; barras desplazadas y cuadrado abierto en prendas. |
+| ISLA BRAVA | `brava-pink`, `brava-papaya`, `brava-lavender` | Verano gráfico; flor de cinco pétalos. |
 | SOLAR CLUB | `solar-tangerine`, `solar-butter`, `solar-blue` | Club de verano, cancha y sobremesa; sol de ocho rayos. |
 | MAREA | `marea-pacific`, `marea-coral`, `marea-foam` | Costa del Pacífico y gráfica de surf; doble ola. |
 | ÓRBITA | `orbita-lime`, `orbita-lilac`, `orbita-grape` | Retro futuro y formas espaciales; elipse y planeta. |
@@ -188,12 +254,16 @@ Las primitivas del frontmatter son normativas; los colores de marca y los pares 
 | NEBLINA | `neblina-lavender`, `neblina-pistachio`, `neblina-forest` | Botánica sensible y paisaje; líneas de montaña. |
 | WE ARE LOGIC | `logic-magenta`, `logic-electric`, `logic-pink` | Gráfica modular urbana; ángulos repetidos. |
 
-La franja usa el primer color de cada paleta. Su texto es blanco salvo SOLAR CLUB (`solar-strip-ink`) y ÓRBITA/NEBLINA (`botanical-strip-ink`). Las muestras de paleta muestran los tres colores sin convertirlos en controles.
+La franja usa el primer color de cada paleta. Las cuatro marcas nuevas usan su tinta propia: `salitre-ink`, `alto-panel-ink`, `limen-panel-ink` y `brava-ink`. Las seis anteriores mantienen blanco salvo SOLAR CLUB (`solar-strip-ink`) y ÓRBITA/NEBLINA (`botanical-strip-ink`). Las muestras de paleta muestran los tres colores sin convertirlos en controles.
 
 **The Collection Pair Rule.** Usa juntos el fondo y la tinta definidos para cada colección; las tarjetas editoriales y el diálogo de marca usan el par de su colección más reciente.
 
 | Colección | Fondo / tinta |
 | --- | --- |
+| Costa privada | `salitre-turquoise` / `salitre-ink` |
+| Aire abierto | `alto-rust` / `alto-panel-ink` |
+| Entre horas | `limen-cobalt` / `limen-panel-ink` |
+| Flor de un día | `brava-pink` / `brava-ink` |
 | Fuera de oficina | `solar-butter` / `solar-panel-ink` |
 | Pleamar | `marea-panel` / `marea-panel-ink` |
 | Club del futuro | `orbita-lime` / `orbita-grape` |
@@ -204,6 +274,8 @@ La franja usa el primer color de cada paleta. Su texto es blanco salvo SOLAR CLU
 | Entre capas | `entre-capas-panel` / `entre-capas-ink` |
 | Principio | `principio-panel` / `principio-ink` |
 
+Los paneles de destino conservan pares propios: Playa usa `salitre-turquoise` / `salitre-ink`; Montaña, `alto-celadon` / `alto-ink`; Ciudad, `city-panel` / `city-panel-ink`. No sustituyas el celadón o el rosa urbano por el fondo de la colección de ALTO SUR o LIMEN. La cinta de destinos usa `destination-ribbon` / `destination-ribbon-ink`; la cinta de marcas, `brand-ribbon` / `brand-ribbon-ink`.
+
 ### Neutral
 
 `paper` es el lienzo y la navegación; `ink` la lectura base; `muted` el apoyo editorial. `line` separa controles y filas con tinta translúcida. `product-surface` sostiene imágenes de prendas; `stories-surface` agrupa las marcas. `sand` se conserva en superficies de detalle y resumen. Los colores de producto son datos del SKU y no sustituyen la paleta de marca.
@@ -212,7 +284,7 @@ La franja usa el primer color de cada paleta. Su texto es blanco salvo SOLAR CLU
 
 **Display Font:** Archivo, Arial, sans-serif. **Expressive Font:** Fraunces, Georgia, serif. Ambas fuentes variables se alojan en `assets/fonts/`; no se necesita una fuente remota.
 
-La firma ARCHIVO es ancha y pesada; Fraunces aporta el contraste de los titulares de campaña, nombres de colección y énfasis editoriales. Los énfasis usan estilo normal y los ejes `SOFT` (60) y `WONK` (1). Las firmas de MAREA y NEBLINA solicitan cursiva en CSS; la fuente local declarada es normal.
+La firma ARCHIVO es ancha y pesada; Fraunces aporta el contraste de los titulares de campaña, nombres de colección y énfasis editoriales. Los énfasis usan estilo normal y los ejes `SOFT` (60) y `WONK` (1). Las firmas de MAREA, NEBLINA e ISLA BRAVA solicitan cursiva en CSS; la fuente local declarada es normal.
 
 ### Hierarchy
 
@@ -220,29 +292,36 @@ La firma ARCHIVO es ancha y pesada; Fraunces aporta el contraste de los titulare
 - **Campaign:** `campaign` para el titular sobre fotografía; mantiene saltos de línea y balance de texto. En móvil pasa a `clamp(40px, 12vw, 60px)`.
 - **Headline:** `headline` para secciones, con énfasis en Fraunces. En móvil las secciones principales usan (38px).
 - **Collection title:** `collection-title`, con ancho máximo (10ch) en escritorio y hasta (14ch) en el diseño apilado; en móvil usa (45px).
+- **Escape title:** `escape-title`, con ancho máximo (16ch); pasa a (39px) bajo (1050px), (43px) y (18ch) bajo (760px), (38px) y (16ch) bajo (680px), y (34px) bajo (375px). Las cintas usan los roles `destination-ribbon` y `brand-ribbon`; en móvil pasan a (31px) y (35px).
 - **Product title:** `product-title`, reducido a (16px) bajo (1050px), (15px) bajo (680px) y (14px) bajo (375px). Los precios usan cifras tabulares.
 - **Body:** `body` es la base; los textos editoriales usan `narrative`, con anchos habituales de (30–48ch). La nota de catálogo llega a (76ch).
 - **Label:** `label` corresponde a la marca sobre el nombre de prenda, en mayúsculas. Controles y enlaces usan normalmente (11–12px), con ajustes móviles.
 
-Las firmas distinguen las marcas sin cambiar la estructura de interacción: SOLAR CLUB usa Fraunces (750); MAREA Fraunces (650) y cursiva; NEBLINA Fraunces (450) y cursiva; ÓRBITA Archivo (750), expansión (125%) y espaciado (.035em); WE ARE LOGIC Archivo (800) y condensación (85%); UMBRAL Archivo (600) y espaciado (.045em).
+Las firmas distinguen las marcas sin cambiar la estructura de interacción: SALITRE usa Archivo (550), condensación (90%) y espaciado (.13em); ALTO SUR Archivo (800), condensación (90%) y espaciado (.015em); LIMEN Archivo (500) y espaciado (.12em); ISLA BRAVA Fraunces (700), cursiva y espaciado (-.02em). Entre las seis anteriores, SOLAR CLUB usa Fraunces (750); MAREA Fraunces (650) y cursiva; NEBLINA Fraunces (450) y cursiva; ÓRBITA Archivo (750), expansión (125%) y espaciado (.035em); WE ARE LOGIC Archivo (800) y condensación (85%); UMBRAL Archivo (600) y espaciado (.045em).
 
 ## Layout
 
 No hay una caja central de ancho máximo para toda la página. Las secciones siguen el ancho de ventana con margen interno fluido `page-inline` y ritmo vertical `section-block`; el catálogo usa `catalog-block-start`. La navegación permanece pegada al borde superior con altura (78px), reducida a (68px) en móvil. El desplazamiento a anclas reserva (100px) arriba, o (80px) bajo (680px).
 
-El hero ocupa hasta (730px) con mínimo (560px), fotografía a sangre y texto superpuesto a la izquierda. En móvil usa `calc(100svh - 96px)`, mínimo (540px), recorte de imagen al (67%) horizontal y gradiente inferior más intenso. La firma queda arriba; el titular y la llamada se asientan sobre el área inferior. Los seis selectores pasan de seis columnas a tres columnas y dos filas bajo (680px).
+El hero ocupa hasta (730px) con mínimo (560px), fotografía a sangre y texto superpuesto a la izquierda. En móvil usa `calc(100svh - 96px)`, mínimo (540px), recorte de imagen al (67%) horizontal y los gradientes vigentes del hero. La firma queda arriba; el titular y la llamada se asientan sobre el área inferior. Las diez campañas tienen selectores en una fila desplazable con ajuste de posición y flechas anterior/siguiente; cada opción ocupa (145px), (120px) bajo (1050px) y (116px) bajo (680px). La fila usa `scroll-snap-type: x proximity`; las flechas miden (44px) de ancho, o (37px) en móvil, con altura mínima (44px). En móvil el área de texto reserva (138px) inferiores para esta navegación.
 
-La franja de marcas pasa de seis a tres columnas bajo (760px). El explorador presenta imagen y panel en proporción (1.25fr / 1fr), ajusta a (1.05fr / 1fr) bajo (1050px) y se apila bajo (760px). Sus nueve botones forman una fila con desplazamiento horizontal. El catálogo usa tres columnas, con `grid-row` y `grid-column`; bajo (680px) usa dos columnas y separaciones móviles. Las imágenes de prenda son cuadradas; el precio baja bajo el texto en móvil.
+La franja de diez marcas tiene cinco columnas y dos filas en escritorio, con botones de altura mínima (92px), o (85px) bajo (1050px). Bajo (680px) mantiene dos filas de (74px), fluye por columnas de (45%) del ancho y se desplaza horizontalmente con ajuste obligatorio de posición. El explorador presenta imagen y panel en proporción (1.25fr / 1fr), ajusta a (1.05fr / 1fr) bajo (1050px) y se apila bajo (760px). Sus trece botones forman una fila con desplazamiento horizontal. El catálogo usa tres columnas, con `grid-row` y `grid-column`; bajo (680px) usa dos columnas y separaciones móviles. Las imágenes de prenda son cuadradas; el precio baja bajo el texto en móvil.
+
+Los tres destinos aparecen antes de las colecciones. Sus pestañas alinean símbolo y nombre; el panel combina fotografía y texto en (1.15fr / 1fr), con altura mínima (580px), y pasa a (1fr / 1fr) y (550px) bajo (1050px). Bajo (760px) se apila, con foto (1.5:1); bajo (680px) la foto es (1.35:1) y el texto tiene relleno (28px 24px). Tres prendas cuadradas, en tres columnas, completan cada panel. El bloque de filtros tiene cuatro columnas (1fr / 1.5fr / 1fr / 1fr), reducidas a dos iguales en móvil.
+
+El catálogo presenta doce prendas inicialmente y añade doce por acción «Ver más prendas»; los cambios de filtro reinician ese límite. El contador indica visibles y total de la selección, y el cierre comunica cuándo ya se ve toda. Las dos cintas se sitúan tras la franja de marcas y antes de las historias, respectivamente; el control de movimiento queda en la banda de destinos.
+
+El conjunto abre un diálogo de (680px), con relleno (45px), filas de imagen (110 × 125px) y texto en dos columnas, separadas (23px). Bajo (680px) ocupa la pantalla y usa relleno (37px 22px), imagen (86 × 105px) y separación (16px). El subtotal queda en una fila propia, con cifras tabulares.
 
 Las historias usan dos columnas y fotografías (1.52:1); bajo (680px) pasan a una columna y fotos (1.35:1). El diálogo de marca pasa de dos columnas a una bajo (760px), y a toda la pantalla bajo (680px). Producto y revisión también ocupan la pantalla móvil. La bolsa es un panel derecho de (470px), limitado al ancho disponible y con altura de ventana. El panel de navegación central se oculta bajo (680px); permanecen firma, favoritos y bolsa.
 
 ## Elevation & Depth
 
-La profundidad procede de fotografía, superficies de color y superposición. No hay sombras de caja en los componentes implementados. Líneas finas separan filtros, tallas, filas y resúmenes; los contenedores editoriales se distinguen por el fondo. El hero usa gradientes oscuros para sostener el texto. Los diálogos añaden un velo (`#131511a6`) con desenfoque (5px); los controles de cierre conservan papel opaco. La navegación y el favorito sobre producto usan fondo opaco, sin desenfoque.
+La profundidad procede de fotografía, superficies de color y superposición. No hay sombras de caja en los componentes implementados. Líneas finas separan filtros, tallas, filas y resúmenes; los contenedores editoriales se distinguen por el fondo. El hero usa gradientes oscuros para sostener el texto: `linear-gradient(90deg,#17313c99,transparent 82%)` y `linear-gradient(0deg,#162533df,transparent 65%)`. La fotografía de destino suma un gradiente inferior `#132f31aa` a transparente desde el (55%) de su altura. Los diálogos añaden un velo (`#131511a6`) con desenfoque (5px); los controles de cierre conservan papel opaco. La navegación y el favorito sobre producto usan fondo opaco, sin desenfoque.
 
 ## Shapes
 
-Botones, paneles, fotografías, campos y diálogos conservan esquinas rectas. El contador de bolsa y las muestras de color del producto son circulares; las muestras de paleta de marca son cuadrados de (26px), separados por (5px), con borde fino. Los símbolos de marca usan SVG lineal de (48 × 48), sin relleno y trazo (2), adaptado al tamaño del contexto.
+Botones, paneles, fotografías, campos y diálogos conservan esquinas rectas. El contador de bolsa y las muestras de color del producto son circulares; las muestras de paleta de marca son cuadrados de (26px), separados por (5px), con borde fino. Los símbolos de marca usan SVG de (48 × 48), base sin relleno y trazo (2), con centro de flor relleno en ISLA BRAVA, adaptado al tamaño del contexto.
 
 ## Components
 
@@ -266,29 +345,48 @@ Los campos del formulario local usan fondo transparente, borde fino, relleno (12
 
 ### Navigation, dialogs and feedback
 
-La navegación usa enlaces de texto con una línea que se revela al pasar el cursor. El hero tiene seis campañas manuales, sin avance automático; el botón seleccionado engrosa su línea superior de (1px) a (3px) y mantiene `aria-pressed`. Cambian fotografía, titular, marca/colección, lema y llamada. La franja de marca filtra el catálogo; la tarjeta editorial abre el diálogo de historia. Son acciones distintas.
+La navegación incluye Escapadas, Colecciones, La selección y Las marcas, con una línea que se revela al pasar el cursor. El hero abre con SALITRE y tiene diez campañas manuales, sin avance automático; el botón seleccionado engrosa su línea superior de (1px) a (3px) y mantiene `aria-pressed`. Cambian fotografía, titular, marca/colección, lema y llamada. La franja de marca filtra el catálogo; la tarjeta editorial abre el diálogo de historia. Son acciones distintas.
 
 Los diálogos nativos se abren con `showModal()`, incluyen cierre accesible y admiten cierre desde fuera de su caja; el fondo de la página queda sin desplazamiento. La bolsa permite mezclar marcas y conserva prendas y tallas en almacenamiento local. Los avisos usan violeta y texto papel, permanecen (2400ms) y se anuncian mediante una región de estado. El recuento del catálogo y la colección destacada también se anuncian con regiones `aria-live`.
 
-La revisión pública descarga una selección: no pide contacto ni muestra una solicitud recibida. El flujo local conserva el formulario y su confirmación de guardado. Mantén esas diferencias en etiquetas, pasos, estados y mensajes; los importes son referenciales en CLP. Las claves de persistencia existentes siguen siendo `archivo-cart-v1` y `archivo-favorites-v1`.
+La revisión pública descarga una selección: no pide contacto ni muestra una solicitud recibida. No procesa pagos, reservas ni envíos reales; los destinos son escenas creativas, no viajes o alojamientos ofrecidos. El flujo local conserva el formulario y su confirmación de guardado. Mantén esas diferencias en etiquetas, pasos, estados y mensajes; los importes son referenciales en CLP. Las claves de persistencia existentes siguen siendo `archivo-cart-v1` y `archivo-favorites-v1`.
+
+### Destinations and complete looks
+
+Las pestañas Playa, Montaña y Ciudad usan `tablist`, `tab` y `tabpanel`, selección mediante `aria-selected` y foco móvil entre opciones. Flechas izquierda/derecha, Inicio y Fin cambian el destino y su foco. Cada panel actualiza fotografía, par cromático, titular y tres prendas; «Explorar» aplica el destino al catálogo y «Ver el conjunto» abre su selección. El destino también filtra por la asignación de cada marca: Playa reúne SALITRE, ISLA BRAVA, SOLAR CLUB y MAREA; Montaña, ALTO SUR y NEBLINA; Ciudad, LIMEN, ÓRBITA, UMBRAL y WE ARE LOGIC.
+
+| Destino / conjunto | Tres prendas |
+| --- | --- |
+| Playa / Un día junto al mar | Camisa Horizonte, Short Caleta, Gorro Sombra Clara (SALITRE) |
+| Montaña / Aire de montaña | Chaqueta Cumbre, Polera Altitud, Gorro Mirador (ALTO SUR) |
+| Ciudad / La ciudad sin agenda | Sobrecamisa Intervalo, Short Pasaje, Gorro Contrapunto (LIMEN) |
+
+El diálogo permite incluir o excluir cada prenda y elegir su talla. Excluir atenúa la fila a (.65) y deshabilita su selector; el subtotal referencial y el texto del botón se actualizan con lo incluido. Sin prendas, el botón se deshabilita. La validación comprueba todas las tallas y el máximo de diez unidades por prenda/talla antes de añadir el conjunto completo a la bolsa. Camisas, Shorts y Chaquetas amplían Poleras, Polerones y Gorros en los filtros, con tallas (S–XL) salvo gorros de talla única. Las etiquetas «Micrográfica» y «Estampado de autor» describen el gesto gráfico de las nuevas prendas.
 
 ### Motion
 
 La curva común es `cubic-bezier(.16, 1, .3, 1)`. La apertura asienta la foto desde escala (1.035) durante (1.1s) y revela el cartel mediante recorte y un desplazamiento de (15px), en (.8–1s). El cambio de campaña usa opacidad y escala durante (550ms). El panel de colección entra con recorte lateral y (10px) de desplazamiento en (.5s). El manifiesto se desplaza (25px) al entrar, solo si el navegador admite la línea de tiempo de vista y no hay preferencia de movimiento reducido.
 
-**The Optional Motion Rule.** Con movimiento reducido, desactiva animaciones y transiciones CSS, omite la animación JavaScript del hero y usa desplazamiento automático al catálogo. Conserva todo el contenido y las acciones visibles.
+Las dos cintas desplazan una pista duplicada mediante `translateX(0)` a `translateX(-50%)`: destinos en (38s) lineales e infinitos; marcas en (65s), en sentido inverso. Arrancan pausadas por CSS; JavaScript permite correr solo la cinta visible según `IntersectionObserver`, sin pausa manual, preferencia de movimiento reducido ni documento oculto. El foco dentro de la cinta y el cursor en dispositivos con hover la pausan temporalmente. El contenido duplicado se oculta a tecnologías de asistencia; cada región tiene un nombre accesible y puede recibir foco.
+
+El botón «Pausar movimiento» / «Reanudar movimiento» controla ambas cintas y persiste su elección en `archivo-motion-paused-v1`; `aria-pressed` indica pausa manual. Con movimiento reducido se deshabilita con el texto «Movimiento reducido», se oculta la copia y la cinta estática permite desplazamiento horizontal manual. Fuera de pantalla o con pestaña oculta se pausa sin alterar la preferencia guardada. Si no hay `IntersectionObserver`, conserva el estado pausado. Las miniaturas de destino se elevan (4px) al pasar el cursor, con transición (.4s); los paneles usan la entrada ya existente de (.5s).
+
+**The Optional Motion Rule.** Con movimiento reducido, desactiva animaciones y transiciones CSS, omite la animación JavaScript del hero y usa desplazamiento automático al catálogo y al selector de campaña. Conserva todo el contenido y las acciones visibles; las cintas quedan estáticas, sin copia y con desplazamiento manual.
 
 ## Do's and Don'ts
 
 ### Do:
-- Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las seis marcas.
+- Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las diez marcas.
 - Do tomar los pares de colección y las paletas del catálogo, manteniendo cada símbolo y firma asociados a su marca.
 - Do conservar fotos cuadradas para prendas y composiciones editoriales amplias para campañas.
 - Do mantener el foco visible de foto y buscador, los estados `aria-pressed` y el movimiento reducido.
+- Do conservar la pausa manual de ambas cintas, su parada fuera de pantalla o con documento oculto y su alternativa estática.
+- Do mantener inclusión, talla y subtotal de conjunto antes de añadir prendas a la bolsa.
 - Do distinguir la descarga pública de selección y la solicitud guardada en el servidor local en cada mensaje de estado.
 
 ### Don't:
-- Don't sustituir las seis identidades por un único color o una única firma de marca.
+- Don't sustituir las diez identidades por un único color o una única firma de marca.
+- Don't ocultar prendas al final del primer bloque: conserva la carga progresiva de doce y su contador.
 - Don't añadir avance automático a las campañas manuales.
 - Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.
 - Don't convertir una descarga de Pages en una confirmación de pedido, reserva o cobro.
