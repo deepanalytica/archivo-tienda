@@ -19,6 +19,7 @@ function select(key,focus=false){
  get("brand-collections").textContent=Object.values(catalog.collections).filter(c=>c.brand===key).map(c=>c.name).join(" · ");
  get("campaign-label").textContent=b.name+" / "+(b.collection||"COLECCIÓN");
  img("brand-signature","assets/identities/"+key+"-signature.svg","Firma de "+b.name);
+ get("brand-signature").style.filter=contrast(tone)==="#222321"?"brightness(0)":"brightness(0) invert(1)";
  img("campaign-image",b.campaign,"Campaña editorial conceptual de "+b.name);
  const palette=get("brand-palette");palette.replaceChildren();
  (b.palette||[b.color]).forEach(c=>{const el=document.createElement("i");el.style.background=c;el.title=c;el.setAttribute("aria-label",c);palette.append(el);});

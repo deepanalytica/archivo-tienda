@@ -1,5 +1,5 @@
 const assert=require("node:assert/strict"),fs=require("node:fs"),path=require("node:path");
-const site=x=>path.join(__dirname,"_site",x);
+const site=x=>path.join(__dirname,"..","_site",x);
 for(const file of ["estudio.html","estudio.js","estudio.css"])assert(fs.existsSync(site(file)),file);
 assert(fs.readFileSync(site("index.html"),"utf8").includes('href="estudio.html"'));
 assert(fs.readFileSync(site("estudio.html"),"utf8").includes('lang="es"'));
