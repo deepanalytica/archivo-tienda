@@ -1,0 +1,8 @@
+data/*.json
+data/*.tmp
+output/
+node_modules/
+_site/
+.codebase-memory/
+.env
+.env.*

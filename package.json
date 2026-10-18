@@ -1,0 +1,15 @@
+{
+  "name": "archivo-tienda",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UMBRAL, NEBLINA y WE ARE LOGIC: tienda local y catálogo público en GitHub Pages",
+  "scripts": {
+    "start": "node server.cjs",
+    "build": "node scripts/build-pages.cjs",
+    "test:local": "node verify.cjs",
+    "test:pages": "npm run build && node verify-pages.cjs",
+    "test": "npm run test:local && npm run test:pages"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "playwright": "1.62.1" }
+}
