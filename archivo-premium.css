@@ -1,0 +1,155 @@
+/* ARCHIVO / premium ecommerce v3 — overrides sobre la dirección editorial previa */
+
+/* Nueva firma tipográfica de alto contraste: sin logotipo duplicado ni monograma de cabecera */
+.archivo-nav.nav{height:76px;background:#f3eddf;padding-inline:clamp(18px,3.4vw,66px);gap:18px;box-shadow:none}
+.archivo-nav .logo.archivo-lockup{min-width:0;gap:0;max-width:220px}
+.archivo-nav .logo.archivo-lockup .archivo-logo-complete{width:clamp(171px,17vw,223px);height:auto;max-height:none;aspect-ratio:510/92;object-fit:contain;object-position:left center}
+.archivo-nav .logo.archivo-lockup .archivo-descriptor{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;padding:0!important;margin:0!important;border:0!important}
+.archivo-nav .archivo-primary-nav{gap:clamp(15px,2.35vw,36px)}
+.archivo-nav .archivo-primary-nav a{font-size:11px;font-weight:510;letter-spacing:.007em}
+.archivo-nav .archivo-primary-nav a:last-child{border:0;padding:16px 0}
+.archivo-nav .nav-actions .archivo-index-count{display:none}
+.archivo-nav .nav-actions{margin-left:clamp(6px,2vw,30px)}
+.archivo-nav .cart-toggle{color:#252524}
+.announcement{min-height:28px;background:#252524;color:#f3eddf;padding:6px clamp(18px,3.4vw,66px);font:540 9px/1.3 var(--archivo-sans);letter-spacing:.12em}
+.announcement span:last-child{color:#ddd7cc;font-size:9px}
+
+/* Primer pantallazo: fotografía y prenda. El discurso conceptual vive debajo. */
+.archivo-home-hero.hero{display:block!important;position:relative;width:100%;height:min(79svh,850px);min-height:610px;max-height:860px;overflow:hidden;background:#332e2a;color:#f4eee4}
+.archivo-home-hero .archivo-featured{position:relative;width:100%;height:100%;overflow:hidden;background:#332e2a}
+.archivo-home-hero .archivo-featured #hero-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:65% 0%;max-height:none;animation:none}
+.archivo-home-hero .archivo-featured .hero-shade{position:absolute;inset:0;display:block;background:linear-gradient(90deg,rgba(21,21,24,.50) 0%,rgba(21,21,24,.19) 53%,rgba(21,21,24,.04) 82%),linear-gradient(0deg,rgba(17,17,18,.79),transparent 53%);pointer-events:none}
+.archivo-home-hero .archivo-feature-metadata{top:clamp(27px,4vw,65px);left:clamp(22px,4vw,70px);right:clamp(22px,4vw,70px);font:650 9px/1.4 var(--archivo-sans);letter-spacing:.17em}
+.archivo-home-hero .archivo-featured .hero-copy.archivo-feature-copy{position:absolute;display:flex;top:auto;bottom:clamp(123px,15.5vh,180px);left:clamp(22px,4vw,70px);right:clamp(20px,4vw,70px);width:auto;max-width:850px;align-items:flex-start;margin:0;padding:0;gap:0;z-index:2;animation:none}
+.archivo-home-hero .archivo-featured .archivo-hero-eyebrow{font:720 11px/1.5 var(--archivo-sans);letter-spacing:.155em;text-transform:uppercase;margin:0 0 18px;color:#faf1e3}
+.archivo-home-hero .archivo-featured .hero-title{font:460 clamp(64px,7.1vw,116px)/.96 var(--archivo-serif);letter-spacing:-.055em;color:#fff9ef;margin:0 0 15px;max-width:760px;white-space:pre-line;text-wrap:balance;animation:none}
+.archivo-home-hero .archivo-hero-signoff{font:520 13px/1.5 var(--archivo-sans);letter-spacing:.09em;color:#f4ece0;margin:0 0 28px}
+.archivo-home-hero .archivo-featured .hero-catalog-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px 30px}
+.archivo-home-hero .archivo-featured .hero-catalog-actions .button.light{font:670 11px/1.3 var(--archivo-sans);background:#f3eddf;color:#252524;min-height:52px;padding:14px 19px;min-width:205px;display:flex;justify-content:space-between;transition:background .2s}
+.archivo-home-hero .archivo-featured .hero-catalog-actions .button.light:hover{background:#ddd5c9}
+.archivo-home-hero .archivo-featured .hero-catalog-actions>a{font:610 11px/1.3 var(--archivo-sans);color:#fff9ed;border-bottom:1px solid #fff9ed;min-height:44px;padding:12px 0}
+.archivo-home-hero .archivo-featured .hero-bottom.archivo-feature-navigation{position:absolute;left:clamp(22px,4vw,70px);right:clamp(22px,4vw,70px);bottom:26px;display:block;width:auto;margin:0;z-index:3}
+.archivo-home-hero .archivo-featured .campaign-navigation{display:flex;gap:13px;align-items:center}
+.archivo-home-hero .archivo-featured .hero-brands{display:flex!important;gap:clamp(12px,1.8vw,24px);flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;justify-content:flex-start}
+.archivo-home-hero .archivo-featured .hero-brands button{flex:0 0 auto;min-width:100px;max-width:160px;min-height:42px;padding:10px 0 7px;font:600 9px/1.3 var(--archivo-sans);letter-spacing:.045em;border:0;border-top:1px solid #ffffff88;color:#f4f0e1cf;text-align:left;scroll-snap-align:start}
+.archivo-home-hero .archivo-featured .hero-brands button[aria-pressed="true"]{border-top:2px solid white;padding-top:9px;color:white}
+.archivo-home-hero .archivo-featured .campaign-arrow{border:1px solid #ffffffa5;background:#17171918;width:40px;height:40px;flex:0 0 40px}
+.archivo-home-hero .archivo-featured #hero-tagline{display:none}
+
+/* Producto primero — colección transversal de marcas de autor */
+.archivo-shop-edit{background:#f3eddf;color:#252524;padding:clamp(67px,7.4vw,116px) clamp(20px,4vw,72px) clamp(60px,7vw,100px);scroll-margin-top:85px}
+.archivo-shop-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:35px}
+.archivo-shop-eyebrow{font:680 9px/1.4 var(--archivo-sans);letter-spacing:.18em;color:#655e57;margin:0 0 13px}
+.archivo-shop-head h2{font:560 clamp(38px,4vw,66px)/1.07 var(--archivo-serif);letter-spacing:-.04em;margin:0}
+.archivo-shop-head>a{font:610 11px/1.5 var(--archivo-sans);border-bottom:1px solid #252524;padding:10px 0 8px;display:flex;align-items:center;gap:25px;flex:0 0 auto}
+.archivo-shop-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,24px)}
+.archivo-curated-product{min-width:0}
+.archivo-curated-product-image{display:block;position:relative;width:100%;aspect-ratio:4/5;background:#e9e4d9;border:0;padding:0;overflow:hidden;cursor:pointer;text-align:left}
+.archivo-curated-product-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.archivo-curated-product-image:hover img{transform:scale(1.035)}
+.archivo-curated-product-image:focus-visible{outline-offset:-3px}
+.archivo-curated-product-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:15px 0 0}
+.archivo-curated-product-meta>div{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.archivo-curated-brand{font:680 9px/1.4 var(--archivo-sans);letter-spacing:.12em;text-transform:uppercase;color:#625a52}
+.archivo-curated-title{font:530 15px/1.3 var(--archivo-sans);text-align:left;padding:0;color:#252524;border:0;background:transparent;cursor:pointer}
+.archivo-curated-title:hover{text-decoration:underline;text-underline-offset:4px}
+.archivo-curated-price{font:650 12px/1.45 var(--archivo-sans);white-space:nowrap;padding-top:16px}
+.archivo-shop-note{margin:25px 0 0;font:440 10px/1.6 var(--archivo-sans);color:#746c61}
+
+/* Marcas en foco, como selección comercial editorial y NO otro manifiesto */
+.archivo-curation{padding:clamp(55px,7vw,100px) clamp(20px,4vw,72px) clamp(65px,7vw,98px);background:#f0ebe2}
+.archivo-curation-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:0 0 27px}
+.archivo-curation .archivo-overline{font:690 9px var(--archivo-sans);letter-spacing:.16em;margin:0 0 10px;color:#716357}
+.archivo-curation h2{font:520 clamp(38px,4vw,66px)/1.08 var(--archivo-serif);letter-spacing:-.045em}
+.archivo-curation .archivo-curation-intro{max-width:none;justify-self:auto}
+.archivo-curation .archivo-curation-intro a{font:640 11px/1.4 var(--archivo-sans);padding:10px 0 6px}
+.archivo-editorial-card{height:clamp(360px,35vw,540px)}
+.archivo-editorial-top{font-size:9px;letter-spacing:.115em}
+.archivo-editorial-bottom strong{font-size:clamp(28px,2.7vw,49px)}
+.archivo-editorial-bottom small{font-size:11px;color:#f1eae1}
+
+/* Película: color grade y grano se calculan sobre fotografías con modelos y no sobre marcas o UI. */
+#hero-image[src$=".webp"],.archivo-editorial-card img[src$=".webp"]{filter:url('#film-editorial')!important}
+.archivo-curated-product img[src$=".webp"]{filter:url('#film-product')!important}
+.archivo-nav img[src$=".svg"],.footer-logo img[src$=".svg"]{filter:none!important}
+
+/* Mobile: imagen al comienzo, no un bloque negro de texto antes de ver prendas */
+@media(max-width:1050px){
+ .archivo-nav .archivo-primary-nav{gap:15px}
+ .archivo-nav .archivo-primary-nav a{font-size:10px}
+ .archivo-nav .logo.archivo-lockup .archivo-logo-complete{width:195px}
+ .archivo-shop-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+ .archivo-curated-product-meta{display:block}
+ .archivo-curated-price{display:block;padding-top:8px}
+}
+@media(max-width:850px){
+ .archivo-nav.nav{height:72px;padding:0 18px}
+ .archivo-nav .logo.archivo-lockup{max-width:185px}
+ .archivo-nav .logo.archivo-lockup .archivo-logo-complete{width:185px;max-width:100%}
+ .archivo-nav .nav-actions{margin-left:auto;gap:12px}
+ .archivo-mobile-menu{display:block;order:3}
+ .archivo-home-hero.hero{display:block!important;height:clamp(580px,77svh,780px);min-height:580px}
+ .archivo-home-hero .archivo-featured{height:100%}
+ .archivo-home-hero .archivo-featured .hero-copy.archivo-feature-copy{bottom:137px}
+ .archivo-home-hero .archivo-featured .hero-title{font-size:clamp(54px,8.6vw,88px)}
+ .archivo-curation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .archivo-editorial-card,.archivo-editorial-card-a,.archivo-editorial-card-b,.archivo-editorial-card-c{grid-row:auto;height:clamp(310px,42vw,420px);min-height:0}
+}
+@media(max-width:680px){
+ .archivo-nav.nav{height:66px;padding:0 14px;gap:9px}
+ .archivo-nav .logo.archivo-lockup{max-width:170px}
+ .archivo-nav .logo.archivo-lockup .archivo-logo-complete{width:170px;max-width:100%;height:auto;aspect-ratio:510/92}
+ .archivo-nav .nav-actions{gap:12px;margin-left:auto}
+ .archivo-nav .icon-button{width:31px;min-width:31px;padding:5px}
+ .archivo-nav .icon-button svg{width:21px;height:21px}
+ .archivo-nav .favorite-count{display:none}
+ .archivo-nav .cart-toggle{font-size:11px;gap:5px;font-weight:600}
+ .archivo-nav .cart-toggle #cart-count{width:22px;min-width:22px;height:22px;min-height:22px;padding:0;font-size:10px}
+ .archivo-mobile-menu summary{border:0;padding:5px;min-height:35px}
+ .archivo-mobile-menu .archivo-menu-label{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
+ .archivo-mobile-menu .menu-lines{font-size:19px}
+ .announcement{min-height:25px;font-size:8px;letter-spacing:.09em;padding:6px 14px}
+ .archivo-home-hero.hero{height:clamp(560px,75svh,760px);min-height:560px;max-height:none;display:block!important}
+ .archivo-home-hero .archivo-featured #hero-image{object-position:55% 0%}
+ .archivo-home-hero .archivo-featured .hero-shade{background:linear-gradient(180deg,rgba(15,17,18,.27),transparent 28%,rgba(15,13,18,.33) 53%,rgba(12,13,17,.83) 100%)}
+ .archivo-home-hero .archivo-feature-metadata{left:22px;right:22px;top:21px;font-size:8px}
+ .archivo-home-hero .archivo-feature-metadata span:last-child{display:none}
+ .archivo-home-hero .archivo-featured .hero-copy.archivo-feature-copy{left:22px;right:18px;top:auto;bottom:120px;max-width:100%;width:auto}
+ .archivo-home-hero .archivo-featured .archivo-hero-eyebrow{font-size:9px;letter-spacing:.14em;margin-bottom:9px}
+ .archivo-home-hero .archivo-featured .hero-title{font-size:clamp(45px,10.7vw,69px);line-height:.98;max-width:550px;margin:0 0 9px}
+ .archivo-home-hero .archivo-hero-signoff{font-size:11px;letter-spacing:.04em;margin:0 0 19px}
+ .archivo-home-hero .archivo-featured .hero-catalog-actions{gap:7px 18px}
+ .archivo-home-hero .archivo-featured .hero-catalog-actions .button.light{min-width:0;min-height:43px;font-size:10px;padding:10px 13px;gap:18px}
+ .archivo-home-hero .archivo-featured .hero-catalog-actions>a{font-size:10px;min-height:40px;padding:11px 0}
+ .archivo-home-hero .archivo-featured .hero-bottom.archivo-feature-navigation{left:15px;right:15px;bottom:14px}
+ .archivo-home-hero .archivo-featured .campaign-navigation{gap:8px}
+ .archivo-home-hero .archivo-featured .hero-brands{display:flex!important;gap:11px}
+ .archivo-home-hero .archivo-featured .hero-brands button{font-size:8px;min-width:88px;max-width:112px;min-height:35px;padding:9px 0 5px}
+ .archivo-home-hero .archivo-featured .campaign-arrow{min-width:31px;flex-basis:31px;width:31px;height:32px;min-height:32px}
+ .archivo-shop-edit{padding:58px 17px 67px}
+ .archivo-shop-head{align-items:flex-start;gap:14px;margin-bottom:24px}
+ .archivo-shop-head h2{font-size:clamp(35px,9vw,53px)}
+ .archivo-shop-head>a{font-size:10px;gap:8px;text-align:right;max-width:118px;padding:9px 0 6px}
+ .archivo-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:27px 12px}
+ .archivo-curated-product-image{aspect-ratio:4/5}
+ .archivo-curated-product-meta{padding:11px 0 0}
+ .archivo-curated-brand{font-size:8px}
+ .archivo-curated-title{font-size:13px;line-height:1.3}
+ .archivo-curated-price{font-size:12px}
+ .archivo-shop-note{font-size:9px;margin-top:22px}
+ .archivo-curation{padding:63px 17px 78px}
+ .archivo-curation-heading{display:flex;align-items:end;margin-bottom:24px}
+ .archivo-curation h2{font-size:clamp(37px,9vw,51px)}
+ .archivo-curation .archivo-curation-intro a{font-size:10px;max-width:105px;display:block;text-align:right}
+ .archivo-curation-grid{display:flex;gap:11px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:9px}
+ .archivo-editorial-card,.archivo-editorial-card-a,.archivo-editorial-card-b,.archivo-editorial-card-c{flex:0 0 min(78vw,340px);height:440px;min-height:0;scroll-snap-align:start}
+ .archivo-editorial-bottom strong{font-size:32px}
+ .archivo-editorial-top{font-size:8px}
+}
+@media(max-width:390px){
+ .archivo-nav .logo.archivo-lockup .archivo-logo-complete{width:146px}
+ .archivo-nav .nav-actions{gap:7px}
+ .archivo-home-hero .archivo-featured .hero-title{font-size:43px}
+ .archivo-home-hero .archivo-featured .hero-catalog-actions>a{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.archivo-curated-product-image img{transition:none}}
