@@ -19,5 +19,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
       - name: Validate 99 SVG prototypes and manifests
         run: python scripts/verify-brand-production.py
+      - name: Audit readiness of 51 real catalog SKUs
+        run: node scripts/audit-sku-production.cjs
