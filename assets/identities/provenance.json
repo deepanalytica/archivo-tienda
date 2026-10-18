@@ -3,6 +3,8 @@
   "generator": "scripts/generate-identities.py",
   "fonts": "../fonts/archivo-OFL.txt; ../fonts/fraunces-OFL.txt",
   "brands": [
+    "ownform",
+    "imago",
     "salitre",
     "alto",
     "limen",

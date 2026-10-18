@@ -20,7 +20,10 @@ Sitio público en GitHub Pages, repositorio deepanalytica/archivo-tienda y publi
 
 ## Capabilities and Constraints
 
-- Catálogo de 37 prendas, diez marcas y trece colecciones; búsqueda, filtros por destino, marca, colección y prenda; carga progresiva, favoritos, fichas y bolsa persistente.
+- Catálogo completo de 45 prendas visible desde el inicio, doce marcas y quince colecciones con índice directo; búsqueda, filtros por destino, marca, colección y prenda; imágenes con carga diferida, favoritos, fichas y bolsa persistente.
+- OWN FORM / Self Defined: cuatro prendas tipográficas con figuras ASCII, estampados de 8 a 28 cm, vista del arte y descargas SVG/PNG dimensionadas para prueba con proveedor. No se presentan como producción física validada.
+- Identidad física OWN FORM: vistas de Interior, Kraft y Manga, plantillas de cuello por talla, código por diseño y nueva imagen Not Here v2. Inner Signal explora la flor ASCII en color como estudio fuera de venta; el catálogo sigue con 45 prendas.
+- ARCHIVO Clothing & Art: firma vectorial intervenida, papel cálido, burdeos, sombras azul tinta y grano estático sutil. IMAGO incorpora flores de gran escala y mariposas, cuatro prendas y dos fotografías editoriales con modelos.
 - Poleras, polerones, gorros, camisas, shorts y chaquetas. Tres escapadas con conjuntos de tres piezas y elección individual de talla e inclusión.
 - Dos cintas cromáticas móviles con pausa manual, parada fuera de pantalla y alternativa para movimiento reducido.
 - La versión pública permite descargar una selección; no recibe pedidos, no recoge datos de contacto ni procesa pagos.

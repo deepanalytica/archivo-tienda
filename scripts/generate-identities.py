@@ -18,6 +18,8 @@ def path(d, opacity=1):
 
 # Authored filled geometry. Recessed planes belong to each form, not a drop shadow.
 MARKS = {
+ 'ownform': path('M13 21H35V29H21V67H35V75H13Z') + path('M61 21H83V75H61V67H75V29H61Z') + path('M33 60 55 31H65L43 60Z'),
+ 'imago': path('M45 43C26 8 3 9 10 33 14 50 31 57 43 55L29 76C18 88 34 91 45 68Z') + path('M51 43C70 8 93 9 86 33 82 50 65 57 53 55L67 76C78 88 62 91 51 68Z', .72) + path('M46 30H50V78H46Z'),
  'salitre': path('M14 21 63 8 82 20 38 32 65 40 65 57 20 70 5 58 49 46 14 37Z') + path('M20 70 65 57 65 40 82 29 82 70 35 85 20 76Z', .48) + path('M38 32 82 20 82 29 55 37Z', .7),
  'alto': path('M9 72 36 13 60 7 84 66 65 72 48 27 29 78Z') + path('M36 13 48 27 29 78 9 72Z', .58) + path('M37 55 60 48 65 60 32 70Z') + path('M60 7 87 19 94 67 84 66Z', .35),
  'limen': path('M12 17 33 9 33 61 74 47 74 69 12 89Z') + path('M33 9 47 20 47 51 33 56Z', .45) + path('M45 16 83 28 83 81 63 88 63 46 45 40Z') + path('M33 61 74 47 83 54 42 69Z', .6),
@@ -30,6 +32,8 @@ MARKS = {
  'logic': path('M8 8H47V23H23V47H8Z') + path('M30 30H69V45H45V69H30Z') + path('M52 52H91V91H76V67H52Z') + path('M8 47 19 56 30 56V41L23 35V47Z', .45) + path('M45 69 56 80 76 80V67L65 56V69Z', .45),
 }
 SPECS = {
+ 'ownform': dict(name='OWN FORM', family='archivo', axes={'wght':850,'wdth':78}, tracking=-5, slant=0, lines=[('OWN',1),('FORM',1)], title='Tu forma. Tus reglas.', note='Dos corchetes contienen una barra que cambia de direccion. Tipografia compacta y un gesto de codigo para una confianza sin permiso.', gesture='Codigo propio'),
+ 'imago': dict(name='IMAGO', family='fraunces', axes={'wght':580,'opsz':120,'SOFT':30,'WONK':1}, tracking=100, slant=.035, lines=[('IMAGO',1)], title='Lo delicado también tiene carácter.', note='Dos alas plegadas dejan un cuerpo en el vacío. Una firma de serifas tensas y espacios amplios acompaña la transformación.', gesture='Alas en contrapunto'),
  'salitre': dict(name='SALITRE', family='archivo', axes={'wght':540,'wdth':112}, tracking=70, slant=0, lines=[('SALITRE',1)], title='Un horizonte que se pliega.', note='Una S de planos desplazados. La firma se abre entre letras y vuelve a cerrarse en el símbolo.', gesture='Pliegue salino'),
  'alto': dict(name='ALTO SUR', family='archivo', axes={'wght':850,'wdth':78}, tracking=-10, slant=-.08, lines=[('ALTO',1),('SUR',1)], title='El volumen está en el vacío.', note='Una A tallada en perspectiva. Dos niveles de letras compactas sostienen una silueta vertical.', gesture='A tallada'),
  'limen': dict(name='LIMEN', family='archivo', axes={'wght':480,'wdth':114}, tracking=50, slant=0, lines=[('LIMEN',1)], title='Una puerta dentro de otra.', note='Dos eles cruzan sus planos. El intervalo entre las letras es parte de la firma.', gesture='Doble intervalo'),
@@ -48,6 +52,8 @@ def signature(key, spec):
     cap_scale = 720 / font['OS/2'].sCapHeight
     # Explicit geometric glyphs alter the local type rather than merely selecting a face.
     custom = {
+      ('archivo','A'): 'M0 0 244 720H420L666 0H500L450 162H207L155 0ZM251 300H408L330 545Z',
+      ('archivo','R'): 'M0 0V720H320Q570 720 570 487Q570 341 439 295L633 0H448L275 269H155V0ZM155 405H300Q412 405 412 494T300 583H155Z',
       ('alto','A'): 'M0 0 235 720H435L670 0H485L440 160H218L172 0ZM260 315H400L330 570Z',
       ('limen','I'): 'M40 0H122V300H40ZM40 380H122V720H40Z',
       ('limen','E'): 'M0 0H470V78H88V321H400V399H88V642H470V720H0Z',
@@ -64,7 +70,7 @@ def signature(key, spec):
         if char == ' ': x += 220; continue
         g=glyphs[cmap[ord(char)]]; pen=SVGPathPen(glyphs); g.draw(TransformPen(pen,(cap_scale,0,0,cap_scale,0,0)))
         d=custom.get((key,char), pen.getCommands())
-        custom_widths={('alto','A'):690,('limen','I'):190,('limen','E'):510,('orbita','Ó'):750,('salitre','T'):580,('salitre','E'):500,('marea','M'):730,('umbral','U'):650}
+        custom_widths={('archivo','A'):690,('archivo','R'):655,('alto','A'):690,('limen','I'):190,('limen','E'):510,('orbita','Ó'):750,('salitre','T'):580,('salitre','E'):500,('marea','M'):730,('umbral','U'):650}
         advance = custom_widths.get((key,char),g.width*cap_scale)
         offset= i*5 if key=='neblina' else (18 if key=='limen' and char=='M' else 0)
         items.append(f'<path transform="translate({x} {-offset})" d="{d}"/>')
@@ -99,6 +105,9 @@ def build():
     payload=json.dumps(data,ensure_ascii=False,separators=(',',':'))
     (ROOT/'identities.js').write_text(f'/* Authored vector identities. Rebuild with scripts/generate-identities.py. */\n(function(root) {{\n  const identities = {payload};\n  if (typeof module !== "undefined" && module.exports) module.exports = identities;\n  root.ARCHIVO_IDENTITIES = identities;\n}})(typeof window !== "undefined" ? window : globalThis);\n',encoding='utf-8',newline='\n')
     (OUT/'provenance.json').write_text(json.dumps({'source':'Original vector geometry authored for ARCHIVO. Letter outlines derived and individually composed from locally hosted OFL Archivo and Fraunces.','generator':'scripts/generate-identities.py','fonts':'../fonts/archivo-OFL.txt; ../fonts/fraunces-OFL.txt','brands':list(SPECS)},ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
-    print('Built 10 symbols, 10 wordmarks, 10 signatures and browser identity data.')
+    master=signature('archivo',dict(family='archivo',axes={'wght':820,'wdth':98},tracking=-12,slant=0,lines=[('ARCHIVO',1)]))
+    master_body=f'<g transform="translate(55 45)">{master["body"]}</g>'
+    (OUT/'archivo-wordmark.svg').write_text(svg(master_body,master['width']+100,master['height']+80,'ARCHIVO Clothing &amp; Art')+'\n',encoding='utf-8',newline='\n')
+    print(f'Built {len(SPECS)} symbols, wordmarks, signatures, master ARCHIVO lettering and browser identity data.')
 
 if __name__=='__main__': build()

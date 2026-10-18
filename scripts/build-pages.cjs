@@ -10,7 +10,7 @@ async function build() {
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
   if (!html.includes('<html lang="es">')) throw new Error('No se encontró la etiqueta raíz para configurar Pages.');
   await fs.writeFile(path.join(destination, 'index.html'), html.replace('<html lang="es">', '<html lang="es" data-store-mode="static">'));
-  for (const file of ['styles.css', 'identities.css', 'catalog.js', 'identities.js', 'app.js', 'escapes.js', 'identity-ui.js']) {
+  for (const file of ['styles.css', 'identities.css', 'editorial.css', 'catalog.js', 'identities.js', 'app.js', 'escapes.js', 'identity-ui.js', 'summer-editorial.js']) {
     await fs.copyFile(path.join(root, file), path.join(destination, file));
   }
   for (const folder of ['brands', 'products']) {
@@ -21,7 +21,17 @@ async function build() {
     }
   }
   await fs.cp(path.join(root, 'assets', 'fonts'), path.join(destination, 'assets', 'fonts'), { recursive: true });
+  const prints = path.join(destination, 'assets', 'prints', 'ownform');
+  await fs.mkdir(prints, { recursive: true });
+  for (const file of await fs.readdir(path.join(root, 'assets', 'prints', 'ownform'))) {
+    if (/^[a-z-]+\.(svg|png)$/.test(file)) await fs.copyFile(path.join(root, 'assets', 'prints', 'ownform', file), path.join(prints, file));
+  }
   const identities = path.join(destination, 'assets', 'identities');
+  const trims = path.join(destination, 'assets/trims/ownform');
+  await fs.mkdir(trims, { recursive: true });
+  for (const file of await fs.readdir(path.join(root, 'assets/trims/ownform'))) {
+    if (/^[a-z0-9-]+\.(svg|png)$/.test(file)) await fs.copyFile(path.join(root, 'assets/trims/ownform', file), path.join(trims, file));
+  }
   await fs.mkdir(identities, { recursive: true });
   for (const file of await fs.readdir(path.join(root, 'assets', 'identities'))) {
     if (file.endsWith('.svg')) await fs.copyFile(path.join(root, 'assets', 'identities', file), path.join(identities, file));

@@ -10,9 +10,9 @@ function save(key, value) { try { localStorage.setItem(key, JSON.stringify(value
 const storedFavorites = load('archivo-favorites-v1', []);
 const storedCart = load('archivo-cart-v1', []);
 const state = {
-  brand: 'all', collection: 'all', destination: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'salitre', feature: 'costa-privada', limit: 12,
+  brand: 'all', collection: 'all', destination: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'ownform', feature: 'self-defined',
   favorites: new Set(Array.isArray(storedFavorites) ? storedFavorites.filter((id) => byId(id)) : []),
-  cart: [], product: null, size: null, quantity: 1, view: 'product', requestKey: null, order: null,
+  cart: [], product: null, size: null, quantity: 1, view: 'product', finish: 0, requestKey: null, order: null,
 };
 if (Array.isArray(storedCart)) {
   for (const item of storedCart.slice(0, maxCartLines)) {
@@ -25,9 +25,10 @@ if (Array.isArray(storedCart)) {
   }
 }
 const heart = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6c-2-2-5.1-1.9-7.1.1L12 6.4l-1.7-1.7c-2-2-5.1-2.1-7.1-.1s-1.9 5.1.1 7.1L12 20l8.7-8.3c2-2 2.1-5.1.1-7.1Z"/></svg>';
-const universeOrder = ['salitre', 'alto', 'limen', 'brava', 'solar', 'marea', 'orbita', 'umbral', 'neblina', 'logic'];
+const universeOrder = ['ownform', 'imago', 'salitre', 'alto', 'limen', 'brava', 'solar', 'marea', 'orbita', 'umbral', 'neblina', 'logic'];
 const collectionOrder = [...new Set([...universeOrder.map((id) => brands[id].latest), ...Object.keys(collections)])];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const campaignViewport = matchMedia('(max-width: 680px)');
 function scrollToCatalog() { $('#catalogo').scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth' }); }
 function brandSymbol(mark) {
   const aliases = { sun: 'solar', wave: 'marea', orbit: 'orbita', portal: 'umbral', landscape: 'neblina', angles: 'logic', horizon: 'salitre', peak: 'alto', bars: 'limen', flower: 'brava' };
@@ -48,6 +49,18 @@ function renderUniverseNavigation() {
   $('#collection-filter').innerHTML = '<option value="all">Todas las colecciones</option>' + collectionOrder.map((id) => `<option value="${id}">${brands[collections[id].brand].name} / ${collections[id].name}</option>`).join('');
   $('#category-filter').innerHTML = '<option value="all">Todas las prendas</option>' + [...new Set(products.map((product) => product.category))].map((category) => `<option>${category}</option>`).join('');
   $('#collection-tabs').innerHTML = collectionOrder.map((id) => `<button type="button" data-explore-collection="${id}" aria-pressed="${id === state.feature}">${collections[id].name}</button>`).join('');
+  $('#collection-directory').innerHTML = collectionOrder.map((id) => {
+    const collection = collections[id];
+    const count = products.filter((product) => product.collection === id).length;
+    return `<button type="button" data-collection="${id}" style="--directory-bg:${collection.color};--directory-ink:${collection.ink}"><span class="eyebrow">${brands[collection.brand].name}</span><strong>${collection.name}</strong><span class="directory-count">${count} ${count === 1 ? 'prenda' : 'prendas'} <span aria-hidden="true">↗</span></span></button>`;
+  }).join('');
+  $('#catalog-total').textContent = `${products.length} prendas · ${Object.keys(collections).length} colecciones · ${Object.keys(brands).length} marcas`;
+  $('#hero-catalog-link').textContent = `Ver las ${products.length} prendas`;
+  $('#collection-summary').textContent = `${Object.keys(brands).length} marcas. ${Object.keys(collections).length} colecciones. Encuentra el universo que va contigo.`;
+  $('#brand-line').setAttribute('aria-label', `${Object.keys(brands).length} marcas de autor`);
+  $('#ticker-brands').setAttribute('aria-label', `${Object.keys(brands).length} marcas, universos propios.`);
+  $('#hero-brand-count').textContent = `/${String(Object.keys(brands).length).padStart(2, '0')}`;
+  $('#footer-brand-list').textContent = universeOrder.map((id) => brands[id].name).join(' / ');
   $('#brand-editorials').innerHTML = universeOrder.map((id) => {
     const brand = brands[id];
     return `<article class="brand-story brand-${id}" style="--story-bg:${collections[brand.latest].color};--story-ink:${collections[brand.latest].ink}"><button type="button" class="brand-photo" data-brand-story="${id}" aria-label="Conocer ${brand.name}"><img src="${brand.campaign}" alt="${brand.name}: ${brand.world}" loading="lazy" width="1536" height="1024"><span class="wordmark wordmark-${id}">${brandWordmark(id)}</span></button><div class="brand-story-copy"><div class="brand-story-title"><h3>${brand.world}</h3>${brandSymbol(brand.mark)}</div><p>${brand.description}</p><div class="brand-story-bottom">${paletteHtml(brand)}<button type="button" class="line-link" data-brand-story="${id}">Su universo <span aria-hidden="true">↗</span></button></div></div></article>`;
@@ -87,8 +100,7 @@ all('dialog').forEach((dialog) => {
 });
 all('[data-close]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
 
-function renderCatalog(preserveLimit = false) {
-  if (!preserveLimit) state.limit = 12;
+function renderCatalog() {
   const query = normalize(state.search.trim());
   let visible = products.filter((product) =>
     (state.brand === 'all' || product.brand === state.brand) &&
@@ -102,12 +114,9 @@ function renderCatalog(preserveLimit = false) {
   if (state.sort === 'price-asc') visible.sort((a, b) => a.price - b.price);
   if (state.sort === 'price-desc') visible.sort((a, b) => b.price - a.price);
   if (state.sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name, 'es'));
-  $('#product-grid').innerHTML = visible.slice(0, state.limit).map((product) => `<article class="product-card" data-product="${product.id}"><div class="product-picture"><button type="button" class="product-open" data-open-product="${product.id}" aria-label="Ver ${product.name} de ${brands[product.brand].name}"><img src="${product.image}" alt="${product.name}, ${product.color}, vista ${product.view.toLowerCase()}" width="1000" height="1000" loading="lazy"></button><button type="button" class="save-product" data-save="${product.id}" aria-label="Guardar ${product.name} en favoritos" aria-pressed="${state.favorites.has(product.id)}">${heart}</button><span class="product-view">${product.graphic === 'micro' ? 'Micrográfica' : product.graphic === 'macro' ? 'Estampado de autor' : product.view}</span></div><div class="product-caption"><div><p class="eyebrow">${brands[product.brand].name}</p><h3 class="product-title"><button type="button" data-open-product="${product.id}">${product.name}</button></h3><p class="product-color"><i style="background:${product.swatch}"></i>${product.color}</p></div><span class="product-price">${money(product.price)}</span></div></article>`).join('');
+  $('#product-grid').innerHTML = visible.map((product) => `<article class="product-card" data-product="${product.id}"><div class="product-picture"><button type="button" class="product-open" data-open-product="${product.id}" aria-label="Ver ${product.name} de ${brands[product.brand].name}"><img src="${product.image}" alt="${product.name}, ${product.color}, vista ${product.view.toLowerCase()}" width="1000" height="1000" loading="lazy"></button><button type="button" class="save-product" data-save="${product.id}" aria-label="Guardar ${product.name} en favoritos" aria-pressed="${state.favorites.has(product.id)}">${heart}</button><span class="product-view">${product.graphic === 'micro' ? 'Micrográfica' : product.graphic === 'macro' ? 'Estampado de autor' : product.view}</span></div><div class="product-caption"><div><p class="eyebrow">${brands[product.brand].name}</p><h3 class="product-title"><button type="button" data-open-product="${product.id}">${product.name}</button></h3><p class="product-color"><i style="background:${product.swatch}"></i>${product.color}</p></div><span class="product-price">${money(product.price)}</span></div></article>`).join('');
   $('#empty-catalog').hidden = visible.length > 0;
-  $('#result-count').textContent = `${Math.min(state.limit, visible.length)} de ${visible.length} ${visible.length === 1 ? 'prenda' : 'prendas'}${state.favoritesOnly ? ' en favoritos' : ''}`;
-  $('#load-more').hidden = visible.length <= state.limit;
-  $('#load-more').textContent = `Ver más prendas (${Math.max(0, visible.length - state.limit)})`;
-  $('#catalog-progress').textContent = visible.length > state.limit ? 'Todavía hay más por descubrir.' : visible.length ? 'Estás viendo toda esta selección.' : '';
+  $('#result-count').textContent = `${visible.length} ${visible.length === 1 ? 'prenda' : 'prendas'}${state.favoritesOnly ? ' en favoritos' : ''}`;
   $('#clear-filters').hidden = state.brand === 'all' && state.collection === 'all' && state.destination === 'all' && state.category === 'all' && !state.search && !state.favoritesOnly;
   $('#destination-filter').value = state.destination;
   $('#collection-filter').value = state.collection;
@@ -147,7 +156,7 @@ document.addEventListener('click', (event) => {
   if (favoriteButton) {
     const id = favoriteButton.dataset.save;
     if (state.favorites.has(id)) state.favorites.delete(id); else state.favorites.add(id);
-    save('archivo-favorites-v1', [...state.favorites]); renderCatalog(true);
+    save('archivo-favorites-v1', [...state.favorites]); renderCatalog();
     $(`[data-save="${id}"]`)?.focus({ preventScroll: true });
   }
 });
@@ -160,10 +169,7 @@ $('#destination-filter').addEventListener('change', (event) => {
   if (state.collection !== 'all' && state.destination !== 'all' && brands[collections[state.collection].brand].destination !== state.destination) state.collection = 'all';
   renderCatalog();
 });
-$('#load-more').addEventListener('click', () => {
-  const previousLimit = state.limit; state.limit += 12; renderCatalog(true);
-  if ($('#load-more').hidden) all('.product-open')[previousLimit]?.focus();
-});
+$('#show-all-products').addEventListener('click', resetFilters);
 $('#sort').addEventListener('change', (event) => { state.sort = event.target.value; renderCatalog(); });
 $('#clear-filters').addEventListener('click', resetFilters);
 $('#reset-empty').addEventListener('click', resetFilters);
@@ -173,7 +179,7 @@ $('#favorites-toggle').addEventListener('click', () => { state.favoritesOnly = !
 function showCampaign(id) {
   state.campaign = id;
   const brand = brands[state.campaign];
-  $('#hero-image').src = brand.campaign;
+  $('#hero-image').src = campaignViewport.matches && brand.mobileCampaign ? brand.mobileCampaign : brand.campaign;
   $('#hero-image').alt = `Campaña ${brand.name}: ${brand.description}`;
   $('#hero-cta').replaceChildren(document.createTextNode(`Explorar ${brand.name} `), Object.assign(document.createElement('span'), { textContent: '↗' }));
   const headlines = { solar: 'Nos vemos\nafuera.', marea: 'Llévate\nla costa.', orbita: 'Cambia\nde órbita.', umbral: 'El taller\nsale a la calle.', neblina: 'Otra forma\nde florecer.', logic: 'Sube el\nvolumen.' };
@@ -186,6 +192,7 @@ function showCampaign(id) {
   const button = $(`#hero-brands [data-campaign="${id}"]`);
   $('#hero-brands').scrollTo({ left: button.offsetLeft - $('#hero-brands').offsetLeft - 15, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
 }
+campaignViewport.addEventListener('change', () => showCampaign(state.campaign));
 all('[data-campaign]').forEach((button) => button.addEventListener('click', () => showCampaign(button.dataset.campaign)));
 $('#campaign-prev').addEventListener('click', () => showCampaign(universeOrder[(universeOrder.indexOf(state.campaign) + universeOrder.length - 1) % universeOrder.length]));
 $('#campaign-next').addEventListener('click', () => showCampaign(universeOrder[(universeOrder.indexOf(state.campaign) + 1) % universeOrder.length]));
@@ -193,10 +200,16 @@ $('#hero-cta').addEventListener('click', () => filterBrand(state.campaign));
 
 function showProduct(id) {
   const product = byId(id); if (!product) return;
-  state.product = product; state.size = product.sizes.length === 1 ? product.sizes[0] : null; state.quantity = 1; state.view = 'product';
+  state.product = product; state.size = product.sizes.length === 1 ? product.sizes[0] : null; state.quantity = 1; state.view = 'product'; state.finish = 0;
   const brand = brands[product.brand];
   $('#detail-brand').textContent = `${brand.name} / ${collections[product.collection].name}`;
-  $('[data-view="detail"]').hidden = !brand.detail;
+  $('[data-view="detail"]').hidden = !brand.detail && !brand.finishes?.length;
+  $('[data-view="artwork"]').hidden = !product.print;
+  $('#print-spec').hidden = !product.print;
+  if (product.print) {
+    const print = product.print;
+    $('#print-spec').innerHTML = `<p class="eyebrow">ARTE / PLANCHA 30 × 30</p><p><strong>${print.widthCm} × ${print.heightCm} cm</strong> · ${print.placement}</p><p>${print.technique}. La escala en el mockup es orientativa; el archivo define la medida.</p><div class="print-downloads"><a href="${print.svg}" download>SVG vectorial ↓</a><a href="${print.png}" download>PNG transparente · 300 ppp ↓</a></div><p class="print-status">${print.status}</p>`;
+  } else $('#print-spec').replaceChildren();
   $('#product-title').textContent = product.name;
   $('#detail-price').textContent = money(product.price);
   $('#detail-description').textContent = product.description;
@@ -208,18 +221,41 @@ function showProduct(id) {
   $('#size-options').replaceChildren(...product.sizes.map((size) => {
     const button = document.createElement('button'); button.type = 'button'; button.textContent = size;
     button.setAttribute('aria-label', `Talla ${size}`); button.setAttribute('aria-pressed', String(size === state.size));
-    button.addEventListener('click', () => { state.size = size; all('#size-options button').forEach((b) => b.setAttribute('aria-pressed', String(b === button))); $('#size-error').textContent = ''; });
+    button.addEventListener('click', () => { state.size = size; all('#size-options button').forEach((b) => b.setAttribute('aria-pressed', String(b === button))); $('#size-error').textContent = ''; renderTrimSpec(); });
     return button;
   }));
-  renderProductView(); openDialog($('#product-dialog'));
+  renderTrimSpec(); renderProductView(); openDialog($('#product-dialog'));
+}
+function renderTrimSpec() {
+  const trims = state.product?.trims;
+  const panel = $('#trim-spec');
+  panel.hidden = !trims;
+  if (!trims) { panel.replaceChildren(); return; }
+  const size = state.size || 'M';
+  const root = 'assets/trims/ownform/';
+  panel.innerHTML = `<p class="eyebrow">CÓDIGO PROPIO / ${trims.code}</p><p>Interior 60 × 35 mm · manga 40 × 16 mm · kraft 55 × 90 mm.</p><p>Corchetes y barra en manga, marca interior y tarjeta de la pieza. Un mismo sistema, aunque cambie el arte.</p><div class="trim-downloads"><a href="${root}neck-${size.toLowerCase()}-${trims.neckInk}.svg" download>Interior ${size}${state.size ? '' : ' · muestra'} ↓</a><a href="${root}sleeve-${trims.sleeveInk}.svg" download>Firma de manga ↓</a><a href="${root}hangtag-front.svg" download>Kraft frente ↓</a><a href="${root}${trims.tagBack}.svg" download>Kraft reverso ↓</a></div><p class="small-note">Sistema de terminaciones propuesto. Revisar materiales y muestra. La marca interior no sustituye la información real de composición y cuidados de la prenda.</p>`;
 }
 function renderProductView() {
   const product = state.product; const brand = brands[product.brand];
-  $('#detail-image').src = state.view === 'product' ? product.image : state.view === 'campaign' ? collections[product.collection].campaign : brand.detail;
-  $('#detail-image').alt = state.view === 'product' ? `${product.name}, ${product.color}, ${product.view}` : `${state.view === 'campaign' ? 'Campaña de colección' : 'Etiquetas y terminaciones de la marca'} ${brand.name}`;
+  const isArtwork = state.view === 'artwork' && product.print;
+  const finish = state.view === 'detail' ? brand.finishes?.[state.finish] : null;
+  $('#detail-image').src = isArtwork ? product.print.svg : state.view === 'product' ? product.image : state.view === 'campaign' ? (product.campaign || collections[product.collection].campaign) : finish?.image || brand.detail;
+  $('#detail-image').alt = finish ? finish.alt : isArtwork ? `Arte original ${product.name}, ${product.print.widthCm} por ${product.print.heightCm} centímetros` : state.view === 'product' ? `${product.name}, ${product.color}, ${product.view}` : `${state.view === 'campaign' ? 'Campaña de colección' : 'Etiquetas y terminaciones de la marca'} ${brand.name}`;
+  $('#finish-views').hidden = !finish;
+  $('#finish-views').innerHTML = finish ? brand.finishes.map((item, index) => `<button type="button" data-finish="${index}" aria-pressed="${index === state.finish}">${item.label}</button>`).join('') : '';
+  $('#gallery-caption').hidden = !finish;
+  $('#gallery-caption').textContent = finish?.caption || '';
+  $('#detail-image').classList.toggle('is-print-art', Boolean(isArtwork));
+  $('#detail-image').style.setProperty('--print-background', product.print?.background || 'transparent');
   all('[data-view]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
 }
 all('[data-view]').forEach((button) => button.addEventListener('click', () => { state.view = button.dataset.view; renderProductView(); }));
+$('#finish-views').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-finish]');
+  const index = Number(button?.dataset.finish);
+  if (!button || !brands[state.product.brand].finishes?.[index]) return;
+  state.finish = index; renderProductView();
+});
 $('#detail-minus').addEventListener('click', () => { state.quantity = Math.max(1, state.quantity - 1); $('#detail-quantity').textContent = state.quantity; });
 $('#detail-plus').addEventListener('click', () => { state.quantity = Math.min(maxQuantity, state.quantity + 1); $('#detail-quantity').textContent = state.quantity; });
 $('#add-to-cart').addEventListener('click', () => {
@@ -323,4 +359,5 @@ if (isStaticStore) {
   $('.catalog-note').textContent = 'Colección de muestra. Imágenes de concepto y precios referenciales en CLP. Puedes descargar tu selección; todavía no se reciben pedidos.';
   $('.detail-info > .small-note:last-of-type').textContent = 'Agrega prendas a tu selección. Sin cobro ni reserva.';
 }
+showCampaign(state.campaign);
 renderCatalog(); renderCartCount();

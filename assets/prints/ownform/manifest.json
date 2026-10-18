@@ -1,0 +1,50 @@
+[
+  {
+    "id": "quiet-confidence",
+    "phrase": "QUIET confidence.",
+    "widthMm": 260,
+    "heightMm": 260,
+    "placement": "Pecho centrado",
+    "background": "transparent",
+    "typography": "outlined",
+    "rasterDpi": 300,
+    "maxPressMm": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "not-here",
+    "phrase": "NOT HERE to FIT IN.",
+    "widthMm": 270,
+    "heightMm": 270,
+    "placement": "Pecho centrado",
+    "background": "transparent",
+    "typography": "outlined",
+    "rasterDpi": 300,
+    "maxPressMm": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "own-way",
+    "phrase": "MAKE your own WAY.",
+    "widthMm": 280,
+    "heightMm": 280,
+    "placement": "Espalda, sobre el bolsillo delantero",
+    "background": "transparent",
+    "typography": "outlined",
+    "rasterDpi": 300,
+    "maxPressMm": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "self-defined",
+    "phrase": "SELF defined.",
+    "widthMm": 80,
+    "heightMm": 80,
+    "placement": "Pecho izquierdo",
+    "background": "transparent",
+    "typography": "outlined",
+    "rasterDpi": 300,
+    "maxPressMm": 300,
+    "status": "supplier-proof-required"
+  }
+]

@@ -1,5 +1,5 @@
-/* Manual exploration of the ten authored signatures. */
-let activeIdentity = 'salitre';
+/* Manual exploration of the authored signatures. */
+let activeIdentity = universeOrder[0];
 function renderIdentity() {
   const id = activeIdentity; const identity = ARCHIVO_IDENTITIES[id]; const brand = brands[id];
   const stage = $('#identity-stage');

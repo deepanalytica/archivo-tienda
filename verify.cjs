@@ -23,7 +23,17 @@ const { chromium } = require('playwright');
       const page = await context.newPage();
       page.on('pageerror', (error) => errors.push(`${name}: ${error.message}`));
       await page.goto(base);
-      await page.waitForFunction((count) => document.querySelectorAll('.product-card').length === count, Math.min(12, catalog.products.length));
+      await page.waitForFunction((count) => document.querySelectorAll('.product-card').length === count, catalog.products.length);
+      assert.equal(await page.locator('#collection-directory [data-collection]').count(), Object.keys(catalog.collections).length);
+      assert.equal(await page.locator('#load-more').count(), 0);
+      for (const [id] of Object.entries(catalog.collections)) {
+        await page.locator(`#collection-directory [data-collection="${id}"]`).click();
+        assert.equal(await page.locator('.product-card').count(), catalog.products.filter((product) => product.collection === id).length);
+        assert.equal(await page.locator('#collection-filter').inputValue(), id);
+        await page.locator('#show-all-products').click();
+        assert.equal(await page.locator('.product-card').count(), catalog.products.length);
+      }
+      await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); });
       await page.evaluate(() => document.fonts.ready);
       await page.evaluate(async () => { for (const img of document.images) img.loading = 'eager'; await Promise.all([...document.images].map((img) => img.decode().catch(() => {}))); });
       const layout = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, broken: [...document.images].filter((img) => !img.naturalWidth).map((img) => img.src) }));
@@ -37,7 +47,7 @@ const { chromium } = require('playwright');
       await page.getByRole('searchbox', { name: 'Buscar productos' }).fill('ninguna-coincidencia');
       assert.equal(await page.locator('.product-card').count(), 0);
       await page.getByRole('button', { name: 'Ver toda la selección' }).click();
-      assert.equal(await page.locator('.product-card').count(), Math.min(12, catalog.products.length));
+      assert.equal(await page.locator('.product-card').count(), catalog.products.length);
       await page.locator('#sort').selectOption('price-asc');
       assert.equal(await page.locator('.product-card').first().getAttribute('data-product'), 'logic-cap');
       await page.locator('[data-save="umbral-tee"]').click();

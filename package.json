@@ -2,9 +2,9 @@
   "name": "archivo-tienda",
   "version": "1.0.0",
   "private": true,
-  "description": "ARCHIVO: diez marcas, trece colecciones y prendas de autor para playa, montaña y ciudad",
+  "description": "ARCHIVO Clothing & Art: doce marcas, quince colecciones y prendas de autor",
   "scripts": {
-    "start": "node server.cjs",
+    "start": "node --watch server.cjs",
     "build": "node scripts/build-pages.cjs",
     "test:local": "node verify.cjs",
     "test:pages": "npm run build && node verify-pages.cjs",

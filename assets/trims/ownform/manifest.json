@@ -1,0 +1,164 @@
+[
+  {
+    "id": "neck-s-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-m-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-l-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-xl-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-s-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-m-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-l-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-xl-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "kind": "brand-size-transfer",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "sleeve-charcoal",
+    "widthMm": 40,
+    "heightMm": 16,
+    "kind": "sleeve-transfer",
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "sleeve-ivory",
+    "widthMm": 40,
+    "heightMm": 16,
+    "kind": "sleeve-transfer",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "sleeve-acid",
+    "widthMm": 40,
+    "heightMm": 16,
+    "kind": "sleeve-transfer",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-front",
+    "widthMm": 55,
+    "heightMm": 90,
+    "kind": "paper-hangtag",
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-cut-guide",
+    "widthMm": 55,
+    "heightMm": 90,
+    "kind": "production-guide",
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-01",
+    "widthMm": 55,
+    "heightMm": 90,
+    "kind": "paper-hangtag",
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-02",
+    "widthMm": 55,
+    "heightMm": 90,
+    "kind": "paper-hangtag",
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-03",
+    "widthMm": 55,
+    "heightMm": 90,
+    "kind": "paper-hangtag",
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-04",
+    "widthMm": 55,
+    "heightMm": 90,
+    "kind": "paper-hangtag",
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "signal-bloom-study",
+    "widthMm": 260,
+    "heightMm": 280,
+    "kind": "digital-art-study",
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  }
+]

@@ -402,7 +402,31 @@ El botón «Pausar movimiento» / «Reanudar movimiento» controla ambas cintas 
 - Don't sustituir las diez identidades por un único color o una única firma de marca.
 - Don't reconstruir las firmas vectoriales con fuentes CSS ni regresar a pictogramas literales de sol, montaña o planeta.
 - Don't afirmar que las fotografías existentes reproducen la firma digital exacta en todas las prendas.
-- Don't ocultar prendas al final del primer bloque: conserva la carga progresiva de doce y su contador.
+- Don't ocultar prendas tras un primer bloque: muestra todo el catálogo filtrado y conserva la carga diferida de imágenes.
+
+## ARCHIVO Clothing & Art / IMAGO
+
+La capa editorial vigente vive en `editorial.css`: papel calido #F3EDDF, burdeos #572A39 y azul tinta #243B67. La firma maestra es vectorial, con letras A y R intervenidas y descriptor Clothing & Art. El grano SVG es estatico, de baja opacidad y no intercepta controles. El color grade se limita a fotografia editorial: las fotos de catalogo mantienen `filter: none`.
+
+IMAGO agrega Herbario indocil: flores abstractas y mariposas en cuatro prendas, con dos editoriales fotografiadas de concepto. La composicion protege las miradas de los modelos y la lectura del estampado.
+
+## OWN FORM / Self Defined
+
+OWN FORM abre ahora la portada: frases con caracter, sans compacta y serifas inclinadas, micrografica y figuras hechas de caracteres ASCII. Carbon #202B32, marfil #F3EDDF y lima acida #D8E85B; la prenda blanca agrega azul acero y el poleron, arcilla. La portada movil usa el retrato del poleron; escritorio conserva la pareja con ambas poleras. Se mantienen las 45 prendas de doce marcas y quince colecciones.
+
+El bloque editorial OWN FORM usa fondo carbon y un acento lima contenido. La ficha agrega Arte original solo cuando existe `product.print`. La vista del SVG tiene fondo de previsualizacion del color de la prenda; el archivo descargado sigue siendo transparente. Las dimensiones de 8, 26, 27 y 28 cm y el estado pendiente de muestra se indican sin convertir la fotografia en una promesa de produccion exacta.
+
+## Identidad Fisica OWN FORM
+
+Una secuencia de tres fotografias cuadradas muestra interior, kraft y manga sobre papel calido. Se dispone en tres columnas sin tarjetas en escritorio y una columna en movil. El texto distingue sistema de marca de fotografia exacta de SKU. La ficha Detalles agrega tres botones secundarios con estado `aria-pressed` y pie de foto, sin dejar controles residuales al volver a Prenda o abrir otra marca.
+
+El estudio Inner Signal usa fondo carbon, cian y lila suaves, una flor ASCII y una fotografia con modelo. Su estado fuera del catalogo de venta es explicito; el efecto es color impreso, no una simulacion comercial de material holografico real. La firma de manga repite corchetes y barra diagonal; el kraft usa tinta carbon sin sellos o seriales de autenticidad inventados.
+
+## Verano Editorial
+
+`#verano` usa un lienzo papel calido y cinco miniaturas fotograficas, sin tarjetas ornamentales. La imagen principal conserva la escena 3:2 completa, tambien en movil, para no perder cabezas, prendas ni parejas. El color proviene de la ropa y la luz: no hay un filtro global que altere el catalogo. La escena LED diferencia iluminacion de vestuario luminoso. Los enlaces identifican las prendas reales y una nota separa el estilismo del catalogo.
+
+Tabs accesibles con Home, End y flechas; controles anterior/siguiente ciclicos y contador con anuncio discreto. No hay reproduccion automatica. El cambio de escena no modifica filtros, bolsa ni favoritos.
 - Don't añadir avance automático a las campañas manuales.
 - Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.
 - Don't convertir una descarga de Pages en una confirmación de pedido, reserva o cobro.

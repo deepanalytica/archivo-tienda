@@ -8,3 +8,5 @@ _site/
 .env.*
 .impeccable/review/
 __pycache__/
+assets/brands/*.png
+assets/products/*.png

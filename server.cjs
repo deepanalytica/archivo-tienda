@@ -69,7 +69,7 @@ function createStoreServer(options = {}) {
       if (req.headers.host !== host) return json(res, 403, { error: 'Este servidor solo admite acceso local.' });
       if (req.headers.origin && req.headers.origin !== `http://${host}`) return json(res, 403, { error: 'Origen no permitido.' });
       const url = new URL(req.url, `http://${host}`);
-      if (url.pathname === '/api/health' && req.method === 'GET') return json(res, 200, { status: 'ok', mode: 'request-only', referencePrices: true });
+      if (url.pathname === '/api/health' && req.method === 'GET') return json(res, 200, { status: 'ok', mode: 'request-only', referencePrices: true, catalog: { products: catalog.products.length, collections: Object.keys(catalog.collections).length, brands: Object.keys(catalog.brands).length } });
       if (url.pathname === '/api/orders' && req.method === 'GET') return json(res, 200, { orders: await readOrders() });
       if (url.pathname === '/api/orders' && req.method === 'POST') {
         const input = await body(req);
@@ -101,7 +101,7 @@ function createStoreServer(options = {}) {
       }
       if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 405, { error: 'Método no permitido.' });
       const pathname = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);
-      const publicFiles = ['/index.html', '/styles.css', '/catalog.js', '/app.js', '/escapes.js', '/identities.js', '/identity-ui.js', '/identities.css', '/admin.html', '/admin.js'];
+      const publicFiles = ['/index.html', '/styles.css', '/editorial.css', '/catalog.js', '/app.js', '/escapes.js', '/summer-editorial.js', '/identities.js', '/identity-ui.js', '/identities.css', '/admin.html', '/admin.js'];
       if (!publicFiles.includes(pathname) && !/^\/assets\/[a-z0-9_./-]+\.(webp|png|svg|ttf)$/.test(pathname)) return json(res, 404, { error: 'Página no encontrada.' });
       const target = path.resolve(__dirname, `.${pathname}`);
       if (!target.startsWith(__dirname + path.sep)) return json(res, 403, { error: 'Ruta no permitida.' });

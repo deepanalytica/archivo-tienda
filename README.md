@@ -1,9 +1,12 @@
-# ARCHIVO / Viste tu próximo buen recuerdo.
+# ARCHIVO Clothing & Art / Arte que se lleva.
 
-SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA. Diez marcas de ropa de autor, trece colecciones y 37 prendas para playa, montaña y ciudad.
+OWN FORM, IMAGO, SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA. Doce marcas de ropa de autor, quince colecciones y 45 prendas para playa, montaña y ciudad.
 
 ## Marcas y colecciones
 
+- OWN FORM: Self Defined. Frases en inglés, tipografía de contraste y arte ASCII. Tres estampados grandes de 26, 27 y 28 cm y una micrográfica de 8 cm, con SVG y PNG transparentes para prueba de proveedor. Dirección y límites de producción: `docs/ownform-art-direction.md`.
+- Su identidad física agrega interior, colgante kraft café y firma de manga; las fichas permiten recorrer los tres detalles y descargar plantillas. `docs/ownform-identidad-fisica.md` reúne medidas y límites de producción. Inner Signal es un estudio aparte, no un nuevo SKU en venta.
+- IMAGO: Herbario indócil. Mariposas, flores abstractas de gran escala, azul tinta, amapola y blanco cálido. Dos poleras, un polerón y un gorro; dos fotografías editoriales con modelos.
 - SALITRE: Costa privada. Resort de autor, turquesa, papaya y pequeños horizontes bordados.
 - ALTO SUR: Aire abierto. Descanso alpino, óxido, celadón y micrográficas de cumbre.
 - LIMEN: Entre horas. Galería urbana, cobalto, cielo, burdeos y pequeñas barras desplazadas.
@@ -16,23 +19,25 @@ SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB,
 - MAREA: Pleamar. Olas libres, azul Pacífico y coral.
 - ÓRBITA: Club del futuro. Retro futuro, lima, lila y uva.
 
-Cada marca tiene campaña, manifiesto, paleta, símbolo y un perfil para explorar sus colecciones. La franja de campañas se puede deslizar; elegir una marca o usar sus flechas cambia la portada. El explorador permite recorrer las trece colecciones y filtrar el catálogo desde cada una. Dirección actual: `docs/escapes-art-direction.md`; universos anteriores: `docs/art-direction.md`.
+Cada marca tiene campaña, manifiesto, paleta, símbolo y un perfil para explorar sus colecciones. La franja de campañas se puede deslizar; elegir una marca o usar sus flechas cambia la portada. El explorador permite recorrer las quince colecciones y filtrar el catálogo desde cada una. Dirección actual: `docs/ownform-art-direction.md`; IMAGO: `docs/imago-art-direction.md`; escapadas: `docs/escapes-art-direction.md`; universos anteriores: `docs/art-direction.md`.
 
 ## Firmas con otra dimensión
 
-Las diez marcas tienen firmas vectoriales y símbolos dibujados para esta edición: letras intervenidas, monogramas, pliegues, encajes y planos en perspectiva. Aparecen en la franja de marcas, colecciones, campañas editoriales, escapadas, perfiles y cinta de marcas. El muestrario «No se parecen. Se reconocen.» permite recorrerlas con ratón o teclado y pasar a sus prendas.
+Las doce marcas tienen firmas vectoriales y símbolos dibujados para esta edición: letras intervenidas, monogramas, pliegues, encajes y planos en perspectiva. Aparecen en la franja de marcas, colecciones, campañas editoriales, escapadas, perfiles y cinta de marcas. El muestrario «No se parecen. Se reconocen.» permite recorrerlas con ratón o teclado y pasar a sus prendas.
 
-`assets/identities/` entrega treinta SVG: símbolo, firma tipográfica y combinación de ambos para cada marca. `identities.js` comparte sus trazados con la interfaz. Los contornos tipográficos derivan de las fuentes locales Archivo y Fraunces, con sus licencias OFL conservadas. Se pueden regenerar con `python scripts/generate-identities.py` (requiere fontTools, sólo para desarrollo). Dirección: `docs/identity-art-direction.md`.
+`assets/identities/` entrega treinta y seis SVG de marcas, además de la firma maestra de ARCHIVO: símbolo, firma tipográfica y combinación de ambos para cada marca. `identities.js` comparte sus trazados con la interfaz. Los contornos tipográficos derivan de las fuentes locales Archivo y Fraunces, con sus licencias OFL conservadas. Se pueden regenerar con `python scripts/generate-identities.py` (requiere fontTools, sólo para desarrollo). Dirección: `docs/identity-art-direction.md`.
 
 Las fotografías de concepto conservan las gráficas de sus colecciones; las nuevas firmas digitales no se presentan como estampados exactos de todas las prendas.
 
 ## Escapadas y movimiento
 
+La galería `#verano` agrega cinco campañas con modelos rubios y rubias: Resort, Color, LED, Aesthetic y Ciudad. Se recorre mediante miniaturas, flechas o teclado, sin autoplay y sin recortar las fotos en móvil. Enlaza las prendas existentes; los complementos de estilismo no se añaden al catálogo. Dirección: `docs/summer-art-direction.md`; prompts: `docs/summer-image-prompts.json`.
+
 Playa, Montaña y Ciudad tienen fotografía, relato, color y un conjunto de tres prendas. Puedes elegir tallas, excluir piezas y añadir el conjunto a la bolsa. La operación comprueba todas las prendas antes de añadirlas; un error de talla o cantidad no añade parte del conjunto.
 
 Dos cintas tipográficas dan ritmo al recorrido. El control de pausa se conserva en el navegador. Las cintas paran cuando salen de pantalla, se oculta la pestaña, se pasa el cursor o el foco queda dentro; el movimiento reducido las convierte en franjas estáticas desplazables.
 
-El catálogo comienza con doce prendas y permite cargar más sin perder filtros. Las seis categorías incluyen camisas, shorts y chaquetas además de las prendas iniciales. La bolsa conserva hasta las 118 combinaciones posibles de producto y talla, con un máximo de diez unidades por combinación; el servidor local comparte este límite con el catálogo.
+El catálogo muestra las 45 prendas desde el inicio, con carga diferida de imágenes. Un índice visible reúne las quince colecciones y muestra cuántas prendas contiene cada una. «Ver todo el catálogo» elimina los filtros activos. Las seis categorías incluyen camisas, shorts y chaquetas además de las prendas iniciales. La bolsa admite todas las combinaciones de producto y talla del catálogo, con un máximo de diez unidades por combinación; el servidor local comparte este límite con el catálogo.
 
 ## GitHub y versión pública
 
@@ -48,28 +53,32 @@ Cada push a `main` ejecuta las pruebas de ambas versiones y despliega `_site/` �
 
 `npm run build` genera `_site/` con una lista explícita de archivos públicos y las imágenes WebP. No incluye el panel, el servidor, pedidos ni resultados de pruebas. `data/`, `output/`, `node_modules/`, `.env` y los archivos generados están excluidos del repositorio.
 
+Los nuevos PNG originales de fotografía se conservan localmente y se excluyen del repositorio; la publicación usa WebP. Los PNG transparentes de artes y etiquetas sí se versionan e incluyen en el sitio, porque forman parte de las descargas. El modo de producción acordado es catálogo público y selección descargable, sin recepción de pedidos ni cobros online.
+
 ## Abrir
 
 Desde esta carpeta:
 
 ```powershell
-node server.cjs
+npm start
 ```
 
 Tienda: http://127.0.0.1:4178
 
 Gestión: http://127.0.0.1:4178/admin.html
 
-La tienda se debe abrir mediante este servidor, no como un archivo `file://`, para poder guardar las solicitudes.
+La tienda se debe abrir mediante este servidor, no como un archivo `file://`, para poder guardar las solicitudes. `npm start` vigila los cambios del servidor y su catálogo y reinicia el proceso cuando cambian, para que las rutas y los productos no queden en una versión anterior. `/api/health` informa los totales del catálogo que el servidor tiene cargado.
 
 ## Qué funciona
 
-- 37 prendas con fotografías individuales de producto, incluyendo los nueve productos originales.
-- Diez perfiles de marca, trece colecciones y tres escapadas con conjuntos completos.
+- 45 prendas con fotografías individuales de producto, incluyendo los nueve productos originales.
+- Doce perfiles de marca, quince colecciones y tres escapadas con conjuntos completos.
+- OWN FORM incluye una vista del arte original, medidas físicas y descargas SVG/PNG de 300 ppp en cada ficha; requieren prueba de proveedor antes de producción.
+- Sus terminaciones incluyen 18 plantillas SVG/PNG: interiores por talla, tres tintas de manga, frente y reversos de kraft, guía de corte y estudio ASCII. La etiqueta interior descargable sigue la talla elegida; sin selección muestra M claramente identificada como ejemplo.
 - Búsqueda por prenda, color, marca, colección o destino; filtros por destino, marca, colección y tipo; ordenamiento por precio y favoritos.
 - Ficha de producto con prenda, campaña y detalle de marca. Estas últimas son vistas editoriales de la colección, no fotografías adicionales del mismo SKU.
 - Tallas S, M, L, XL para prendas y Única para gorros; cantidades de 1 a 10 por producto/talla.
-- Bolsa persistente en el navegador. Se pueden mezclar productos de las diez marcas, conservando las selecciones anteriores.
+- Bolsa persistente en el navegador. Se pueden mezclar productos de las doce marcas, conservando las selecciones anteriores.
 - Solicitud sin cobro: nombre, correo, ciudad y campos opcionales para teléfono y nota.
 - Guardado real de las solicitudes en `data/orders.json` dentro de este equipo.
 - Resumen descargable para la persona que solicita.
@@ -114,7 +123,7 @@ Capturas e informe: `output/playwright/`.
 
 ## Imágenes
 
-`assets/products/` contiene las 37 prendas en WebP. Se conservan los nueve PNG originales. `assets/brands/` reúne campañas anteriores, diez campañas nuevas de las dos ampliaciones y detalles de las marcas iniciales.
+`assets/products/` contiene las 45 prendas en WebP. Se conservan los PNG originales disponibles. `assets/brands/` reúne campañas anteriores y detalles de las marcas iniciales. IMAGO y OWN FORM agregan seis imágenes de concepto cada una: cuatro prendas y dos editoriales, con PNG local y WebP para la web. Prompts de OWN FORM: `docs/ownform-image-prompts.json`.
 
 Las ampliaciones incorporan 38 imágenes de ImageGen integrado: 18 de la primera edición y 20 de esta edición de escapadas. Prompts exactos y correspondencia con archivos: `docs/image-prompts.json`. Cada WebP nuevo tiene `.prompt.txt` y procedencia; los PNG nuevos se conservan localmente en `output/imagegen/`. La publicación incluye WebP y tipografías alojadas localmente.
 
