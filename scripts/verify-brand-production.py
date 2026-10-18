@@ -14,7 +14,7 @@ seen = set()
 count = 0
 for p in prints:
     brand = p["id"]
-    assert (root / p["officialSymbol"]).is_file(), f"Símbolo oficial faltante: {brand}"
+    assert (root / p["canonicalSymbol"]).is_file(), f"Símbolo oficial faltante: {brand}"
     files = [(p["macro"], (270, 270)), (p["micro"], (80, 80))]
     t = next(x for x in trims if x["id"] == brand)
     assert len(t["files"]) == 7
