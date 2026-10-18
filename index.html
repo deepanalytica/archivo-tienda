@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f3eddf">
-  <title>ARCHIVO Clothing &amp; Art — Un archivo. Muchos mundos.</title>
-  <meta name="description" content="ARCHIVO Clothing & Art: una casa editorial con 12 marcas de autor, 16 colecciones y 51 diseños. Descubre los universos creativos y su selección de prendas.">
+  <title>ARCHIVO Clothing &amp; Art — Selección de autor</title>
+  <meta name="description" content="ARCHIVO Clothing & Art. Ropa de autor, colecciones originales y una selección de 12 marcas independientes. Arte que se lleva.">
   <link rel="icon" href="assets/identities/archivo-favicon.svg" type="image/svg+xml"><link rel="preload" href="assets/fonts/archivo.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="identities.css"><link rel="stylesheet" href="editorial.css"><link rel="stylesheet" href="film-look.css"><link rel="stylesheet" href="archivo-platform.css"><script defer src="catalog.js"></script><script defer src="identities.js"></script><script defer src="app.js"></script><script defer src="escapes.js"></script><script defer src="identity-ui.js"></script><script defer src="summer-editorial.js"></script>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="identities.css"><link rel="stylesheet" href="editorial.css"><link rel="stylesheet" href="film-look.css"><link rel="stylesheet" href="archivo-platform.css"><link rel="stylesheet" href="archivo-premium.css"><script defer src="catalog.js"></script><script defer src="identities.js"></script><script defer src="app.js"></script><script defer src="escapes.js"></script><script defer src="identity-ui.js"></script><script defer src="summer-editorial.js"></script><script defer src="archivo-premium.js"></script>
 </head>
 <body>
   <svg class="film-filter-library" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -38,14 +38,12 @@
   </svg>
   <a class="skip" href="#catalogo">Ir al catálogo</a>
 
-  <div class="announcement"><span>ARCHIVO / CLOTHING & ART</span><span>Un archivo de mundos propios · Catálogo de muestra</span></div>
+
+  <div class="announcement"><span>ARCHIVO / ROPA DE AUTOR</span><span>PRECIOS REFERENCIALES · SOLICITUDES SIN COBRO</span></div>
   <header class="nav archivo-nav">
-    <a href="#inicio" class="logo archivo-lockup" aria-label="ARCHIVO Clothing & Art, inicio">
-      <img class="archivo-logo-complete" src="assets/identities/archivo-lockup.svg" alt="" width="225" height="40">
-      <span class="archivo-descriptor">Clothing &amp; Art</span>
-    </a>
+    <a href="#inicio" class="logo archivo-lockup" aria-label="ARCHIVO Clothing &amp; Art, inicio"><img class="archivo-logo-complete" src="assets/identities/archivo-lockup.svg" alt="" width="222" height="40"><span class="archivo-descriptor">Clothing &amp; Art</span></a>
     <nav class="archivo-primary-nav" aria-label="Principal">
-      <a href="#marcas">Las marcas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>La selección</a><a href="estudio.html">El estudio <span aria-hidden="true">↗</span></a>
+      <a href="#destacados">Novedades</a><a href="#marcas">Marcas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>Prendas</a><a href="estudio.html">Editorial <span aria-hidden="true">↗</span></a>
     </nav>
     <div class="nav-actions">
       <span id="hero-brand-count" class="archivo-index-count" aria-label="12 marcas">/12</span>
@@ -53,68 +51,44 @@
       <button type="button" class="cart-toggle" id="cart-toggle" aria-label="Abrir bolsa, 0 productos">Bolsa <span id="cart-count">0</span></button>
     </div>
     <details class="archivo-mobile-menu">
-      <summary aria-label="Abrir menú de navegación"><span class="menu-lines" aria-hidden="true">☰</span> Menú</summary>
-      <div class="archivo-mobile-links">
-        <a href="#marcas">Las marcas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>La selección</a><a href="estudio.html">Estudio creativo ↗</a>
-      </div>
+      <summary aria-label="Abrir navegación"><span class="menu-lines" aria-hidden="true">☰</span><span class="archivo-menu-label">Menú</span></summary>
+      <div class="archivo-mobile-links"><a href="#destacados">Novedades</a><a href="#marcas">Marcas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>Prendas</a><a href="estudio.html">Editorial ↗</a></div>
     </details>
   </header>
   <main>
-    <section class="hero archivo-home-hero" id="inicio" data-active-brand="ownform" aria-label="ARCHIVO, casa editorial de marcas de autor">
-      <div class="archivo-platform">
-        <div class="archivo-hero-top"><span>ARCHIVO / EDICIÓN 001</span><span>12 MARCAS — 16 COLECCIONES</span></div>
-        <div class="archivo-platform-main">
-          <p class="archivo-overline"><span aria-hidden="true">◆</span> CASA DE MARCAS · DIRECCIÓN CREATIVA</p>
-          <h1>Un archivo.<br><em>Muchos mundos.</em></h1>
-          <p class="archivo-platform-description">Doce marcas de autor con identidades independientes. Diseñamos universos, desarrollamos colecciones y llevamos el arte al lenguaje de la ropa.</p>
-          <div class="archivo-platform-actions">
-            <a href="#marcas" class="archivo-action-primary">Explorar las marcas <span aria-hidden="true">↗</span></a>
-            <a href="#catalogo" data-reset class="archivo-action-secondary">Ver las 51 prendas <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="archivo-platform-foot"><span>ARTE QUE SE LLEVA.</span><span>CL / ESTUDIO EN DESARROLLO</span></div>
-      </div>
+    <section class="hero archivo-home-hero" id="inicio" data-active-brand="ownform" aria-label="Campañas y colecciones de autor">
       <div class="archivo-featured" aria-label="Campaña editorial seleccionada">
-        <img id="hero-image" class="hero-image" src="assets/brands/ownform-other-nature-campaign.webp" alt="OWN FORM Other Nature: modelos con flores ASCII y dibujos de paisaje" width="1672" height="941" fetchpriority="high">
+        <img id="hero-image" class="hero-image" src="assets/brands/ownform-other-nature-campaign.webp" alt="Campaña de modelos OWN FORM de ropa gráfica" width="1672" height="941" fetchpriority="high">
         <div class="hero-shade"></div>
-        <div class="archivo-feature-metadata"><span>CAMPAÑA EN FOCO</span><span>ARCHIVO / ÍNDICE DE MARCAS</span></div>
+        <div class="archivo-feature-metadata"><span>ARCHIVO / CLOTHING &amp; ART</span><span>EDICIÓN EN FOCO · 01/12</span></div>
         <div class="hero-copy archivo-feature-copy">
-          <p class="hero-sub" id="hero-sub">OWN FORM / Other Nature</p>
-          <p class="hero-title" id="hero-title">Otra forma<br>de naturaleza.</p>
+          <p class="archivo-hero-eyebrow" id="hero-sub">OWN FORM / OTHER NATURE</p>
+          <h1 class="hero-title" id="hero-title">Otra forma<br>de naturaleza.</h1>
+          <p class="archivo-hero-signoff">Arte que se lleva.</p>
           <div class="hero-catalog-actions"><button type="button" id="hero-cta" class="button light">Explorar OWN FORM <span aria-hidden="true">↗</span></button><a href="#catalogo" id="hero-catalog-link" data-reset>Ver todas las prendas</a></div>
         </div>
         <div class="hero-bottom archivo-feature-navigation"><div class="campaign-navigation"><button type="button" class="campaign-arrow" id="campaign-prev" aria-label="Campaña anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><div class="hero-brands" id="hero-brands" role="group" aria-label="Campañas de marca"></div><button type="button" class="campaign-arrow" id="campaign-next" aria-label="Campaña siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></div><p id="hero-tagline">Still becoming.</p></div>
       </div>
     </section>
-    <section class="brand-line" id="brand-line" aria-label="Diez marcas de autor"></section>
+    <section class="archivo-shop-edit" id="destacados" aria-labelledby="archivo-shop-heading">
+      <div class="archivo-shop-head">
+        <div><p class="archivo-shop-eyebrow">LA SELECCIÓN / 01</p><h2 id="archivo-shop-heading">Piezas elegidas.</h2></div>
+        <a href="#catalogo" data-reset>Explorar las 51 prendas <span aria-hidden="true">↗</span></a>
+      </div>
+      <div id="archivo-shop-products" class="archivo-shop-grid" aria-label="Productos destacados de distintas marcas"></div>
+      <p class="archivo-shop-note">Imágenes de concepto · Precios referenciales · Disponibilidad por confirmar.</p>
+    </section>
+    <section class="brand-line" id="brand-line" aria-label="Doce marcas de autor"></section>
     <section class="archivo-curation" aria-labelledby="archivo-curation-heading">
       <div class="archivo-curation-heading">
-        <div><p class="archivo-overline">01 / EL ARCHIVO · SELECCIÓN EDITORIAL</p><h2 id="archivo-curation-heading">No son estilos.<br><em>Son universos.</em></h2></div>
-        <div class="archivo-curation-intro"><p>Una casa para marcas que no necesitan parecerse entre sí. Cada una tiene una forma propia de mirar, diseñar y contar historias.</p><a href="estudio.html">Entrar al estudio creativo <span aria-hidden="true">↗</span></a></div>
+        <div><p class="archivo-overline">MARCAS / EN FOCO</p><h2 id="archivo-curation-heading">Otras miradas.</h2></div>
+        <div class="archivo-curation-intro"><a href="estudio.html">Explorar las 12 marcas <span aria-hidden="true">↗</span></a></div>
       </div>
       <div class="archivo-curation-grid">
-        <a class="archivo-editorial-card archivo-editorial-card-a" href="estudio.html?marca=imago" aria-label="Explorar el universo creativo IMAGO">
-          <img src="assets/brands/imago-editorial.webp" alt="Campaña editorial conceptual IMAGO, arte botánico y mariposas" loading="lazy" width="1086" height="1448">
-          <span class="archivo-editorial-top">FICHA 001 / ARTE &amp; METAMORFOSIS</span>
-          <span class="archivo-editorial-bottom"><span><strong>IMAGO</strong><small>La belleza también tiene carácter.</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span>
-        </a>
-        <a class="archivo-editorial-card archivo-editorial-card-b" href="estudio.html?marca=salitre" aria-label="Explorar el universo creativo SALITRE">
-          <img src="assets/brands/salitre-campaign.webp" alt="Campaña editorial conceptual SALITRE, estética resort de autor" loading="lazy" width="1536" height="1024">
-          <span class="archivo-editorial-top">FICHA 002 / COSTA &amp; PAUSA</span>
-          <span class="archivo-editorial-bottom"><span><strong>SALITRE</strong><small>Quédate un poco más.</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span>
-        </a>
-        <a class="archivo-editorial-card archivo-editorial-card-c" href="estudio.html?marca=logic" aria-label="Explorar el universo creativo WE ARE LOGIC">
-          <img src="assets/brands/logic-frecuencia-campaign.webp" alt="Campaña editorial conceptual WE ARE LOGIC con diseño modular urbano" loading="lazy" width="1536" height="1024">
-          <span class="archivo-editorial-top">FICHA 003 / FORMA &amp; RITMO</span>
-          <span class="archivo-editorial-bottom"><span><strong>WE ARE LOGIC</strong><small>La forma tiene ritmo.</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span>
-        </a>
+        <a class="archivo-editorial-card archivo-editorial-card-a" href="estudio.html?marca=imago" aria-label="Descubrir IMAGO"><img src="assets/brands/imago-editorial.webp" alt="Campaña editorial de IMAGO" loading="lazy"><span class="archivo-editorial-top">IMAGO / HERBARIO INDÓCIL</span><span class="archivo-editorial-bottom"><span><strong>IMAGO</strong><small>Herbario indócil</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span></a>
+        <a class="archivo-editorial-card archivo-editorial-card-b" href="estudio.html?marca=salitre" aria-label="Descubrir SALITRE"><img src="assets/brands/salitre-campaign.webp" alt="Campaña editorial de SALITRE" loading="lazy"><span class="archivo-editorial-top">SALITRE / COSTA PRIVADA</span><span class="archivo-editorial-bottom"><span><strong>SALITRE</strong><small>Costa privada</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span></a>
+        <a class="archivo-editorial-card archivo-editorial-card-c" href="estudio.html?marca=logic" aria-label="Descubrir WE ARE LOGIC"><img src="assets/brands/logic-frecuencia-campaign.webp" alt="Campaña editorial de WE ARE LOGIC" loading="lazy"><span class="archivo-editorial-top">WE ARE LOGIC / FRECUENCIA</span><span class="archivo-editorial-bottom"><span><strong>WE ARE LOGIC</strong><small>Frecuencia</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span></a>
       </div>
-      <div class="archivo-curation-footer"><span>12 UNIVERSOS / 16 COLECCIONES / 51 PRUEBAS DE DISEÑO</span><a href="#marcas">Conocer las doce marcas <span aria-hidden="true">↓</span></a></div>
-    </section>
-    <section class="archivo-manifesto-strip" aria-label="Qué es ARCHIVO">
-      <div><span>01 / IDEAMOS</span><strong>Identidades que se reconocen.</strong></div>
-      <div><span>02 / DISEÑAMOS</span><strong>Arte pensado para vestir.</strong></div>
-      <div><span>03 / DESARROLLAMOS</span><strong>De la gráfica al prototipo.</strong></div>
     </section>
 
     <section class="other-nature pad" id="other-nature" aria-labelledby="nature-title">

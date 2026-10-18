@@ -1,0 +1,20 @@
+"use strict";
+const assert=require("node:assert/strict"),fs=require("node:fs"),path=require("node:path");
+const root=path.join(__dirname,"..","_site"),load=x=>fs.readFileSync(path.join(root,x),"utf8");
+const index=load("index.html"),js=load("archivo-premium.js"),css=load("archivo-premium.css");
+const brandImage=load("assets/identities/archivo-lockup.svg"),film=load("film-look.css");
+assert(index.includes('<h1 class="hero-title" id="hero-title">'),"Campaña debe tener H1 único");
+assert(!index.includes('Un archivo.<br>'),"Evitar manifiesto institucional en hero");
+assert((index.match(/class="archivo-editorial-card archivo-editorial-card-/g)||[]).length===3);
+assert(js.includes("data.openProduct")||js.includes("dataset.openProduct"),"Destacados no están conectados a ficha de producto");
+assert(js.includes("data.products"),"Selección destacada no usa catálogo real");
+assert(js.includes("image.src=product.image"),"Fotografía de producto no está vinculada");
+assert(!js.includes("innerHTML"),"Evitar HTML dinámico innecesario");
+assert(css.includes("archivo-home-hero.hero{display:block"),"Imagen debe ocupar el hero, no columnas institucionales");
+assert(css.includes("grid-template-columns:repeat(2,minmax(0,1fr))"),"Móvil debe mostrar dos productos por fila");
+assert(/#film-editorial/.test(film) && /film-product/.test(film),"Mantener color grading diferenciado");
+assert(!/font-family\s*=/.test(brandImage),"El logotipo no puede depender de fuentes locales");
+assert((brandImage.match(/<path/g)||[]).length===7,"Wordmark debe tener siete glifos trazados en SVG");
+for(const p of ["assets/identities/archivo-wordmark.svg","assets/identities/archivo-lockup.svg","assets/identities/archivo-favicon.svg","archivo-premium.js","archivo-premium.css"])
+ assert(fs.existsSync(path.join(root,p)),p);
+console.log("OK: ecommerce premium, wordmark editorial vectorial, CTA de producto y grano fílmico.");
