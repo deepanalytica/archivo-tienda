@@ -2,7 +2,7 @@
   "name": "archivo-tienda",
   "version": "1.0.0",
   "private": true,
-  "description": "ARCHIVO Clothing & Art: doce marcas, quince colecciones y prendas de autor",
+  "description": "ARCHIVO Clothing & Art: doce marcas, dieciséis colecciones y 51 prendas de autor",
   "scripts": {
     "start": "node --watch server.cjs",
     "build": "node scripts/build-pages.cjs",
