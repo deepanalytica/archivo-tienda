@@ -102,11 +102,11 @@ function createStoreServer(options = {}) {
       if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 405, { error: 'Método no permitido.' });
       const pathname = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);
       const publicFiles = ['/index.html', '/styles.css', '/catalog.js', '/app.js', '/admin.html', '/admin.js'];
-      if (!publicFiles.includes(pathname) && !/^\/assets\/[a-z0-9_./-]+\.(webp|png|svg)$/.test(pathname)) return json(res, 404, { error: 'Página no encontrada.' });
+      if (!publicFiles.includes(pathname) && !/^\/assets\/[a-z0-9_./-]+\.(webp|png|svg|ttf)$/.test(pathname)) return json(res, 404, { error: 'Página no encontrada.' });
       const target = path.resolve(__dirname, `.${pathname}`);
       if (!target.startsWith(__dirname + path.sep)) return json(res, 403, { error: 'Ruta no permitida.' });
       const data = await fs.readFile(target);
-      const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml' }[path.extname(target)];
+      const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml', '.ttf': 'font/ttf' }[path.extname(target)];
       res.writeHead(200, { 'Content-Type': mime, 'Cache-Control': pathname.startsWith('/assets/') ? 'public, max-age=3600' : 'no-cache' });
       res.end(req.method === 'HEAD' ? undefined : data);
     } catch (error) {

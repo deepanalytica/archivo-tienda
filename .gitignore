@@ -6,3 +6,4 @@ _site/
 .codebase-memory/
 .env
 .env.*
+.impeccable/review/

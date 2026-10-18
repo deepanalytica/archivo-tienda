@@ -1,0 +1,861 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T03:09:57.559314+00:00",
+  "title": "Design System: ARCHIVO",
+  "extensions": {
+    "provenance": {
+      "mode": "scan",
+      "sources": [
+        "styles.css",
+        "catalog.js",
+        "app.js",
+        "index.html",
+        "docs/art-direction.md",
+        "PRODUCT.md"
+      ],
+      "visualEvidence": [
+        "output/pages/desktop-hero.png",
+        "output/pages/mobile-brand.png"
+      ],
+      "note": "Built ground truth. No approved comp or seed. Tonal ramps are synthesized OKLCH preview metadata, not implemented palette additions; the line ramp is opaque preview metadata for an alpha token. Snippets are static visual extractions, not replacements for app.js behavior."
+    },
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00824 91.48)",
+          "oklch(26% 0.00824 91.48)",
+          "oklch(38% 0.00824 91.48)",
+          "oklch(49% 0.00824 91.48)",
+          "oklch(61% 0.00824 91.48)",
+          "oklch(72% 0.00824 91.48)",
+          "oklch(84% 0.00824 91.48)",
+          "oklch(95% 0.00824 91.48)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.00574 121.86)",
+          "oklch(26% 0.00574 121.86)",
+          "oklch(38% 0.00574 121.86)",
+          "oklch(49% 0.00574 121.86)",
+          "oklch(61% 0.00574 121.86)",
+          "oklch(72% 0.00574 121.86)",
+          "oklch(84% 0.00574 121.86)",
+          "oklch(95% 0.00574 121.86)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.01441 117.14)",
+          "oklch(26% 0.01441 117.14)",
+          "oklch(38% 0.01441 117.14)",
+          "oklch(49% 0.01441 117.14)",
+          "oklch(61% 0.01441 117.14)",
+          "oklch(72% 0.01441 117.14)",
+          "oklch(84% 0.01441 117.14)",
+          "oklch(95% 0.01441 117.14)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.00574 121.86)",
+          "oklch(26% 0.00574 121.86)",
+          "oklch(38% 0.00574 121.86)",
+          "oklch(49% 0.00574 121.86)",
+          "oklch(61% 0.00574 121.86)",
+          "oklch(72% 0.00574 121.86)",
+          "oklch(84% 0.00574 121.86)",
+          "oklch(95% 0.00574 121.86)"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Sand",
+        "tonalRamp": [
+          "oklch(15% 0.01282 86.83)",
+          "oklch(26% 0.01282 86.83)",
+          "oklch(38% 0.01282 86.83)",
+          "oklch(49% 0.01282 86.83)",
+          "oklch(61% 0.01282 86.83)",
+          "oklch(72% 0.01282 86.83)",
+          "oklch(84% 0.01282 86.83)",
+          "oklch(95% 0.01282 86.83)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15% 0.19051 267.56)",
+          "oklch(26% 0.19051 267.56)",
+          "oklch(38% 0.19051 267.56)",
+          "oklch(49% 0.19051 267.56)",
+          "oklch(61% 0.19051 267.56)",
+          "oklch(72% 0.19051 267.56)",
+          "oklch(84% 0.19051 267.56)",
+          "oklch(95% 0.19051 267.56)"
+        ]
+      },
+      "purple": {
+        "role": "primary",
+        "displayName": "Purple",
+        "tonalRamp": [
+          "oklch(15% 0.07815 311.27)",
+          "oklch(26% 0.07815 311.27)",
+          "oklch(38% 0.07815 311.27)",
+          "oklch(49% 0.07815 311.27)",
+          "oklch(61% 0.07815 311.27)",
+          "oklch(72% 0.07815 311.27)",
+          "oklch(84% 0.07815 311.27)",
+          "oklch(95% 0.07815 311.27)"
+        ]
+      },
+      "lime": {
+        "role": "primary",
+        "displayName": "Lime",
+        "tonalRamp": [
+          "oklch(15% 0.14733 117.70)",
+          "oklch(26% 0.14733 117.70)",
+          "oklch(38% 0.14733 117.70)",
+          "oklch(49% 0.14733 117.70)",
+          "oklch(61% 0.14733 117.70)",
+          "oklch(72% 0.14733 117.70)",
+          "oklch(84% 0.14733 117.70)",
+          "oklch(95% 0.14733 117.70)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(26% 0.00000 0.00)",
+          "oklch(38% 0.00000 0.00)",
+          "oklch(49% 0.00000 0.00)",
+          "oklch(61% 0.00000 0.00)",
+          "oklch(72% 0.00000 0.00)",
+          "oklch(84% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "purple-hover": {
+        "role": "primary",
+        "displayName": "Purple Hover",
+        "tonalRamp": [
+          "oklch(15% 0.08162 316.38)",
+          "oklch(26% 0.08162 316.38)",
+          "oklch(38% 0.08162 316.38)",
+          "oklch(49% 0.08162 316.38)",
+          "oklch(61% 0.08162 316.38)",
+          "oklch(72% 0.08162 316.38)",
+          "oklch(84% 0.08162 316.38)",
+          "oklch(95% 0.08162 316.38)"
+        ]
+      },
+      "product-surface": {
+        "role": "neutral",
+        "displayName": "Product Surface",
+        "tonalRamp": [
+          "oklch(15% 0.01441 84.58)",
+          "oklch(26% 0.01441 84.58)",
+          "oklch(38% 0.01441 84.58)",
+          "oklch(49% 0.01441 84.58)",
+          "oklch(61% 0.01441 84.58)",
+          "oklch(72% 0.01441 84.58)",
+          "oklch(84% 0.01441 84.58)",
+          "oklch(95% 0.01441 84.58)"
+        ]
+      },
+      "stories-surface": {
+        "role": "neutral",
+        "displayName": "Stories Surface",
+        "tonalRamp": [
+          "oklch(15% 0.01032 81.79)",
+          "oklch(26% 0.01032 81.79)",
+          "oklch(38% 0.01032 81.79)",
+          "oklch(49% 0.01032 81.79)",
+          "oklch(61% 0.01032 81.79)",
+          "oklch(72% 0.01032 81.79)",
+          "oklch(84% 0.01032 81.79)",
+          "oklch(95% 0.01032 81.79)"
+        ]
+      },
+      "umbral-cobalt": {
+        "role": "secondary",
+        "displayName": "Umbral Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.20493 264.53)",
+          "oklch(26% 0.20493 264.53)",
+          "oklch(38% 0.20493 264.53)",
+          "oklch(49% 0.20493 264.53)",
+          "oklch(61% 0.20493 264.53)",
+          "oklch(72% 0.20493 264.53)",
+          "oklch(84% 0.20493 264.53)",
+          "oklch(95% 0.20493 264.53)"
+        ]
+      },
+      "umbral-clay": {
+        "role": "secondary",
+        "displayName": "Umbral Clay",
+        "tonalRamp": [
+          "oklch(15% 0.15529 42.49)",
+          "oklch(26% 0.15529 42.49)",
+          "oklch(38% 0.15529 42.49)",
+          "oklch(49% 0.15529 42.49)",
+          "oklch(61% 0.15529 42.49)",
+          "oklch(72% 0.15529 42.49)",
+          "oklch(84% 0.15529 42.49)",
+          "oklch(95% 0.15529 42.49)"
+        ]
+      },
+      "umbral-bone": {
+        "role": "secondary",
+        "displayName": "Umbral Bone",
+        "tonalRamp": [
+          "oklch(15% 0.03714 84.58)",
+          "oklch(26% 0.03714 84.58)",
+          "oklch(38% 0.03714 84.58)",
+          "oklch(49% 0.03714 84.58)",
+          "oklch(61% 0.03714 84.58)",
+          "oklch(72% 0.03714 84.58)",
+          "oklch(84% 0.03714 84.58)",
+          "oklch(95% 0.03714 84.58)"
+        ]
+      },
+      "neblina-lavender": {
+        "role": "secondary",
+        "displayName": "Neblina Lavender",
+        "tonalRamp": [
+          "oklch(15% 0.06704 303.73)",
+          "oklch(26% 0.06704 303.73)",
+          "oklch(38% 0.06704 303.73)",
+          "oklch(49% 0.06704 303.73)",
+          "oklch(61% 0.06704 303.73)",
+          "oklch(72% 0.06704 303.73)",
+          "oklch(84% 0.06704 303.73)",
+          "oklch(95% 0.06704 303.73)"
+        ]
+      },
+      "neblina-pistachio": {
+        "role": "secondary",
+        "displayName": "Neblina Pistachio",
+        "tonalRamp": [
+          "oklch(15% 0.08051 120.18)",
+          "oklch(26% 0.08051 120.18)",
+          "oklch(38% 0.08051 120.18)",
+          "oklch(49% 0.08051 120.18)",
+          "oklch(61% 0.08051 120.18)",
+          "oklch(72% 0.08051 120.18)",
+          "oklch(84% 0.08051 120.18)",
+          "oklch(95% 0.08051 120.18)"
+        ]
+      },
+      "neblina-forest": {
+        "role": "secondary",
+        "displayName": "Neblina Forest",
+        "tonalRamp": [
+          "oklch(15% 0.04005 154.99)",
+          "oklch(26% 0.04005 154.99)",
+          "oklch(38% 0.04005 154.99)",
+          "oklch(49% 0.04005 154.99)",
+          "oklch(61% 0.04005 154.99)",
+          "oklch(72% 0.04005 154.99)",
+          "oklch(84% 0.04005 154.99)",
+          "oklch(95% 0.04005 154.99)"
+        ]
+      },
+      "logic-magenta": {
+        "role": "secondary",
+        "displayName": "Logic Magenta",
+        "tonalRamp": [
+          "oklch(15% 0.20618 355.36)",
+          "oklch(26% 0.20618 355.36)",
+          "oklch(38% 0.20618 355.36)",
+          "oklch(49% 0.20618 355.36)",
+          "oklch(61% 0.20618 355.36)",
+          "oklch(72% 0.20618 355.36)",
+          "oklch(84% 0.20618 355.36)",
+          "oklch(95% 0.20618 355.36)"
+        ]
+      },
+      "logic-electric": {
+        "role": "secondary",
+        "displayName": "Logic Electric",
+        "tonalRamp": [
+          "oklch(15% 0.20480 264.14)",
+          "oklch(26% 0.20480 264.14)",
+          "oklch(38% 0.20480 264.14)",
+          "oklch(49% 0.20480 264.14)",
+          "oklch(61% 0.20480 264.14)",
+          "oklch(72% 0.20480 264.14)",
+          "oklch(84% 0.20480 264.14)",
+          "oklch(95% 0.20480 264.14)"
+        ]
+      },
+      "logic-pink": {
+        "role": "secondary",
+        "displayName": "Logic Pink",
+        "tonalRamp": [
+          "oklch(15% 0.05752 354.69)",
+          "oklch(26% 0.05752 354.69)",
+          "oklch(38% 0.05752 354.69)",
+          "oklch(49% 0.05752 354.69)",
+          "oklch(61% 0.05752 354.69)",
+          "oklch(72% 0.05752 354.69)",
+          "oklch(84% 0.05752 354.69)",
+          "oklch(95% 0.05752 354.69)"
+        ]
+      },
+      "solar-tangerine": {
+        "role": "secondary",
+        "displayName": "Solar Tangerine",
+        "tonalRamp": [
+          "oklch(15% 0.18014 40.36)",
+          "oklch(26% 0.18014 40.36)",
+          "oklch(38% 0.18014 40.36)",
+          "oklch(49% 0.18014 40.36)",
+          "oklch(61% 0.18014 40.36)",
+          "oklch(72% 0.18014 40.36)",
+          "oklch(84% 0.18014 40.36)",
+          "oklch(95% 0.18014 40.36)"
+        ]
+      },
+      "solar-butter": {
+        "role": "secondary",
+        "displayName": "Solar Butter",
+        "tonalRamp": [
+          "oklch(15% 0.08972 94.55)",
+          "oklch(26% 0.08972 94.55)",
+          "oklch(38% 0.08972 94.55)",
+          "oklch(49% 0.08972 94.55)",
+          "oklch(61% 0.08972 94.55)",
+          "oklch(72% 0.08972 94.55)",
+          "oklch(84% 0.08972 94.55)",
+          "oklch(95% 0.08972 94.55)"
+        ]
+      },
+      "solar-blue": {
+        "role": "secondary",
+        "displayName": "Solar Blue",
+        "tonalRamp": [
+          "oklch(15% 0.19776 265.48)",
+          "oklch(26% 0.19776 265.48)",
+          "oklch(38% 0.19776 265.48)",
+          "oklch(49% 0.19776 265.48)",
+          "oklch(61% 0.19776 265.48)",
+          "oklch(72% 0.19776 265.48)",
+          "oklch(84% 0.19776 265.48)",
+          "oklch(95% 0.19776 265.48)"
+        ]
+      },
+      "marea-pacific": {
+        "role": "secondary",
+        "displayName": "Marea Pacific",
+        "tonalRamp": [
+          "oklch(15% 0.19855 264.77)",
+          "oklch(26% 0.19855 264.77)",
+          "oklch(38% 0.19855 264.77)",
+          "oklch(49% 0.19855 264.77)",
+          "oklch(61% 0.19855 264.77)",
+          "oklch(72% 0.19855 264.77)",
+          "oklch(84% 0.19855 264.77)",
+          "oklch(95% 0.19855 264.77)"
+        ]
+      },
+      "marea-coral": {
+        "role": "secondary",
+        "displayName": "Marea Coral",
+        "tonalRamp": [
+          "oklch(15% 0.16847 27.60)",
+          "oklch(26% 0.16847 27.60)",
+          "oklch(38% 0.16847 27.60)",
+          "oklch(49% 0.16847 27.60)",
+          "oklch(61% 0.16847 27.60)",
+          "oklch(72% 0.16847 27.60)",
+          "oklch(84% 0.16847 27.60)",
+          "oklch(95% 0.16847 27.60)"
+        ]
+      },
+      "marea-foam": {
+        "role": "secondary",
+        "displayName": "Marea Foam",
+        "tonalRamp": [
+          "oklch(15% 0.01104 225.98)",
+          "oklch(26% 0.01104 225.98)",
+          "oklch(38% 0.01104 225.98)",
+          "oklch(49% 0.01104 225.98)",
+          "oklch(61% 0.01104 225.98)",
+          "oklch(72% 0.01104 225.98)",
+          "oklch(84% 0.01104 225.98)",
+          "oklch(95% 0.01104 225.98)"
+        ]
+      },
+      "orbita-lime": {
+        "role": "secondary",
+        "displayName": "Orbita Lime",
+        "tonalRamp": [
+          "oklch(15% 0.17816 117.97)",
+          "oklch(26% 0.17816 117.97)",
+          "oklch(38% 0.17816 117.97)",
+          "oklch(49% 0.17816 117.97)",
+          "oklch(61% 0.17816 117.97)",
+          "oklch(72% 0.17816 117.97)",
+          "oklch(84% 0.17816 117.97)",
+          "oklch(95% 0.17816 117.97)"
+        ]
+      },
+      "orbita-lilac": {
+        "role": "secondary",
+        "displayName": "Orbita Lilac",
+        "tonalRamp": [
+          "oklch(15% 0.06670 302.77)",
+          "oklch(26% 0.06670 302.77)",
+          "oklch(38% 0.06670 302.77)",
+          "oklch(49% 0.06670 302.77)",
+          "oklch(61% 0.06670 302.77)",
+          "oklch(72% 0.06670 302.77)",
+          "oklch(84% 0.06670 302.77)",
+          "oklch(95% 0.06670 302.77)"
+        ]
+      },
+      "orbita-grape": {
+        "role": "secondary",
+        "displayName": "Orbita Grape",
+        "tonalRamp": [
+          "oklch(15% 0.10416 306.46)",
+          "oklch(26% 0.10416 306.46)",
+          "oklch(38% 0.10416 306.46)",
+          "oklch(49% 0.10416 306.46)",
+          "oklch(61% 0.10416 306.46)",
+          "oklch(72% 0.10416 306.46)",
+          "oklch(84% 0.10416 306.46)",
+          "oklch(95% 0.10416 306.46)"
+        ]
+      },
+      "solar-panel-ink": {
+        "role": "secondary",
+        "displayName": "Solar Panel Ink",
+        "tonalRamp": [
+          "oklch(15% 0.08061 45.87)",
+          "oklch(26% 0.08061 45.87)",
+          "oklch(38% 0.08061 45.87)",
+          "oklch(49% 0.08061 45.87)",
+          "oklch(61% 0.08061 45.87)",
+          "oklch(72% 0.08061 45.87)",
+          "oklch(84% 0.08061 45.87)",
+          "oklch(95% 0.08061 45.87)"
+        ]
+      },
+      "marea-panel": {
+        "role": "secondary",
+        "displayName": "Marea Panel",
+        "tonalRamp": [
+          "oklch(15% 0.01613 226.98)",
+          "oklch(26% 0.01613 226.98)",
+          "oklch(38% 0.01613 226.98)",
+          "oklch(49% 0.01613 226.98)",
+          "oklch(61% 0.01613 226.98)",
+          "oklch(72% 0.01613 226.98)",
+          "oklch(84% 0.01613 226.98)",
+          "oklch(95% 0.01613 226.98)"
+        ]
+      },
+      "marea-panel-ink": {
+        "role": "secondary",
+        "displayName": "Marea Panel Ink",
+        "tonalRamp": [
+          "oklch(15% 0.15252 264.20)",
+          "oklch(26% 0.15252 264.20)",
+          "oklch(38% 0.15252 264.20)",
+          "oklch(49% 0.15252 264.20)",
+          "oklch(61% 0.15252 264.20)",
+          "oklch(72% 0.15252 264.20)",
+          "oklch(84% 0.15252 264.20)",
+          "oklch(95% 0.15252 264.20)"
+        ]
+      },
+      "neblina-panel": {
+        "role": "secondary",
+        "displayName": "Neblina Panel",
+        "tonalRamp": [
+          "oklch(15% 0.06673 121.58)",
+          "oklch(26% 0.06673 121.58)",
+          "oklch(38% 0.06673 121.58)",
+          "oklch(49% 0.06673 121.58)",
+          "oklch(61% 0.06673 121.58)",
+          "oklch(72% 0.06673 121.58)",
+          "oklch(84% 0.06673 121.58)",
+          "oklch(95% 0.06673 121.58)"
+        ]
+      },
+      "logic-panel": {
+        "role": "secondary",
+        "displayName": "Logic Panel",
+        "tonalRamp": [
+          "oklch(15% 0.06509 348.15)",
+          "oklch(26% 0.06509 348.15)",
+          "oklch(38% 0.06509 348.15)",
+          "oklch(49% 0.06509 348.15)",
+          "oklch(61% 0.06509 348.15)",
+          "oklch(72% 0.06509 348.15)",
+          "oklch(84% 0.06509 348.15)",
+          "oklch(95% 0.06509 348.15)"
+        ]
+      },
+      "logic-panel-ink": {
+        "role": "secondary",
+        "displayName": "Logic Panel Ink",
+        "tonalRamp": [
+          "oklch(15% 0.10140 351.77)",
+          "oklch(26% 0.10140 351.77)",
+          "oklch(38% 0.10140 351.77)",
+          "oklch(49% 0.10140 351.77)",
+          "oklch(61% 0.10140 351.77)",
+          "oklch(72% 0.10140 351.77)",
+          "oklch(84% 0.10140 351.77)",
+          "oklch(95% 0.10140 351.77)"
+        ]
+      },
+      "desfase-panel": {
+        "role": "secondary",
+        "displayName": "Desfase Panel",
+        "tonalRamp": [
+          "oklch(15% 0.02196 69.76)",
+          "oklch(26% 0.02196 69.76)",
+          "oklch(38% 0.02196 69.76)",
+          "oklch(49% 0.02196 69.76)",
+          "oklch(61% 0.02196 69.76)",
+          "oklch(72% 0.02196 69.76)",
+          "oklch(84% 0.02196 69.76)",
+          "oklch(95% 0.02196 69.76)"
+        ]
+      },
+      "desfase-ink": {
+        "role": "secondary",
+        "displayName": "Desfase Ink",
+        "tonalRamp": [
+          "oklch(15% 0.07137 10.81)",
+          "oklch(26% 0.07137 10.81)",
+          "oklch(38% 0.07137 10.81)",
+          "oklch(49% 0.07137 10.81)",
+          "oklch(61% 0.07137 10.81)",
+          "oklch(72% 0.07137 10.81)",
+          "oklch(84% 0.07137 10.81)",
+          "oklch(95% 0.07137 10.81)"
+        ]
+      },
+      "entre-capas-panel": {
+        "role": "secondary",
+        "displayName": "Entre Capas Panel",
+        "tonalRamp": [
+          "oklch(15% 0.01488 132.48)",
+          "oklch(26% 0.01488 132.48)",
+          "oklch(38% 0.01488 132.48)",
+          "oklch(49% 0.01488 132.48)",
+          "oklch(61% 0.01488 132.48)",
+          "oklch(72% 0.01488 132.48)",
+          "oklch(84% 0.01488 132.48)",
+          "oklch(95% 0.01488 132.48)"
+        ]
+      },
+      "entre-capas-ink": {
+        "role": "secondary",
+        "displayName": "Entre Capas Ink",
+        "tonalRamp": [
+          "oklch(15% 0.02375 166.59)",
+          "oklch(26% 0.02375 166.59)",
+          "oklch(38% 0.02375 166.59)",
+          "oklch(49% 0.02375 166.59)",
+          "oklch(61% 0.02375 166.59)",
+          "oklch(72% 0.02375 166.59)",
+          "oklch(84% 0.02375 166.59)",
+          "oklch(95% 0.02375 166.59)"
+        ]
+      },
+      "principio-panel": {
+        "role": "secondary",
+        "displayName": "Principio Panel",
+        "tonalRamp": [
+          "oklch(15% 0.03746 90.08)",
+          "oklch(26% 0.03746 90.08)",
+          "oklch(38% 0.03746 90.08)",
+          "oklch(49% 0.03746 90.08)",
+          "oklch(61% 0.03746 90.08)",
+          "oklch(72% 0.03746 90.08)",
+          "oklch(84% 0.03746 90.08)",
+          "oklch(95% 0.03746 90.08)"
+        ]
+      },
+      "principio-ink": {
+        "role": "secondary",
+        "displayName": "Principio Ink",
+        "tonalRamp": [
+          "oklch(15% 0.01795 88.81)",
+          "oklch(26% 0.01795 88.81)",
+          "oklch(38% 0.01795 88.81)",
+          "oklch(49% 0.01795 88.81)",
+          "oklch(61% 0.01795 88.81)",
+          "oklch(72% 0.01795 88.81)",
+          "oklch(84% 0.01795 88.81)",
+          "oklch(95% 0.01795 88.81)"
+        ]
+      },
+      "solar-strip-ink": {
+        "role": "secondary",
+        "displayName": "Solar Strip Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06587 39.40)",
+          "oklch(26% 0.06587 39.40)",
+          "oklch(38% 0.06587 39.40)",
+          "oklch(49% 0.06587 39.40)",
+          "oklch(61% 0.06587 39.40)",
+          "oklch(72% 0.06587 39.40)",
+          "oklch(84% 0.06587 39.40)",
+          "oklch(95% 0.06587 39.40)"
+        ]
+      },
+      "botanical-strip-ink": {
+        "role": "secondary",
+        "displayName": "Botanical Strip Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06830 309.65)",
+          "oklch(26% 0.06830 309.65)",
+          "oklch(38% 0.06830 309.65)",
+          "oklch(49% 0.06830 309.65)",
+          "oklch(61% 0.06830 309.65)",
+          "oklch(72% 0.06830 309.65)",
+          "oklch(84% 0.06830 309.65)",
+          "oklch(95% 0.06830 309.65)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Firma ARCHIVO del hero."
+      },
+      "campaign": {
+        "displayName": "Campaign",
+        "purpose": "Titular de campaña sobre fotografía."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos editoriales de sección."
+      },
+      "collection-title": {
+        "displayName": "Collection Title",
+        "purpose": "Nombre de colección en panel de color."
+      },
+      "product-title": {
+        "displayName": "Product Title",
+        "purpose": "Nombre de prenda en catálogo."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base de texto de la página."
+      },
+      "narrative": {
+        "displayName": "Narrative",
+        "purpose": "Descripciones editoriales."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Marca sobre el nombre de producto."
+      }
+    },
+    "shadows": [],
+    "depth": [
+      {
+        "name": "dialog-backdrop",
+        "value": "background:#131511a6;backdrop-filter:blur(5px)",
+        "purpose": "Velo detrás de los diálogos nativos."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Curva común de entrada y acercamiento."
+      },
+      {
+        "name": "product-hover",
+        "value": "transform:scale(1.055);transition:transform .7s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Acercamiento de foto de prenda."
+      },
+      {
+        "name": "campaign-change",
+        "value": "550ms",
+        "purpose": "Opacidad .5 a 1 y escala 1.025 a 1; omitido con movimiento reducido."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation:none!important;transition:none!important",
+        "purpose": "CSS global; app.js además omite animación y usa scroll automático."
+      }
+    ],
+    "focus": [
+      {
+        "name": "general",
+        "value": "outline:3px solid #2945bd;outline-offset:4px"
+      },
+      {
+        "name": "search",
+        "value": "outline:3px solid #2945bd;outline-offset:3px"
+      },
+      {
+        "name": "product-photo",
+        "value": "outline:3px solid #402650;outline-offset:-6px; inset white border:2px at 8px"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "1050px"
+      },
+      {
+        "name": "stacked-collection",
+        "value": "760px"
+      },
+      {
+        "name": "mobile",
+        "value": "680px"
+      },
+      {
+        "name": "small-mobile",
+        "value": "375px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Botón compartido; la llamada del hero ajusta tamaño y relleno por contexto.",
+      "html": "<button type=\"button\" class=\"ds-primary\">Explorar la selección <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;border:1px solid transparent;padding:18px 22px;min-height:52px;font:12px var(--sans,Archivo,Arial,sans-serif);letter-spacing:.03em;border-radius:0;cursor:pointer;transition:background .2s,transform .2s;background:var(--purple,#402650);color:#fff;}.ds-primary:hover{transform:translateY(-2px);background:#573763;}.ds-primary:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Light button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Botón compartido; la llamada del hero ajusta tamaño y relleno por contexto.",
+      "html": "<button type=\"button\" class=\"ds-light\">Explorar la selección <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;border:1px solid transparent;padding:18px 22px;min-height:52px;font:12px var(--sans,Archivo,Arial,sans-serif);letter-spacing:.03em;border-radius:0;cursor:pointer;transition:background .2s,transform .2s;background:var(--paper,#f6f4ee);color:var(--ink,#21221f);}.ds-light:hover{transform:translateY(-2px);}.ds-light:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Collection button",
+      "kind": "button",
+      "refersTo": "button-collection",
+      "description": "Ejemplo del par Fuera de oficina; la inversión de colores depende de la colección.",
+      "html": "<button type=\"button\" class=\"ds-collection\">Ver la colección <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-collection{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;padding:15px 18px;min-height:48px;border:1px solid currentColor;border-radius:0;background:transparent;color:#67351c;font:12px var(--sans,Archivo,Arial,sans-serif);cursor:pointer;transition:background .2s,transform .2s}.ds-collection:hover{background:#67351c;color:#f6e39e;transform:translateY(-2px)}.ds-collection:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Product search",
+      "kind": "input",
+      "refersTo": "search",
+      "description": "Campo abierto con foco visible; el icono usa el SVG de la implementación.",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m16 16 5 5\"/></svg><input type=\"search\" aria-label=\"Buscar productos\" placeholder=\"Busca una prenda, color o colección…\"></label>",
+      "css": ".ds-search{display:flex;align-items:center;gap:10px;max-width:480px}.ds-search svg{width:16px;height:16px;fill:none;stroke:var(--ink,#21221f);stroke-width:1.4;flex-shrink:0}.ds-search input{width:100%;font:12px var(--sans,Archivo,Arial,sans-serif);border:0;border-bottom:1px solid transparent;border-radius:0;background:none;min-height:44px;color:var(--ink,#21221f)}.ds-search input::placeholder{color:#62645c;opacity:1}.ds-search input:focus{border-bottom-color:var(--line,#21221f25);outline:0}.ds-search input:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:3px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Editorial navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Enlaces del centro de la navegación, ocultos bajo 680px.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><a href=\"#colecciones\">Colecciones</a><a href=\"#catalogo\">La selección</a><a href=\"#marcas\">Las marcas</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;height:78px;background:var(--paper,#f6f4ee);color:var(--ink,#21221f);font:12px var(--sans,Archivo,Arial,sans-serif)}.ds-nav a{position:relative;padding:15px 0;color:inherit;text-decoration:none}.ds-nav a:after{content:\"\";position:absolute;bottom:8px;left:0;right:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-nav{display:none}}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Brand filter",
+      "kind": "chip",
+      "refersTo": "filter-selected",
+      "description": "Estado seleccionado de filtro por marca; sin comportamiento de filtrado en este muestrario.",
+      "html": "<button type=\"button\" class=\"ds-filter\" aria-pressed=\"true\">SOLAR CLUB</button>",
+      "css": ".ds-filter{min-height:44px;padding:11px 15px;border:0;border-radius:0;background:none;color:#4b4d45;font:11px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-filter[aria-pressed=\"true\"]{background:var(--purple,#402650);color:#fff}.ds-filter:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Collection explorer tab",
+      "kind": "chip",
+      "refersTo": "collection-tab",
+      "description": "Botón manual con borde inferior activo; no es una pestaña ARIA.",
+      "html": "<button type=\"button\" class=\"ds-tab\" aria-pressed=\"true\">Fuera de oficina</button>",
+      "css": ".ds-tab{border:0;border-bottom:2px solid transparent;background:none;min-height:48px;white-space:nowrap;padding:12px 0;font:12px var(--sans,Archivo,Arial,sans-serif);color:var(--muted,#595b52);cursor:pointer}.ds-tab[aria-pressed=\"true\"]{border-color:var(--purple,#402650);color:var(--purple,#402650);font-weight:650}.ds-tab:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Campaign selector",
+      "kind": "custom",
+      "refersTo": "campaign-switch",
+      "description": "Una de seis campañas manuales; el panel oscuro solo da contexto de contraste al muestrario.",
+      "html": "<div class=\"ds-campaign-canvas\"><button type=\"button\" class=\"ds-campaign\" aria-pressed=\"true\">SOLAR CLUB</button></div>",
+      "css": ".ds-campaign-canvas{background:#ac5839;padding:15px}.ds-campaign{font:10px var(--sans,Archivo,Arial,sans-serif);min-height:44px;padding:14px 0;text-align:left;color:#fff;border:0;border-top:1px solid #ffffff75;background:none;cursor:pointer;transition:border-color .3s,color .3s}.ds-campaign[aria-pressed=\"true\"]{border-color:#fff;border-top-width:3px;padding-top:12px}.ds-campaign:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "SOLAR CLUB brand tile",
+      "kind": "custom",
+      "refersTo": "brand-tile-solar",
+      "description": "Franja de marca con símbolo solar y firma Fraunces.",
+      "html": "<button type=\"button\" class=\"ds-brand-tile\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg><span>SOLAR CLUB</span></button>",
+      "css": ".ds-brand-tile{min-height:112px;background:#f36b36;color:#502719;display:flex;align-items:center;justify-content:center;gap:12px;padding:22px 12px;border:0;border-radius:0;font:750 clamp(14px,1.5vw,22px)/1.15 var(--serif,Fraunces,Georgia,serif);letter-spacing:-.035em;cursor:pointer}.ds-brand-tile svg{width:32px;height:32px;flex-shrink:0;transition:transform .6s var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-brand-tile:hover{filter:brightness(1.04)}.ds-brand-tile:hover svg{transform:rotate(-18deg) scale(1.1)}.ds-brand-tile:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    },
+    {
+      "name": "Brand story text panel",
+      "kind": "card",
+      "refersTo": "brand-story-solar",
+      "description": "Parte textual de la tarjeta editorial SOLAR CLUB; la tarjeta completa incorpora la foto de campaña encima.",
+      "html": "<article class=\"ds-story\"><div class=\"ds-story-title\"><h3>Nos vemos afuera.</h3><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg></div><p>Un club sin horario. Algodón, rayos de sol y colores que alargan la tarde.</p><div class=\"ds-story-bottom\"><div class=\"ds-palette\" aria-label=\"Paleta de SOLAR CLUB\"><span></span><span></span><span></span></div><button type=\"button\" class=\"ds-story-link\">Su universo ↗</button></div></article>",
+      "css": ".ds-story{padding:30px;background:#f6e39e;color:#67351c;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-story-title{display:flex;align-items:flex-start;justify-content:space-between;gap:25px}.ds-story h3{margin:0;font-size:28px;line-height:1.18;max-width:20ch;font-weight:550;letter-spacing:-.025em;text-wrap:balance}.ds-story-title svg{width:38px;height:38px;flex-shrink:0}.ds-story>p{font-size:13px;line-height:1.8;margin:20px 0 0;max-width:48ch}.ds-story-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:30px}.ds-palette{display:flex;gap:5px}.ds-palette span{width:26px;height:26px;border:1px solid #21221f25;display:block}.ds-palette span:nth-child(1){background:#f36b36}.ds-palette span:nth-child(2){background:#f6e39e}.ds-palette span:nth-child(3){background:#234ac6}.ds-story-link{padding:8px 0;border:0;border-bottom:1px solid currentColor;background:none;font:12px var(--sans,Archivo,Arial,sans-serif);color:inherit;min-height:44px;cursor:pointer}.ds-story-link:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){button,a,input{animation:none!important;transition:none!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Un archivo de mundos propios",
+    "overview": "ARCHIVO reúne seis universos reconocibles dentro de una estructura editorial común. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.\n\nLa extensión conserva el mundo de UMBRAL, NEBLINA y WE ARE LOGIC e incorpora SOLAR CLUB, MAREA y ÓRBITA. Esta documentación describe la implementación existente en `styles.css`, `catalog.js`, `app.js` e `index.html`, contrastada con `docs/art-direction.md` y capturas de `output/pages/`. No hubo una composición aprobada previa ni una semilla de diseño: la autoridad es la superficie construida y su contrato de dirección.",
+    "keyCharacteristics": [
+      "Fotografía protagonista, con prendas y campañas como imágenes distintas.",
+      "Papel cálido compartido y paneles cromáticos propios por marca y colección.",
+      "Archivo para estructura y Fraunces para titulares expresivos y determinadas firmas.",
+      "Esquinas rectas, líneas finas y jerarquía por escala y color.",
+      "Exploración manual, estados de selección explícitos y movimiento opcional."
+    ],
+    "rules": [
+      {
+        "name": "Collection Pair",
+        "body": "Usa juntos el fondo y la tinta definidos para cada colección; las tarjetas editoriales y el diálogo de marca usan el par de su colección más reciente.",
+        "section": "colors"
+      },
+      {
+        "name": "View Truth",
+        "body": "Una campaña describe el universo de marca; no es otra vista del SKU. Muestra la pestaña Detalles únicamente cuando el catálogo tiene una imagen de detalle de marca.",
+        "section": "components"
+      },
+      {
+        "name": "Optional Motion",
+        "body": "Con movimiento reducido, desactiva animaciones y transiciones CSS, omite la animación JavaScript del hero y usa desplazamiento automático al catálogo. Conserva todo el contenido y las acciones visibles.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las seis marcas.",
+      "Do tomar los pares de colección y las paletas del catálogo, manteniendo cada símbolo y firma asociados a su marca.",
+      "Do conservar fotos cuadradas para prendas y composiciones editoriales amplias para campañas.",
+      "Do mantener el foco visible de foto y buscador, los estados `aria-pressed` y el movimiento reducido.",
+      "Do distinguir la descarga pública de selección y la solicitud guardada en el servidor local en cada mensaje de estado."
+    ],
+    "donts": [
+      "Don't sustituir las seis identidades por un único color o una única firma de marca.",
+      "Don't añadir avance automático a las campañas manuales.",
+      "Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.",
+      "Don't convertir una descarga de Pages en una confirmación de pedido, reserva o cobro.",
+      "Don't reemplazar el sistema de paneles rectos y separación tonal por tarjetas redondeadas con sombras."
+    ]
+  }
+}

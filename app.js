@@ -1,4 +1,4 @@
-const { products, brands, maxQuantity } = ARCHIVO_CATALOG;
+const { products, brands, collections, maxQuantity } = ARCHIVO_CATALOG;
 const isStaticStore = document.documentElement.dataset.storeMode === 'static';
 const money = (value) => new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(value);
 const $ = (selector) => document.querySelector(selector);
@@ -10,7 +10,7 @@ function save(key, value) { try { localStorage.setItem(key, JSON.stringify(value
 const storedFavorites = load('archivo-favorites-v1', []);
 const storedCart = load('archivo-cart-v1', []);
 const state = {
-  brand: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'umbral',
+  brand: 'all', collection: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'solar', feature: 'fuera-oficina',
   favorites: new Set(Array.isArray(storedFavorites) ? storedFavorites.filter((id) => byId(id)) : []),
   cart: [], product: null, size: null, quantity: 1, view: 'product', requestKey: null, order: null,
 };
@@ -25,6 +25,51 @@ if (Array.isArray(storedCart)) {
   }
 }
 const heart = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6c-2-2-5.1-1.9-7.1.1L12 6.4l-1.7-1.7c-2-2-5.1-2.1-7.1-.1s-1.9 5.1.1 7.1L12 20l8.7-8.3c2-2 2.1-5.1.1-7.1Z"/></svg>';
+const universeOrder = ['solar', 'marea', 'orbita', 'umbral', 'neblina', 'logic'];
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+function scrollToCatalog() { $('#catalogo').scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth' }); }
+function brandSymbol(mark) {
+  const shapes = {
+    sun: '<circle cx="24" cy="24" r="8"/><path d="M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6"/>',
+    wave: '<path d="M3 20c7-13 14 13 22 0s14-13 20 0M3 31c7-13 14 13 22 0s14-13 20 0"/>',
+    orbit: '<ellipse cx="24" cy="24" rx="23" ry="10" transform="rotate(-30 24 24)"/><circle cx="24" cy="24" r="5"/>',
+    portal: '<path d="M7 40V8h23v32M18 40V18h23v22"/>',
+    landscape: '<path d="m3 32 12-14 10 9 9-14 11 19M3 40h42"/>',
+    angles: '<path d="M6 7h35v34M6 18h24v23M6 29h13v12"/>',
+  };
+  return `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">${shapes[mark]}</svg>`;
+}
+function paletteHtml(brand) {
+  return `<div class="brand-palette" aria-label="Paleta de ${brand.name}">${brand.palette.map((color) => `<span style="background:${color}" title="${color}"></span>`).join('')}</div>`;
+}
+function renderUniverseNavigation() {
+  $('#hero-brands').innerHTML = universeOrder.map((id) => `<button type="button" data-campaign="${id}" aria-pressed="${id === state.campaign}">${brands[id].name}</button>`).join('');
+  $('#brand-line').innerHTML = universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" class="wordmark wordmark-${id}" style="--brand-bg:${brands[id].palette[0]};--brand-fg:${id === 'orbita' || id === 'neblina' ? '#352044' : id === 'solar' ? '#502719' : '#fff'}">${brandSymbol(brands[id].mark)}<span>${brands[id].name}</span></button>`).join('');
+  $('#brand-filters').innerHTML = '<button type="button" data-filter-brand="all" aria-pressed="true">Todas las marcas</button>' + universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" aria-pressed="false">${brands[id].name}</button>`).join('');
+  $('#collection-filter').innerHTML = '<option value="all">Todas las colecciones</option>' + Object.entries(collections).map(([id, collection]) => `<option value="${id}">${brands[collection.brand].name} / ${collection.name}</option>`).join('');
+  $('#collection-tabs').innerHTML = Object.entries(collections).map(([id, collection]) => `<button type="button" data-explore-collection="${id}" aria-pressed="${id === state.feature}">${collection.name}</button>`).join('');
+  $('#brand-editorials').innerHTML = universeOrder.map((id) => {
+    const brand = brands[id];
+    return `<article class="brand-story brand-${id}" style="--story-bg:${collections[brand.latest].color};--story-ink:${collections[brand.latest].ink}"><button type="button" class="brand-photo" data-brand-story="${id}" aria-label="Conocer ${brand.name}"><img src="${brand.campaign}" alt="${brand.name}: ${brand.world}" loading="lazy" width="1536" height="1024"><span class="wordmark wordmark-${id}">${brand.name}</span></button><div class="brand-story-copy"><div class="brand-story-title"><h3>${brand.world}</h3>${brandSymbol(brand.mark)}</div><p>${brand.description}</p><div class="brand-story-bottom">${paletteHtml(brand)}<button type="button" class="line-link" data-brand-story="${id}">Su universo <span aria-hidden="true">↗</span></button></div></div></article>`;
+  }).join('');
+  renderCollectionFeature();
+}
+function renderCollectionFeature() {
+  const collection = collections[state.feature]; const brand = brands[collection.brand];
+  $('#collection-feature').style.setProperty('--feature-bg', collection.color);
+  $('#collection-feature').style.setProperty('--feature-ink', collection.ink);
+  $('#collection-feature').innerHTML = `<div class="collection-picture"><img src="${collection.campaign}" alt="${brand.name}, colección ${collection.name}" loading="lazy" width="1536" height="1024"></div><div class="collection-copy"><span class="wordmark wordmark-${collection.brand}">${brand.name}</span><h3>${collection.name}</h3><p>${collection.description}</p><button type="button" class="button collection-button" data-collection="${state.feature}">Ver la colección <span aria-hidden="true">↗</span></button><span class="collection-signature">${brandSymbol(brand.mark)}${collection.line}</span></div>`;
+  all('[data-explore-collection]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.exploreCollection === state.feature)));
+}
+function showBrand(id) {
+  const brand = brands[id]; if (!brand) return;
+  const dialog = $('#brand-dialog');
+  dialog.style.setProperty('--story-bg', collections[brand.latest].color);
+  dialog.style.setProperty('--story-ink', collections[brand.latest].ink);
+  $('#brand-dialog-content').innerHTML = `<img class="brand-dialog-image" src="${brand.campaign}" alt="Campaña de ${brand.name}" width="1536" height="1024"><div class="brand-dialog-copy"><h2 id="brand-title" class="wordmark wordmark-${id}">${brand.name}</h2><h3>${brand.world}</h3><p>${brand.manifesto}</p><div class="art-direction">${paletteHtml(brand)}<p>${brand.art}</p></div><h3>Sus colecciones</h3><div class="brand-collection-links">${Object.entries(collections).filter(([, collection]) => collection.brand === id).map(([key, collection]) => `<button type="button" data-collection="${key}">${collection.name} <span aria-hidden="true">↗</span></button>`).join('')}</div></div>`;
+  openDialog(dialog);
+}
+renderUniverseNavigation();
 let toastTimer;
 function toast(message) {
   $('#toast').textContent = message;
@@ -46,31 +91,47 @@ function renderCatalog() {
   const query = normalize(state.search.trim());
   let visible = products.filter((product) =>
     (state.brand === 'all' || product.brand === state.brand) &&
+    (state.collection === 'all' || product.collection === state.collection) &&
     (state.category === 'all' || product.category === state.category) &&
     (!state.favoritesOnly || state.favorites.has(product.id)) &&
-    (!query || normalize([product.name, product.color, product.category, brands[product.brand].name, brands[product.brand].collection].join(' ')).includes(query))
+    (!query || normalize([product.name, product.color, product.category, brands[product.brand].name, collections[product.collection].name].join(' ')).includes(query))
   );
+  if (state.sort === 'featured') visible.sort((a, b) => Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)));
   if (state.sort === 'price-asc') visible.sort((a, b) => a.price - b.price);
   if (state.sort === 'price-desc') visible.sort((a, b) => b.price - a.price);
   if (state.sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name, 'es'));
   $('#product-grid').innerHTML = visible.map((product) => `<article class="product-card" data-product="${product.id}"><div class="product-picture"><button type="button" class="product-open" data-open-product="${product.id}" aria-label="Ver ${product.name} de ${brands[product.brand].name}"><img src="${product.image}" alt="${product.name}, ${product.color}, vista ${product.view.toLowerCase()}" width="1000" height="1000" loading="lazy"></button><button type="button" class="save-product" data-save="${product.id}" aria-label="Guardar ${product.name} en favoritos" aria-pressed="${state.favorites.has(product.id)}">${heart}</button><span class="product-view">${product.view}</span></div><div class="product-caption"><div><p class="eyebrow">${brands[product.brand].name}</p><h3 class="product-title"><button type="button" data-open-product="${product.id}">${product.name}</button></h3><p class="product-color"><i style="background:${product.swatch}"></i>${product.color}</p></div><span class="product-price">${money(product.price)}</span></div></article>`).join('');
   $('#empty-catalog').hidden = visible.length > 0;
   $('#result-count').textContent = `${visible.length} ${visible.length === 1 ? 'prenda' : 'prendas'}${state.favoritesOnly ? ' en favoritos' : ''}`;
-  $('#clear-filters').hidden = state.brand === 'all' && state.category === 'all' && !state.search && !state.favoritesOnly;
+  $('#clear-filters').hidden = state.brand === 'all' && state.collection === 'all' && state.category === 'all' && !state.search && !state.favoritesOnly;
+  $('#collection-filter').value = state.collection;
+  all('#collection-filter option').forEach((option) => { option.disabled = option.value !== 'all' && state.brand !== 'all' && collections[option.value].brand !== state.brand; });
   all('.brand-filters [data-filter-brand]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filterBrand === state.brand)));
   $('#favorites-toggle').setAttribute('aria-pressed', String(state.favoritesOnly));
   $('#favorite-count').textContent = state.favorites.size;
 }
 function resetFilters() {
-  Object.assign(state, { brand: 'all', category: 'all', search: '', favoritesOnly: false, sort: 'featured' });
-  $('#category-filter').value = 'all'; $('#search').value = ''; $('#sort').value = 'featured'; renderCatalog();
+  Object.assign(state, { brand: 'all', collection: 'all', category: 'all', search: '', favoritesOnly: false, sort: 'featured' });
+  $('#category-filter').value = 'all'; $('#collection-filter').value = 'all'; $('#search').value = ''; $('#sort').value = 'featured'; renderCatalog();
 }
 function filterBrand(brand, reset = true) {
   if (reset) resetFilters();
-  state.brand = brand; renderCatalog();
-  if (reset) $('#catalogo').scrollIntoView({ behavior: 'smooth' });
+  state.brand = brand;
+  if (state.collection !== 'all' && collections[state.collection].brand !== brand) state.collection = 'all';
+  renderCatalog();
+  if (reset) scrollToCatalog();
 }
 document.addEventListener('click', (event) => {
+  const storyButton = event.target.closest('[data-brand-story]');
+  if (storyButton) showBrand(storyButton.dataset.brandStory);
+  const featureButton = event.target.closest('[data-explore-collection]');
+  if (featureButton) { state.feature = featureButton.dataset.exploreCollection; renderCollectionFeature(); }
+  const collectionButton = event.target.closest('[data-collection]');
+  if (collectionButton) {
+    const id = collectionButton.dataset.collection;
+    resetFilters(); state.brand = collections[id].brand; state.collection = id; renderCatalog();
+    $('#brand-dialog').close(); scrollToCatalog();
+  }
   const brandButton = event.target.closest('[data-filter-brand]');
   if (brandButton) filterBrand(brandButton.dataset.filterBrand, !brandButton.closest('.brand-filters'));
   const productButton = event.target.closest('[data-open-product]');
@@ -85,11 +146,12 @@ document.addEventListener('click', (event) => {
 });
 $('#search').addEventListener('input', (event) => { state.search = event.target.value; renderCatalog(); });
 $('#category-filter').addEventListener('change', (event) => { state.category = event.target.value; renderCatalog(); });
+$('#collection-filter').addEventListener('change', (event) => { state.collection = event.target.value; renderCatalog(); });
 $('#sort').addEventListener('change', (event) => { state.sort = event.target.value; renderCatalog(); });
 $('#clear-filters').addEventListener('click', resetFilters);
 $('#reset-empty').addEventListener('click', resetFilters);
 all('[data-reset]').forEach((link) => link.addEventListener('click', resetFilters));
-$('#favorites-toggle').addEventListener('click', () => { state.favoritesOnly = !state.favoritesOnly; renderCatalog(); $('#catalogo').scrollIntoView({ behavior: 'smooth' }); });
+$('#favorites-toggle').addEventListener('click', () => { state.favoritesOnly = !state.favoritesOnly; renderCatalog(); scrollToCatalog(); });
 
 all('[data-campaign]').forEach((button) => button.addEventListener('click', () => {
   state.campaign = button.dataset.campaign;
@@ -97,6 +159,11 @@ all('[data-campaign]').forEach((button) => button.addEventListener('click', () =
   $('#hero-image').src = brand.campaign;
   $('#hero-image').alt = `Campaña ${brand.name}: ${brand.description}`;
   $('#hero-cta').replaceChildren(document.createTextNode(`Explorar ${brand.name} `), Object.assign(document.createElement('span'), { textContent: '↗' }));
+  const headlines = { solar: 'Nos vemos\nafuera.', marea: 'Llévate\nla costa.', orbita: 'Cambia\nde órbita.', umbral: 'El taller\nsale a la calle.', neblina: 'Otra forma\nde florecer.', logic: 'Sube el\nvolumen.' };
+  $('#hero-title').textContent = headlines[state.campaign];
+  $('#hero-sub').textContent = `${brand.name} / ${collections[brand.latest].name}`;
+  $('#inicio').dataset.activeBrand = state.campaign;
+  if (!reducedMotion.matches) $('#hero-image').animate([{ opacity: .5, transform: 'scale(1.025)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 550, easing: 'cubic-bezier(.16,1,.3,1)' });
   $('#hero-tagline').textContent = brand.tagline;
   all('[data-campaign]').forEach((option) => option.setAttribute('aria-pressed', String(option === button)));
 }));
@@ -106,7 +173,8 @@ function showProduct(id) {
   const product = byId(id); if (!product) return;
   state.product = product; state.size = product.sizes.length === 1 ? product.sizes[0] : null; state.quantity = 1; state.view = 'product';
   const brand = brands[product.brand];
-  $('#detail-brand').textContent = `${brand.name} / ${brand.collection}`;
+  $('#detail-brand').textContent = `${brand.name} / ${collections[product.collection].name}`;
+  $('[data-view="detail"]').hidden = !brand.detail;
   $('#product-title').textContent = product.name;
   $('#detail-price').textContent = money(product.price);
   $('#detail-description').textContent = product.description;
@@ -125,7 +193,7 @@ function showProduct(id) {
 }
 function renderProductView() {
   const product = state.product; const brand = brands[product.brand];
-  $('#detail-image').src = state.view === 'product' ? product.image : state.view === 'campaign' ? brand.campaign : brand.detail;
+  $('#detail-image').src = state.view === 'product' ? product.image : state.view === 'campaign' ? collections[product.collection].campaign : brand.detail;
   $('#detail-image').alt = state.view === 'product' ? `${product.name}, ${product.color}, ${product.view}` : `${state.view === 'campaign' ? 'Campaña de colección' : 'Etiquetas y terminaciones de la marca'} ${brand.name}`;
   all('[data-view]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
 }
@@ -156,7 +224,7 @@ function renderCart() {
   $('#cart-subtotal').textContent = money(subtotal());
 }
 $('#cart-toggle').addEventListener('click', () => { renderCart(); openDialog($('#cart-dialog')); });
-$('#continue-shopping').addEventListener('click', () => { $('#cart-dialog').close(); $('#catalogo').scrollIntoView({ behavior: 'smooth' }); });
+$('#continue-shopping').addEventListener('click', () => { $('#cart-dialog').close(); scrollToCatalog(); });
 $('#cart-items').addEventListener('click', (event) => {
   const remove = event.target.closest('[data-cart-remove]');
   const change = event.target.closest('[data-cart-change]');
@@ -213,7 +281,7 @@ function downloadSummary(order, selectionOnly = false) {
   const url = URL.createObjectURL(new Blob([summary], { type: 'text/plain;charset=utf-8' }));
   const link = document.createElement('a'); link.href = url; link.download = `${order.id}.txt`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-$('#finish-order').addEventListener('click', () => { $('#checkout-dialog').close(); $('#catalogo').scrollIntoView({ behavior: 'smooth' }); });
+$('#finish-order').addEventListener('click', () => { $('#checkout-dialog').close(); scrollToCatalog(); });
 if (isStaticStore) {
   $('.announcement span:last-child').textContent = 'Colección de muestra · Precios referenciales';
   $('footer a[href="admin.html"]').remove();

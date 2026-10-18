@@ -20,6 +20,7 @@ async function build() {
       if (file.endsWith('.webp')) await fs.copyFile(path.join(root, 'assets', folder, file), path.join(target, file));
     }
   }
+  await fs.cp(path.join(root, 'assets', 'fonts'), path.join(destination, 'assets', 'fonts'), { recursive: true });
   await fs.writeFile(path.join(destination, '.nojekyll'), '');
   console.log('Pages: catálogo estático generado en _site/. Sin servidor, panel ni datos de solicitudes.');
 }

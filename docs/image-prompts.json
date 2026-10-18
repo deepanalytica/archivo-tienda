@@ -1,0 +1,77 @@
+{
+  "generator": "Built-in ImageGen",
+  "assets": [
+    {
+      "file": "assets/brands/solar-campaign.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: wide fashion campaign photograph for a new independent clothing brand SOLAR CLUB, collection 'Fuera de oficina'. Art direction: joyful 1970s Mediterranean sports club, sun-faded tangerine, butter yellow, poolside cobalt. Two adult Latin American friends wearing oversized butter yellow tee with simple red eight-ray sun on chest and terracotta orange hoodie with small butter sun embroidered on chest, cobalt baseball cap; standing on a sunlit painted blue outdoor court beside a warm terracotta wall. Real natural faces, strong midday sunlight, tactile cotton, grain of a contemporary independent fashion magazine. Landscape 3:2 editorial photograph, figures toward the right half, calm orange wall on left for website text overlay. One coherent photograph. No text, signage, watermark, collages, frame or website UI."
+    },
+    {
+      "file": "assets/brands/marea-campaign.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: wide fashion campaign photograph for new independent brand MAREA, collection 'Pleamar'. Art direction: contemporary Pacific surf club, cobalt blue, coral red and chalk. Two adult Latin American friends on a coastal concrete promenade; one wears a coral red boxy t-shirt with a bold cream hand-painted flowing wave graphic on chest, the other a cobalt hoodie with small cream double-wave chest emblem. Breezy candid movement, coastal rocks and ocean, tactile heavy cotton, direct afternoon sun, fresh fashion editorial. Landscape 3:2 composition, people toward right half, spacious light blue and concrete area on left for website title. One photograph, no lettering, no watermark, no UI or collage."
+    },
+    {
+      "file": "assets/brands/orbita-campaign.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: wide independent fashion campaign, brand ÓRBITA collection 'Club del futuro'. Art direction: playful space-age clubwear, acid chartreuse, lilac and deep purple; sculptural urban concrete with a lilac-painted curved wall. Two adult Latin American fashion models, one in acid lime oversized tee with a small deep-purple orbital elliptical emblem with one planet dot, one in lilac oversized hoodie with a large dark-purple elliptical orbital motif on back. A lime cap with purple orbit emblem. Real garments, realistic faces, relaxed candid pose, crisp flash daylight, premium fashion photography with futuristic graphic attitude. Landscape 3:2 composition, models to the right, calm lilac wall on left for web copy. No lettering, signage, UI, watermark, collage or borders."
+    },
+    {
+      "file": "assets/brands/umbral-patio-campaign.webp",
+      "prompt": "Use case: photorealistic-natural. Wide 3:2 independent fashion campaign for UMBRAL collection Patio. Art-school courtyard with vivid ultramarine painted wall and terracotta tiled floor. One adult Latin American artist wears an oversized cobalt blue tee with a large burnt-orange print of two offset rectangular open doorframes on the back, casually leaning forward at a work table; second adult in cream workwear. Warm afternoon light, tactile cotton, film-like editorial photography, real faces, art studio atmosphere. Figures on right half, calmer blue wall on left. No letters, signage, watermark, collage or UI."
+    },
+    {
+      "file": "assets/brands/neblina-jardin-campaign.webp",
+      "prompt": "Use case: photorealistic-natural. Wide 3:2 independent fashion campaign for NEBLINA collection Jardin electrico. Botanical greenhouse with oversized leaves, pale mint-green translucent glass and lavender wildflowers. Adult Latin American model wearing a lavender oversized hoodie with three thin sage-green wavy mountain contour lines on the back, second adult wearing muted pistachio. Gentle diffuse light with subtle bright green reflections, quiet dreamy contemporary outdoor editorial, cotton textures and natural human faces. People toward right, calm pale botanical space on left for text overlay. No text, signage, UI, collage or watermark."
+    },
+    {
+      "file": "assets/brands/logic-frecuencia-campaign.webp",
+      "prompt": "Use case: photorealistic-natural. Wide 3:2 independent fashion editorial for WE ARE LOGIC collection Frecuencia. Brutalist urban plaza painted electric blue and warm pink. Adult Latin American model wearing a magenta oversized cotton tee with a crisp cobalt-blue print of three nested angular right-angle brackets on the back. Second adult in black. Geometric shadows, direct midday light, highly realistic cotton and natural faces. Sharp graphic contemporary streetwear art direction. Figures on right, calmer cobalt architectural plane on left. No lettering, signage, UI, collage or watermark."
+    },
+    {
+      "file": "assets/products/solar-tee.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand SOLAR CLUB, collection Fuera de oficina. One oversized butter-yellow boxy t-shirt front view, small red-orange eight-ray sun motif centered on chest, tiny red SOLAR CLUB type under sun only if legible. Buttery yellow backdrop, cheerful sun-washed retro sports club mood. Cotton texture, red orange collar rib subtle."
+    },
+    {
+      "file": "assets/products/solar-hoodie.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand SOLAR CLUB, collection Fuera de oficina. One terracotta-orange oversized pullover hoodie FRONT view, small butter-yellow eight-ray sun embroidered on left chest. Drawstrings orange, kangaroo pocket. Pale warm apricot background, retro sports-club mood, premium cotton fleece."
+    },
+    {
+      "file": "assets/products/solar-cap.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand SOLAR CLUB, collection Fuera de oficina. One cobalt-blue six-panel curved-brim cotton baseball cap, front three-quarter angle, small butter-yellow eight-ray sun embroidered on front. Warm pale yellow studio background. Retro summer sports-club attitude."
+    },
+    {
+      "file": "assets/products/marea-tee.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand MAREA collection Pleamar. One coral-red oversized boxy t-shirt FRONT view, bold cream flowing hand-painted abstract wave motif across chest, wide curved two-line wave like sea swell, no text. Pale powder-blue studio backdrop. Fresh independent Pacific surf clothing brand, heavy tactile cotton."
+    },
+    {
+      "file": "assets/products/marea-hoodie.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand MAREA collection Pleamar. One cobalt-blue oversized pullover hoodie FRONT view, small cream double flowing wave emblem embroidered on left chest, matching blue drawstrings and kangaroo pocket. Pale chalk-blue studio backdrop, independent Pacific surf-club mood."
+    },
+    {
+      "file": "assets/products/marea-cap.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand MAREA collection Pleamar. One cream cotton six-panel curved brim baseball cap, coral-red curved visor, small cobalt-blue double flowing wave embroidery on front, front three-quarter view. Pale sky-blue studio backdrop, contemporary Pacific coastal surf-club mood."
+    },
+    {
+      "file": "assets/products/orbita-tee.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand ORBITA collection Club del futuro. One acid-chartreuse oversized boxy t-shirt FRONT view, small deep-purple elliptical orbit emblem with one purple planet dot at center chest. Clear futuristic contemporary streetwear art direction. Pale lilac studio backdrop, real thick cotton."
+    },
+    {
+      "file": "assets/products/orbita-hoodie.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand ORBITA collection Club del futuro. One pale-lilac oversized cotton pullover hoodie BACK view, large deep-purple single tilted elliptical orbit graphic with one acid-chartreuse small planet dot crossing the ellipse. Deep purple graphic clean bold and flat printed. Pale acid-cream studio backdrop. Playful futuristic art direction."
+    },
+    {
+      "file": "assets/products/orbita-cap.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand ORBITA collection Club del futuro. One acid-chartreuse cotton six-panel baseball cap, deep-purple tilted elliptical orbit embroidered on front with one small purple planet dot. Front three-quarter view, pale lilac studio backdrop. Playful futuristic contemporary streetwear."
+    },
+    {
+      "file": "assets/products/umbral-patio-tee.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand UMBRAL collection Patio. One electric cobalt-blue oversized boxy cotton t-shirt BACK view, large flat burnt-orange screen print of two offset open rectangular doorframes, bold architectural graphic. Pale warm apricot studio backdrop. Art-school printmaking and color-field art direction."
+    },
+    {
+      "file": "assets/products/neblina-jardin-hoodie.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand NEBLINA collection Jardin electrico. One lavender oversized cotton pullover hoodie BACK view, three thin sage-green wavy mountain contour lines across upper back with small lime accent. Pale pistachio studio background. Quiet experimental botanical outdoor clothing art direction."
+    },
+    {
+      "file": "assets/products/logic-frecuencia-tee.webp",
+      "prompt": "Use case: product-mockup. Single fashion ecommerce product photograph, one garment only, full item centered with generous margin, square composition. Real heavy cotton, natural seams, sophisticated directional soft daylight and soft natural shadow. Garment laid flat or invisibly supported, no human, no mannequin, no hangers, no other objects. No added labels, no text, no watermark, no border, no UI. Brand WE ARE LOGIC collection Frecuencia. One vivid magenta oversized boxy cotton t-shirt BACK view, crisp cobalt-blue graphic of three nested angular right-angle brackets, bold modular print. Pale sky-blue studio background. Urban geometric future-sport art direction."
+    }
+  ]
+}
