@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0",
+  "date": "2026-10-18",
+  "parent": "ARCHIVO Clothing & Art",
+  "baseBrandReady": "OWN FORM has independent print/trims assets",
+  "stage": "prototype_review",
+  "pressMaxArtworkMm": [
+    270,
+    270
+  ],
+  "brands": [
+    {
+      "id": "imago",
+      "name": "IMAGO",
+      "collections": "Herbario indócil",
+      "territory": "Grabado botánico y metamorfosis adulta",
+      "palette": [
+        "#243B67",
+        "#C14E3D",
+        "#F3EDDF"
+      ],
+      "motif": "Mariposa entomológica y amapola de escala monumental",
+      "guardrail": "Evitar floral playero de ISLA BRAVA y paisajes atmosféricos de NEBLINA",
+      "prototype": "Imago / Alas",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "umbral",
+      "name": "UMBRAL",
+      "collections": "Patio · Desfase",
+      "territory": "Arquitectura de taller y geometría desplazada",
+      "palette": [
+        "#2453D4",
+        "#D96837",
+        "#F3E6CC"
+      ],
+      "motif": "Dos portales y recortes asimétricos con tensión de vacío",
+      "guardrail": "Evitar minimalismo de galería de LIMEN y módulos digitales de WE ARE LOGIC",
+      "prototype": "Umbral / Patio",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "neblina",
+      "name": "NEBLINA",
+      "collections": "Jardín eléctrico · Entre capas",
+      "territory": "Paisaje sensible y botánica atmosférica",
+      "palette": [
+        "#C8B5E3",
+        "#D4E4A8",
+        "#354D3D"
+      ],
+      "motif": "Líneas topográficas fluidas con tallos y plantas discretas",
+      "guardrail": "Evitar macroflores IMAGO y promesas de ropa técnica ALTO SUR",
+      "prototype": "Neblina / Cotas",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "logic",
+      "name": "WE ARE LOGIC",
+      "collections": "Frecuencia · Principio",
+      "territory": "Sistema modular y ritmo urbano",
+      "palette": [
+        "#CA287B",
+        "#1847C7",
+        "#F5C6D7"
+      ],
+      "motif": "Retícula de planos desplazados en ritmo y repetición",
+      "guardrail": "Evitar citas/ASCII OWN FORM y arquitectura de taller UMBRAL",
+      "prototype": "Logic / Módulos",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "solar",
+      "name": "SOLAR CLUB",
+      "collections": "Fuera de oficina",
+      "territory": "Club recreativo, canchas y vida social",
+      "palette": [
+        "#F36B36",
+        "#F6E39E",
+        "#234AC6"
+      ],
+      "motif": "Gráfica de insignia solar y pista/cancha abierta",
+      "guardrail": "Evitar resort SALITRE y olas surf MAREA",
+      "prototype": "Solar / Tarde larga",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "marea",
+      "name": "MAREA",
+      "collections": "Pleamar",
+      "territory": "Costa Pacífico, surf gráfico y movimiento",
+      "palette": [
+        "#204BC7",
+        "#EB6559",
+        "#E5EEF2"
+      ],
+      "motif": "Olas enlazadas y pliegues fluidos con contraste coral",
+      "guardrail": "Evitar quietud SALITRE y códigos de club SOLAR CLUB",
+      "prototype": "Marea / Corriente",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "orbita",
+      "name": "ÓRBITA",
+      "collections": "Club del futuro",
+      "territory": "Retro-futuro pop y juego espacial",
+      "palette": [
+        "#D4ED51",
+        "#C8B6E4",
+        "#4A2A66"
+      ],
+      "motif": "Órbitas inclinadas elípticas y planeta abstracto",
+      "guardrail": "Evitar falso LED/holografía y retícula WE ARE LOGIC",
+      "prototype": "Órbita / Desvío",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "salitre",
+      "name": "SALITRE",
+      "collections": "Costa privada",
+      "territory": "Resort pausado y lujo relajado",
+      "palette": [
+        "#69C8C1",
+        "#EF896B",
+        "#F4EDDD"
+      ],
+      "motif": "Horizontes interrumpidos, líneas austeras y sol mínimo",
+      "guardrail": "Evitar surf MAREA, flor ISLA BRAVA y club SOLAR CLUB",
+      "prototype": "Salitre / Última hora",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "alto",
+      "name": "ALTO SUR",
+      "collections": "Aire abierto",
+      "territory": "Montaña mineral, refugio y capas",
+      "palette": [
+        "#B84A2C",
+        "#B5CBB5",
+        "#23353D"
+      ],
+      "motif": "Cumbre angular y curvas de nivel de roca",
+      "guardrail": "No afirmar impermeabilidad o prestaciones no ensayadas",
+      "prototype": "Alto Sur / Cota",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "limen",
+      "name": "LIMEN",
+      "collections": "Entre horas",
+      "territory": "Galería y arquitectura urbana refinada",
+      "palette": [
+        "#496ACB",
+        "#71334B",
+        "#F1E5B9"
+      ],
+      "motif": "Barras paralelas desplazadas, umbrales y planos limpios",
+      "guardrail": "Evitar geometría cruda UMBRAL y saturación WE ARE LOGIC",
+      "prototype": "Limen / Intervalo",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    },
+    {
+      "id": "brava",
+      "name": "ISLA BRAVA",
+      "collections": "Flor de un día",
+      "territory": "Verano de autor, color y expresión floral",
+      "palette": [
+        "#EF9BBB",
+        "#EF7844",
+        "#C7B5DC"
+      ],
+      "motif": "Flor plana amplia de cinco pétalos con contrapunto pequeño",
+      "guardrail": "Evitar grabado botánico IMAGO y delicadeza NEBLINA",
+      "prototype": "Isla Brava / Corola",
+      "artwork": "prototype-not-approved",
+      "sampleApproved": false,
+      "costApproved": false,
+      "readyForSale": false
+    }
+  ]
+}

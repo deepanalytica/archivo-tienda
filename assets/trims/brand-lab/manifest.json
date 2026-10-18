@@ -1,0 +1,277 @@
+[
+  {
+    "id": "imago",
+    "files": [
+      "assets/trims/brand-lab/imago/neck-s.svg",
+      "assets/trims/brand-lab/imago/neck-m.svg",
+      "assets/trims/brand-lab/imago/neck-l.svg",
+      "assets/trims/brand-lab/imago/neck-xl.svg",
+      "assets/trims/brand-lab/imago/sleeve-signature.svg",
+      "assets/trims/brand-lab/imago/hangtag-front.svg",
+      "assets/trims/brand-lab/imago/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "umbral",
+    "files": [
+      "assets/trims/brand-lab/umbral/neck-s.svg",
+      "assets/trims/brand-lab/umbral/neck-m.svg",
+      "assets/trims/brand-lab/umbral/neck-l.svg",
+      "assets/trims/brand-lab/umbral/neck-xl.svg",
+      "assets/trims/brand-lab/umbral/sleeve-signature.svg",
+      "assets/trims/brand-lab/umbral/hangtag-front.svg",
+      "assets/trims/brand-lab/umbral/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "neblina",
+    "files": [
+      "assets/trims/brand-lab/neblina/neck-s.svg",
+      "assets/trims/brand-lab/neblina/neck-m.svg",
+      "assets/trims/brand-lab/neblina/neck-l.svg",
+      "assets/trims/brand-lab/neblina/neck-xl.svg",
+      "assets/trims/brand-lab/neblina/sleeve-signature.svg",
+      "assets/trims/brand-lab/neblina/hangtag-front.svg",
+      "assets/trims/brand-lab/neblina/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "logic",
+    "files": [
+      "assets/trims/brand-lab/logic/neck-s.svg",
+      "assets/trims/brand-lab/logic/neck-m.svg",
+      "assets/trims/brand-lab/logic/neck-l.svg",
+      "assets/trims/brand-lab/logic/neck-xl.svg",
+      "assets/trims/brand-lab/logic/sleeve-signature.svg",
+      "assets/trims/brand-lab/logic/hangtag-front.svg",
+      "assets/trims/brand-lab/logic/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "solar",
+    "files": [
+      "assets/trims/brand-lab/solar/neck-s.svg",
+      "assets/trims/brand-lab/solar/neck-m.svg",
+      "assets/trims/brand-lab/solar/neck-l.svg",
+      "assets/trims/brand-lab/solar/neck-xl.svg",
+      "assets/trims/brand-lab/solar/sleeve-signature.svg",
+      "assets/trims/brand-lab/solar/hangtag-front.svg",
+      "assets/trims/brand-lab/solar/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "marea",
+    "files": [
+      "assets/trims/brand-lab/marea/neck-s.svg",
+      "assets/trims/brand-lab/marea/neck-m.svg",
+      "assets/trims/brand-lab/marea/neck-l.svg",
+      "assets/trims/brand-lab/marea/neck-xl.svg",
+      "assets/trims/brand-lab/marea/sleeve-signature.svg",
+      "assets/trims/brand-lab/marea/hangtag-front.svg",
+      "assets/trims/brand-lab/marea/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "orbita",
+    "files": [
+      "assets/trims/brand-lab/orbita/neck-s.svg",
+      "assets/trims/brand-lab/orbita/neck-m.svg",
+      "assets/trims/brand-lab/orbita/neck-l.svg",
+      "assets/trims/brand-lab/orbita/neck-xl.svg",
+      "assets/trims/brand-lab/orbita/sleeve-signature.svg",
+      "assets/trims/brand-lab/orbita/hangtag-front.svg",
+      "assets/trims/brand-lab/orbita/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "salitre",
+    "files": [
+      "assets/trims/brand-lab/salitre/neck-s.svg",
+      "assets/trims/brand-lab/salitre/neck-m.svg",
+      "assets/trims/brand-lab/salitre/neck-l.svg",
+      "assets/trims/brand-lab/salitre/neck-xl.svg",
+      "assets/trims/brand-lab/salitre/sleeve-signature.svg",
+      "assets/trims/brand-lab/salitre/hangtag-front.svg",
+      "assets/trims/brand-lab/salitre/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "alto",
+    "files": [
+      "assets/trims/brand-lab/alto/neck-s.svg",
+      "assets/trims/brand-lab/alto/neck-m.svg",
+      "assets/trims/brand-lab/alto/neck-l.svg",
+      "assets/trims/brand-lab/alto/neck-xl.svg",
+      "assets/trims/brand-lab/alto/sleeve-signature.svg",
+      "assets/trims/brand-lab/alto/hangtag-front.svg",
+      "assets/trims/brand-lab/alto/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "limen",
+    "files": [
+      "assets/trims/brand-lab/limen/neck-s.svg",
+      "assets/trims/brand-lab/limen/neck-m.svg",
+      "assets/trims/brand-lab/limen/neck-l.svg",
+      "assets/trims/brand-lab/limen/neck-xl.svg",
+      "assets/trims/brand-lab/limen/sleeve-signature.svg",
+      "assets/trims/brand-lab/limen/hangtag-front.svg",
+      "assets/trims/brand-lab/limen/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  },
+  {
+    "id": "brava",
+    "files": [
+      "assets/trims/brand-lab/brava/neck-s.svg",
+      "assets/trims/brand-lab/brava/neck-m.svg",
+      "assets/trims/brand-lab/brava/neck-l.svg",
+      "assets/trims/brand-lab/brava/neck-xl.svg",
+      "assets/trims/brand-lab/brava/sleeve-signature.svg",
+      "assets/trims/brand-lab/brava/hangtag-front.svg",
+      "assets/trims/brand-lab/brava/hangtag-back-layout.svg"
+    ],
+    "status": "vector_layout_only_sample_pending",
+    "neckMm": [
+      60,
+      35
+    ],
+    "sleeveMm": [
+      40,
+      16
+    ],
+    "tagMm": [
+      55,
+      90
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 # ARCHIVO Clothing & Art / Arte que se lleva.
 
-OWN FORM, IMAGO, SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA. Doce marcas de ropa de autor, quince colecciones y 45 prendas para playa, montaña y ciudad.
+OWN FORM, IMAGO, SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA. Doce marcas de ropa de autor, dieciséis colecciones y 51 prendas para playa, montaña y ciudad.
 
 ## Marcas y colecciones
 
@@ -37,7 +37,7 @@ Playa, Montaña y Ciudad tienen fotografía, relato, color y un conjunto de tres
 
 Dos cintas tipográficas dan ritmo al recorrido. El control de pausa se conserva en el navegador. Las cintas paran cuando salen de pantalla, se oculta la pestaña, se pasa el cursor o el foco queda dentro; el movimiento reducido las convierte en franjas estáticas desplazables.
 
-El catálogo muestra las 45 prendas desde el inicio, con carga diferida de imágenes. Un índice visible reúne las quince colecciones y muestra cuántas prendas contiene cada una. «Ver todo el catálogo» elimina los filtros activos. Las seis categorías incluyen camisas, shorts y chaquetas además de las prendas iniciales. La bolsa admite todas las combinaciones de producto y talla del catálogo, con un máximo de diez unidades por combinación; el servidor local comparte este límite con el catálogo.
+El catálogo muestra las 51 prendas desde el inicio, con carga diferida de imágenes. Un índice visible reúne las quince colecciones y muestra cuántas prendas contiene cada una. «Ver todo el catálogo» elimina los filtros activos. Las seis categorías incluyen camisas, shorts y chaquetas además de las prendas iniciales. La bolsa admite todas las combinaciones de producto y talla del catálogo, con un máximo de diez unidades por combinación; el servidor local comparte este límite con el catálogo.
 
 ## GitHub y versión pública
 
@@ -135,3 +135,9 @@ Las ampliaciones incorporan 38 imágenes de ImageGen integrado: 18 de la primera
 Generación mediante `imagegen` integrado, con las cápsulas anteriores como referencia. Prompt base de cada producto: fotografía de catálogo de una sola prenda, preservar símbolo/paleta/estampado de la referencia, fondo de yeso gris cálido, luz difusa, algodón y costuras reales, formato cuadrado, sin otros productos, personas, maniquíes, marcas ajenas ni watermark. Para poleras y polerones se conserva el frente o espalda indicado en `catalog.js`; para gorros, ángulo frontal de tres cuartos.
 
 Las imágenes originales y el concepto de UMBRAL permanecen en `../umbral/`; NEBLINA y WE ARE LOGIC, en `../marcas/`.
+
+## Laboratorio de preproducción para las 12 marcas
+
+OWN FORM mantiene sus artes, trims y guías existentes. La carpeta `docs/production/` detalla un programa de desarrollo para las otras once marcas: 22 estudios de estampado vectoriales, 77 plantillas de marca/colgante y una matriz de validaciones pendiente por calidad y prenda. Es material **de estudio para cotizaciones y muestras**, no arte listo para tirada en serie ni nuevos SKU aprobados. Revisa `assets/prints/brand-lab/`, `assets/trims/brand-lab/` y `docs/production/prepress.md`.
+
+Validación de los 99 SVG: `python scripts/verify-brand-production.py`. Rasterización opcional: `node scripts/render-brand-production.cjs`, que requiere Sharp disponible localmente y guarda PNG en `output/production-renders`; este paso no participa en el despliegue público.

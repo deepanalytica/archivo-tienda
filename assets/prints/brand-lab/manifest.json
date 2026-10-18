@@ -1,0 +1,255 @@
+[
+  {
+    "brand": "IMAGO",
+    "id": "imago",
+    "macro": "assets/prints/brand-lab/imago/macro-study.svg",
+    "micro": "assets/prints/brand-lab/imago/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/imago-symbol.svg",
+    "palette": [
+      "#243B67",
+      "#C14E3D",
+      "#F3EDDF"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "UMBRAL",
+    "id": "umbral",
+    "macro": "assets/prints/brand-lab/umbral/macro-study.svg",
+    "micro": "assets/prints/brand-lab/umbral/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/umbral-symbol.svg",
+    "palette": [
+      "#2453D4",
+      "#D96837",
+      "#F3E6CC"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "NEBLINA",
+    "id": "neblina",
+    "macro": "assets/prints/brand-lab/neblina/macro-study.svg",
+    "micro": "assets/prints/brand-lab/neblina/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/neblina-symbol.svg",
+    "palette": [
+      "#354D3D",
+      "#C8B5E3",
+      "#D4E4A8"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "WE ARE LOGIC",
+    "id": "logic",
+    "macro": "assets/prints/brand-lab/logic/macro-study.svg",
+    "micro": "assets/prints/brand-lab/logic/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/logic-symbol.svg",
+    "palette": [
+      "#1847C7",
+      "#CA287B",
+      "#F5C6D7"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "SOLAR CLUB",
+    "id": "solar",
+    "macro": "assets/prints/brand-lab/solar/macro-study.svg",
+    "micro": "assets/prints/brand-lab/solar/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/solar-symbol.svg",
+    "palette": [
+      "#F36B36",
+      "#234AC6",
+      "#F6E39E"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "MAREA",
+    "id": "marea",
+    "macro": "assets/prints/brand-lab/marea/macro-study.svg",
+    "micro": "assets/prints/brand-lab/marea/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/marea-symbol.svg",
+    "palette": [
+      "#204BC7",
+      "#EB6559",
+      "#E5EEF2"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "ÓRBITA",
+    "id": "orbita",
+    "macro": "assets/prints/brand-lab/orbita/macro-study.svg",
+    "micro": "assets/prints/brand-lab/orbita/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/orbita-symbol.svg",
+    "palette": [
+      "#D4ED51",
+      "#C8B6E4",
+      "#4A2A66"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "SALITRE",
+    "id": "salitre",
+    "macro": "assets/prints/brand-lab/salitre/macro-study.svg",
+    "micro": "assets/prints/brand-lab/salitre/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/salitre-symbol.svg",
+    "palette": [
+      "#69C8C1",
+      "#EF896B",
+      "#F4EDDD"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "ALTO SUR",
+    "id": "alto",
+    "macro": "assets/prints/brand-lab/alto/macro-study.svg",
+    "micro": "assets/prints/brand-lab/alto/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/alto-symbol.svg",
+    "palette": [
+      "#B84A2C",
+      "#23353D",
+      "#B5CBB5"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "LIMEN",
+    "id": "limen",
+    "macro": "assets/prints/brand-lab/limen/macro-study.svg",
+    "micro": "assets/prints/brand-lab/limen/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/limen-symbol.svg",
+    "palette": [
+      "#496ACB",
+      "#71334B",
+      "#F1E5B9"
+    ],
+    "status": "physical_sample_pending"
+  },
+  {
+    "brand": "ISLA BRAVA",
+    "id": "brava",
+    "macro": "assets/prints/brand-lab/brava/macro-study.svg",
+    "micro": "assets/prints/brand-lab/brava/micro-signature.svg",
+    "sizesMm": {
+      "macro": [
+        270,
+        270
+      ],
+      "micro": [
+        80,
+        80
+      ]
+    },
+    "canonicalSymbol": "assets/identities/brava-symbol.svg",
+    "palette": [
+      "#EF7844",
+      "#EF9BBB",
+      "#C7B5DC"
+    ],
+    "status": "physical_sample_pending"
+  }
+]

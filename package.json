@@ -2,14 +2,18 @@
   "name": "archivo-tienda",
   "version": "1.0.0",
   "private": true,
-  "description": "ARCHIVO Clothing & Art: doce marcas, quince colecciones y prendas de autor",
+  "description": "ARCHIVO Clothing & Art: doce marcas, dieciséis colecciones y 51 prendas de autor",
   "scripts": {
     "start": "node --watch server.cjs",
     "build": "node scripts/build-pages.cjs",
     "test:local": "node verify.cjs",
     "test:pages": "npm run build && node verify-pages.cjs",
-    "test": "npm run test:local && npm run test:pages"
+    "test": "npm run test:local && npm run test:pages && node scripts/verify-studio.cjs"
   },
-  "engines": { "node": ">=22" },
-  "devDependencies": { "playwright": "1.62.1" }
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
 }
