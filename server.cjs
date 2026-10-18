@@ -101,7 +101,7 @@ function createStoreServer(options = {}) {
       }
       if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 405, { error: 'Método no permitido.' });
       const pathname = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);
-      const publicFiles = ['/index.html', '/styles.css', '/editorial.css', '/catalog.js', '/app.js', '/escapes.js', '/summer-editorial.js', '/identities.js', '/identity-ui.js', '/identities.css', '/archivo-platform.css', '/estudio.html', '/estudio.js', '/estudio.css', '/admin.html', '/admin.js'];
+      const publicFiles = ['/index.html', '/styles.css', '/editorial.css', '/catalog.js', '/app.js', '/escapes.js', '/summer-editorial.js', '/identities.js', '/identity-ui.js', '/identities.css', '/archivo-platform.css', '/archivo-premium.css', '/archivo-premium.js', '/estudio.html', '/estudio.js', '/estudio.css', '/admin.html', '/admin.js'];
       if (!publicFiles.includes(pathname) && !/^\/assets\/[a-z0-9_./-]+\.(webp|png|svg|ttf)$/.test(pathname)) return json(res, 404, { error: 'Página no encontrada.' });
       const target = path.resolve(__dirname, `.${pathname}`);
       if (!target.startsWith(__dirname + path.sep)) return json(res, 403, { error: 'Ruta no permitida.' });
