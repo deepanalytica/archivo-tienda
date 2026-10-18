@@ -1,0 +1,114 @@
+[
+  {
+    "id": "neck-s-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-m-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-l-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-xl-charcoal",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#f3eddf",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-s-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#24333c",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-m-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#24333c",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-l-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#24333c",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "neck-xl-ivory",
+    "widthMm": 60,
+    "heightMm": 35,
+    "previewBackground": "#24333c",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-05",
+    "widthMm": 55,
+    "heightMm": 90,
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-06",
+    "widthMm": 55,
+    "heightMm": 90,
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-07",
+    "widthMm": 55,
+    "heightMm": 90,
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-08",
+    "widthMm": 55,
+    "heightMm": 90,
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-09",
+    "widthMm": 55,
+    "heightMm": 90,
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "hangtag-back-10",
+    "widthMm": 55,
+    "heightMm": 90,
+    "previewBackground": "#b58b60",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  }
+]

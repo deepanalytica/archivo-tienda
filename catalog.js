@@ -122,6 +122,45 @@
     product.trims = { code: `OF-0${index + 1}`, neckInk: product.id === 'ownform-not-here-tee' ? 'ivory' : 'charcoal', sleeveInk: product.id === 'ownform-not-here-tee' ? 'acid' : product.id === 'ownform-way-hoodie' ? 'ivory' : 'charcoal', tagBack: `hangtag-back-0${index + 1}` };
     if (product.id === 'ownform-not-here-tee') product.image = 'assets/products/ownform-not-here-tee-v2.webp';
   }
+  Object.assign(brands.ownform, {
+    collection: 'OTHER NATURE', latest: 'other-nature',
+    campaign: 'assets/brands/ownform-other-nature-campaign.webp',
+    mobileCampaign: 'assets/brands/ownform-other-nature-editorial.webp',
+    headline: 'Otra forma\nde naturaleza.', tagline: 'Still becoming.',
+    description: 'Flores de caracteres, árboles de tinta e islas de color. Naturaleza reinterpretada como arte para vestir.',
+    world: 'Lo natural también puede ser digital.',
+    manifesto: 'OWN FORM convierte una flor en caracteres, un árbol en trazos y una isla en curvas de color. OTHER NATURE reúne cuatro lenguajes: SIGNAL, REFRACT, AFTERIMAGE y ARCHIVE. Seis piezas, desde una firma de ocho centímetros hasta una espalda de veintiocho. La obra cambia; los corchetes de la manga, el interior y el kraft mantienen el código propio.',
+    art: 'ASCII botánico · cartografía prismática · vuelo desfasado · grabado de paisaje',
+    palette: ['#202b32', '#80d9dc', '#d8e85b', '#efb5a5'],
+  });
+  collections['other-nature'] = {
+    name: 'Other Nature', brand: 'ownform', line: 'Nature, in another language.',
+    description: 'Seis piezas, cuatro lenguajes. Flores ASCII, raíces de tinta, aves en vuelo e islas de color. Micro y macro, con artes de hasta 28 × 28 cm.',
+    campaign: brands.ownform.campaign, color: '#dbe2bd', ink: '#202b32', isNew: true,
+  };
+  const otherNatureProducts = [
+    ['signal-bloom-tee', 'Poleras', 'Polera Signal Bloom', 38990, 'Carbón / cian / lima', '#202b32', 'Frente', 'SIGNAL', 'Una flor hecha de caracteres crece entre SIGNAL y STILL becoming. Cian y lima sobre carbón; una declaración amplia, con pequeños signos que se descubren de cerca.', 'signal-bloom', 26, 28, 'ivory', 'acid'],
+    ['root-system-tee', 'Poleras', 'Polera Root System', 38990, 'Crudo / carbón', '#eee7d7', 'Frente', 'ARCHIVE', 'ROOTED, not fixed. Un árbol de líneas abiertas y raíces visibles sobre crudo. Tener un origen no significa quedarse en el mismo lugar.', 'root-system', 26, 28, 'charcoal', 'charcoal'],
+    ['free-frequency-tee', 'Poleras', 'Polera Free Frequency', 38990, 'Azul tinta / coral / cian', '#223640', 'Frente', 'AFTERIMAGE', 'Un ave construida con caracteres y pequeños desfases de color. FREE frequency. combina una voz compacta y una serifa libre sobre azul tinta.', 'free-frequency', 26, 26, 'ivory', 'ivory'],
+    ['refract-isles-hoodie', 'Polerones', 'Polerón Refract Isles', 79990, 'Carbón / cian / lila / coral', '#202b32', 'Espalda', 'REFRACT', 'Tres islas sin coordenadas fijas recorren la espalda en curvas de color. ELSEWHERE. al reverso; una isla mínima al pecho. Efecto prismático impreso, no material holográfico.', 'refract-isles', 28, 28, 'ivory', 'ivory'],
+    ['open-horizon-tee', 'Poleras', 'Polera Open Horizon', 38990, 'Blanco cálido / carbón / terracota', '#f4f0e7', 'Frente', 'ARCHIVE', 'Un paisaje grabado en líneas de nivel y un sol terracota sobre blanco cálido. OUTSIDE the noise. Una pausa visual con mucho aire alrededor.', 'open-horizon', 28, 18, 'charcoal', 'charcoal'],
+    ['little-elsewhere-tee', 'Poleras', 'Polera Little Elsewhere', 34990, 'Pistacho / carbón', '#d8e1ad', 'Frente', 'REFRACT', 'Una isla topográfica y una línea de agua, solo 8 × 8 cm al pecho izquierdo. ELSEWHERE. en versión íntima: el color lo lleva la prenda y el detalle cuenta el resto.', 'little-elsewhere', 8, 8, 'charcoal', 'charcoal'],
+  ];
+  for (const [rank, [slug, category, name, price, color, swatch, view, chapter, description, art, widthCm, heightCm, neckInk, sleeveInk]] of otherNatureProducts.entries()) {
+    const code = String(rank + 5).padStart(2, '0');
+    products.push({
+      id: `ownform-${slug}`, brand: 'ownform', collection: 'other-nature', category, name, price, color, swatch, view, chapter, description, sizes, fit: fits[category],
+      image: `assets/products/ownform-${slug}.webp`,
+      campaign: ['free-frequency-tee', 'refract-isles-hoodie', 'open-horizon-tee'].includes(slug) ? brands.ownform.mobileCampaign : brands.ownform.campaign,
+      isNew: true, featuredRank: rank - 14, graphic: widthCm === 8 ? 'micro' : 'macro',
+      print: { widthCm, heightCm, placement: widthCm === 8 ? 'Pecho izquierdo' : view === 'Espalda' ? 'Espalda centrada' : 'Pecho centrado', svg: `assets/prints/other-nature/${art}.svg`, png: `assets/prints/other-nature/${art}.png`, background: swatch, technique: 'DTF sugerido / validar muestra', status: 'Arte para prueba de proveedor; no es una producción validada.' },
+      trims: { code: `OF-${code}`, neckInk, sleeveInk, tagBack: `hangtag-back-${code}`, neckRoot: 'assets/trims/other-nature/', tagRoot: 'assets/trims/other-nature/' },
+      ...(slug === 'refract-isles-hoodie' ? {
+        alternate: { image: 'assets/products/ownform-refract-isles-front.webp', label: 'Frente micro', alt: 'Polerón Refract Isles, frente con isla micro al pecho izquierdo y firma de manga' },
+        secondaryPrint: { widthCm: 8, heightCm: 3.5, placement: 'Pecho izquierdo', svg: 'assets/prints/other-nature/refract-micro-front.svg', png: 'assets/prints/other-nature/refract-micro-front.png' },
+      } : {}),
+    });
+  }
   const destinations = {
     beach: { name: 'Playa', title: 'Ese día que\nno quieres terminar.', description: 'Una cala, una sobremesa, el último baño. Turquesa y marfil para llevar la pausa contigo.', brand: 'salitre', color: '#69c8c1', ink: '#173f3c', look: ['salitre-shirt', 'salitre-shorts', 'salitre-cap'], lookName: 'Un día junto al mar' },
     mountain: { name: 'Montaña', title: 'Respira.\nEstás aquí.', description: 'El lago en silencio, la luz sobre la piedra. Capas de color para cambiar de perspectiva.', brand: 'alto', color: '#b5cbb5', ink: '#23353d', look: ['alto-jacket', 'alto-tee', 'alto-cap'], lookName: 'Aire de montaña' },

@@ -21,16 +21,16 @@ async function build() {
     }
   }
   await fs.cp(path.join(root, 'assets', 'fonts'), path.join(destination, 'assets', 'fonts'), { recursive: true });
-  const prints = path.join(destination, 'assets', 'prints', 'ownform');
-  await fs.mkdir(prints, { recursive: true });
-  for (const file of await fs.readdir(path.join(root, 'assets', 'prints', 'ownform'))) {
-    if (/^[a-z-]+\.(svg|png)$/.test(file)) await fs.copyFile(path.join(root, 'assets', 'prints', 'ownform', file), path.join(prints, file));
-  }
   const identities = path.join(destination, 'assets', 'identities');
-  const trims = path.join(destination, 'assets/trims/ownform');
-  await fs.mkdir(trims, { recursive: true });
-  for (const file of await fs.readdir(path.join(root, 'assets/trims/ownform'))) {
-    if (/^[a-z0-9-]+\.(svg|png)$/.test(file)) await fs.copyFile(path.join(root, 'assets/trims/ownform', file), path.join(trims, file));
+  for (const type of ['prints', 'trims']) {
+    for (const collection of ['ownform', 'other-nature']) {
+      const source = path.join(root, 'assets', type, collection);
+      const target = path.join(destination, 'assets', type, collection);
+      await fs.mkdir(target, { recursive: true });
+      for (const file of await fs.readdir(source)) {
+        if (/^[a-z0-9-]+\.(svg|png)$/.test(file)) await fs.copyFile(path.join(source, file), path.join(target, file));
+      }
+    }
   }
   await fs.mkdir(identities, { recursive: true });
   for (const file of await fs.readdir(path.join(root, 'assets', 'identities'))) {

@@ -71,10 +71,11 @@ La tienda se debe abrir mediante este servidor, no como un archivo `file://`, pa
 
 ## Qué funciona
 
-- 45 prendas con fotografías individuales de producto, incluyendo los nueve productos originales.
-- Doce perfiles de marca, quince colecciones y tres escapadas con conjuntos completos.
+- 51 prendas con fotografías individuales de producto, incluyendo los nueve productos originales.
+- Doce perfiles de marca, dieciséis colecciones y tres escapadas con conjuntos completos.
+- OTHER NATURE de OWN FORM agrega seis piezas en cuatro capítulos: SIGNAL, REFRACT, AFTERIMAGE y ARCHIVE. Flores ASCII, árbol, ave, islas y paisaje; incluye contrapunto micro y vista frontal del polerón.
 - OWN FORM incluye una vista del arte original, medidas físicas y descargas SVG/PNG de 300 ppp en cada ficha; requieren prueba de proveedor antes de producción.
-- Sus terminaciones incluyen 18 plantillas SVG/PNG: interiores por talla, tres tintas de manga, frente y reversos de kraft, guía de corte y estudio ASCII. La etiqueta interior descargable sigue la talla elegida; sin selección muestra M claramente identificada como ejemplo.
+- Sus terminaciones incluyen 32 plantillas SVG/PNG: interiores por talla, tres tintas de manga, frente y reversos de kraft, guía de corte y estudio ASCII. La etiqueta interior descargable sigue la talla elegida; sin selección muestra M claramente identificada como ejemplo. OTHER NATURE tiene interiores y reversos propios.
 - Búsqueda por prenda, color, marca, colección o destino; filtros por destino, marca, colección y tipo; ordenamiento por precio y favoritos.
 - Ficha de producto con prenda, campaña y detalle de marca. Estas últimas son vistas editoriales de la colección, no fotografías adicionales del mismo SKU.
 - Tallas S, M, L, XL para prendas y Única para gorros; cantidades de 1 a 10 por producto/talla.
@@ -123,7 +124,9 @@ Capturas e informe: `output/playwright/`.
 
 ## Imágenes
 
-`assets/products/` contiene las 45 prendas en WebP. Se conservan los PNG originales disponibles. `assets/brands/` reúne campañas anteriores y detalles de las marcas iniciales. IMAGO y OWN FORM agregan seis imágenes de concepto cada una: cuatro prendas y dos editoriales, con PNG local y WebP para la web. Prompts de OWN FORM: `docs/ownform-image-prompts.json`.
+`assets/products/` contiene las 51 prendas en WebP, además de la vista frontal micro de Refract Isles. Se conservan los PNG originales disponibles. `assets/brands/` reúne campañas anteriores y detalles de las marcas iniciales. IMAGO y Self Defined de OWN FORM agregan seis imágenes de concepto cada una: cuatro prendas y dos editoriales, con PNG local y WebP para la web. Prompts de Self Defined: `docs/ownform-image-prompts.json`.
+
+OTHER NATURE incorpora nueve mockups finales: siete vistas de prenda y dos editoriales. Artes y terminaciones: `assets/prints/other-nature/` y `assets/trims/other-nature/`. Dirección, medidas y precauciones de fabricación: `docs/other-nature.md`. Prompts exactos: `docs/other-nature-image-prompts.json`.
 
 Las ampliaciones incorporan 38 imágenes de ImageGen integrado: 18 de la primera edición y 20 de esta edición de escapadas. Prompts exactos y correspondencia con archivos: `docs/image-prompts.json`. Cada WebP nuevo tiene `.prompt.txt` y procedencia; los PNG nuevos se conservan localmente en `output/imagegen/`. La publicación incluye WebP y tipografías alojadas localmente.
 

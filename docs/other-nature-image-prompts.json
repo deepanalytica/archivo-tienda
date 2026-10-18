@@ -1,0 +1,117 @@
+{
+  "capsule": "OWN FORM / OTHER NATURE",
+  "method": "built-in image_gen",
+  "notes": "AI-generated photographic mockups; print dimensions are defined by native artwork, not photos. First campaign replaced by corrected v2.",
+  "outputs": [
+    {
+      "id": "signal-bloom",
+      "asset": "assets/products/ownform-signal-bloom-tee",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-5d007be5-a23d-4e6c-8273-14ad29f0b82a.png"
+    },
+    {
+      "id": "root-system",
+      "asset": "assets/products/ownform-root-system-tee",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-12686126-8dd0-4295-b3ce-9ca88a7ae5fd.png"
+    },
+    {
+      "id": "free-frequency",
+      "asset": "assets/products/ownform-free-frequency-tee",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-a031a87b-fdf2-450d-a4f8-d65ef2594175.png"
+    },
+    {
+      "id": "refract-isles",
+      "asset": "assets/products/ownform-refract-isles-hoodie",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-2240caec-d64e-4d4e-b0de-03186133ea81.png"
+    },
+    {
+      "id": "open-horizon",
+      "asset": "assets/products/ownform-open-horizon-tee",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-7c5b30b9-24bd-4f1d-815b-4132c85b630e.png"
+    },
+    {
+      "id": "little-elsewhere",
+      "asset": "assets/products/ownform-little-elsewhere-tee",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-dd49b07b-a844-4d76-a302-8637d2807d1c.png"
+    },
+    {
+      "id": "refract-front",
+      "asset": "assets/products/ownform-refract-isles-front",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-6e963c51-2947-4acd-843d-4236d776215b.png"
+    },
+    {
+      "id": "campaign-v2",
+      "asset": "assets/brands/ownform-other-nature-campaign",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-fd210f76-f32c-437d-bfe1-c247f982a395.png"
+    },
+    {
+      "id": "editorial",
+      "asset": "assets/brands/ownform-other-nature-editorial",
+      "source": "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-68b8be6d-043d-49ce-a89b-280a1e924467.png"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "signal-bloom",
+      "prompt": "Use case: product-mockup. Create a believable high-end fashion e-commerce photograph, portrait 4:5. Single garment, complete uncropped silhouette, photographed flat on warm pale grey lightly textured concrete, subtle asymmetric folds, soft directional window light, film grain, tactile heavy cotton, ribbed neck, double stitching, tiny cream [ / ] sleeve mark, small brown kraft OWN FORM hangtag beside collar. No model, no collage, no floating graphics, no added text outside the garment. The attached image is the PRINT DESIGN reference, not a background or poster. Reproduce its artwork and lettering accurately on fabric with gentle natural distortion, remove its flat background so shirt fabric shows through all negative space. Print is a plausible 26cm wide, not all-over; position centered on front below neck. Never add a rectangle around the print. Garment: washed charcoal black boxy oversized premium short sleeve t-shirt. Print: SIGNAL, cyan and acid lime ASCII flower, STILL becoming., OWN FORM / VOL. 02, exactly as reference. Show small ivory printed interior neck label reading OWN FORM / M / OTHER NATURE. Confident sophisticated streetwear, true photographic texture, no glossy CGI.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/signal-bloom-preview.png"
+    },
+    {
+      "id": "root-system",
+      "prompt": "Use case: product-mockup. Create a believable high-end fashion e-commerce photograph, portrait 4:5. Single garment, complete uncropped silhouette, photographed flat on warm pale grey lightly textured concrete, subtle asymmetric folds, soft directional window light, film grain, tactile heavy cotton, ribbed neck, double stitching, tiny cream [ / ] sleeve mark, small brown kraft OWN FORM hangtag beside collar. No model, no collage, no floating graphics, no added text outside the garment. The attached image is the PRINT DESIGN reference, not a background or poster. Reproduce its artwork and lettering accurately on fabric with gentle natural distortion, remove its flat background so shirt fabric shows through all negative space. Print is a plausible 26cm wide, not all-over; position centered on front below neck. Never add a rectangle around the print. Garment: warm ecru boxy oversized short sleeve premium tee. Print: charcoal engraved branching tree and its roots, ROOTED / not fixed. in bold sans and italic serif precisely matching reference, 26 x 28 cm print area. Charcoal micro [ / ] sleeve mark, interior neck print OWN FORM / M / OTHER NATURE in charcoal. Beautiful understated art gallery streetwear.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/root-system-preview.png"
+    },
+    {
+      "id": "free-frequency",
+      "prompt": "Use case: product-mockup. Create a believable high-end fashion e-commerce photograph, portrait 4:5. Single garment, complete uncropped silhouette, photographed flat on warm pale grey lightly textured concrete, subtle asymmetric folds, soft directional window light, film grain, tactile heavy cotton, ribbed neck, double stitching, tiny cream [ / ] sleeve mark, small brown kraft OWN FORM hangtag beside collar. No model, no collage, no floating graphics, no added text outside the garment. The attached image is the PRINT DESIGN reference, not a background or poster. Reproduce its artwork and lettering accurately on fabric with gentle natural distortion, remove its flat background so shirt fabric shows through all negative space. Print is a plausible 26cm wide, not all-over; position centered on front below neck. Never add a rectangle around the print. Garment: deep ink navy boxy oversized short sleeve tee. Print: FREE / frequency. large cream sans and coral italic serif with the flying bird constructed of cyan cream coral ASCII characters, all reference small texts retained, print 26 x 26 cm. Cream [ / ] sleeve signature and interior neck print OWN FORM / M / OTHER NATURE. Restrained color, refined human photographed product, not a sports jersey.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/free-frequency-preview.png"
+    },
+    {
+      "id": "refract-isles",
+      "prompt": "Use case: product-mockup. A real photographic flatlay of ONE washed black heavyweight oversized hoodie, BACK view, hood gently folded away to reveal upper back, both sleeves relaxed fully in frame. Portrait 4:5, pale warm grey concrete, soft side daylight, fine cinematic grain, tactile fleece and stitching. Attached image is print artwork reference: retain exact REFRACT title, multicolor topographic three-island drawing and ELSEWHERE. footer with tiny OWN FORM / OTHER NATURE. Place as a 28 x 28cm back print, centered shoulderblade to mid back, no rectangular background, fabric shows in all negative spaces. Color is MATTE PRINTED cyan lavender coral and cream, not metallic foil or glowing LEDs. Small ivory [ / ] micro signature at sleeve cuff. Tiny kraft OWN FORM swing tag to one side. No people, no props covering print, no additional graphics, no collage, no CGI.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/refract-isles-preview.png"
+    },
+    {
+      "id": "open-horizon",
+      "prompt": "Use case: product-mockup. Create a believable high-end fashion e-commerce photograph, portrait 4:5. Single garment, complete uncropped silhouette, photographed flat on warm pale grey lightly textured concrete, subtle asymmetric folds, soft directional window light, film grain, tactile heavy cotton, ribbed neck, double stitching, tiny cream [ / ] sleeve mark, small brown kraft OWN FORM hangtag beside collar. No model, no collage, no floating graphics, no added text outside the garment. The attached image is the PRINT DESIGN reference, not a background or poster. Reproduce its artwork and lettering accurately on fabric with gentle natural distortion, remove its flat background so shirt fabric shows through all negative space. Print is a plausible 26cm wide, not all-over; position centered on front below neck. Never add a rectangle around the print. Garment: clean warm white heavyweight premium tee. Front print EXACT reference composition, 28cm WIDE x 18cm HIGH, landscape proportion (do NOT stretch vertically): charcoal engraved contour mountains, small matte terracotta sun, OUTSIDE / the noise. in charcoal bold sans and terracotta italic serif, original small captions. Dark charcoal tiny [ / ] signature on left sleeve, interior neck OWN FORM / M / OTHER NATURE. Minimal modern wearable art, gentle photographic realism.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/open-horizon-preview.png"
+    },
+    {
+      "id": "little-elsewhere",
+      "prompt": "Use case: product-mockup. Photoreal premium fashion e-commerce flatlay, portrait4:5. ONE light pistachio pastel green oversized boxy cotton short sleeve tee, whole silhouette in frame on warm pale grey textured concrete, gently uneven folds, soft side daylight, fine film grain, real stitching, matte fabric. Reference image is a MICRO print artwork, NOT an all-over graphic. Its entire charcoal topographic island, wave, tiny OWN FORM / OF-10 and ELSEWHERE. occupy ONLY an 8 x 8 cm square on wearer's LEFT chest (viewer right), small and sophisticated, lots of plain fabric everywhere else, no giant center graphic. Remove reference green background to let fabric show. Charcoal [ / ] tiny sleeve signature, interior neck print OWN FORM / M / OTHER NATURE, one small brown kraft swingtag by collar. No additional artwork, no model, no props, no collage, no CGI.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/little-elsewhere-preview.png"
+    },
+    {
+      "id": "refract-front",
+      "prompt": "Use case: product-mockup. A believable photographic flatlay FRONT view of ONE washed black heavyweight oversized hoodie, hood spread above neck, kangaroo pocket, black drawstrings, fully uncropped sleeves. Warm pale grey concrete background, subtle asymmetric fabric wrinkles, soft window daylight, fine film grain, matte tactile cotton. Attached image is a MICRO chest print reference: entire design white [ / ] and OWN FORM with small cyan contour island, only 8cm wide x 3.5cm tall on wearer's LEFT chest (viewer right). Keep rest of front completely plain, NOT the large back artwork. Tiny ivory [ / ] left sleeve cuff mark, ivory interior neck OWN FORM / M / OTHER NATURE. Brown kraft hangtag by collar. Sophisticated restrained fashion photography, no people, no collage, portrait 4:5.",
+      "reference": "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/refract-micro-front-preview.png"
+    },
+    {
+      "id": "campaign",
+      "prompt": "Use case: photorealistic-natural. Create one panoramic 16:9 fashion campaign photo for OWN FORM / OTHER NATURE wearable-art capsule, NO overlaid titles or logos. Three distinct stylish adult models late20s, diverse faces, natural skin and real hair, captured on a coastal city street with worn stone pavement, salt-washed concrete, a distant quiet blue sea. Late afternoon clear daylight, warm highlights and muted teal shadows, cinematic fine grain. Composition: leave LEFT40% primarily atmospheric pale wall/pavement for web copy; three models from center to right, heads safely below top15%, bodies to mid thigh, not a catalogue lineup: candid movement, confident glances, relaxed summer elegance. Center blonde woman in black oversized tee with reference1 SIGNAL cyan/lime ASCII flower print26x28cm, cream tailored trousers, silver small hoops. Right dark-haired man in ecru tee reference2 ROOTED tree26x28cm, charcoal wide trousers. Third adult blonde man at rear in pistachio tee with reference3 island MICRO8x8cm left chest, stone pleated trousers. Match supplied ART on the garments accurately, no background rectangles, avoid enlarged art. Tiny [ / ] sleeve signatures. No hangtags worn, no jewelry covering artwork, no synthetic skin, no neon actual glow, no plastic CGI. Editorial shot35mm f/4, believable anatomy, human handheld framing. These are distinct garment-print references, not people references.",
+      "references": [
+        "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/signal-bloom-preview.png",
+        "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/root-system-preview.png",
+        "C:/Users/Ale/Desktop/Micro/tienda/output/other-nature/little-elsewhere-preview.png"
+      ]
+    },
+    {
+      "id": "campaign-v2",
+      "prompt": "Edit image1, preserve the three adult models, faces, coastal street scene, photographic light and composition exactly. Correct ONLY the clothes print artwork to match product references2,3,4. Woman's black tee MUST include large cream word SIGNAL above cyan/lime ASCII flower and STILL becoming. below flower, as on reference2. Man's ecru tee MUST include ROOTED above tree and not fixed. below roots, as reference3. Rear man's pistachio tee must have MUCH SMALLER 8cm chest print including the tiny island and ELSEWHERE. as reference4. Keep tee silhouettes, no kraft hangtags on people, left sleeve small [ / ] signatures. Typography is an essential part of these designs, do NOT omit words. Scale full black print26x28cm and full ecru print26x28cm; whole graphic smaller if needed to fit above trouser waistline. No text outside clothing. Maintain one realistic fashion photograph, no collage.",
+      "references": [
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-84a0cacd-6369-4587-9907-0f6394117bb4.png",
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-5d007be5-a23d-4e6c-8273-14ad29f0b82a.png",
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-12686126-8dd0-4295-b3ce-9ca88a7ae5fd.png",
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-dd49b07b-a844-4d76-a302-8637d2807d1c.png"
+      ]
+    },
+    {
+      "id": "editorial",
+      "prompt": "Use case: photorealistic-natural. ONE portrait4:5 coastal-city fashion campaign photograph, three attractive distinct adults late20s, refined streetwear styling, cinematic honest35mm human photography. At a weathered concrete staircase beside sea on breezy summer late afternoon, light haze, real rough pavement, subtle film grain, realistic skin and cotton. Foreground adult blonde woman with sharp bob hair looking back over shoulder, wearing black oversized hoodie whose BACK shows reference1 exact REFRACT title / cyan lavender coral cream contour-island graphic / ELSEWHERE. footer, full design28x28cm, hood down not obscuring print, cream wide trousers. Beside her adult blonde man with natural tousled hair facing3/4camera, ink navy tee with reference2 cream FREE / coral frequency. words above cyan coral cream ASCII bird, exact printed design26x26, stone trousers. In background dark-haired adult woman wearing white tee reference3 contour mountain terracotta sun OUTSIDE the noise., charcoal tailored shorts. Tiny [ / ] sleeve signatures, no hangtags worn. All typography on garments MUST remain; NOT isolated illustrations with words removed. No added text outside clothes, no collage, no actual glowing holograms. Compose heads safely below top15% and show all main prints, subjects naturally interacting not lineup. Restrained confident expressions and attitude. The references show garments to reproduce, not faces.",
+      "references": [
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-2240caec-d64e-4d4e-b0de-03186133ea81.png",
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-a031a87b-fdf2-450d-a4f8-d65ef2594175.png",
+        "C:\\Users\\Ale\\.codex\\generated_images\\019e61ee-8184-7453-a6b9-5eaa806e6d4e\\exec-7c5b30b9-24bd-4f1d-815b-4132c85b630e.png"
+      ]
+    }
+  ]
+}

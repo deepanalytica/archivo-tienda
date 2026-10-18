@@ -1,0 +1,58 @@
+[
+  {
+    "id": "signal-bloom",
+    "widthMm": 260,
+    "heightMm": 280,
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "root-system",
+    "widthMm": 260,
+    "heightMm": 280,
+    "previewBackground": "#eee7d9",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "free-frequency",
+    "widthMm": 260,
+    "heightMm": 260,
+    "previewBackground": "#233640",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "refract-isles",
+    "widthMm": 280,
+    "heightMm": 280,
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "open-horizon",
+    "widthMm": 280,
+    "heightMm": 180,
+    "previewBackground": "#f5f1e8",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "little-elsewhere",
+    "widthMm": 80,
+    "heightMm": 80,
+    "previewBackground": "#d8dfac",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  },
+  {
+    "id": "refract-micro-front",
+    "widthMm": 80,
+    "heightMm": 35,
+    "previewBackground": "#202b32",
+    "rasterDpi": 300,
+    "status": "supplier-proof-required"
+  }
+]

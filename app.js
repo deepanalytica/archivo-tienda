@@ -10,7 +10,7 @@ function save(key, value) { try { localStorage.setItem(key, JSON.stringify(value
 const storedFavorites = load('archivo-favorites-v1', []);
 const storedCart = load('archivo-cart-v1', []);
 const state = {
-  brand: 'all', collection: 'all', destination: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'ownform', feature: 'self-defined',
+  brand: 'all', collection: 'all', destination: 'all', category: 'all', search: '', sort: 'featured', favoritesOnly: false, campaign: 'ownform', feature: 'other-nature',
   favorites: new Set(Array.isArray(storedFavorites) ? storedFavorites.filter((id) => byId(id)) : []),
   cart: [], product: null, size: null, quantity: 1, view: 'product', finish: 0, requestKey: null, order: null,
 };
@@ -205,10 +205,16 @@ function showProduct(id) {
   $('#detail-brand').textContent = `${brand.name} / ${collections[product.collection].name}`;
   $('[data-view="detail"]').hidden = !brand.detail && !brand.finishes?.length;
   $('[data-view="artwork"]').hidden = !product.print;
+  $('[data-view="alternate"]').hidden = !product.alternate;
+  $('[data-view="alternate"]').textContent = product.alternate?.label || 'Otra vista';
   $('#print-spec').hidden = !product.print;
   if (product.print) {
     const print = product.print;
     $('#print-spec').innerHTML = `<p class="eyebrow">ARTE / PLANCHA 30 × 30</p><p><strong>${print.widthCm} × ${print.heightCm} cm</strong> · ${print.placement}</p><p>${print.technique}. La escala en el mockup es orientativa; el archivo define la medida.</p><div class="print-downloads"><a href="${print.svg}" download>SVG vectorial ↓</a><a href="${print.png}" download>PNG transparente · 300 ppp ↓</a></div><p class="print-status">${print.status}</p>`;
+    if (product.secondaryPrint) {
+      const secondary = product.secondaryPrint;
+      $('#print-spec').insertAdjacentHTML('beforeend', `<p><strong>Contrapunto micro · ${secondary.widthCm} × ${secondary.heightCm} cm</strong> · ${secondary.placement}</p><div class="print-downloads"><a href="${secondary.svg}" download>SVG frente micro ↓</a><a href="${secondary.png}" download>PNG frente micro · 300 ppp ↓</a></div>`);
+    }
   } else $('#print-spec').replaceChildren();
   $('#product-title').textContent = product.name;
   $('#detail-price').textContent = money(product.price);
@@ -233,14 +239,17 @@ function renderTrimSpec() {
   if (!trims) { panel.replaceChildren(); return; }
   const size = state.size || 'M';
   const root = 'assets/trims/ownform/';
-  panel.innerHTML = `<p class="eyebrow">CÓDIGO PROPIO / ${trims.code}</p><p>Interior 60 × 35 mm · manga 40 × 16 mm · kraft 55 × 90 mm.</p><p>Corchetes y barra en manga, marca interior y tarjeta de la pieza. Un mismo sistema, aunque cambie el arte.</p><div class="trim-downloads"><a href="${root}neck-${size.toLowerCase()}-${trims.neckInk}.svg" download>Interior ${size}${state.size ? '' : ' · muestra'} ↓</a><a href="${root}sleeve-${trims.sleeveInk}.svg" download>Firma de manga ↓</a><a href="${root}hangtag-front.svg" download>Kraft frente ↓</a><a href="${root}${trims.tagBack}.svg" download>Kraft reverso ↓</a></div><p class="small-note">Sistema de terminaciones propuesto. Revisar materiales y muestra. La marca interior no sustituye la información real de composición y cuidados de la prenda.</p>`;
+  const neckRoot = trims.neckRoot || root;
+  const tagRoot = trims.tagRoot || root;
+  panel.innerHTML = `<p class="eyebrow">CÓDIGO PROPIO / ${trims.code}</p><p>Interior 60 × 35 mm · manga 40 × 16 mm · kraft 55 × 90 mm.</p><p>Corchetes y barra en manga, marca interior y tarjeta de la pieza. Un mismo sistema, aunque cambie el arte.</p><div class="trim-downloads"><a href="${neckRoot}neck-${size.toLowerCase()}-${trims.neckInk}.svg" download>Interior ${size}${state.size ? '' : ' · muestra'} ↓</a><a href="${root}sleeve-${trims.sleeveInk}.svg" download>Firma de manga ↓</a><a href="${root}hangtag-front.svg" download>Kraft frente ↓</a><a href="${tagRoot}${trims.tagBack}.svg" download>Kraft reverso ↓</a></div><p class="small-note">Sistema de terminaciones propuesto. Revisar materiales y muestra. La marca interior no sustituye la información real de composición y cuidados de la prenda.</p>`;
 }
 function renderProductView() {
   const product = state.product; const brand = brands[product.brand];
   const isArtwork = state.view === 'artwork' && product.print;
   const finish = state.view === 'detail' ? brand.finishes?.[state.finish] : null;
-  $('#detail-image').src = isArtwork ? product.print.svg : state.view === 'product' ? product.image : state.view === 'campaign' ? (product.campaign || collections[product.collection].campaign) : finish?.image || brand.detail;
-  $('#detail-image').alt = finish ? finish.alt : isArtwork ? `Arte original ${product.name}, ${product.print.widthCm} por ${product.print.heightCm} centímetros` : state.view === 'product' ? `${product.name}, ${product.color}, ${product.view}` : `${state.view === 'campaign' ? 'Campaña de colección' : 'Etiquetas y terminaciones de la marca'} ${brand.name}`;
+  const alternate = state.view === 'alternate' ? product.alternate : null;
+  $('#detail-image').src = alternate ? alternate.image : isArtwork ? product.print.svg : state.view === 'product' ? product.image : state.view === 'campaign' ? (product.campaign || collections[product.collection].campaign) : finish?.image || brand.detail;
+  $('#detail-image').alt = alternate ? alternate.alt : finish ? finish.alt : isArtwork ? `Arte original ${product.name}, ${product.print.widthCm} por ${product.print.heightCm} centímetros` : state.view === 'product' ? `${product.name}, ${product.color}, ${product.view}` : `${state.view === 'campaign' ? 'Campaña de colección' : 'Etiquetas y terminaciones de la marca'} ${brand.name}`;
   $('#finish-views').hidden = !finish;
   $('#finish-views').innerHTML = finish ? brand.finishes.map((item, index) => `<button type="button" data-finish="${index}" aria-pressed="${index === state.finish}">${item.label}</button>`).join('') : '';
   $('#gallery-caption').hidden = !finish;

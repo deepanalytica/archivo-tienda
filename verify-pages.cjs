@@ -110,7 +110,13 @@ const catalog = require('./catalog.js');
       assert.equal(await page.locator('#identity-tabs [role="tab"]').count(), Object.keys(catalog.brands).length);
       assert.equal(await page.locator('.logo .archivo-descriptor').textContent(), 'Clothing & Art');
       assert.equal(await page.locator('#hero-image').evaluate((image) => getComputedStyle(image).objectPosition), name === 'desktop' ? '65% 0%' : '55% 0%');
-      assert.match(await page.locator('#hero-image').getAttribute('src'), name === 'desktop' ? /ownform-campaign\.webp$/ : /ownform-editorial\.webp$/);
+      assert.equal(await page.locator('#hero-image').getAttribute('src'), name === 'desktop' ? catalog.brands.ownform.campaign : catalog.brands.ownform.mobileCampaign);
+      assert.equal(await page.locator('.nature-chapters>div').count(), 4);
+      assert.equal(await page.locator('.nature-pieces button').count(), 6);
+      await page.locator('#other-nature').screenshot({ path: path.join(output, `${name}-other-nature.png`) });
+      await page.locator('#other-nature [data-collection="other-nature"]').click();
+      assert.equal(await page.locator('.product-card').count(), 6);
+      await page.locator('#clear-filters').click();
       assert.equal(await page.locator('body').evaluate((body) => getComputedStyle(body, '::after').pointerEvents), 'none');
       assert.equal(await page.locator('.product-open img').first().evaluate((image) => getComputedStyle(image).filter), 'none');
       await page.locator('.imago-editorial').screenshot({ path: path.join(output, `${name}-imago-editorial.png`) });
@@ -123,8 +129,19 @@ const catalog = require('./catalog.js');
       await page.locator('#clear-filters').click();
       await page.locator('.ownform-editorial [data-collection="self-defined"]').click();
       assert.equal(await page.locator('.product-card').count(), 4);
+      await page.locator('#collection-filter').selectOption('all');
+      assert.equal(await page.locator('.product-card').count(), 10);
       for (const product of catalog.products.filter((item) => item.brand === 'ownform')) {
         await page.locator(`.product-open[data-open-product="${product.id}"]`).click();
+        assert.equal(await page.locator('[data-view="alternate"]').isVisible(), Boolean(product.alternate));
+        if (product.alternate) {
+          await page.locator('[data-view="alternate"]').click();
+          assert.equal(await page.locator('#detail-image').getAttribute('src'), product.alternate.image);
+          await page.locator('#detail-image').evaluate((image) => image.decode());
+          await page.screenshot({ path: path.join(output, `${name}-${product.id}-front.png`) });
+          assert.equal(await page.locator('#print-spec a').count(), 4);
+          for (const file of [product.secondaryPrint.svg, product.secondaryPrint.png]) assert.equal((await fetch(base + file)).status, 200);
+        }
         await page.locator('[data-view="artwork"]').click();
         assert.equal(await page.locator('#detail-image').getAttribute('src'), product.print.svg);
         assert.match(await page.locator('#print-spec').innerText(), new RegExp(`${product.print.widthCm} × ${product.print.heightCm} cm`));
@@ -190,9 +207,10 @@ const catalog = require('./catalog.js');
         await page.getByRole('button', { name: 'Cerrar ficha de producto', exact: true }).click();
       }
       if (name === 'desktop') {
-        const trims = JSON.parse(await fs.readFile(path.join(__dirname, 'assets/trims/ownform/manifest.json'), 'utf8'));
+        for (const folder of ['ownform', 'other-nature']) {
+        const trims = JSON.parse(await fs.readFile(path.join(__dirname, `assets/trims/${folder}/manifest.json`), 'utf8'));
         for (const trim of trims) {
-          const response = await fetch(`${base}assets/trims/ownform/${trim.id}.svg`);
+          const response = await fetch(`${base}assets/trims/${folder}/${trim.id}.svg`);
           assert.equal(response.status, 200);
           const source = await response.text();
           assert.ok(!/<text\b|<image\b|<script\b/.test(source));
@@ -205,12 +223,13 @@ const catalog = require('./catalog.js');
           }, source);
           assert.equal(bounds.physical, `${trim.widthMm}mm`);
           assert.ok(bounds.x >= 0 && bounds.y >= 0 && bounds.right <= bounds.width && bounds.bottom <= bounds.height, `${trim.id}: ${JSON.stringify(bounds)}`);
-          const pngResponse = await fetch(`${base}assets/trims/ownform/${trim.id}.png`);
+          const pngResponse = await fetch(`${base}assets/trims/${folder}/${trim.id}.png`);
           assert.equal(pngResponse.status, 200);
           const png = Buffer.from(await pngResponse.arrayBuffer());
           assert.equal(png.readUInt32BE(16), Math.round(trim.widthMm / 25.4 * 300));
           assert.equal(png.readUInt32BE(20), Math.round(trim.heightMm / 25.4 * 300));
           assert.equal(png[25], 6);
+        }
         }
       }
       await page.locator('#clear-filters').click();
@@ -299,7 +318,7 @@ const catalog = require('./catalog.js');
         assert.match(await page.locator('#hero-sub').innerText(), new RegExp(brand.name));
         await page.locator(`#brand-editorials [data-brand-story="${id}"]`).first().click();
         assert.equal(await page.locator('#brand-title').innerText(), brand.name);
-        assert.equal(await page.locator('#brand-dialog .brand-palette span').count(), 3);
+        assert.equal(await page.locator('#brand-dialog .brand-palette span').count(), brand.palette.length);
         if (id === 'orbita') await page.screenshot({ path: path.join(output, `${name}-brand.png`) });
         await page.getByRole('button', { name: 'Cerrar universo de marca' }).click();
       }
