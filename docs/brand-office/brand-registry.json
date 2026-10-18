@@ -1,0 +1,277 @@
+{
+  "version": "0.1.0",
+  "lastReviewed": "2026-10-18",
+  "authority": "EDITORIAL_OVERLAY_NOT_STOREFRONT_CATALOG",
+  "catalogSource": "catalog.js",
+  "verificationCommand": "node scripts/verify-brand-office.cjs",
+  "expectedSnapshot": {
+    "brands": 12,
+    "collections": 16,
+    "products": 51
+  },
+  "rules": {
+    "archetypes": "proposed / not scientifically validated segmentation",
+    "buyerPersonas": "research hypotheses until interviews",
+    "stock": "none verified by this file",
+    "physicalQuality": "not validated",
+    "prices": "catalog values are references only"
+  },
+  "brands": [
+    {
+      "id": "ownform",
+      "name": "OWN FORM",
+      "slug": "own-form",
+      "collections": [
+        "self-defined",
+        "other-nature"
+      ],
+      "palette": [
+        "#202B32",
+        "#F3EDDF",
+        "#D8E85B"
+      ],
+      "archetypes_proposed": {
+        "primary": "Rebelde",
+        "secondary": "Creador"
+      },
+      "signature": "palabra personal + ASCII",
+      "brandBible": "docs/brand-office/brands/own-form.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "imago",
+      "name": "IMAGO",
+      "slug": "imago",
+      "collections": [
+        "herbario-indocil"
+      ],
+      "palette": [
+        "#243B67",
+        "#C14E3D",
+        "#F3EDDF"
+      ],
+      "archetypes_proposed": {
+        "primary": "Mago",
+        "secondary": "Creador"
+      },
+      "signature": "grabado botánico / metamorfosis",
+      "brandBible": "docs/brand-office/brands/imago.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "umbral",
+      "name": "UMBRAL",
+      "slug": "umbral",
+      "collections": [
+        "desfase",
+        "patio"
+      ],
+      "palette": [
+        "#2453D4",
+        "#D96837",
+        "#F3E6CC"
+      ],
+      "archetypes_proposed": {
+        "primary": "Creador",
+        "secondary": "Sabio"
+      },
+      "signature": "espacio / umbral desplazado",
+      "brandBible": "docs/brand-office/brands/umbral.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "salitre",
+      "name": "SALITRE",
+      "slug": "salitre",
+      "collections": [
+        "costa-privada"
+      ],
+      "palette": [
+        "#69C8C1",
+        "#EF896B",
+        "#F4EDDD"
+      ],
+      "archetypes_proposed": {
+        "primary": "Amante",
+        "secondary": "Explorador"
+      },
+      "signature": "horizonte micro / resort íntimo",
+      "brandBible": "docs/brand-office/brands/salitre.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "alto",
+      "name": "ALTO SUR",
+      "slug": "alto-sur",
+      "collections": [
+        "aire-abierto"
+      ],
+      "palette": [
+        "#B84A2C",
+        "#B5CBB5",
+        "#23353D"
+      ],
+      "archetypes_proposed": {
+        "primary": "Explorador",
+        "secondary": "Cuidador"
+      },
+      "signature": "relieve mineral / pausa alpina",
+      "brandBible": "docs/brand-office/brands/alto-sur.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "limen",
+      "name": "LIMEN",
+      "slug": "limen",
+      "collections": [
+        "entre-horas"
+      ],
+      "palette": [
+        "#496ACB",
+        "#71334B",
+        "#F1E5B9"
+      ],
+      "archetypes_proposed": {
+        "primary": "Creador",
+        "secondary": "Sabio"
+      },
+      "signature": "barra mínima / galería habitada",
+      "brandBible": "docs/brand-office/brands/limen.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "brava",
+      "name": "ISLA BRAVA",
+      "slug": "isla-brava",
+      "collections": [
+        "flor-un-dia"
+      ],
+      "palette": [
+        "#EF9BBB",
+        "#EF7844",
+        "#C7B5DC"
+      ],
+      "archetypes_proposed": {
+        "primary": "Bufón",
+        "secondary": "Amante"
+      },
+      "signature": "flor plana / verano expresivo",
+      "brandBible": "docs/brand-office/brands/isla-brava.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "neblina",
+      "name": "NEBLINA",
+      "slug": "neblina",
+      "collections": [
+        "entre-capas",
+        "jardin"
+      ],
+      "palette": [
+        "#C8B5E3",
+        "#D4E4A8",
+        "#354D3D"
+      ],
+      "archetypes_proposed": {
+        "primary": "Inocente",
+        "secondary": "Creador"
+      },
+      "signature": "estratos vegetales / delicadeza",
+      "brandBible": "docs/brand-office/brands/neblina.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "logic",
+      "name": "WE ARE LOGIC",
+      "slug": "we-are-logic",
+      "collections": [
+        "principio",
+        "frecuencia"
+      ],
+      "palette": [
+        "#CA287B",
+        "#1847C7",
+        "#F5C6D7"
+      ],
+      "archetypes_proposed": {
+        "primary": "Sabio",
+        "secondary": "Creador"
+      },
+      "signature": "módulo repetido / ritmo urbano",
+      "brandBible": "docs/brand-office/brands/we-are-logic.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "solar",
+      "name": "SOLAR CLUB",
+      "slug": "solar-club",
+      "collections": [
+        "fuera-oficina"
+      ],
+      "palette": [
+        "#F36B36",
+        "#F6E39E",
+        "#234AC6"
+      ],
+      "archetypes_proposed": {
+        "primary": "Persona común",
+        "secondary": "Bufón"
+      },
+      "signature": "club solar / sociabilidad",
+      "brandBible": "docs/brand-office/brands/solar-club.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "marea",
+      "name": "MAREA",
+      "slug": "marea",
+      "collections": [
+        "pleamar"
+      ],
+      "palette": [
+        "#204BC7",
+        "#EB6559",
+        "#E5EEF2"
+      ],
+      "archetypes_proposed": {
+        "primary": "Explorador",
+        "secondary": "Rebelde"
+      },
+      "signature": "doble ola / Pacífico activo",
+      "brandBible": "docs/brand-office/brands/marea.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    },
+    {
+      "id": "orbita",
+      "name": "ÓRBITA",
+      "slug": "orbita",
+      "collections": [
+        "club-futuro"
+      ],
+      "palette": [
+        "#D4ED51",
+        "#C8B6E4",
+        "#4A2A66"
+      ],
+      "archetypes_proposed": {
+        "primary": "Mago",
+        "secondary": "Bufón"
+      },
+      "signature": "elipse orbital / futuro pop",
+      "brandBible": "docs/brand-office/brands/orbita.md",
+      "status": "creative_direction_draft",
+      "manufacturingStatus": "unvalidated"
+    }
+  ]
+}
