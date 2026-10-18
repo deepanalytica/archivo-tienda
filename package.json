@@ -8,7 +8,7 @@
     "build": "node scripts/build-pages.cjs",
     "test:local": "node verify.cjs",
     "test:pages": "npm run build && node verify-pages.cjs",
-    "test": "npm run test:local && npm run test:pages && node scripts/verify-studio.cjs"
+    "test": "npm run test:local && npm run test:pages && node scripts/verify-studio.cjs && node scripts/verify-brand-platform.cjs"
   },
   "engines": {
     "node": ">=22"

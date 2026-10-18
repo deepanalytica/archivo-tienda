@@ -141,3 +141,9 @@ Las imágenes originales y el concepto de UMBRAL permanecen en `../umbral/`; NEB
 OWN FORM mantiene sus artes, trims y guías existentes. La carpeta `docs/production/` detalla un programa de desarrollo para las otras once marcas: 22 estudios de estampado vectoriales, 77 plantillas de marca/colgante y una matriz de validaciones pendiente por calidad y prenda. Es material **de estudio para cotizaciones y muestras**, no arte listo para tirada en serie ni nuevos SKU aprobados. Revisa `assets/prints/brand-lab/`, `assets/trims/brand-lab/` y `docs/production/prepress.md`.
 
 Validación de los 99 SVG: `python scripts/verify-brand-production.py`. Rasterización opcional: `node scripts/render-brand-production.cjs`, que requiere Sharp disponible localmente y guarda PNG en `output/production-renders`; este paso no participa en el despliegue público.
+
+## Identidad institucional de ARCHIVO / V2
+
+La portada `index.html` separa la **marca madre** de las 12 campañas autónomas: un único lockup en cabecera, hero manifiesto «Un archivo. Muchos mundos.», índice curado y acceso a `estudio.html`. Logotipo combinado, monograma, favicon y retícula están en `assets/identities/archivo-*.svg`; reglas de uso en `docs/archivo-brand-system-v2.md` y estilos en `archivo-platform.css`.
+
+Las nuevas secciones **no cambian el catálogo ni convierten las imágenes conceptuales en productos fabricados**. El despliegue en GitHub Pages continúa sin pasarela de pago. El control de regresión `node scripts/verify-brand-platform.cjs` comprueba que el logo no se repita en el hero y que los recursos estén publicados.
