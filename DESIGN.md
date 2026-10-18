@@ -123,12 +123,6 @@ typography:
     fontWeight: 750
     lineHeight: 1.15
     letterSpacing: "-0.025em"
-  brand-ribbon:
-    fontFamily: "Fraunces, Georgia, serif"
-    fontSize: "clamp(30px, 4vw, 58px)"
-    fontWeight: 550
-    lineHeight: 1.15
-    letterSpacing: "-0.025em"
 rounded:
   square: "0px"
   circular: "50%"
@@ -202,7 +196,11 @@ components:
   brand-ribbon:
     backgroundColor: "{colors.brand-ribbon}"
     textColor: "{colors.brand-ribbon-ink}"
-    typography: "{typography.brand-ribbon}"
+  identity-stage-salitre:
+    backgroundColor: "{colors.salitre-turquoise}"
+    textColor: "{colors.salitre-ink}"
+    rounded: "{rounded.square}"
+    padding: "48px clamp(28px, 4vw, 65px)"
   look-size:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -221,15 +219,15 @@ components:
 
 ARCHIVO reúne diez universos reconocibles dentro de una estructura editorial común. Playa, montaña y ciudad acercan esas identidades a escenas aspiracionales de luz, color y pausa, con prendas de líneas simples y pequeñas firmas gráficas. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.
 
-La edición Escapes conserva UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA e incorpora SALITRE, ALTO SUR, LIMEN e ISLA BRAVA. Sus trece colecciones y treinta y siete prendas amplían el mundo aprobado. Esta documentación registra la implementación vigente en el bloque final de `styles.css`, `catalog.js`, `escapes.js`, `app.js` e `index.html`, según `docs/escapes-art-direction.md`, `PRODUCT.md` y las capturas finales de `output/pages/`. Los destinos y conjuntos ayudan a imaginar cómo vestir esas escenas; la base editorial y sus tokens compartidos permanecen vigentes.
+La edición Escapes conserva UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA e incorpora SALITRE, ALTO SUR, LIMEN e ISLA BRAVA. Sus trece colecciones y treinta y siete prendas amplían el mundo aprobado. La evolución de identidad incorpora firmas de letras contorneadas y símbolos de planos, pliegues y vacíos. Esta documentación registra `styles.css`, `identities.css`, `identities.js`, `identity-ui.js`, `scripts/generate-identities.py`, `catalog.js`, `escapes.js`, `app.js` e `index.html`, según `docs/identity-art-direction.md`, `docs/escapes-art-direction.md`, `PRODUCT.md` y las capturas finales de `output/pages/`. Los destinos y conjuntos ayudan a imaginar cómo vestir esas escenas; la base editorial y sus tokens compartidos permanecen vigentes.
 
 **Key Characteristics:**
 - Fotografía protagonista, con prendas y campañas como imágenes distintas.
 - Papel cálido compartido y paneles cromáticos propios por marca y colección.
-- Archivo para estructura y Fraunces para titulares expresivos y determinadas firmas.
+- Archivo para estructura y Fraunces para titulares expresivos; ambas son origen de las firmas vectoriales intervenidas.
 - Esquinas rectas, líneas finas y jerarquía por escala y color.
 - Diez marcas, tres destinos y conjuntos editables dentro de una misma selección.
-- Exploración manual, estados de selección explícitos y dos cintas de movimiento opcional.
+- Exploración manual de campañas e identidades, estados de selección explícitos y dos cintas de movimiento opcional.
 
 ## Colors
 
@@ -243,16 +241,16 @@ Las primitivas del frontmatter son normativas; los colores de marca y los pares 
 
 | Marca | Paleta | Aplicación y símbolo |
 | --- | --- | --- |
-| SALITRE | `salitre-turquoise`, `salitre-papaya`, `salitre-ivory` | Resort de líneas limpias; horizonte interrumpido. |
-| ALTO SUR | `alto-rust`, `alto-celadon`, `alto-ink` | Descanso alpino; cumbre angular y curvas de nivel mínimas. |
-| LIMEN | `limen-cobalt`, `limen-burgundy`, `limen-butter` | Galería y arquitectura urbana; barras desplazadas y cuadrado abierto en prendas. |
-| ISLA BRAVA | `brava-pink`, `brava-papaya`, `brava-lavender` | Verano gráfico; flor de cinco pétalos. |
-| SOLAR CLUB | `solar-tangerine`, `solar-butter`, `solar-blue` | Club de verano, cancha y sobremesa; sol de ocho rayos. |
-| MAREA | `marea-pacific`, `marea-coral`, `marea-foam` | Costa del Pacífico y gráfica de surf; doble ola. |
-| ÓRBITA | `orbita-lime`, `orbita-lilac`, `orbita-grape` | Retro futuro y formas espaciales; elipse y planeta. |
-| UMBRAL | `umbral-cobalt`, `umbral-clay`, `umbral-bone` | Taller, campos de color y arquitectura cotidiana; dos umbrales desplazados. |
-| NEBLINA | `neblina-lavender`, `neblina-pistachio`, `neblina-forest` | Botánica sensible y paisaje; líneas de montaña. |
-| WE ARE LOGIC | `logic-magenta`, `logic-electric`, `logic-pink` | Gráfica modular urbana; ángulos repetidos. |
+| SALITRE | `salitre-turquoise`, `salitre-papaya`, `salitre-ivory` | Resort de líneas limpias; S de planos desplazados y pliegue salino. |
+| ALTO SUR | `alto-rust`, `alto-celadon`, `alto-ink` | Descanso alpino; A tallada en perspectiva con vacío central. |
+| LIMEN | `limen-cobalt`, `limen-burgundy`, `limen-butter` | Galería y arquitectura urbana; dos eles cruzan sus planos. |
+| ISLA BRAVA | `brava-pink`, `brava-papaya`, `brava-lavender` | Verano gráfico; corola de cuatro pétalos plegados, con siluetas distintas. |
+| SOLAR CLUB | `solar-tangerine`, `solar-butter`, `solar-blue` | Club de verano, cancha y sobremesa; recorridos escalonados de S y C. |
+| MAREA | `marea-pacific`, `marea-coral`, `marea-foam` | Costa del Pacífico y gráfica de surf; cintas enlazadas que dejan una M. |
+| ÓRBITA | `orbita-lime`, `orbita-lilac`, `orbita-grape` | Retro futuro y formas espaciales; anillo facetado de eje oblicuo. |
+| UMBRAL | `umbral-cobalt`, `umbral-clay`, `umbral-bone` | Taller, campos de color y arquitectura cotidiana; dos marcos cruzados con planos compartidos. |
+| NEBLINA | `neblina-lavender`, `neblina-pistachio`, `neblina-forest` | Botánica sensible y paisaje; N entretejida entre dos planos. |
+| WE ARE LOGIC | `logic-magenta`, `logic-electric`, `logic-pink` | Gráfica modular urbana; tres módulos encajados con profundidad. |
 
 La franja usa el primer color de cada paleta. Las cuatro marcas nuevas usan su tinta propia: `salitre-ink`, `alto-panel-ink`, `limen-panel-ink` y `brava-ink`. Las seis anteriores mantienen blanco salvo SOLAR CLUB (`solar-strip-ink`) y ÓRBITA/NEBLINA (`botanical-strip-ink`). Las muestras de paleta muestran los tres colores sin convertirlos en controles.
 
@@ -284,7 +282,7 @@ Los paneles de destino conservan pares propios: Playa usa `salitre-turquoise` / 
 
 **Display Font:** Archivo, Arial, sans-serif. **Expressive Font:** Fraunces, Georgia, serif. Ambas fuentes variables se alojan en `assets/fonts/`; no se necesita una fuente remota.
 
-La firma ARCHIVO es ancha y pesada; Fraunces aporta el contraste de los titulares de campaña, nombres de colección y énfasis editoriales. Los énfasis usan estilo normal y los ejes `SOFT` (60) y `WONK` (1). Las firmas de MAREA, NEBLINA e ISLA BRAVA solicitan cursiva en CSS; la fuente local declarada es normal.
+La firma ARCHIVO es ancha y pesada; Fraunces aporta el contraste de los titulares de campaña, nombres de colección y énfasis editoriales. Los énfasis usan estilo normal y los ejes `SOFT` (60) y `WONK` (1). Las diez firmas de marca son SVG con letras contorneadas: su forma, inclinación y composición ya están dibujadas y no dependen de una fuente al mostrarse.
 
 ### Hierarchy
 
@@ -292,12 +290,14 @@ La firma ARCHIVO es ancha y pesada; Fraunces aporta el contraste de los titulare
 - **Campaign:** `campaign` para el titular sobre fotografía; mantiene saltos de línea y balance de texto. En móvil pasa a `clamp(40px, 12vw, 60px)`.
 - **Headline:** `headline` para secciones, con énfasis en Fraunces. En móvil las secciones principales usan (38px).
 - **Collection title:** `collection-title`, con ancho máximo (10ch) en escritorio y hasta (14ch) en el diseño apilado; en móvil usa (45px).
-- **Escape title:** `escape-title`, con ancho máximo (16ch); pasa a (39px) bajo (1050px), (43px) y (18ch) bajo (760px), (38px) y (16ch) bajo (680px), y (34px) bajo (375px). Las cintas usan los roles `destination-ribbon` y `brand-ribbon`; en móvil pasan a (31px) y (35px).
+- **Escape title:** `escape-title`, con ancho máximo (16ch); pasa a (39px) bajo (1050px), (43px) y (18ch) bajo (760px), (38px) y (16ch) bajo (680px), y (34px) bajo (375px). La cinta de destinos usa `destination-ribbon` y pasa a (31px) en móvil. La cinta de marcas usa las firmas SVG, con altura (65px) en escritorio y (52px) en móvil.
 - **Product title:** `product-title`, reducido a (16px) bajo (1050px), (15px) bajo (680px) y (14px) bajo (375px). Los precios usan cifras tabulares.
 - **Body:** `body` es la base; los textos editoriales usan `narrative`, con anchos habituales de (30–48ch). La nota de catálogo llega a (76ch).
 - **Label:** `label` corresponde a la marca sobre el nombre de prenda, en mayúsculas. Controles y enlaces usan normalmente (11–12px), con ajustes móviles.
 
-Las firmas distinguen las marcas sin cambiar la estructura de interacción: SALITRE usa Archivo (550), condensación (90%) y espaciado (.13em); ALTO SUR Archivo (800), condensación (90%) y espaciado (.015em); LIMEN Archivo (500) y espaciado (.12em); ISLA BRAVA Fraunces (700), cursiva y espaciado (-.02em). Entre las seis anteriores, SOLAR CLUB usa Fraunces (750); MAREA Fraunces (650) y cursiva; NEBLINA Fraunces (450) y cursiva; ÓRBITA Archivo (750), expansión (125%) y espaciado (.035em); WE ARE LOGIC Archivo (800) y condensación (85%); UMBRAL Archivo (600) y espaciado (.045em).
+Las firmas se componen individualmente a partir de Archivo y Fraunces locales con licencia OFL mediante `scripts/generate-identities.py`. Archivo origina SALITRE, ALTO SUR, LIMEN, MAREA, ÓRBITA, UMBRAL y WE ARE LOGIC; Fraunces origina ISLA BRAVA, SOLAR CLUB y NEBLINA. Hay glifos geométricos propios en la A de ALTO SUR, I/E de LIMEN, T/E de SALITRE, M de MAREA, Ó de ÓRBITA y U de UMBRAL. ALTO SUR, ISLA BRAVA, SOLAR CLUB y WE ARE LOGIC usan composiciones apiladas; NEBLINA desplaza progresivamente sus letras. Conserva los contornos, proporciones, acentos y márgenes de cada SVG.
+
+**The Authored Signature Rule.** Usa los vectores de `identities.js` o `assets/identities/` para cada firma y símbolo; conserva el nombre accesible como texto. No reconstruyas las firmas con texto CSS ni sustituyas sus geometrías por pictogramas literales.
 
 ## Layout
 
@@ -305,7 +305,7 @@ No hay una caja central de ancho máximo para toda la página. Las secciones sig
 
 El hero ocupa hasta (730px) con mínimo (560px), fotografía a sangre y texto superpuesto a la izquierda. En móvil usa `calc(100svh - 96px)`, mínimo (540px), recorte de imagen al (67%) horizontal y los gradientes vigentes del hero. La firma queda arriba; el titular y la llamada se asientan sobre el área inferior. Las diez campañas tienen selectores en una fila desplazable con ajuste de posición y flechas anterior/siguiente; cada opción ocupa (145px), (120px) bajo (1050px) y (116px) bajo (680px). La fila usa `scroll-snap-type: x proximity`; las flechas miden (44px) de ancho, o (37px) en móvil, con altura mínima (44px). En móvil el área de texto reserva (138px) inferiores para esta navegación.
 
-La franja de diez marcas tiene cinco columnas y dos filas en escritorio, con botones de altura mínima (92px), o (85px) bajo (1050px). Bajo (680px) mantiene dos filas de (74px), fluye por columnas de (45%) del ancho y se desplaza horizontalmente con ajuste obligatorio de posición. El explorador presenta imagen y panel en proporción (1.25fr / 1fr), ajusta a (1.05fr / 1fr) bajo (1050px) y se apila bajo (760px). Sus trece botones forman una fila con desplazamiento horizontal. El catálogo usa tres columnas, con `grid-row` y `grid-column`; bajo (680px) usa dos columnas y separaciones móviles. Las imágenes de prenda son cuadradas; el precio baja bajo el texto en móvil.
+La franja de diez marcas tiene cinco columnas y dos filas en escritorio, con botones de altura mínima (92px), o (85px) bajo (1050px). Bajo (680px) mantiene dos filas de (86px), fluye por columnas de (56%) del ancho y se desplaza horizontalmente con ajuste obligatorio de posición. El explorador presenta imagen y panel en proporción (1.25fr / 1fr), ajusta a (1.05fr / 1fr) bajo (1050px) y se apila bajo (760px). Sus trece botones forman una fila con desplazamiento horizontal. El catálogo usa tres columnas, con `grid-row` y `grid-column`; bajo (680px) usa dos columnas y separaciones móviles. Las imágenes de prenda son cuadradas; el precio baja bajo el texto en móvil.
 
 Los tres destinos aparecen antes de las colecciones. Sus pestañas alinean símbolo y nombre; el panel combina fotografía y texto en (1.15fr / 1fr), con altura mínima (580px), y pasa a (1fr / 1fr) y (550px) bajo (1050px). Bajo (760px) se apila, con foto (1.5:1); bajo (680px) la foto es (1.35:1) y el texto tiene relleno (28px 24px). Tres prendas cuadradas, en tres columnas, completan cada panel. El bloque de filtros tiene cuatro columnas (1fr / 1.5fr / 1fr / 1fr), reducidas a dos iguales en móvil.
 
@@ -313,15 +313,19 @@ El catálogo presenta doce prendas inicialmente y añade doce por acción «Ver 
 
 El conjunto abre un diálogo de (680px), con relleno (45px), filas de imagen (110 × 125px) y texto en dos columnas, separadas (23px). Bajo (680px) ocupa la pantalla y usa relleno (37px 22px), imagen (86 × 105px) y separación (16px). El subtotal queda en una fila propia, con cifras tabulares.
 
+El muestrario de identidades precede las diez historias. Su fila de pestañas se desplaza horizontalmente; el panel usa dos columnas (1fr / 1.2fr), mínimo (430px), relleno vertical (48px) y horizontal fluido (28–65px). Bajo (1050px) usa relleno (35px); bajo (680px) se apila con relleno (32px 26px 54px), símbolo (155px) y firma de hasta (285px) de ancho. En escritorio el símbolo llega a (280px) y la firma a (390px); las composiciones apiladas conservan anchos menores para mantener su proporción.
+
 Las historias usan dos columnas y fotografías (1.52:1); bajo (680px) pasan a una columna y fotos (1.35:1). El diálogo de marca pasa de dos columnas a una bajo (760px), y a toda la pantalla bajo (680px). Producto y revisión también ocupan la pantalla móvil. La bolsa es un panel derecho de (470px), limitado al ancho disponible y con altura de ventana. El panel de navegación central se oculta bajo (680px); permanecen firma, favoritos y bolsa.
 
 ## Elevation & Depth
 
 La profundidad procede de fotografía, superficies de color y superposición. No hay sombras de caja en los componentes implementados. Líneas finas separan filtros, tallas, filas y resúmenes; los contenedores editoriales se distinguen por el fondo. El hero usa gradientes oscuros para sostener el texto: `linear-gradient(90deg,#17313c99,transparent 82%)` y `linear-gradient(0deg,#162533df,transparent 65%)`. La fotografía de destino suma un gradiente inferior `#132f31aa` a transparente desde el (55%) de su altura. Los diálogos añaden un velo (`#131511a6`) con desenfoque (5px); los controles de cierre conservan papel opaco. La navegación y el favorito sobre producto usan fondo opaco, sin desenfoque.
 
+Los símbolos añaden profundidad mediante caras rellenas de distinta opacidad dentro de una sola tinta. En el muestrario, una perspectiva de (900px) y la inclinación `rotateY(-13deg) rotateX(8deg)` presentan el símbolo como una pieza; al pasar el cursor o entrar el foco se asienta al plano frontal. No se añaden sombras de caja.
+
 ## Shapes
 
-Botones, paneles, fotografías, campos y diálogos conservan esquinas rectas. El contador de bolsa y las muestras de color del producto son circulares; las muestras de paleta de marca son cuadrados de (26px), separados por (5px), con borde fino. Los símbolos de marca usan SVG de (48 × 48), base sin relleno y trazo (2), con centro de flor relleno en ISLA BRAVA, adaptado al tamaño del contexto.
+Botones, paneles, fotografías, campos y diálogos conservan esquinas rectas. El contador de bolsa y las muestras de color del producto son circulares; las muestras de paleta de marca son cuadrados de (26px), separados por (5px), con borde fino. Los diez símbolos de marca usan SVG con `viewBox="0 0 96 96"`, relleno `currentColor`, regla par-impar y sin trazo; los planos de opacidad pertenecen a la forma. Los vacíos, cruces y facetas construyen siluetas propias. `assets/identities/` conserva diez símbolos, diez firmas tipográficas y diez conjuntos de símbolo y firma (`*-signature.svg`). Las fotografías de concepto existentes conservan sus gráficas de colección; no definen la geometría de la identidad digital vigente.
 
 ## Components
 
@@ -336,6 +340,14 @@ Los filtros de marca usan altura mínima (44px), sin borde; la selección es un 
 La prenda se presenta sobre un cuadro neutro, con favorito independiente arriba a la derecha y etiqueta de vista abajo a la izquierda. Nombre, marca, color y precio están fuera de la fotografía. La imagen aumenta a escala (1.055) al pasar el cursor, durante (.7s). Las historias combinan fotografía de campaña, firma blanca superpuesta, panel de color, símbolo, tres muestras de paleta y enlace al universo de marca. Su fotografía aumenta a (1.04).
 
 **The View Truth Rule.** Una campaña describe el universo de marca; no es otra vista del SKU. Muestra la pestaña Detalles únicamente cuando el catálogo tiene una imagen de detalle de marca.
+
+### Authored identities
+
+Las firmas vectoriales aparecen en la franja de marcas, las campañas y colecciones, las escapadas, las fotografías editoriales, los perfiles y la cinta de marcas. Cada firma incluye el nombre como texto accesible; el SVG visual es decorativo. La franja combina símbolo (34px) y firma de hasta (158px), con composiciones apiladas de hasta (105px); en móvil el símbolo pasa a (29px), la firma a (136px) y las apiladas a (85px). Los perfiles combinan símbolo (65px) y firma (280px), reducidos a (50px) y (220px) en móvil.
+
+El muestrario «No se parecen. Se reconocen.» abre con SALITRE y mantiene selección manual entre las diez marcas. Usa `tablist`, `tab` y `tabpanel`, `aria-selected` y un solo tabulador activo; flechas izquierda/derecha, Inicio y Fin cambian selección y foco. Cada selección actualiza símbolo, firma, título, nota, gesto y el par cromático de la colección más reciente. «Ver prendas» filtra el catálogo por esa marca. La calidad se comprueba con símbolos distinguibles a (32px) y firmas legibles a (160px), según el contrato de identidad.
+
+Las fotografías de concepto conservan sus gráficas de colección. No muestran necesariamente la firma digital exacta estampada en cada prenda; la evolución vectorial no modifica esas imágenes.
 
 ### Inputs and focus
 
@@ -369,7 +381,7 @@ La curva común es `cubic-bezier(.16, 1, .3, 1)`. La apertura asienta la foto de
 
 Las dos cintas desplazan una pista duplicada mediante `translateX(0)` a `translateX(-50%)`: destinos en (38s) lineales e infinitos; marcas en (65s), en sentido inverso. Arrancan pausadas por CSS; JavaScript permite correr solo la cinta visible según `IntersectionObserver`, sin pausa manual, preferencia de movimiento reducido ni documento oculto. El foco dentro de la cinta y el cursor en dispositivos con hover la pausan temporalmente. El contenido duplicado se oculta a tecnologías de asistencia; cada región tiene un nombre accesible y puede recibir foco.
 
-El botón «Pausar movimiento» / «Reanudar movimiento» controla ambas cintas y persiste su elección en `archivo-motion-paused-v1`; `aria-pressed` indica pausa manual. Con movimiento reducido se deshabilita con el texto «Movimiento reducido», se oculta la copia y la cinta estática permite desplazamiento horizontal manual. Fuera de pantalla o con pestaña oculta se pausa sin alterar la preferencia guardada. Si no hay `IntersectionObserver`, conserva el estado pausado. Las miniaturas de destino se elevan (4px) al pasar el cursor, con transición (.4s); los paneles usan la entrada ya existente de (.5s).
+El botón «Pausar movimiento» / «Reanudar movimiento» controla ambas cintas y persiste su elección en `archivo-motion-paused-v1`; `aria-pressed` indica pausa manual. Con movimiento reducido se deshabilita con el texto «Movimiento reducido», se oculta la copia y la cinta estática permite desplazamiento horizontal manual. Fuera de pantalla o con pestaña oculta se pausa sin alterar la preferencia guardada. Si no hay `IntersectionObserver`, conserva el estado pausado. Las miniaturas de destino se elevan (4px) al pasar el cursor, con transición (.4s); los paneles usan la entrada ya existente de (.5s). El símbolo del muestrario asienta su inclinación en (.8s), con la curva común, al pasar el cursor o entrar el foco. Con movimiento reducido conserva la forma frontal estática y elimina esa transición.
 
 **The Optional Motion Rule.** Con movimiento reducido, desactiva animaciones y transiciones CSS, omite la animación JavaScript del hero y usa desplazamiento automático al catálogo y al selector de campaña. Conserva todo el contenido y las acciones visibles; las cintas quedan estáticas, sin copia y con desplazamiento manual.
 
@@ -378,6 +390,8 @@ El botón «Pausar movimiento» / «Reanudar movimiento» controla ambas cintas 
 ### Do:
 - Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las diez marcas.
 - Do tomar los pares de colección y las paletas del catálogo, manteniendo cada símbolo y firma asociados a su marca.
+- Do reutilizar los SVG contorneados, sus vacíos y planos de opacidad, conservando el nombre de marca accesible.
+- Do conservar la selección manual con teclado del muestrario y su perspectiva estática con movimiento reducido.
 - Do conservar fotos cuadradas para prendas y composiciones editoriales amplias para campañas.
 - Do mantener el foco visible de foto y buscador, los estados `aria-pressed` y el movimiento reducido.
 - Do conservar la pausa manual de ambas cintas, su parada fuera de pantalla o con documento oculto y su alternativa estática.
@@ -386,6 +400,8 @@ El botón «Pausar movimiento» / «Reanudar movimiento» controla ambas cintas 
 
 ### Don't:
 - Don't sustituir las diez identidades por un único color o una única firma de marca.
+- Don't reconstruir las firmas vectoriales con fuentes CSS ni regresar a pictogramas literales de sol, montaña o planeta.
+- Don't afirmar que las fotografías existentes reproducen la firma digital exacta en todas las prendas.
 - Don't ocultar prendas al final del primer bloque: conserva la carga progresiva de doce y su contador.
 - Don't añadir avance automático a las campañas manuales.
 - Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.

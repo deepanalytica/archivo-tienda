@@ -10,7 +10,7 @@ function renderEscape() {
   panel.style.setProperty('--escape-bg', escape.color);
   panel.style.setProperty('--escape-ink', escape.ink);
   panel.setAttribute('aria-labelledby', `escape-tab-${activeEscape}`);
-  panel.innerHTML = `<div class="escape-photograph"><img src="${brand.campaign}" alt="${escape.name}: ${brand.description}" width="1536" height="1024" loading="lazy"><span class="wordmark wordmark-${escape.brand}">${brand.name}</span></div><div class="escape-copy"><h3>${escape.title}</h3><p>${escape.description}</p><div class="escape-actions"><button type="button" class="button escape-button" data-open-look="${activeEscape}">Ver el conjunto ${arrowIcon}</button><button type="button" class="line-link" data-destination-catalog="${activeEscape}">Explorar ${escape.name.toLowerCase()}</button></div><div class="escape-pieces">${escape.look.map((id) => `<button type="button" data-open-product="${id}" aria-label="Ver ${byId(id).name} de ${brand.name}"><img src="${byId(id).image}" alt="${byId(id).name}" width="300" height="300" loading="lazy"><span>${byId(id).name}</span></button>`).join('')}</div></div>`;
+  panel.innerHTML = `<div class="escape-photograph"><img src="${brand.campaign}" alt="${escape.name}: ${brand.description}" width="1536" height="1024" loading="lazy"><span class="wordmark wordmark-${escape.brand}">${brandWordmark(escape.brand)}</span></div><div class="escape-copy"><h3>${escape.title}</h3><p>${escape.description}</p><div class="escape-actions"><button type="button" class="button escape-button" data-open-look="${activeEscape}">Ver el conjunto ${arrowIcon}</button><button type="button" class="line-link" data-destination-catalog="${activeEscape}">Explorar ${escape.name.toLowerCase()}</button></div><div class="escape-pieces">${escape.look.map((id) => `<button type="button" data-open-product="${id}" aria-label="Ver ${byId(id).name} de ${brand.name}"><img src="${byId(id).image}" alt="${byId(id).name}" width="300" height="300" loading="lazy"><span>${byId(id).name}</span></button>`).join('')}</div></div>`;
   all('[data-escape]').forEach((button) => {
     const selected = button.dataset.escape === activeEscape;
     button.setAttribute('aria-selected', String(selected)); button.tabIndex = selected ? 0 : -1;
@@ -79,7 +79,7 @@ const ribbonWords = {
   'ticker-brands': universeOrder.map((id) => brands[id].name),
 };
 for (const [id, words] of Object.entries(ribbonWords)) {
-  const group = `<div class="ticker-group">${words.map((word) => `<span>${word}</span>${brandSymbol(id === 'ticker-brands' ? 'flower' : 'sun')}`).join('')}</div>`;
+  const group = `<div class="ticker-group">${words.map((word, index) => id === 'ticker-brands' ? `${brandWordmark(universeOrder[index])}${brandSymbol(universeOrder[index])}` : `<span>${word}</span>${brandSymbol(['salitre', 'alto', 'limen', 'brava'][index])}`).join('')}</div>`;
   $(`#${id} .ticker-track`).innerHTML = group + group;
 }
 let userPausedMotion = load('archivo-motion-paused-v1', false) === true;

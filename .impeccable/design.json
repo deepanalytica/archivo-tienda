@@ -1,16 +1,22 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T03:54:39.504660+00:00",
+  "generatedAt": "2026-10-18T04:14:02Z",
   "title": "Design System: ARCHIVO",
   "extensions": {
     "provenance": {
       "mode": "scan",
       "sources": [
         "styles.css (final Escapes edition block)",
+        "identities.css",
+        "identities.js",
+        "identity-ui.js",
+        "scripts/generate-identities.py",
+        "assets/identities/provenance.json",
         "catalog.js",
         "escapes.js",
         "app.js",
         "index.html",
+        "docs/identity-art-direction.md",
         "docs/escapes-art-direction.md",
         "PRODUCT.md",
         "docs/art-direction.md"
@@ -27,9 +33,18 @@
         "output/pages/mobile-mountain.png",
         "output/pages/mobile-city.png",
         "output/pages/mobile-look.png",
-        "output/pages/mobile-brand.png"
+        "output/pages/mobile-brand.png",
+        "output/pages/identity-proof.png",
+        "output/pages/desktop-signatures.png",
+        "output/pages/mobile-signatures.png",
+        "output/pages/desktop-identity-salitre.png",
+        "output/pages/mobile-identity-salitre.png",
+        "output/pages/desktop-identity-orbita.png",
+        "output/pages/mobile-identity-orbita.png",
+        "output/pages/desktop-identity-logic.png",
+        "output/pages/mobile-identity-logic.png"
       ],
-      "note": "Refresh/merge of the approved Escapes edition; incumbent North Star and shared tokens retained. CSS cascade includes the final Escapes edition block. Tonal ramps are synthesized OKLCH preview metadata, not implemented palette additions; the line ramp is opaque preview metadata for an alpha token. Snippets are self-contained static visual excerpts, not replacements for app.js or escapes.js behavior."
+      "note": "Refresh/merge of the explicitly requested authored identity evolution over the approved Escapes edition; incumbent North Star and palettes retained. CSS cascade includes identities.css after the final Escapes edition block. Existing raster concept photography retains collection graphics and does not promise an exact reproduction of the digital signature on every garment. Tonal ramps are synthesized OKLCH preview metadata, not implemented palette additions; the line ramp is opaque preview metadata for an alpha token. Snippets are self-contained static visual excerpts, not replacements for app.js, escapes.js or identity-ui.js behavior."
     },
     "colorMeta": {
       "paper": {
@@ -997,10 +1012,6 @@
       "destination-ribbon": {
         "displayName": "Destination Ribbon",
         "purpose": "Cinta de destinos en Archivo."
-      },
-      "brand-ribbon": {
-        "displayName": "Brand Ribbon",
-        "purpose": "Cinta de marcas en Fraunces."
       }
     },
     "shadows": [],
@@ -1056,6 +1067,11 @@
         "name": "escape-piece-hover",
         "value": "transform:translateY(-4px);transition:transform .4s cubic-bezier(.16,1,.3,1)",
         "purpose": "Respuesta de miniaturas de prenda; se omite con movimiento reducido."
+      },
+      {
+        "name": "identity-plane",
+        "value": "perspective:900px; transform:rotateY(-13deg) rotateX(8deg); transition:transform .8s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Authored symbol settles to rotateY(0) rotateX(0) on stage hover or focus-within. Reduced motion uses transform:none and transition:none."
       }
     ],
     "focus": [
@@ -1108,7 +1124,7 @@
       {
         "name": "brand-strip",
         "desktop": "repeat(5,minmax(0,1fr)); 10 brands in 2 rows; min-height:92px (85px at 1050px)",
-        "mobile": "680px: grid-template-rows:repeat(2,74px); grid-auto-flow:column; grid-auto-columns:45%; overflow-x:auto; scroll-snap-type:x mandatory"
+        "mobile": "680px: grid-template-rows:repeat(2,86px); grid-auto-flow:column; grid-auto-columns:56%; overflow-x:auto; scroll-snap-type:x mandatory"
       },
       {
         "name": "campaign-navigation",
@@ -1125,6 +1141,11 @@
       {
         "name": "look-dialog",
         "value": "width:680px;padding:45px; line:110px 1fr,gap23px,photo110x125; 680px:full screen,padding37px22px,line86px1fr,gap16px,photo86x105"
+      },
+      {
+        "name": "identity-atelier",
+        "desktop": "Before the ten stories; horizontal manual tabs; stage:1fr 1.2fr,min-height430px,padding48px clamp(28px,4vw,65px); symbol up to280px; wordmark up to390px with smaller stacked variants",
+        "mobile": "680px:one column,padding32px26px54px,gap22px; symbol155px; wordmark up to285px,height90px with smaller stacked variants"
       }
     ],
     "destinations": [
@@ -1167,7 +1188,18 @@
           "limen-cap"
         ]
       }
-    ]
+    ],
+    "identityAssets": {
+      "source": "Original filled geometry and composed letter outlines from locally hosted OFL Archivo and Fraunces.",
+      "generator": "scripts/generate-identities.py",
+      "directory": "assets/identities/",
+      "exports": "10 symbols, 10 wordmarks, 10 symbol-and-wordmark signatures; browser data in identities.js.",
+      "symbolGeometry": "viewBox 0 0 96 96; currentColor fill; evenodd fill rule; no stroke; authored planes vary opacity.",
+      "lettering": "Custom A (alto), I/E (limen), T/E (salitre), M (marea), Ó (orbita), U (umbral). Stacked alto, brava, solar and logic; progressively offset neblina. SVGs contain paths rather than runtime SVG text.",
+      "accessibility": "Decorative inline SVG plus visually hidden brand name. Manual tabs, roving tabindex, ArrowLeft/ArrowRight/Home/End; stage CTA filters catalog by brand.",
+      "qualityBar": "Distinct symbol silhouettes at 32px; readable wordmarks at 160px.",
+      "photographyTruth": "Existing raster concept photography and collection graphics remain unchanged; digital signatures are not claimed as exact prints on every garment."
+    }
   },
   "components": [
     {
@@ -1222,8 +1254,8 @@
       "name": "Brand story text panel",
       "kind": "card",
       "refersTo": "brand-story-solar",
-      "description": "Parte textual de la tarjeta editorial SOLAR CLUB; la tarjeta completa incorpora la foto de campaña encima.",
-      "html": "<article class=\"ds-story\"><div class=\"ds-story-title\"><h3>Nos vemos afuera.</h3><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg></div><p>Un club sin horario. Algodón, rayos de sol y colores que alargan la tarde.</p><div class=\"ds-story-bottom\"><div class=\"ds-palette\" aria-label=\"Paleta de SOLAR CLUB\"><span></span><span></span><span></span></div><button type=\"button\" class=\"ds-story-link\">Su universo ↗</button></div></article>",
+      "description": "Parte textual de la tarjeta editorial SOLAR CLUB con su símbolo vectorial vigente; la tarjeta completa incorpora la foto de campaña y la firma contorneada encima.",
+      "html": "<article class=\"ds-story\"><div class=\"ds-story-title\"><h3>Nos vemos afuera.</h3><svg viewBox=\"0 0 96 96\" fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" aria-hidden=\"true\"><path d=\"M13 13H68V29H31V43H57V59H13Z\"/><path d=\"M83 83H28V67H65V53H39V37H83Z\"/><path d=\"M13 13 25 5H80L68 13Z\" opacity=\"0.45\"/><path d=\"M83 83 91 71V25L83 37Z\" opacity=\"0.45\"/></svg></div><p>Un club sin horario. Algodón, rayos de sol y colores que alargan la tarde.</p><div class=\"ds-story-bottom\"><div class=\"ds-palette\" aria-label=\"Paleta de SOLAR CLUB\"><span></span><span></span><span></span></div><button type=\"button\" class=\"ds-story-link\">Su universo ↗</button></div></article>",
       "css": ".ds-story{padding:30px;background:#f6e39e;color:#67351c;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-story-title{display:flex;align-items:flex-start;justify-content:space-between;gap:25px}.ds-story h3{margin:0;font-size:28px;line-height:1.18;max-width:20ch;font-weight:550;letter-spacing:-.025em;text-wrap:balance}.ds-story-title svg{width:38px;height:38px;flex-shrink:0}.ds-story>p{font-size:13px;line-height:1.8;margin:20px 0 0;max-width:48ch}.ds-story-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:30px}.ds-palette{display:flex;gap:5px}.ds-palette span{width:26px;height:26px;border:1px solid #21221f25;display:block}.ds-palette span:nth-child(1){background:#f36b36}.ds-palette span:nth-child(2){background:#f6e39e}.ds-palette span:nth-child(3){background:#234ac6}.ds-story-link{padding:8px 0;border:0;border-bottom:1px solid currentColor;background:none;font:12px var(--sans,Archivo,Arial,sans-serif);color:inherit;min-height:44px;cursor:pointer}.ds-story-link:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(prefers-reduced-motion:reduce){[class^=\"ds-\"],[class^=\"ds-\"] *{animation:none!important;transition:none!important}}"
     },
     {
@@ -1231,7 +1263,7 @@
       "kind": "nav",
       "refersTo": "escape-tab",
       "description": "Tres pestañas de destino; muestra estática de selección Playa. escapes.js aporta teclado, foco y cambio de panel.",
-      "html": "<div class=\"ds-escape-tabs\" role=\"tablist\" aria-label=\"Elige tu escapada\"><button type=\"button\" role=\"tab\" aria-selected=\"true\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 24h16m10 0h16M12 33h24\"/></svg>Playa</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 37 19-26 19 26M17 21l7 8 7-8\"/></svg>Montaña</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M6 17h28M14 31h28\"/></svg>Ciudad</button></div>",
+      "html": "<div class=\"ds-escape-tabs\" role=\"tablist\" aria-label=\"Elige tu escapada\"><button type=\"button\" role=\"tab\" aria-selected=\"true\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 96 96\" fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" aria-hidden=\"true\"><path d=\"M14 21 63 8 82 20 38 32 65 40 65 57 20 70 5 58 49 46 14 37Z\"/><path d=\"M20 70 65 57 65 40 82 29 82 70 35 85 20 76Z\" opacity=\"0.48\"/><path d=\"M38 32 82 20 82 29 55 37Z\" opacity=\"0.7\"/></svg>Playa</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 96 96\" fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" aria-hidden=\"true\"><path d=\"M9 72 36 13 60 7 84 66 65 72 48 27 29 78Z\"/><path d=\"M36 13 48 27 29 78 9 72Z\" opacity=\"0.58\"/><path d=\"M37 55 60 48 65 60 32 70Z\"/><path d=\"M60 7 87 19 94 67 84 66Z\" opacity=\"0.35\"/></svg>Montaña</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" class=\"ds-escape-tab\"><svg viewBox=\"0 0 96 96\" fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" aria-hidden=\"true\"><path d=\"M12 17 33 9 33 61 74 47 74 69 12 89Z\"/><path d=\"M33 9 47 20 47 51 33 56Z\" opacity=\"0.45\"/><path d=\"M45 16 83 28 83 81 63 88 63 46 45 40Z\"/><path d=\"M33 61 74 47 83 54 42 69Z\" opacity=\"0.6\"/></svg>Ciudad</button></div>",
       "css": ".ds-escape-tabs{display:flex;gap:35px;border-bottom:1px solid var(--line,#21221f25);margin-bottom:30px}.ds-escape-tab{display:flex;align-items:center;gap:12px;min-height:60px;padding:12px 4px;border:0;border-bottom:3px solid transparent;background:none;color:var(--muted,#595b52);font:17px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-escape-tab[aria-selected=\"true\"]{color:var(--purple,#402650);border-bottom-color:var(--purple,#402650)}.ds-escape-tab svg{width:28px;height:28px;flex-shrink:0}.ds-escape-tab:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-escape-tabs{gap:22px;margin-bottom:24px}.ds-escape-tab{font-size:15px;gap:9px;min-height:54px;padding-inline:0}.ds-escape-tab svg{width:24px;height:24px}}@media(max-width:375px){.ds-escape-tabs{gap:15px}.ds-escape-tab{font-size:13px;gap:7px}}"
     },
     {
@@ -1243,30 +1275,35 @@
       "css": ".ds-look{font-family:var(--sans,Archivo,Arial,sans-serif);background:var(--paper,#f6f4ee);color:var(--ink,#21221f)}.ds-look-include{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:550;line-height:1.4;cursor:pointer}.ds-look-include input{accent-color:var(--purple,#402650);width:18px;height:18px;flex-shrink:0}.ds-look>p{font-size:11px;line-height:1.7;color:var(--muted,#595b52);margin:9px 0 12px}.ds-look-size{display:flex;align-items:center;gap:12px;font-size:12px}.ds-look-size select{min-height:40px;border:1px solid var(--line,#21221f25);border-radius:0;background:transparent;padding:8px 12px;font:12px var(--sans,Archivo,Arial,sans-serif);min-width:130px;color:var(--ink,#21221f)}.ds-look-size select:focus-visible,.ds-look-include input:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}.ds-look-summary{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line,#21221f25);padding:22px 0;margin-top:20px;font-size:13px;gap:20px}.ds-look-summary strong{font-size:21px;font-weight:550;font-variant-numeric:tabular-nums}@media(max-width:680px){.ds-look-include{font-size:14px;gap:8px}.ds-look-size{font-size:11px;gap:10px}.ds-look-size select{min-width:118px;font-size:11px}.ds-look-summary{font-size:12px}.ds-look-summary strong{font-size:19px}}"
     },
     {
-      "name": "Controlled destination ribbon",
+      "name": "Authored identity stage",
       "kind": "custom",
-      "refersTo": "destination-ribbon",
-      "description": "Extracto estático de la cinta y su control en pausa. El sitio duplica la pista, anima 38s y sincroniza ambas cintas con escapes.js; este muestrario no inicia movimiento.",
-      "html": "<section class=\"ds-ribbon\" aria-label=\"Playa, montaña, ciudad. Tu próximo buen recuerdo.\" tabindex=\"0\"><div class=\"ds-ribbon-window\"><div class=\"ds-ribbon-words\" aria-hidden=\"true\"><span>PLAYA</span><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"24\" cy=\"24\" r=\"8\"/><path d=\"M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6\"/></svg><span>MONTAÑA</span><span>CIUDAD</span></div></div><button type=\"button\" class=\"ds-motion\" aria-pressed=\"true\">Reanudar movimiento</button></section>",
-      "css": ".ds-ribbon{position:relative;background:#ef9a79;color:#4b2531;padding-bottom:34px;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-ribbon-window{overflow-x:auto;max-width:100%}.ds-ribbon-words{display:flex;align-items:center;gap:40px;width:max-content;padding:22px 20px}.ds-ribbon-words span{font-size:clamp(25px,3.4vw,48px);font-weight:750;letter-spacing:-.025em;white-space:nowrap;line-height:1.15}.ds-ribbon-words svg{width:38px;height:38px;flex-shrink:0}.ds-motion{position:absolute;right:clamp(20px,4vw,64px);bottom:5px;border:0;border-bottom:1px solid currentColor;border-radius:0;background:none;color:inherit;padding:5px 0;min-height:28px;font:11px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-ribbon:focus-visible,.ds-motion:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}@media(max-width:680px){.ds-ribbon{padding-bottom:32px}.ds-ribbon-window{overflow-x:auto;max-width:100%}.ds-ribbon-words{padding-block:20px;gap:26px}.ds-ribbon-words span{font-size:31px}.ds-ribbon-words svg{width:29px;height:29px}}"
+      "refersTo": "identity-stage-salitre",
+      "description": "Extracto estático del muestrario SALITRE con símbolo y firma originales; responde a hover/foco y movimiento reducido. identity-ui.js añade las diez pestañas, el teclado y el filtrado real.",
+      "html": "<section class=\"ds-identity\" aria-label=\"Firma SALITRE\"><div class=\"ds-identity-sculpture\"><svg viewBox=\"0 0 96 96\" fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" aria-hidden=\"true\"><path d=\"M14 21 63 8 82 20 38 32 65 40 65 57 20 70 5 58 49 46 14 37Z\"/><path d=\"M20 70 65 57 65 40 82 29 82 70 35 85 20 76Z\" opacity=\"0.48\"/><path d=\"M38 32 82 20 82 29 55 37Z\" opacity=\"0.7\"/></svg></div><div class=\"ds-identity-composition\"><div class=\"ds-identity-wordmark\"><svg viewBox=\"0 0 5385 1160\" fill=\"currentColor\" fill-rule=\"evenodd\" aria-hidden=\"true\"><g transform=\"translate(70 80)\"><g transform=\"translate(0 900) scale(1 -1) skewX(0.0)\"><path transform=\"translate(0 0)\" d=\"M399.7263212419459 -12.59475218658892Q330.2900817859972 -12.59475218658892 268.0231634729457 -1.3755801050725553Q205.7562451598943 9.84359197644381 158.26903122333326 36.0735507348536Q110.78181728677221 62.30350949326339 83.75780004280301 105.61771884082704Q56.733782798833815 148.93192818839069 56.733782798833815 213.128135423271Q56.733782798833815 217.77188868286308 57.0036129944526 222.54262425461593Q57.27344319007139 227.31335982636875 57.78334548104956 230.276879673449H192.1041470053592Q191.52072707001042 226.78422880242238 190.99594572890254 220.70529806718184Q190.4711643877947 214.6263673319413 190.4711643877947 208.3899189223353Q190.4711643877947 172.60527229865158 215.907307029118 148.43008040686738Q241.34344967044126 124.25488851508314 288.54845163078414 112.14497399399647Q335.7534535911271 100.03505947290981 398.9639725351472 100.03505947290981Q431.1677380622997 100.03505947290981 460.98511088693795 103.46539041391266Q490.80248371157626 106.89572135491551 516.161789322386 113.9123645450909Q541.5210949331956 120.92900773526627 560.5834771575455 132.10357041122614Q579.6458593818953 143.278133087186 590.1640898753881 158.90513853324745Q600.6823203688807 174.5321439793089 600.6823203688807 194.73388103284918Q600.6823203688807 225.78584382554877 578.6732981973068 245.37041292072382Q556.6642760257331 264.95498201589885 519.2939563377953 277.8476953749754Q481.92363664985743 290.74040873405187 435.0328671584671 300.37747696606823Q388.1420976670768 310.01454519808465 338.35365690399533 320.30031073197677Q288.5652161409139 330.5860762658689 241.6744466495236 346.00743344678125Q194.78367715813326 361.4287906276936 157.41335747019542 384.6063267750225Q120.04303778225756 407.78386292235143 98.03401561068375 443.9255662735975Q76.02499343910995 480.0672696248435 76.02499343910995 532.0394795907134Q76.02499343910995 580.3599195056337 97.76810162790315 617.8882383987437Q119.51120981669634 655.4165572918538 161.57897272193395 681.0888195003085Q203.64673562717158 706.7610817087634 263.90573858693455 719.8930429195871Q324.16474154669754 733.0250041304107 401.27004873300774 733.0250041304107Q475.2561141798169 733.0250041304107 533.4291785625257 719.4781227327296Q591.6022429452345 705.9312413350485 632.0543002873745 679.510325466231Q672.5063576295146 653.0894095974135 693.5110884904861 614.87481033663Q714.5158193514576 576.6602110758466 714.5158193514576 527.3186426468562V512.2677062412739H582.1409752000525V526.033007379176Q582.1409752000525 554.4817506641409 559.717954223427 575.4106587605991Q537.2949332468015 596.3395668570571 497.65583964721793 608.3673796639846Q458.0167460476344 620.395192470912 405.82186706559645 620.395192470912Q341.0379884298619 620.395192470912 298.3389472700764 610.2570590524563Q255.63990611029087 600.1189256340004 234.49873234023156 581.6629545838075Q213.35755857017224 563.2069835336146 213.35755857017224 538.2817361479945Q213.35755857017224 510.98550673476456 235.36658074174608 493.3186295029025Q257.3756029133199 475.6517522710405 294.7857477748359 464.060486388276Q332.1958926363519 452.46922050551143 379.0866621277422 443.141807642692Q425.9774316191325 433.8143947798726 475.7260472086358 423.04367307845075Q525.4746627981391 412.27295137702896 572.3654322895294 397.2232075456975Q619.2562017809197 382.173463714366 656.6663466424357 358.35780340798044Q694.0764915039517 334.54214310159483 716.0855136755256 298.87383625389185Q738.0945358470993 263.2055294061889 738.0945358470993 211.970413436695Q738.0945358470993 130.65370184339517 694.9133977389542 81.10162301591811Q651.7322596308093 31.54954418844106 575.439545698138 9.47739600092607Q499.14683176546674 -12.59475218658892 399.7263212419459 -12.59475218658892Z\"/><path transform=\"translate(862.4198250728862 0)\" d=\"M16.393969632446243 0.0 336.94301128735 720.4302519438218H498.89975358376347L819.9149379855342 0.0H673.011886684262L605.610349404221 155.4605766044761H222.2371509262841L154.91526399339946 0.0ZM270.6685858739013 267.2298843763312H556.6392540653662L472.8269911194681 464.05952116838347Q468.0575858608279 475.0466521731618 460.26684640447877 494.08324587275604Q452.4761069481296 513.1198395723503 444.25623660184897 534.5304004808903Q436.0363662555683 555.9409613894303 428.6739334455384 575.045973533444Q421.3115006355085 594.1509856774577 417.4048413722925 604.189500085814H410.4067681551674Q402.37139766139813 583.0573438555436 391.635536466326 555.6216788291931Q380.89967527125384 528.1860138028425 370.9741726821782 503.26352630864073Q361.0486700931026 478.341038814439 354.55436646416996 463.62926922456165Z\"/><path transform=\"translate(1768.9212827988335 0)\" d=\"M93.78913865840121 0.0V720.4302519438218H228.35113333196054V117.90050739449592H634.4609019568641V0.0Z\"/><path transform=\"translate(2499.0962099125363 0)\" d=\"M93.78913865840121 0.0V720.4302519438218H228.35113333196054V0.0Z\"/><path transform=\"translate(2891.3119533527697 0)\" d=\"M0 635H240V0H338V635H580V720H0Z\"/><path transform=\"translate(3541.3119533527697 0)\" d=\"M93.78913865840121 0.0V720.4302519438218H560.3068749237339Q636.8713493979707 720.4302519438218 686.8388107062776 691.788908394363Q736.8062720145845 663.1475648449043 761.7927161493384 613.288643964873Q786.7791602840923 563.4297230848417 786.7791602840923 499.3336057245905Q786.7791602840923 430.883697257445 753.8810619442525 376.12388322721756Q720.9829636044126 321.36406919699016 656.6234583548832 293.57977561630935L808.5157951842939 0.0H659.1927750221842L524.0560833323453 269.4626841878752H228.35113333196054V0.0ZM228.35113333196054 382.05660504432876H536.4965571710736Q590.5083442394656 382.05660504432876 620.0361082904888 413.72945233614723Q649.5638723415118 445.40229962796576 649.5638723415118 498.1225002402814Q649.5638723415118 532.5687408933834 636.6396648438956 556.695776576551Q623.7154573462794 580.8228122597185 598.5537380310259 593.6483029547655Q573.3920187157722 606.4737936498125 536.4965571710736 606.4737936498125H228.35113333196054Z\"/><path transform=\"translate(4464.606413994169 0)\" d=\"M0 0H465V84H98V332H355V416H98V636H465V720H0Z\"/></g></g></svg><span class=\"ds-identity-name\">SALITRE</span></div><h3>Un horizonte que se pliega.</h3><p>Una S de planos desplazados. La firma se abre entre letras y vuelve a cerrarse en el símbolo.</p><button type=\"button\" class=\"ds-identity-link\">Ver prendas de SALITRE <span aria-hidden=\"true\">↗</span></button></div><span class=\"ds-identity-gesture\" aria-hidden=\"true\">Pliegue salino</span></section>",
+      "css": ".ds-identity{position:relative;display:grid;grid-template-columns:1fr 1.2fr;min-height:430px;padding:48px clamp(28px,4vw,65px);gap:clamp(30px,6vw,85px);overflow:hidden;background:#69c8c1;color:#173f3c;font-family:var(--sans,Archivo,Arial,sans-serif)}.ds-identity-sculpture{display:grid;place-items:center;perspective:900px;min-width:0}.ds-identity-sculpture>svg{width:min(100%,280px);height:auto;transform:rotateY(-13deg) rotateX(8deg);transition:transform .8s var(--ease-out,cubic-bezier(.16,1,.3,1))}.ds-identity:hover .ds-identity-sculpture>svg,.ds-identity:focus-within .ds-identity-sculpture>svg{transform:rotateY(0) rotateX(0)}.ds-identity-composition{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;padding-bottom:28px}.ds-identity-wordmark{display:flex;align-items:center;width:100%;height:125px;margin-bottom:20px}.ds-identity-wordmark>svg{width:100%;height:125px;max-width:390px;object-fit:contain;object-position:left center}.ds-identity-name{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.ds-identity h3{font:500 clamp(25px,2.3vw,34px)/1.18 var(--serif,Fraunces,Georgia,serif);letter-spacing:-.025em;max-width:21ch;margin:0;text-wrap:balance}.ds-identity p{font-size:13px;line-height:1.85;max-width:41ch;margin:17px 0 20px}.ds-identity-link{border:0;border-bottom:1px solid currentColor;border-radius:0;background:none;color:inherit;padding:8px 0;min-height:44px;font:12px var(--sans,Archivo,Arial,sans-serif);cursor:pointer}.ds-identity-link:hover{opacity:.68}.ds-identity-link:active{opacity:.5}.ds-identity-link:focus-visible{outline:3px solid var(--accent,#2945bd);outline-offset:4px}.ds-identity-gesture{position:absolute;bottom:22px;left:clamp(28px,4vw,65px);font-size:10px;letter-spacing:.045em}@media(max-width:1050px){.ds-identity{gap:35px;padding:35px}.ds-identity-sculpture>svg{max-width:230px}.ds-identity p{font-size:12px}}@media(max-width:680px){.ds-identity{grid-template-columns:1fr;gap:22px;padding:32px 26px 54px;min-height:0}.ds-identity-sculpture{padding-top:6px}.ds-identity-sculpture>svg{width:155px}.ds-identity-composition{padding-bottom:0}.ds-identity-wordmark{height:90px;margin-bottom:19px}.ds-identity-wordmark>svg{max-width:285px;height:90px}.ds-identity h3{font-size:28px;max-width:20ch}.ds-identity p{font-size:12px;margin:16px 0}.ds-identity-link{font-size:11px}.ds-identity-gesture{left:26px;bottom:18px;font-size:9px}}@media(prefers-reduced-motion:reduce){.ds-identity-sculpture>svg{transform:none!important;transition:none}}"
     }
   ],
   "narrative": {
     "northStar": "Un archivo de mundos propios",
-    "overview": "ARCHIVO reúne diez universos reconocibles dentro de una estructura editorial común. Playa, montaña y ciudad acercan esas identidades a escenas aspiracionales de luz, color y pausa, con prendas de líneas simples y pequeñas firmas gráficas. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.\n\nLa edición Escapes conserva UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA e incorpora SALITRE, ALTO SUR, LIMEN e ISLA BRAVA. Sus trece colecciones y treinta y siete prendas amplían el mundo aprobado. Esta documentación registra la implementación vigente en el bloque final de `styles.css`, `catalog.js`, `escapes.js`, `app.js` e `index.html`, según `docs/escapes-art-direction.md`, `PRODUCT.md` y las capturas finales de `output/pages/`. Los destinos y conjuntos ayudan a imaginar cómo vestir esas escenas; la base editorial y sus tokens compartidos permanecen vigentes.",
+    "overview": "ARCHIVO reúne diez universos reconocibles dentro de una estructura editorial común. Playa, montaña y ciudad acercan esas identidades a escenas aspiracionales de luz, color y pausa, con prendas de líneas simples y pequeñas firmas gráficas. El papel cálido sostiene fotografías de campaña con materialidad de algodón, grandes firmas tipográficas y paneles de color vinculados a cada marca. El color aparece en superficies amplias, símbolos y prendas; la selección conserva una lectura clara de producto, nombre, color y precio.\n\nLa edición Escapes conserva UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB, MAREA y ÓRBITA e incorpora SALITRE, ALTO SUR, LIMEN e ISLA BRAVA. Sus trece colecciones y treinta y siete prendas amplían el mundo aprobado. La evolución de identidad incorpora firmas de letras contorneadas y símbolos de planos, pliegues y vacíos. Esta documentación registra `styles.css`, `identities.css`, `identities.js`, `identity-ui.js`, `scripts/generate-identities.py`, `catalog.js`, `escapes.js`, `app.js` e `index.html`, según `docs/identity-art-direction.md`, `docs/escapes-art-direction.md`, `PRODUCT.md` y las capturas finales de `output/pages/`. Los destinos y conjuntos ayudan a imaginar cómo vestir esas escenas; la base editorial y sus tokens compartidos permanecen vigentes.",
     "keyCharacteristics": [
       "Fotografía protagonista, con prendas y campañas como imágenes distintas.",
       "Papel cálido compartido y paneles cromáticos propios por marca y colección.",
-      "Archivo para estructura y Fraunces para titulares expresivos y determinadas firmas.",
+      "Archivo para estructura y Fraunces para titulares expresivos; ambas son origen de las firmas vectoriales intervenidas.",
       "Esquinas rectas, líneas finas y jerarquía por escala y color.",
       "Diez marcas, tres destinos y conjuntos editables dentro de una misma selección.",
-      "Exploración manual, estados de selección explícitos y dos cintas de movimiento opcional."
+      "Exploración manual de campañas e identidades, estados de selección explícitos y dos cintas de movimiento opcional."
     ],
     "rules": [
       {
         "name": "Collection Pair",
         "body": "Usa juntos el fondo y la tinta definidos para cada colección; las tarjetas editoriales y el diálogo de marca usan el par de su colección más reciente.",
         "section": "colors"
+      },
+      {
+        "name": "Authored Signature",
+        "body": "Usa los vectores de `identities.js` o `assets/identities/` para cada firma y símbolo; conserva el nombre accesible como texto. No reconstruyas las firmas con texto CSS ni sustituyas sus geometrías por pictogramas literales.",
+        "section": "typography"
       },
       {
         "name": "View Truth",
@@ -1282,6 +1319,8 @@
     "dos": [
       "Do conservar el papel cálido, Archivo y Fraunces como soporte compartido de las diez marcas.",
       "Do tomar los pares de colección y las paletas del catálogo, manteniendo cada símbolo y firma asociados a su marca.",
+      "Do reutilizar los SVG contorneados, sus vacíos y planos de opacidad, conservando el nombre de marca accesible.",
+      "Do conservar la selección manual con teclado del muestrario y su perspectiva estática con movimiento reducido.",
       "Do conservar fotos cuadradas para prendas y composiciones editoriales amplias para campañas.",
       "Do mantener el foco visible de foto y buscador, los estados `aria-pressed` y el movimiento reducido.",
       "Do conservar la pausa manual de ambas cintas, su parada fuera de pantalla o con documento oculto y su alternativa estática.",
@@ -1290,6 +1329,8 @@
     ],
     "donts": [
       "Don't sustituir las diez identidades por un único color o una única firma de marca.",
+      "Don't reconstruir las firmas vectoriales con fuentes CSS ni regresar a pictogramas literales de sol, montaña o planeta.",
+      "Don't afirmar que las fotografías existentes reproducen la firma digital exacta en todas las prendas.",
       "Don't ocultar prendas al final del primer bloque: conserva la carga progresiva de doce y su contador.",
       "Don't añadir avance automático a las campañas manuales.",
       "Don't presentar las campañas como vistas adicionales del SKU ni ofrecer Detalles sin imagen disponible.",

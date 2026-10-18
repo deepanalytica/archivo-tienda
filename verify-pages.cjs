@@ -19,7 +19,7 @@ const catalog = require('./catalog.js');
       const target = path.resolve(root, relative);
       if (!target.startsWith(root + path.sep)) { res.writeHead(404); res.end(); return; }
       const data = await fs.readFile(target);
-      const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.webp': 'image/webp', '.ttf': 'font/ttf' };
+      const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.webp': 'image/webp', '.ttf': 'font/ttf', '.svg': 'image/svg+xml' };
       res.writeHead(200, { 'Content-Type': `${types[path.extname(target)] || 'application/octet-stream'}` });
       res.end(data);
     } catch { res.writeHead(404); res.end(); }
@@ -63,6 +63,35 @@ const catalog = require('./catalog.js');
       assert.equal(await page.locator('#collection-tabs button').count(), Object.keys(catalog.collections).length);
       await page.screenshot({ path: path.join(output, `${name}-hero.png`) });
       await page.screenshot({ path: path.join(output, `${name}-full.png`), fullPage: true });
+      await page.locator('#brand-line').screenshot({ path: path.join(output, `${name}-signatures.png`) });
+      assert.equal(await page.locator('#identity-tabs [role="tab"]').count(), 10);
+      for (const [id, brand] of Object.entries(catalog.brands)) {
+        await page.locator(`[data-identity="${id}"][role="tab"]`).click();
+        assert.equal(await page.locator('#identity-stage').getAttribute('data-identity'), id);
+        assert.equal(await page.locator(`#identity-tab-${id}`).getAttribute('aria-selected'), 'true');
+        const bounds = await page.locator('#identity-stage .identity-wordmark>svg').evaluate((svg) => {
+          const box = svg.getBBox(); const view = svg.viewBox.baseVal;
+          return { x:box.x, y:box.y, right:box.x+box.width, bottom:box.y+box.height, width:view.width, height:view.height };
+        });
+        assert.ok(bounds.x >= -1 && bounds.y >= -1 && bounds.right <= bounds.width+1 && bounds.bottom <= bounds.height+1, `${id}: lettering fits its artboard: ${JSON.stringify(bounds)}`);
+        for (const asset of ['symbol', 'wordmark', 'signature']) assert.equal((await fetch(`${base}assets/identities/${id}-${asset}.svg`)).status, 200);
+        if (['salitre', 'orbita', 'logic'].includes(id)) {
+          // A tall capture viewport avoids clipping an element taller than mobile's content area.
+          if (name === 'mobile') await page.setViewportSize({ width, height: 1200 });
+          await page.locator('.identity-atelier').screenshot({ path: path.join(output, `${name}-identity-${id}.png`) });
+          if (name === 'mobile') await page.setViewportSize({ width, height });
+        }
+        await page.locator(`[data-identity-catalog="${id}"]`).click();
+        assert.equal(await page.locator('.product-card').count(), catalog.products.filter((product) => product.brand === id).length);
+      }
+      await page.locator('#identity-tab-logic').focus();
+      await page.keyboard.press('Home');
+      assert.equal(await page.locator('#identity-stage').getAttribute('data-identity'), 'salitre');
+      await page.keyboard.press('End');
+      assert.equal(await page.locator('#identity-stage').getAttribute('data-identity'), 'logic');
+      await page.keyboard.press('ArrowRight');
+      assert.equal(await page.locator('#identity-stage').getAttribute('data-identity'), 'salitre');
+      await page.locator('#clear-filters').click();
       await page.locator('#search').focus();
       assert.equal(await page.locator('#search').evaluate((input) => getComputedStyle(input).outlineStyle), 'solid');
       await page.keyboard.press('Tab');
@@ -213,7 +242,7 @@ const catalog = require('./catalog.js');
     await motionContext.close();
     assert.deepEqual(errors, []);
     assert.deepEqual(apiRequests, []);
-    const report = { results, motion: 'runs when visible / manual pause / stops offscreen / reduced motion respected', outfitLimit: 'atomic rejection at maximum quantity', expandedCart: `${catalog.products.length} lines persist after reload`, errors, apiRequests, privateFiles: 'excluded' };
+    const report = { results, identities: '10 vector signatures / artboard bounds / 30 SVG exports / keyboard tabs / brand filtering', motion: 'runs when visible / manual pause / stops offscreen / reduced motion respected', outfitLimit: 'atomic rejection at maximum quantity', expandedCart: `${catalog.products.length} lines persist after reload`, errors, apiRequests, privateFiles: 'excluded' };
     await fs.writeFile(path.join(output, 'verification.json'), JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report));
   } finally {

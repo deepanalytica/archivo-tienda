@@ -1,0 +1,17 @@
+{
+  "source": "Original vector geometry authored for ARCHIVO. Letter outlines derived and individually composed from locally hosted OFL Archivo and Fraunces.",
+  "generator": "scripts/generate-identities.py",
+  "fonts": "../fonts/archivo-OFL.txt; ../fonts/fraunces-OFL.txt",
+  "brands": [
+    "salitre",
+    "alto",
+    "limen",
+    "brava",
+    "solar",
+    "marea",
+    "orbita",
+    "umbral",
+    "neblina",
+    "logic"
+  ]
+}

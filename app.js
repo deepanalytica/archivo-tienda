@@ -30,33 +30,27 @@ const collectionOrder = [...new Set([...universeOrder.map((id) => brands[id].lat
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 function scrollToCatalog() { $('#catalogo').scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth' }); }
 function brandSymbol(mark) {
-  const shapes = {
-    sun: '<circle cx="24" cy="24" r="8"/><path d="M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6M9 39l6-6M33 15l6-6"/>',
-    wave: '<path d="M3 20c7-13 14 13 22 0s14-13 20 0M3 31c7-13 14 13 22 0s14-13 20 0"/>',
-    orbit: '<ellipse cx="24" cy="24" rx="23" ry="10" transform="rotate(-30 24 24)"/><circle cx="24" cy="24" r="5"/>',
-    portal: '<path d="M7 40V8h23v32M18 40V18h23v22"/>',
-    landscape: '<path d="m3 32 12-14 10 9 9-14 11 19M3 40h42"/>',
-    angles: '<path d="M6 7h35v34M6 18h24v23M6 29h13v12"/>',
-    horizon: '<path d="M3 24h16m10 0h16M12 33h24"/>',
-    peak: '<path d="m5 37 19-26 19 26M17 21l7 8 7-8"/>',
-    bars: '<path d="M6 17h28M14 31h28"/>',
-    flower: [0, 72, 144, 216, 288].map((angle) => `<ellipse cx="24" cy="14" rx="6" ry="10" transform="rotate(${angle} 24 24)"/>`).join('') + '<circle cx="24" cy="24" r="3" fill="currentColor"/>',
-  };
-  return `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">${shapes[mark]}</svg>`;
+  const aliases = { sun: 'solar', wave: 'marea', orbit: 'orbita', portal: 'umbral', landscape: 'neblina', angles: 'logic', horizon: 'salitre', peak: 'alto', bars: 'limen', flower: 'brava' };
+  const identity = ARCHIVO_IDENTITIES[aliases[mark] || mark];
+  return `<svg class="brand-symbol" viewBox="0 0 96 96" fill="currentColor" fill-rule="evenodd" stroke="none" aria-hidden="true">${identity.mark}</svg>`;
+}
+function brandWordmark(id) {
+  const identity = ARCHIVO_IDENTITIES[id]; const lettering = identity.lettering;
+  return `<span class="identity-wordmark identity-${id}"><svg viewBox="0 0 ${lettering.width} ${lettering.height}" fill="currentColor" fill-rule="evenodd" aria-hidden="true">${lettering.body}</svg><span class="sr-only">${identity.name}</span></span>`;
 }
 function paletteHtml(brand) {
   return `<div class="brand-palette" aria-label="Paleta de ${brand.name}">${brand.palette.map((color) => `<span style="background:${color}" title="${color}"></span>`).join('')}</div>`;
 }
 function renderUniverseNavigation() {
   $('#hero-brands').innerHTML = universeOrder.map((id) => `<button type="button" data-campaign="${id}" aria-pressed="${id === state.campaign}">${brands[id].name}</button>`).join('');
-  $('#brand-line').innerHTML = universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" class="wordmark wordmark-${id}" style="--brand-bg:${brands[id].palette[0]};--brand-fg:${brands[id].ink || (id === 'orbita' || id === 'neblina' ? '#352044' : id === 'solar' ? '#502719' : '#fff')}">${brandSymbol(brands[id].mark)}<span>${brands[id].name}</span></button>`).join('');
+  $('#brand-line').innerHTML = universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" aria-label="${brands[id].name}" class="wordmark wordmark-${id}" style="--brand-bg:${brands[id].palette[0]};--brand-fg:${brands[id].ink || (id === 'orbita' || id === 'neblina' ? '#352044' : id === 'solar' ? '#502719' : '#fff')}">${brandSymbol(id)}${brandWordmark(id)}</button>`).join('');
   $('#brand-filters').innerHTML = '<button type="button" data-filter-brand="all" aria-pressed="true">Todas las marcas</button>' + universeOrder.map((id) => `<button type="button" data-filter-brand="${id}" aria-pressed="false">${brands[id].name}</button>`).join('');
   $('#collection-filter').innerHTML = '<option value="all">Todas las colecciones</option>' + collectionOrder.map((id) => `<option value="${id}">${brands[collections[id].brand].name} / ${collections[id].name}</option>`).join('');
   $('#category-filter').innerHTML = '<option value="all">Todas las prendas</option>' + [...new Set(products.map((product) => product.category))].map((category) => `<option>${category}</option>`).join('');
   $('#collection-tabs').innerHTML = collectionOrder.map((id) => `<button type="button" data-explore-collection="${id}" aria-pressed="${id === state.feature}">${collections[id].name}</button>`).join('');
   $('#brand-editorials').innerHTML = universeOrder.map((id) => {
     const brand = brands[id];
-    return `<article class="brand-story brand-${id}" style="--story-bg:${collections[brand.latest].color};--story-ink:${collections[brand.latest].ink}"><button type="button" class="brand-photo" data-brand-story="${id}" aria-label="Conocer ${brand.name}"><img src="${brand.campaign}" alt="${brand.name}: ${brand.world}" loading="lazy" width="1536" height="1024"><span class="wordmark wordmark-${id}">${brand.name}</span></button><div class="brand-story-copy"><div class="brand-story-title"><h3>${brand.world}</h3>${brandSymbol(brand.mark)}</div><p>${brand.description}</p><div class="brand-story-bottom">${paletteHtml(brand)}<button type="button" class="line-link" data-brand-story="${id}">Su universo <span aria-hidden="true">↗</span></button></div></div></article>`;
+    return `<article class="brand-story brand-${id}" style="--story-bg:${collections[brand.latest].color};--story-ink:${collections[brand.latest].ink}"><button type="button" class="brand-photo" data-brand-story="${id}" aria-label="Conocer ${brand.name}"><img src="${brand.campaign}" alt="${brand.name}: ${brand.world}" loading="lazy" width="1536" height="1024"><span class="wordmark wordmark-${id}">${brandWordmark(id)}</span></button><div class="brand-story-copy"><div class="brand-story-title"><h3>${brand.world}</h3>${brandSymbol(brand.mark)}</div><p>${brand.description}</p><div class="brand-story-bottom">${paletteHtml(brand)}<button type="button" class="line-link" data-brand-story="${id}">Su universo <span aria-hidden="true">↗</span></button></div></div></article>`;
   }).join('');
   renderCollectionFeature();
 }
@@ -64,7 +58,7 @@ function renderCollectionFeature() {
   const collection = collections[state.feature]; const brand = brands[collection.brand];
   $('#collection-feature').style.setProperty('--feature-bg', collection.color);
   $('#collection-feature').style.setProperty('--feature-ink', collection.ink);
-  $('#collection-feature').innerHTML = `<div class="collection-picture"><img src="${collection.campaign}" alt="${brand.name}, colección ${collection.name}" loading="lazy" width="1536" height="1024"></div><div class="collection-copy"><span class="wordmark wordmark-${collection.brand}">${brand.name}</span><h3>${collection.name}</h3><p>${collection.description}</p><button type="button" class="button collection-button" data-collection="${state.feature}">Ver la colección <span aria-hidden="true">↗</span></button><span class="collection-signature">${brandSymbol(brand.mark)}${collection.line}</span></div>`;
+  $('#collection-feature').innerHTML = `<div class="collection-picture"><img src="${collection.campaign}" alt="${brand.name}, colección ${collection.name}" loading="lazy" width="1536" height="1024"></div><div class="collection-copy"><span class="wordmark wordmark-${collection.brand}">${brandWordmark(collection.brand)}</span><h3>${collection.name}</h3><p>${collection.description}</p><button type="button" class="button collection-button" data-collection="${state.feature}">Ver la colección <span aria-hidden="true">↗</span></button><span class="collection-signature">${brandSymbol(brand.mark)}${collection.line}</span></div>`;
   all('[data-explore-collection]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.exploreCollection === state.feature)));
 }
 function showBrand(id) {
@@ -72,7 +66,7 @@ function showBrand(id) {
   const dialog = $('#brand-dialog');
   dialog.style.setProperty('--story-bg', collections[brand.latest].color);
   dialog.style.setProperty('--story-ink', collections[brand.latest].ink);
-  $('#brand-dialog-content').innerHTML = `<img class="brand-dialog-image" src="${brand.campaign}" alt="Campaña de ${brand.name}" width="1536" height="1024"><div class="brand-dialog-copy"><h2 id="brand-title" class="wordmark wordmark-${id}">${brand.name}</h2><h3>${brand.world}</h3><p>${brand.manifesto}</p><div class="art-direction">${paletteHtml(brand)}<p>${brand.art}</p></div><h3>Sus colecciones</h3><div class="brand-collection-links">${Object.entries(collections).filter(([, collection]) => collection.brand === id).map(([key, collection]) => `<button type="button" data-collection="${key}">${collection.name} <span aria-hidden="true">↗</span></button>`).join('')}</div></div>`;
+  $('#brand-dialog-content').innerHTML = `<img class="brand-dialog-image" src="${brand.campaign}" alt="Campaña de ${brand.name}" width="1536" height="1024"><div class="brand-dialog-copy"><div class="brand-signature">${brandSymbol(id)}<h2 id="brand-title" class="wordmark wordmark-${id}">${brandWordmark(id)}</h2></div><h3>${brand.world}</h3><p>${brand.manifesto}</p><div class="art-direction">${paletteHtml(brand)}<p>${brand.art}</p></div><h3>Sus colecciones</h3><div class="brand-collection-links">${Object.entries(collections).filter(([, collection]) => collection.brand === id).map(([key, collection]) => `<button type="button" data-collection="${key}">${collection.name} <span aria-hidden="true">↗</span></button>`).join('')}</div></div>`;
   openDialog(dialog);
 }
 renderUniverseNavigation();

@@ -10,7 +10,7 @@ async function build() {
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
   if (!html.includes('<html lang="es">')) throw new Error('No se encontró la etiqueta raíz para configurar Pages.');
   await fs.writeFile(path.join(destination, 'index.html'), html.replace('<html lang="es">', '<html lang="es" data-store-mode="static">'));
-  for (const file of ['styles.css', 'catalog.js', 'app.js', 'escapes.js']) {
+  for (const file of ['styles.css', 'identities.css', 'catalog.js', 'identities.js', 'app.js', 'escapes.js', 'identity-ui.js']) {
     await fs.copyFile(path.join(root, file), path.join(destination, file));
   }
   for (const folder of ['brands', 'products']) {
@@ -21,6 +21,11 @@ async function build() {
     }
   }
   await fs.cp(path.join(root, 'assets', 'fonts'), path.join(destination, 'assets', 'fonts'), { recursive: true });
+  const identities = path.join(destination, 'assets', 'identities');
+  await fs.mkdir(identities, { recursive: true });
+  for (const file of await fs.readdir(path.join(root, 'assets', 'identities'))) {
+    if (file.endsWith('.svg')) await fs.copyFile(path.join(root, 'assets', 'identities', file), path.join(identities, file));
+  }
   await fs.writeFile(path.join(destination, '.nojekyll'), '');
   console.log('Pages: catálogo estático generado en _site/. Sin servidor, panel ni datos de solicitudes.');
 }

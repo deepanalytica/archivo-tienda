@@ -32,6 +32,8 @@ Sitio público en GitHub Pages, repositorio deepanalytica/archivo-tienda y publi
 
 Conservar la identidad editorial de ARCHIVO y las seis marcas anteriores, que el usuario valoró positivamente. La expansión debe ser ambiciosa: más marcas, prendas coloridas con diseños simples y llamativos, micrográficas, campañas aspiracionales y banners móviles. SALITRE, ALTO SUR, LIMEN e ISLA BRAVA son las cuatro nuevas propuestas creativas.
 
+La evolución de identidad solicitada desarrolla firmas tipográficas intervenidas y símbolos propios, complejos en su construcción y claros en su reproducción: pliegues, entrelazados, vacíos y perspectiva. Se conserva el carácter cromático de cada marca y se evita resolverlas con pictogramas literales de sol, montaña u órbita.
+
 ## Evidence on Hand
 
 Nueve prendas y campañas originales, conservadas. Las dos ampliaciones incorporan 38 imágenes de ImageGen: la primera añadió doce productos y seis campañas; la actual, dieciséis productos y cuatro campañas. Prompts en docs/image-prompts.json y junto a las imágenes. Pruebas locales y de Pages en verify.cjs y verify-pages.cjs.

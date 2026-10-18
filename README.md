@@ -18,6 +18,14 @@ SALITRE, ALTO SUR, LIMEN, ISLA BRAVA, UMBRAL, NEBLINA, WE ARE LOGIC, SOLAR CLUB,
 
 Cada marca tiene campaña, manifiesto, paleta, símbolo y un perfil para explorar sus colecciones. La franja de campañas se puede deslizar; elegir una marca o usar sus flechas cambia la portada. El explorador permite recorrer las trece colecciones y filtrar el catálogo desde cada una. Dirección actual: `docs/escapes-art-direction.md`; universos anteriores: `docs/art-direction.md`.
 
+## Firmas con otra dimensión
+
+Las diez marcas tienen firmas vectoriales y símbolos dibujados para esta edición: letras intervenidas, monogramas, pliegues, encajes y planos en perspectiva. Aparecen en la franja de marcas, colecciones, campañas editoriales, escapadas, perfiles y cinta de marcas. El muestrario «No se parecen. Se reconocen.» permite recorrerlas con ratón o teclado y pasar a sus prendas.
+
+`assets/identities/` entrega treinta SVG: símbolo, firma tipográfica y combinación de ambos para cada marca. `identities.js` comparte sus trazados con la interfaz. Los contornos tipográficos derivan de las fuentes locales Archivo y Fraunces, con sus licencias OFL conservadas. Se pueden regenerar con `python scripts/generate-identities.py` (requiere fontTools, sólo para desarrollo). Dirección: `docs/identity-art-direction.md`.
+
+Las fotografías de concepto conservan las gráficas de sus colecciones; las nuevas firmas digitales no se presentan como estampados exactos de todas las prendas.
+
 ## Escapadas y movimiento
 
 Playa, Montaña y Ciudad tienen fotografía, relato, color y un conjunto de tres prendas. Puedes elegir tallas, excluir piezas y añadir el conjunto a la bolsa. La operación comprueba todas las prendas antes de añadirlas; un error de talla o cantidad no añade parte del conjunto.
