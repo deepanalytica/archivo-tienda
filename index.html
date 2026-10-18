@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f3eddf">
-  <title>ARCHIVO Clothing &amp; Art / OWN FORM: Other Nature.</title>
-  <meta name="description" content="OTHER NATURE de OWN FORM: flores ASCII, árboles de tinta, aves e islas de color. Seis prendas de autor, micro y macro. Descubre todas las colecciones de ARCHIVO.">
-  <link rel="preload" href="assets/fonts/archivo.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="identities.css"><link rel="stylesheet" href="editorial.css"><link rel="stylesheet" href="film-look.css"><script defer src="catalog.js"></script><script defer src="identities.js"></script><script defer src="app.js"></script><script defer src="escapes.js"></script><script defer src="identity-ui.js"></script><script defer src="summer-editorial.js"></script>
+  <title>ARCHIVO Clothing &amp; Art — Un archivo. Muchos mundos.</title>
+  <meta name="description" content="ARCHIVO Clothing & Art: una casa editorial con 12 marcas de autor, 16 colecciones y 51 diseños. Descubre los universos creativos y su selección de prendas.">
+  <link rel="icon" href="assets/identities/archivo-favicon.svg" type="image/svg+xml"><link rel="preload" href="assets/fonts/archivo.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="identities.css"><link rel="stylesheet" href="editorial.css"><link rel="stylesheet" href="film-look.css"><link rel="stylesheet" href="archivo-platform.css"><script defer src="catalog.js"></script><script defer src="identities.js"></script><script defer src="app.js"></script><script defer src="escapes.js"></script><script defer src="identity-ui.js"></script><script defer src="summer-editorial.js"></script>
 </head>
 <body>
   <svg class="film-filter-library" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -37,20 +37,86 @@
     </defs>
   </svg>
   <a class="skip" href="#catalogo">Ir al catálogo</a>
-  <div class="announcement"><span>CLOTHING AS A FORM OF ART.</span><span>Precios referenciales · Solicitudes sin cobro</span></div>
-  <header class="nav">
-    <a href="#inicio" class="logo archivo-lockup" aria-label="ARCHIVO Clothing and Art, inicio"><img src="assets/identities/archivo-wordmark.svg" alt="" width="200" height="42"><span class="archivo-descriptor">Clothing &amp; Art</span><span id="hero-brand-count" class="brand-count">/11</span></a>
-    <nav aria-label="Principal"><a href="#escapadas">Escapadas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>La selección</a><a href="#marcas">Las marcas</a><a href="estudio.html">El estudio</a></nav>
-    <div class="nav-actions"><button type="button" class="icon-button" id="favorites-toggle" aria-label="Ver favoritos" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6c-2-2-5.1-1.9-7.1.1L12 6.4l-1.7-1.7c-2-2-5.1-2.1-7.1-.1s-1.9 5.1.1 7.1L12 20l8.7-8.3c2-2 2.1-5.1.1-7.1Z"/></svg><span class="favorite-count" id="favorite-count">0</span></button><button type="button" class="cart-toggle" id="cart-toggle" aria-label="Abrir bolsa, 0 productos">Bolsa <span id="cart-count">0</span></button></div>
+
+  <div class="announcement"><span>ARCHIVO / CLOTHING & ART</span><span>Un archivo de mundos propios · Catálogo de muestra</span></div>
+  <header class="nav archivo-nav">
+    <a href="#inicio" class="logo archivo-lockup" aria-label="ARCHIVO Clothing & Art, inicio">
+      <img class="archivo-logo-complete" src="assets/identities/archivo-lockup.svg" alt="" width="225" height="40">
+      <span class="archivo-descriptor">Clothing &amp; Art</span>
+    </a>
+    <nav class="archivo-primary-nav" aria-label="Principal">
+      <a href="#marcas">Las marcas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>La selección</a><a href="estudio.html">El estudio <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions">
+      <span id="hero-brand-count" class="archivo-index-count" aria-label="12 marcas">/12</span>
+      <button type="button" class="icon-button" id="favorites-toggle" aria-label="Ver favoritos" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6c-2-2-5.1-1.9-7.1.1L12 6.4l-1.7-1.7c-2-2-5.1-2.1-7.1-.1s-1.9 5.1.1 7.1L12 20l8.7-8.3c2-2 2.1-5.1.1-7.1Z"/></svg><span class="favorite-count" id="favorite-count">0</span></button>
+      <button type="button" class="cart-toggle" id="cart-toggle" aria-label="Abrir bolsa, 0 productos">Bolsa <span id="cart-count">0</span></button>
+    </div>
+    <details class="archivo-mobile-menu">
+      <summary aria-label="Abrir menú de navegación"><span class="menu-lines" aria-hidden="true">☰</span> Menú</summary>
+      <div class="archivo-mobile-links">
+        <a href="#marcas">Las marcas</a><a href="#colecciones">Colecciones</a><a href="#catalogo" data-reset>La selección</a><a href="estudio.html">Estudio creativo ↗</a>
+      </div>
+    </details>
   </header>
   <main>
-    <section class="hero" id="inicio" data-active-brand="ownform" aria-label="Descubre las campañas de ARCHIVO Clothing and Art">
-      <img id="hero-image" class="hero-image" src="assets/brands/ownform-other-nature-campaign.webp" alt="OWN FORM Other Nature: modelos con flor ASCII, árbol de tinta e isla micro junto al mar" width="1672" height="941" fetchpriority="high">
-      <div class="hero-shade"></div>
-      <div class="hero-copy"><h1 class="archivo-master"><img src="assets/identities/archivo-wordmark.svg" alt="" width="700" height="140"><span class="sr-only">ARCHIVO</span><span class="archivo-descriptor">Clothing &amp; Art</span></h1><p class="hero-title" id="hero-title">Tu forma.<br>Tus reglas.</p><p class="hero-sub" id="hero-sub">OWN FORM / Self Defined</p><div class="hero-catalog-actions"><button type="button" id="hero-cta" class="button light">Explorar OWN FORM <span aria-hidden="true">↗</span></button><a href="#catalogo" id="hero-catalog-link" data-reset>Ver todas las prendas</a></div></div>
-      <div class="hero-bottom"><div class="campaign-navigation"><button type="button" class="campaign-arrow" id="campaign-prev" aria-label="Campaña anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><div class="hero-brands" id="hero-brands" role="group" aria-label="Campañas de marca"></div><button type="button" class="campaign-arrow" id="campaign-next" aria-label="Campaña siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></div><p id="hero-tagline">Belleza que no pide permiso.</p></div>
+    <section class="hero archivo-home-hero" id="inicio" data-active-brand="ownform" aria-label="ARCHIVO, casa editorial de marcas de autor">
+      <div class="archivo-platform">
+        <div class="archivo-hero-top"><span>ARCHIVO / EDICIÓN 001</span><span>12 MARCAS — 16 COLECCIONES</span></div>
+        <div class="archivo-platform-main">
+          <p class="archivo-overline"><span aria-hidden="true">◆</span> CASA DE MARCAS · DIRECCIÓN CREATIVA</p>
+          <h1>Un archivo.<br><em>Muchos mundos.</em></h1>
+          <p class="archivo-platform-description">Doce marcas de autor con identidades independientes. Diseñamos universos, desarrollamos colecciones y llevamos el arte al lenguaje de la ropa.</p>
+          <div class="archivo-platform-actions">
+            <a href="#marcas" class="archivo-action-primary">Explorar las marcas <span aria-hidden="true">↗</span></a>
+            <a href="#catalogo" data-reset class="archivo-action-secondary">Ver las 51 prendas <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="archivo-platform-foot"><span>ARTE QUE SE LLEVA.</span><span>CL / ESTUDIO EN DESARROLLO</span></div>
+      </div>
+      <div class="archivo-featured" aria-label="Campaña editorial seleccionada">
+        <img id="hero-image" class="hero-image" src="assets/brands/ownform-other-nature-campaign.webp" alt="OWN FORM Other Nature: modelos con flores ASCII y dibujos de paisaje" width="1672" height="941" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="archivo-feature-metadata"><span>CAMPAÑA EN FOCO</span><span>ARCHIVO / ÍNDICE DE MARCAS</span></div>
+        <div class="hero-copy archivo-feature-copy">
+          <p class="hero-sub" id="hero-sub">OWN FORM / Other Nature</p>
+          <p class="hero-title" id="hero-title">Otra forma<br>de naturaleza.</p>
+          <div class="hero-catalog-actions"><button type="button" id="hero-cta" class="button light">Explorar OWN FORM <span aria-hidden="true">↗</span></button><a href="#catalogo" id="hero-catalog-link" data-reset>Ver todas las prendas</a></div>
+        </div>
+        <div class="hero-bottom archivo-feature-navigation"><div class="campaign-navigation"><button type="button" class="campaign-arrow" id="campaign-prev" aria-label="Campaña anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><div class="hero-brands" id="hero-brands" role="group" aria-label="Campañas de marca"></div><button type="button" class="campaign-arrow" id="campaign-next" aria-label="Campaña siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></div><p id="hero-tagline">Still becoming.</p></div>
+      </div>
     </section>
     <section class="brand-line" id="brand-line" aria-label="Diez marcas de autor"></section>
+    <section class="archivo-curation" aria-labelledby="archivo-curation-heading">
+      <div class="archivo-curation-heading">
+        <div><p class="archivo-overline">01 / EL ARCHIVO · SELECCIÓN EDITORIAL</p><h2 id="archivo-curation-heading">No son estilos.<br><em>Son universos.</em></h2></div>
+        <div class="archivo-curation-intro"><p>Una casa para marcas que no necesitan parecerse entre sí. Cada una tiene una forma propia de mirar, diseñar y contar historias.</p><a href="estudio.html">Entrar al estudio creativo <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div class="archivo-curation-grid">
+        <a class="archivo-editorial-card archivo-editorial-card-a" href="estudio.html?marca=imago" aria-label="Explorar el universo creativo IMAGO">
+          <img src="assets/brands/imago-editorial.webp" alt="Campaña editorial conceptual IMAGO, arte botánico y mariposas" loading="lazy" width="1086" height="1448">
+          <span class="archivo-editorial-top">FICHA 001 / ARTE &amp; METAMORFOSIS</span>
+          <span class="archivo-editorial-bottom"><span><strong>IMAGO</strong><small>La belleza también tiene carácter.</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="archivo-editorial-card archivo-editorial-card-b" href="estudio.html?marca=salitre" aria-label="Explorar el universo creativo SALITRE">
+          <img src="assets/brands/salitre-campaign.webp" alt="Campaña editorial conceptual SALITRE, estética resort de autor" loading="lazy" width="1536" height="1024">
+          <span class="archivo-editorial-top">FICHA 002 / COSTA &amp; PAUSA</span>
+          <span class="archivo-editorial-bottom"><span><strong>SALITRE</strong><small>Quédate un poco más.</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="archivo-editorial-card archivo-editorial-card-c" href="estudio.html?marca=logic" aria-label="Explorar el universo creativo WE ARE LOGIC">
+          <img src="assets/brands/logic-frecuencia-campaign.webp" alt="Campaña editorial conceptual WE ARE LOGIC con diseño modular urbano" loading="lazy" width="1536" height="1024">
+          <span class="archivo-editorial-top">FICHA 003 / FORMA &amp; RITMO</span>
+          <span class="archivo-editorial-bottom"><span><strong>WE ARE LOGIC</strong><small>La forma tiene ritmo.</small></span><span class="archivo-link-arrow" aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+      <div class="archivo-curation-footer"><span>12 UNIVERSOS / 16 COLECCIONES / 51 PRUEBAS DE DISEÑO</span><a href="#marcas">Conocer las doce marcas <span aria-hidden="true">↓</span></a></div>
+    </section>
+    <section class="archivo-manifesto-strip" aria-label="Qué es ARCHIVO">
+      <div><span>01 / IDEAMOS</span><strong>Identidades que se reconocen.</strong></div>
+      <div><span>02 / DISEÑAMOS</span><strong>Arte pensado para vestir.</strong></div>
+      <div><span>03 / DESARROLLAMOS</span><strong>De la gráfica al prototipo.</strong></div>
+    </section>
+
     <section class="other-nature pad" id="other-nature" aria-labelledby="nature-title">
       <div class="nature-story">
         <figure class="nature-photo"><img src="assets/brands/ownform-other-nature-editorial.webp" alt="Modelos con polerón Refract Isles de espalda, polera Free Frequency y polera Open Horizon, en una escalera de costa" loading="lazy" width="1122" height="1402"><figcaption>OWN FORM / OTHER NATURE / VOL. 02</figcaption></figure>
@@ -125,7 +191,7 @@
 
     <section class="how-section pad" id="como-pedir"><div><h2>Elige. Mezcla.<br>Hazlo <em>tuyo.</em></h2><p class="how-aside">Una sola bolsa para todos tus universos.</p></div><ol><li><span>01</span><div><h3>Arma tu selección.</h3><p>Elige marca, prenda, talla y cantidad. Puedes combinar todas las marcas en la misma bolsa.</p></div></li><li><span>02</span><div><h3>Envía tu solicitud.</h3><p>Déjanos tus datos de contacto. No se cobra ni se solicita información bancaria.</p></div></li><li><span>03</span><div><h3>Confirma los detalles.</h3><p>Revisaremos disponibilidad, medidas, precio final y entrega antes de confirmar el pedido.</p></div></li></ol></section>
   </main>
-  <footer><div class="footer-top"><a href="#inicio" class="footer-logo archivo-lockup" aria-label="ARCHIVO Clothing and Art, inicio"><img src="assets/identities/archivo-wordmark.svg" alt="" width="900" height="180"><span class="archivo-descriptor">Clothing &amp; Art</span></a><p>Ropa de autor.<br>Arte que se lleva.</p></div><div class="footer-bottom"><span id="footer-brand-list">IMAGO / ARCHIVO CLOTHING &amp; ART</span><span>Solicitudes sin cobro / CLP</span><a href="admin.html">Gestión local ↗</a></div></footer>
+  <footer><div class="footer-top"><a href="#inicio" class="footer-logo archivo-lockup" aria-label="ARCHIVO Clothing & Art, volver al inicio"><img src="assets/identities/archivo-lockup.svg" alt="" width="650" height="140"><span class="archivo-descriptor">Clothing &amp; Art</span></a><p>Ropa de autor.<br>Arte que se lleva.</p></div><div class="footer-bottom"><span id="footer-brand-list">IMAGO / ARCHIVO CLOTHING &amp; ART</span><span>Solicitudes sin cobro / CLP</span><a href="admin.html">Gestión local ↗</a></div></footer>
   <dialog id="look-dialog" class="look-dialog" aria-labelledby="look-title"><button type="button" class="dialog-close" data-close aria-label="Cerrar conjunto">×</button><div class="look-intro"><h2 id="look-title">Tu próxima escapada.</h2><p>Tres piezas que se entienden. Elige las que te llevas y sus tallas.</p></div><form id="look-form"><div id="look-items"></div><div class="look-summary"><span>Subtotal referencial</span><strong id="look-subtotal"></strong></div><p class="small-note">Precios de concepto en CLP. Añadir a la bolsa no realiza un cobro ni reserva prendas.</p><p id="look-error" class="field-error" role="alert"></p><button type="submit" class="button dark full" id="add-look">Agregar prendas a la bolsa</button></form></dialog>
   <dialog id="brand-dialog" class="brand-dialog" aria-labelledby="brand-title"><button type="button" class="dialog-close" data-close aria-label="Cerrar universo de marca">×</button><div id="brand-dialog-content"></div></dialog>
   <dialog id="product-dialog" class="product-dialog" aria-labelledby="product-title">
