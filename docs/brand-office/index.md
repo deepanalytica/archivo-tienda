@@ -11,6 +11,8 @@ ARCHIVO es una casa creativa y plataforma multimarca con **12 marcas propias, 16
 | [architecture.md](architecture.md) | Jerarquía casa → marca → línea → colección → drop → SKU → campaña | Política propuesta |
 | [brand-registry.json](brand-registry.json) | Registro computable, IDs y arquetipos propuestos | Índice editorial, no catálogo |
 | [differentiation.md](differentiation.md) | Fronteras creativas y prevención de canibalización | Control de dirección |
+| [research-and-personas.md](research-and-personas.md) | Investigación de públicos y validación de compradores hipotéticos | Protocolo de evidencia |
+| [portfolio-scorecard.md](portfolio-scorecard.md) | Prioridad comercial, caja y asignación de recursos | Comité de cartera |
 | [collections.md](collections.md) | Estado de las 16 colecciones y modelo de temporada | Planeación creativa |
 | [creative-direction.md](creative-direction.md) | Proceso del insight al concepto, diseño y dirección de arte | Método de estudio |
 | [quality-and-production.md](quality-and-production.md) | Fichas técnicas, muestras, claims y gates físicos | Bloqueante antes de vender |
