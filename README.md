@@ -147,3 +147,9 @@ Validación de los 99 SVG: `python scripts/verify-brand-production.py`. Rasteriz
 La portada `index.html` separa la **marca madre** de las 12 campañas autónomas: un único lockup en cabecera, hero manifiesto «Un archivo. Muchos mundos.», índice curado y acceso a `estudio.html`. Logotipo combinado, monograma, favicon y retícula están en `assets/identities/archivo-*.svg`; reglas de uso en `docs/archivo-brand-system-v2.md` y estilos en `archivo-platform.css`.
 
 Las nuevas secciones **no cambian el catálogo ni convierten las imágenes conceptuales en productos fabricados**. El despliegue en GitHub Pages continúa sin pasarela de pago. El control de regresión `node scripts/verify-brand-platform.cjs` comprueba que el logo no se repita en el hero y que los recursos estén publicados.
+
+## Publicación web y recuperación de Pages
+
+La web pública se genera desde el workflow `.github/workflows/pages.yml` con `npm test` y `scripts/build-pages.cjs`; publica `_site` mediante GitHub Actions. La URL prevista es https://deepanalytica.github.io/archivo-tienda/. Si el repositorio cambia de visibilidad, comprobar nuevamente `Settings → Pages → Build and deployment: GitHub Actions` y ejecutar un flujo completo para regenerar el artefacto `github-pages`. Volver a ejecutar únicamente el trabajo `deploy` de un flujo anterior puede fallar si el artefacto del nuevo intento no está disponible.
+
+La portada comercial usa el logo tipográfico y los estilos `archivo-premium.css` / `archivo-premium.js`; su estado de producción debe confirmarse con el resultado de Actions y el sitio accesible.
