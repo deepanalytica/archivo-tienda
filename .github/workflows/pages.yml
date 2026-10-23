@@ -25,8 +25,23 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm test
+      # Full browser regression on PRs/manual runs. Main has already passed PR checks.
+      - name: Install Playwright for full validation
+        if: github.event_name != 'push'
+        run: npx playwright install --with-deps chromium
+      - name: Full test suite
+        if: github.event_name != 'push'
+        run: npm test
+      # Deployment rebuilds a fresh Pages artifact without re-downloading browsers.
+      - name: Build and validate published site
+        if: github.event_name == 'push'
+        run: |
+          npm run build
+          node scripts/verify-studio.cjs
+          node scripts/verify-brand-platform.cjs
+          node scripts/verify-premium-commerce.cjs
+          node scripts/audit-sku-production.cjs
+          python scripts/verify-brand-production.py
       - name: Upload verified site
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
