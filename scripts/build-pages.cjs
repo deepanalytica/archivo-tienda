@@ -48,6 +48,8 @@ async function build() {
   for (const file of await fs.readdir(path.join(root, 'assets', 'identities'))) {
     if (file.endsWith('.svg')) await fs.copyFile(path.join(root, 'assets', 'identities', file), path.join(identities, file));
   }
+  // Portafolio profesional público: solo archivos estáticos, sin afectar la tienda.
+  await fs.cp(path.join(root, 'portafolio'), path.join(destination, 'portafolio'), { recursive: true });
   await fs.writeFile(path.join(destination, '.nojekyll'), '');
   console.log('Pages: catálogo estático generado en _site/. Sin servidor, panel ni datos de solicitudes.');
 }
