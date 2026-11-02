@@ -10,7 +10,7 @@ for(const s of [
   'Visual Art AI','WAL','ARCHIVO','Praxios OS','Meta Harness','Conv OS',
   'Deep Geo','Deep Living','El Puente','Inverse Reality Lab','Sin Humo',
   'NVIDIA Inception','11 certificaciones Anthropic','Ingeniería en Data Science',
-  'Comentario','Metricool','ManyChat','sin métricas de rendimiento ficticias'
+  'Comentario','Metricool','ManyChat','sin cifras de rendimiento ficticias'
 ]){
   if(s==='Comentario')continue;
   need(s);
