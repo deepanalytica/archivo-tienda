@@ -4,7 +4,7 @@ const file='_site/portafolio/index.html';
 const html=fs.readFileSync(file,'utf8');
 const fail=(msg)=>{console.error('Portfolio QA FAIL:',msg);process.exitCode=1};
 const includes=(part)=>{if(!html.includes(part))fail('Missing '+part)};
-for(const val of ['<html lang="es">','id="inicio"','id="aporte"','id="casos"','id="piezas"','id="metodo"','id="laboratorio"','id="contacto"','Índice de secciones','Una forma concreta de evaluar mi trabajo','NVIDIA Inception','11 certificaciones de Anthropic','Ingeniería en Data Science','Praxios OS','Meta Harness','Atalaya','EUREKA','El Tiburón','La Escalera','El Puente','Sin Humo','Conv OS','Deep Living'])includes(val);
+for(const val of ['<html lang="es">','id="inicio"','id="rol"','id="ejemplo-flujo"','id="kpis"','id="aporte"','id="casos"','id="piezas"','id="metodo"','id="laboratorio"','id="contacto"','Índice de secciones','Una forma concreta de evaluar mi trabajo','NVIDIA Inception','11 certificaciones de Anthropic','Ingeniería en Data Science','Praxios OS','Meta Harness','Atalaya','EUREKA','El Tiburón','La Escalera','El Puente','Sin Humo','Conv OS','Deep Living','ManyChat','Metricool','Later','Instagram','TikTok','YouTube','LinkedIn','Coordinación','Una campaña. Una operación completa.','Informe semanal con acciones'])includes(val);
 const idList=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
 const ids=new Set(idList);
 if(ids.size!==idList.length)fail('Duplicate IDs');
