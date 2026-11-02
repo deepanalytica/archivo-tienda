@@ -74,4 +74,8 @@ function contrast(a,b) {
 assert.ok(contrast(tokenHex('--muted'),tokenHex('--paper'))>=4.5,'Muted body color fails 4.5:1');
 assert.ok(contrast(tokenHex('--accent'),tokenHex('--white'))>=4.5,'Accent on white fails 4.5:1');
 
+// Contact QA: recruiters must be able to reach Alexis directly on WhatsApp.
+const directWhatsApp=[...html.matchAll(/https:\/\/wa\.me\/56958039450\?text=/g)];
+assert.equal(directWhatsApp.length,2,'Direct WhatsApp links missing from header or recruitment CTA');
+for(const expected of ['Hablemos por WhatsApp','Prefiero escribir por correo','WhatsApp: +56 9 5803 9450'])need(expected);
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
