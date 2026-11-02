@@ -96,4 +96,24 @@ const imageRule=designCSS.indexOf('.case-gallery .slide-visual>img');
 assert.ok(imageRule>designCSS.lastIndexOf('.slide-visual img[src*="image.thum.io"]'),'Gallery fix must supersede older cropping policy');
 assert.ok(viewer.includes('setAttribute("aria-label"'),'Fullscreen controls must have labels');
 
+
+// Brand-wall regression: portfolio must communicate ARCHIVO's depth at first glance.
+const brands=['alto','brava','imago','limen','logic','marea','neblina','orbita','ownform','salitre','solar','umbral'];
+const archiveSection=html.slice(html.indexOf('id="caso-archivo"'),html.indexOf('<p class="clear-proof">'));
+assert.ok(archiveSection.includes('class="archive-mosaic brand-mosaic"'),'ARCHIVO must show a brand mosaic, not a one-image carousel');
+for(const brand of brands)assert.ok(archiveSection.includes('assets/brands/'+brand+'-campaign.webp'),'Missing brand art: '+brand);
+assert.equal((archiveSection.match(/class="slide mosaic-tile"/g)||[]).length,12,'ARCHIVO grid must have 12 visible brands');
+const walSection=html.slice(html.indexOf('id="caso-wal"'),html.indexOf('id="caso-archivo"'));
+assert.ok(walSection.includes('class="archive-mosaic wal-mosaic"'),'WAL must show a multi-campaign image wall');
+assert.equal((walSection.match(/class="slide mosaic-tile"/g)||[]).length,6,'WAL must feature six original campaigns');
+for(const v of [
+ '.archive-mosaic .slide-visual>img','width:auto!important','height:auto!important',
+ 'max-width:100%!important','max-height:100%!important','object-fit:contain!important',
+ '.brand-mosaic{grid-template-columns:repeat(6,minmax(0,1fr))}',
+ '.wal-mosaic{grid-template-columns:repeat(3,minmax(0,1fr))}',
+ '.brand-mosaic{grid-template-columns:repeat(3,minmax(0,1fr))}'
+])assert.ok(designCSS.includes(v),'Missing fully-visible artwork masonry: '+v);
+assert.ok(viewer.includes('document.querySelectorAll(".case-gallery, .archive-mosaic")'),'Expanded campaign galleries not enabled in image viewer');
+assert.ok(!archiveSection.includes('class="rail"'),'ARCHIVO must not conceal most brands in a carousel');
+
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
