@@ -78,4 +78,22 @@ assert.ok(contrast(tokenHex('--accent'),tokenHex('--white'))>=4.5,'Accent on whi
 const directWhatsApp=[...html.matchAll(/https:\/\/wa\.me\/56958039450\?text=/g)];
 assert.equal(directWhatsApp.length,2,'Direct WhatsApp links missing from header or recruitment CTA');
 for(const expected of ['Hablemos por WhatsApp','Prefiero escribir por correo','WhatsApp: +56 9 5803 9450'])need(expected);
+
+// Regression guard: case studies must preserve their authored assets (not crop 4:5 ads).
+assert.ok(html.includes('src="./gallery-viewer.js"'),'Gallery viewer is not linked');
+const viewer=fs.readFileSync('_site/portafolio/gallery-viewer.js','utf8');
+for(const v of [
+ 'dialog.showModal()','className="portfolio-lightbox"','className="view-entire-image"',
+ 'currentIndex','event.key==="ArrowLeft"','event.key==="ArrowRight"',
+ 'dialog.addEventListener("close"'
+])assert.ok(viewer.includes(v),'Missing full-image interaction: '+v);
+for(const v of [
+ '.case-gallery .slide-visual>img','object-fit:contain!important',
+ '.portfolio-lightbox','lightbox-image','lightbox-topbar',
+ '@media(max-width:600px)','@media(prefers-reduced-motion:reduce)'
+])assert.ok(designCSS.includes(v),'Missing uncropped gallery style: '+v);
+const imageRule=designCSS.indexOf('.case-gallery .slide-visual>img');
+assert.ok(imageRule>designCSS.lastIndexOf('.slide-visual img[src*="image.thum.io"]'),'Gallery fix must supersede older cropping policy');
+assert.ok(viewer.includes('setAttribute("aria-label"'),'Fullscreen controls must have labels');
+
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
