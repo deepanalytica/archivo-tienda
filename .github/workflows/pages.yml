@@ -42,6 +42,7 @@ jobs:
           node scripts/verify-premium-commerce.cjs
           node scripts/audit-sku-production.cjs
           python scripts/verify-brand-production.py
+          node scripts/verify-portfolio.cjs
       - name: Upload verified site
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
