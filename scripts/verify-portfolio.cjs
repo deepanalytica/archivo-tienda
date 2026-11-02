@@ -42,4 +42,36 @@ const featured=[...html.matchAll(/data-featured="true"/g)];
 assert.equal(featured.length,6,'Default curated view must feature 6 items');
 for(const label of ['Adquisición y conversión','Agentes y verificación','Datos y decisiones','Investigación y creación','Atraer','Conversar','Operar','Aprender'])need(label);
 if(!html.includes('asset-failed'))throw Error('No fallbacks for externally hosted previews');
+
+// Visual system contract — editorial coherence, tokens, and legibility.
+// This verifies the published CSS file; it does not substitute for visual browser QA.
+const designCSS=fs.readFileSync('_site/portafolio/design-system-v2.css','utf8');
+assert.ok(html.includes('href="./design-system-v2.css"'),'Portfolio does not load the design system');
+for(const token of [
+ '--space-micro:4px','--space-1:8px','--space-2:16px','--space-3:24px',
+ '--space-4:32px','--space-5:48px','--space-6:64px','--space-7:96px',
+ '--type-base:16px','--type-lead:20px','--type-h5:25px','--type-h4:31px',
+ '--type-h3:39px','--type-h2:49px','--type-h1:61px','--content-readable:68ch',
+ '--shadow-card','--shadow-lift'
+])assert.ok(designCSS.includes(token),'Missing editorial design token: '+token);
+for(const q of ['@media(max-width:600px)','@media(prefers-reduced-motion:reduce)',
+  '.action-grid { display:flex','scroll-snap-type:x mandatory',
+  '.slide-visual img[src*="image.thum.io"]'])assert.ok(designCSS.includes(q),'Missing responsive UX treatment: '+q);
+function tokenHex(name) {
+ const m=designCSS.match(new RegExp(name.replaceAll('-', '\\-')+':(#[0-9a-f]{6})','i'));
+ assert.ok(m,'No color token: '+name);
+ return m[1];
+}
+function lum(hex) {
+ const rgb=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);
+ const c=rgb.map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);
+ return c[0]*.2126+c[1]*.7152+c[2]*.0722;
+}
+function contrast(a,b) {
+ const [aL,bL]=[lum(a),lum(b)].sort((x,y)=>y-x);
+ return (aL+.05)/(bL+.05);
+}
+assert.ok(contrast(tokenHex('--muted'),tokenHex('--paper'))>=4.5,'Muted body color fails 4.5:1');
+assert.ok(contrast(tokenHex('--accent'),tokenHex('--white'))>=4.5,'Accent on white fails 4.5:1');
+
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
