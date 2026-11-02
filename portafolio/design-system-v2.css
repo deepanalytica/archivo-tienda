@@ -563,3 +563,80 @@ a:focus-visible,button:focus-visible,summary:focus-visible,
  .archive-mosaic .slide.mosaic-tile,.archive-mosaic .view-entire-image,
  .mosaic-case-cta{transition:none!important;transform:none!important}
 }
+
+
+/* ARCHIVO: genuine wordmarks and all collection names visible at a glance. */
+.brand-mosaic .brand-wordmark{
+ display:block;
+ width:100%;
+ max-width:100px;
+ height:27px;
+ max-height:27px;
+ object-fit:contain!important;
+ object-position:left center;
+ margin:0 0 6px!important;
+ filter:none!important;
+ background:transparent;
+}
+.brand-mosaic .slide-caption{
+ min-height:90px;
+ justify-content:flex-start;
+}
+.brand-mosaic .slide-caption strong{
+ font-size:11px;
+ letter-spacing:.045em;
+}
+.collection-overview{
+ margin-top:20px;
+ padding:22px;
+ border:1px solid #dce5e0;
+ background:#f6f8f5;
+ border-radius:15px;
+}
+.collection-overview-head{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:16px;flex-wrap:wrap;margin-bottom:15px;
+}
+.collection-overview-head strong{
+ font-size:15px;letter-spacing:-.02em;
+}
+.collection-overview-head span{
+ font-size:11px;color:#667875;
+}
+.collection-list{
+ display:grid;
+ grid-template-columns:repeat(8,minmax(0,1fr));
+ gap:7px;
+}
+.collection-list span{
+ padding:11px 9px;min-height:48px;
+ border:1px solid #e0e8e4;border-radius:8px;
+ background:#fff;
+ display:flex;flex-direction:column;justify-content:center;
+ gap:3px;
+ font-size:10px;line-height:1.25;font-weight:740;
+ color:#405650;
+ overflow-wrap:anywhere;
+}
+.collection-list small{
+ display:block;
+ font-size:9px;font-weight:850;letter-spacing:.05em;color:#315cf3;
+}
+@media(max-width:1200px){
+ .collection-list{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media(max-width:800px){
+ .collection-list{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ .brand-mosaic .brand-wordmark{max-width:66px;height:23px;max-height:23px}
+ .brand-mosaic .slide-caption{min-height:75px;padding:8px}
+ .brand-mosaic .slide-caption strong{font-size:10px}
+ .collection-overview{margin-top:15px;padding:13px}
+ .collection-overview-head strong{font-size:13px}
+ .collection-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .collection-list span{font-size:9px;padding:9px 6px;min-height:43px}
+}
+@media(max-width:350px){
+ .collection-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
