@@ -34,4 +34,12 @@ assert.ok(html.includes('aria-selected="true"'),'Missing accessible tab selectio
 assert.ok(html.includes('loading="lazy"'),'Missing deferred gallery images');
 const order=['id="inicio"','id="casos"','id="operacion"','id="laboratorio"','id="contacto"'].map(s=>html.indexOf(s));
 assert.ok(order.every((v,i)=>i===0||v>order[i-1]),'Relevance-based section order changed');
+// Verify additional research and proprietary-system layer remains discoverable.
+for(const term of ['id="impacto"','id="ar-conv"','id="ar-msj"','id="ar-radar"','id="ar-living"','id="ar-prax"','id="ar-harness"','id="ar-atalaya"','id="ar-eureka"','id="ar-tiburon"','id="ar-escalera"','id="ar-euler"','id="ar-geo"','id="ar-geoanalytica"','id="ar-inverse"','id="ar-deeplicita"','id="ar-book"','id="ar-puente"','id="ar-audio"','data-filter="featured"','data-filter="all"','id="laboratorio"','MSJ','Deep Audio','Deep Licita','GeoAnalytica','Super Prompt Euler','Atlas']){ if(term==='Atlas')continue;need(term); }
+const arsenalCards=[...html.matchAll(/class="arsenal-card" data-type="/g)];
+assert.equal(arsenalCards.length,18,'Expected 18 project and system records');
+const featured=[...html.matchAll(/data-featured="true"/g)];
+assert.equal(featured.length,6,'Default curated view must feature 6 items');
+for(const label of ['Adquisición y conversión','Agentes y verificación','Datos y decisiones','Investigación y creación','Atraer','Conversar','Operar','Aprender'])need(label);
+if(!html.includes('asset-failed'))throw Error('No fallbacks for externally hosted previews');
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
