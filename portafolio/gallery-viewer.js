@@ -1,7 +1,7 @@
 /* Full-image gallery viewer: progressive enhancement for original portfolio assets. */
 (()=>{
   "use strict";
-  const galleries=[...document.querySelectorAll(".case-gallery")];
+  const galleries=[...document.querySelectorAll(".case-gallery, .archive-mosaic")];
   if(!galleries.length)return;
 
   const dialog=document.createElement("dialog");
@@ -41,7 +41,7 @@
     const original=slide.querySelector(".slide-visual img");
     const caption=slide.querySelector(".slide-caption");
     const anchor=slide.querySelector(".visual-link");
-    const caseTitle=slide.closest(".case-card")?.querySelector(".case-copy h3")?.textContent?.replace(/\.$/,"")||"Proyecto";
+    const caseTitle=slide.closest(".case-card")?.querySelector(".case-copy h3, .mosaic-case-identity h3")?.textContent?.replace(/\.$/,"")||"Proyecto";
     const slideTitle=caption?.querySelector("strong")?.textContent||original.alt||"Pieza original";
 
     title.textContent=caseTitle+" · "+slideTitle;
