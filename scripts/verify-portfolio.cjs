@@ -116,4 +116,19 @@ for(const v of [
 assert.ok(viewer.includes('document.querySelectorAll(".case-gallery, .archive-mosaic")'),'Expanded campaign galleries not enabled in image viewer');
 assert.ok(!archiveSection.includes('class="rail"'),'ARCHIVO must not conceal most brands in a carousel');
 
+
+// ARCHIVO must display real logos and collection names, not only a single photo.
+for(const brand of brands){
+ assert.ok(archiveSection.includes('assets/identities/'+brand+'-wordmark.svg'),'Missing original wordmark: '+brand);
+}
+const realCollections=[
+ 'Fuera de oficina','Pleamar','Club del futuro','Patio','Jardín eléctrico','Frecuencia',
+ 'Desfase','Entre capas','Principio','Costa privada','Aire abierto','Entre horas',
+ 'Flor de un día','Herbario indócil','Self Defined','Other Nature'
+];
+assert.ok(archiveSection.includes('class="collection-list"'),'Collection overview missing');
+for(const title of realCollections)assert.ok(archiveSection.includes(title),'Missing collection: '+title);
+assert.equal((archiveSection.match(/class="brand-wordmark"/g)||[]).length,12,'Expected 12 original wordmarks');
+assert.ok(designCSS.includes('.brand-mosaic .brand-wordmark'),'Missing responsive logo styling');
+
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
