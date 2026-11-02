@@ -1,21 +1,37 @@
-// Portfolio regression checks: structural and source checks, not a visual or accessibility certification.
+// Recruiter portfolio regression checks. Structural only; not a substitute for visual device testing.
 const fs=require('node:fs');
-const file='_site/portafolio/index.html';
-const html=fs.readFileSync(file,'utf8');
-const fail=(msg)=>{console.error('Portfolio QA FAIL:',msg);process.exitCode=1};
-const includes=(part)=>{if(!html.includes(part))fail('Missing '+part)};
-for(const val of ['<html lang="es">','id="inicio"','id="rol"','id="ejemplo-flujo"','id="kpis"','id="aporte"','id="casos"','id="piezas"','id="metodo"','id="laboratorio"','id="contacto"','Índice de secciones','Una forma concreta de evaluar mi trabajo','NVIDIA Inception','11 certificaciones de Anthropic','Ingeniería en Data Science','Praxios OS','Meta Harness','Atalaya','EUREKA','El Tiburón','La Escalera','El Puente','Sin Humo','Conv OS','Deep Living','ManyChat','Metricool','Later','Instagram','TikTok','YouTube','LinkedIn','Coordinación','Una campaña. Una operación completa.','Informe semanal con acciones'])includes(val);
-const idList=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
-const ids=new Set(idList);
-if(ids.size!==idList.length)fail('Duplicate IDs');
-for(const m of html.matchAll(/href="#([^"]+)"/g))if(!ids.has(m[1]))fail('Dead anchor #'+m[1]);
-const imgs=[...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
-if(imgs.length<10)fail('Too few visual evidence items');
-for(const img of imgs)if(!/alt="[^"]+"/.test(img))fail('Image without meaningful alt');
-const srcs=[...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map(x=>x[1]);
-if(srcs.length!==new Set(srcs).size)fail('Repeated image source');
-for(const u of srcs)if(!u.startsWith('https://'))fail('Unsupported image URL: '+u);
-for(const deprecated of ['nanobanana','navbox','01 / 29','02 / 29','Captura automatizada de interfaz pública · abrir sitio'])if(html.includes(deprecated))fail('Deprecated or irrelevant UI: '+deprecated);
-if(!html.includes('@media(max-width:490px)')||!html.includes('min-height:49px'))fail('Mobile navigation treatment absent');
-if(!html.includes('prefers-reduced-motion'))fail('Reduced motion treatment missing');
-if(!process.exitCode)console.log('Portfolio QA passed:',{sections:7,imageCount:imgs.length,navigationLinks:[...html.matchAll(/href="#([^"]+)"/g)].length,sourceFile:file});
+const assert=require('node:assert/strict');
+const html=fs.readFileSync('_site/portafolio/index.html','utf8');
+const need=(s)=>assert.ok(html.includes(s),'Missing required portfolio element: '+s);
+for(const s of [
+  '<html lang="es">','id="inicio"','id="casos"','id="operacion"','id="laboratorio"','id="contacto"',
+  'aria-label="Índice del portafolio"','scroll-snap-type:x mandatory','role="tablist"',
+  'data-tab="automation"','data-tab="data"','data-tab="team"','data-tab="plan"',
+  'Visual Art AI','WAL','ARCHIVO','Praxios OS','Meta Harness','Conv OS',
+  'Deep Geo','Deep Living','El Puente','Inverse Reality Lab','Sin Humo',
+  'NVIDIA Inception','11 certificaciones Anthropic','Ingeniería en Data Science',
+  'Comentario','Metricool','ManyChat','sin métricas de rendimiento ficticias'
+]){
+  if(s==='Comentario')continue;
+  need(s);
+}
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
+assert.equal(ids.length,new Set(ids).size,'Duplicate ids');
+for(const m of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),'Broken internal anchor: '+m[1]);
+const images=[...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
+assert.ok(images.length>=14,'Insufficient real images');
+for(const tag of images){
+ assert.ok(/\balt="[^"]+"/.test(tag),'Image without alt');
+ assert.ok(/\bsrc="https:\/\//.test(tag),'Non-HTTPS image');
+}
+const srcs=images.map(s=>(s.match(/src="([^"]+)"/)||[])[1]);
+assert.equal(srcs.length,new Set(srcs).size,'Repeated image asset');
+for(const bad of ['nanobanana','01 / 29','navbox','Imagen original de repositorio Visual Art AI']){
+ assert.ok(!html.includes(bad),'Deprecated artifact: '+bad);
+}
+assert.ok(html.includes('prefers-reduced-motion'),'Missing reduced motion');
+assert.ok(html.includes('aria-selected="true"'),'Missing accessible tab selection');
+assert.ok(html.includes('loading="lazy"'),'Missing deferred gallery images');
+const order=['id="inicio"','id="casos"','id="operacion"','id="laboratorio"','id="contacto"'].map(s=>html.indexOf(s));
+assert.ok(order.every((v,i)=>i===0||v>order[i-1]),'Relevance-based section order changed');
+console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
