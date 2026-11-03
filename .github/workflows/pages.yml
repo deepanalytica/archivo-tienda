@@ -44,6 +44,20 @@ jobs:
           python scripts/verify-brand-production.py
           node scripts/verify-portfolio.cjs
           node scripts/verify-sin-humo-reader.cjs
+          node --input-type=module --check < portafolio/experience.js
+          node --input-type=module --check < portafolio/experience-three.js
+      - name: Install Chromium for live portfolio UI checks
+        if: github.event_name == 'push'
+        run: npx playwright install --with-deps chromium
+      - name: Verify recruiter portfolio in desktop and mobile Chromium
+        if: github.event_name == 'push'
+        run: node scripts/verify-portfolio-browser.cjs
+      - name: Save screenshot evidence for design QA
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-visual-qa
+          path: portfolio-qa/
       - name: Upload verified site
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
