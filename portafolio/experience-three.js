@@ -166,6 +166,7 @@ export function mountThreeStudio(board,stage){
   const onContextLoss=event=>{event.preventDefault();stop();stage.classList.remove('has-three');};
   renderer.domElement.addEventListener('webglcontextlost',onContextLoss);
   stage.classList.add('has-three');
+  stage.dataset.visualEngine='threejs';
 
   function cleanup(){
     if(!alive)return;
