@@ -93,8 +93,11 @@ async function main(){
   assert.ok(await page.locator('#perfil').isVisible(),'Professional biography missing');
   assert.ok(await page.locator('#gobernanza').isVisible(),'Rust governance narrative missing');
   assert.equal(await page.locator('.profile-areas a').count(),8,'Eight interdisciplinary capabilities');
+  assert.equal(await page.locator('.arsenal-card .arsenal-dossier-link').count(),18,'Every project must link to its decision dossier');
+  await page.locator('#perfil').screenshot({path:path.join(out,name+'-profile.png'),animations:'disabled',timeout:30000});
   await page.locator('#gobernanza').screenshot({path:path.join(out,name+'-governance.png'),animations:'disabled',timeout:30000});
   await page.goto(url+'/portafolio/criterio/',{waitUntil:'domcontentloaded',timeout:30000});
+  await page.addStyleTag({content:'.site-header{position:static!important}'});
   assert.equal(await page.locator('.practice-item').count(),8,'Eight documented disciplines');
   assert.equal(await page.locator('.dossier').count(),18,'All 18 project dossiers present');
   assert.equal(await page.locator('.feature').count(),3,'Creative case studies documented');
@@ -106,6 +109,7 @@ async function main(){
   await page.locator('#search-project').fill('');
   await page.locator('[data-category-filter="all"]').click();
   assert.equal(await page.locator('.dossier:visible').count(),18,'Filtering restores full dossier');
+  await page.locator('#perfil').screenshot({path:path.join(out,name+'-dossier-intro.png'),animations:'disabled',timeout:30000});
   await page.locator('#rust').screenshot({path:path.join(out,name+'-rust.png'),animations:'disabled',timeout:30000});
   if(name==='mobile'){
     const overflow=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,viewport:document.documentElement.clientWidth}));
