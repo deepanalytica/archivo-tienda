@@ -122,6 +122,7 @@
         const ScrollTrigger=plugin.ScrollTrigger||plugin.default;
         if(!gsap||!ScrollTrigger)return;
         gsap.registerPlugin(ScrollTrigger);
+        board.dataset.motionEngine='gsap-scrolltrigger';
         const context=gsap.context(()=>{
           gsap.fromTo('.experience-intro .section-title',
             {y:20,opacity:.75},{y:0,opacity:1,duration:.9,ease:'power3.out',
