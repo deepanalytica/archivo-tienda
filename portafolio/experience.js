@@ -147,7 +147,7 @@
   }
 
   // Support direct navigation to a deep project link filtered out by the atlas.
-  const target=document.querySelector(location.hash);
+  const target=location.hash&&/^#[a-zA-Z0-9_-]+$/.test(location.hash)?document.querySelector(location.hash):null;
   if(target?.classList?.contains('arsenal-card')){
     const allButton=document.querySelector('.arsenal-filter[data-filter="all"]');
     allButton?.click();
