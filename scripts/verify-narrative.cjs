@@ -21,7 +21,7 @@ for(const term of ['Comunicación y copy','Branding y dirección de arte',
  have(main,term,'biography/competence');
 for(const term of ['id="caso-visual"','id="caso-wal"','id="caso-archivo"',
  'MH-FC-003','Sin Humo','EUREKA','La Escalera','Deep Audio',
- 'No parto por la herramienta','no garantizan','Ingeniería determinista'])
+ 'No parto por la herramienta','No existe garantía','Ingeniería determinista'])
  have(dossier,term,'dossier content');
 const dossierCards=[...dossier.matchAll(/class="dossier" id="proyecto-([a-z0-9-]+)"/g)].map(x=>x[1]);
 const expected=['conv','msj','radar','living','prax','harness','atalaya','eureka',
