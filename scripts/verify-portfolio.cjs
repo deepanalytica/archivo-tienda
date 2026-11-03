@@ -131,4 +131,38 @@ for(const title of realCollections)assert.ok(archiveSection.includes(title),'Mis
 assert.equal((archiveSection.match(/class="brand-wordmark"/g)||[]).length,12,'Expected 12 original wordmarks');
 assert.ok(designCSS.includes('.brand-mosaic .brand-wordmark'),'Missing responsive logo styling');
 
+
+// Deep UI System experience: optional engines must never gate content.
+for(const t of ['id="estudio"','id="experience-panel"','id="experience-canvas-frame"',
+  'role="tablist" aria-label="Etapas de crecimiento verificable"','data-stage="0"',
+  'data-stage="1"','data-stage="2"','data-stage="3"',
+  'src="./experience.js"','href="./experience.css"',
+  'class="experience-storyboard"','Modelo conceptual interactivo'])
+ need(t);
+const experienceCSS=fs.readFileSync('_site/portafolio/experience.css','utf8');
+const experienceJS=fs.readFileSync('_site/portafolio/experience.js','utf8');
+const threeJS=fs.readFileSync('_site/portafolio/experience-three.js','utf8');
+const roadmap=fs.readFileSync('_site/portafolio/EXPERIENCE_ROADMAP.md','utf8');
+assert.ok(experienceCSS.includes('@media(max-width:600px)'),'Missing mobile experience layout');
+assert.ok(experienceCSS.includes('prefers-reduced-motion'),'Motion must be controllable');
+assert.ok(experienceCSS.includes('experience-fallback'),'Non-WebGL image fallback missing');
+for(const t of ['aria-selected','ArrowRight','ArrowLeft','Home','End','experience-panel',
+  'prefers-reduced-motion','navigator.connection?.saveData',
+  "import('./experience-three.js')",'gsap@3.13.0',
+  'ScrollTrigger.js','new CustomEvent','IntersectionObserver']){
+ assert.ok(experienceJS.includes(t),'Missing experience control: '+t);
+}
+for(const t of ['three@0.180.0','WebGLRenderer','getPixelRatio','setPixelRatio',
+  'document.hidden','webglcontextlost','requestAnimationFrame','cancelAnimationFrame',
+  'pagehide','ResizeObserver','renderer.dispose']){
+  if(t==='getPixelRatio')continue;
+  assert.ok(threeJS.includes(t),'Missing Three.js safeguard: '+t);
+}
+assert.ok(roadmap.includes('Remotion')&&roadmap.includes('React Flow'),
+ 'Technology roadmap must distinguish built effects from planned engines');
+const order2=['id="operacion"','id="impacto"','id="estudio"','id="laboratorio"','id="contacto"'].map(t=>html.indexOf(t));
+assert.ok(order2.every((v,i)=>v>=0&&(i===0||v>order2[i-1])),'Experience studio is out of sequence');
+for(const name of ['neblina-jardin-campaign.webp','logic-frecuencia-campaign.webp','umbral-patio-campaign.webp'])
+ assert.ok(html.includes(name),'Missing original storyboard artwork: '+name);
+
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
