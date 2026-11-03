@@ -88,6 +88,30 @@ async function main(){
   await page.locator('button.lightbox-close').click();
   assert.ok(!(await page.locator('dialog.portfolio-lightbox').isVisible()),'Full image preview must close');
   assert.deepEqual(errors,[],'Browser page errors: '+errors.join('; '));
+
+  // Evidence-first narrative, agency profile, real Rust rules, and project dossiers.
+  assert.ok(await page.locator('#perfil').isVisible(),'Professional biography missing');
+  assert.ok(await page.locator('#gobernanza').isVisible(),'Rust governance narrative missing');
+  assert.equal(await page.locator('.profile-areas a').count(),8,'Eight interdisciplinary capabilities');
+  await page.locator('#gobernanza').screenshot({path:path.join(out,name+'-governance.png'),animations:'disabled',timeout:30000});
+  await page.goto(url+'/portafolio/criterio/',{waitUntil:'domcontentloaded',timeout:30000});
+  assert.equal(await page.locator('.practice-item').count(),8,'Eight documented disciplines');
+  assert.equal(await page.locator('.dossier').count(),18,'All 18 project dossiers present');
+  assert.equal(await page.locator('.feature').count(),3,'Creative case studies documented');
+  assert.ok(await page.locator('#rust').isVisible(),'Rust decision gate dossier available');
+  await page.locator('[data-category-filter="ia"]').click();
+  assert.equal(await page.locator('.dossier:visible').count(),7,'Seven agent governance entries');
+  await page.locator('#search-project').fill('Meta Harness');
+  assert.ok(await page.locator('.dossier:visible').count()>=1,'Dossier search should locate Meta Harness');
+  await page.locator('#search-project').fill('');
+  await page.locator('[data-category-filter="all"]').click();
+  assert.equal(await page.locator('.dossier:visible').count(),18,'Filtering restores full dossier');
+  await page.locator('#rust').screenshot({path:path.join(out,name+'-rust.png'),animations:'disabled',timeout:30000});
+  if(name==='mobile'){
+    const overflow=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,viewport:document.documentElement.clientWidth}));
+    assert.ok(overflow.scrollWidth<=overflow.viewport+3,'Dossier mobile overflow: '+JSON.stringify(overflow));
+  }
+  assert.deepEqual(errors,[],'Browser page errors after dossier navigation');
   results.push({name,width,height,brands:12,collections:16,campaigns:6,errors:errors.length});
   await context.close();
  }
