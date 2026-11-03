@@ -158,7 +158,7 @@ async function cachePageBatch(n){const url=filename(n);if(!cache.has(url))cache.
 buildTOC();
 $("prev-page").onclick=()=>go(current-1);$("next-page").onclick=()=>go(current+1);
 $("go-to-page").onsubmit=e=>{e.preventDefault();go($("page-number").value);};
-$("size-plus").onclick=()=>document.documentElement.style.setProperty("--reader-font",Math.min(25,Number(getComputedStyle(document.documentElement).getPropertyValue("--reader-font").replace("px",""))||18+1)+"px");
+$("size-plus").onclick=()=>{const currentSize=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--reader-font"))||18;document.documentElement.style.setProperty("--reader-font",Math.min(25,currentSize+1)+"px");};
 $("size-minus").onclick=()=>{const computed=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--reader-font"))||18;document.documentElement.style.setProperty("--reader-font",Math.max(14,computed-1)+"px");};
 $("theme-toggle").onclick=()=>{document.body.classList.toggle("night-reader");$("theme-toggle").setAttribute("aria-pressed",String(document.body.classList.contains("night-reader")));};
 $("mode-toggle").onclick=()=>{readingMode=readingMode==="reading"?"original":"reading";$("mode-toggle").textContent=readingMode==="reading"?"Ver texto original":"Refluir texto";go(current,{scroll:false});};
