@@ -51,6 +51,23 @@ async function main(){
   assert.equal(await page.locator('#experience-step-2').getAttribute('aria-selected'),'true','Keyboard next stage');
   await page.locator('.experience-storyboard summary').click();
   assert.equal(await page.locator('.experience-storyboard-grid img').count(),3,'Original campaign story cards');
+  const campaignReady=await page.locator('#caso-archivo .brand-mosaic .slide-visual > img').evaluateAll(async images=>{
+    return Promise.all(images.map(async image=>{
+      image.loading='eager';
+      try{await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;}
+      catch{return false;}
+    }));
+  });
+  assert.equal(campaignReady.length,12,'All ARCHIVO images present');
+  assert.ok(campaignReady.every(Boolean),'Some ARCHIVO campaign images did not decode');
+  const motionReady=await page.locator('.experience-storyboard-grid .experience-shot-image > img').evaluateAll(async images=>{
+    return Promise.all(images.map(async image=>{
+      image.loading='eager';
+      try{await image.decode();return image.naturalWidth>0&&image.naturalHeight>0;}
+      catch{return false;}
+    }));
+  });
+  assert.ok(motionReady.every(Boolean),'Some storyboard images did not decode');
   const frame=page.locator('#estudio');
   await frame.screenshot({path:path.join(out,name+'-experience.png'),animations:'disabled',timeout:30000});
   if(name==='desktop'){
