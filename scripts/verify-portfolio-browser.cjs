@@ -68,6 +68,9 @@ async function main(){
     }));
   });
   assert.ok(motionReady.every(Boolean),'Some storyboard images did not decode');
+  // Screenshots of a full section should not contain an artificially fixed
+  // header halfway through the crop; functional navigation was tested first.
+  await page.addStyleTag({content:'.site-header{position:static!important}'});
   const frame=page.locator('#estudio');
   await frame.screenshot({path:path.join(out,name+'-experience.png'),animations:'disabled',timeout:30000});
   if(name==='desktop'){
@@ -88,6 +91,24 @@ async function main(){
   results.push({name,width,height,brands:12,collections:16,campaigns:6,errors:errors.length});
   await context.close();
  }
+ // Observe progressive engines on a normal-motion desktop without making
+ // remote CDN availability an essential condition for recruiters.
+ const enhancedContext=await browser.newContext({
+   viewport:{width:1440,height:900},deviceScaleFactor:1,reducedMotion:'no-preference',locale:'es-CL'
+ });
+ const enhanced=await enhancedContext.newPage();
+ const enhancedErrors=[];
+ enhanced.on('pageerror',e=>enhancedErrors.push(e.message));
+ await enhanced.goto(url+'/portafolio/',{waitUntil:'domcontentloaded',timeout:30000});
+ await enhanced.locator('#estudio').scrollIntoViewIfNeeded();
+ await enhanced.waitForTimeout(5200);
+ const threeLoaded=await enhanced.locator('#experience-canvas-frame[data-visual-engine="threejs"] canvas').count()>0;
+ const gsapLoaded=await enhanced.locator('.experience-board[data-motion-engine="gsap-scrolltrigger"]').count()>0;
+ await enhanced.addStyleTag({content:'.site-header{position:static!important}'});
+ await enhanced.locator('#estudio').screenshot({path:path.join(out,'desktop-enhancement-preview.png'),animations:'disabled',timeout:30000});
+ assert.deepEqual(enhancedErrors,[],'Enhanced desktop script errors');
+ results.push({name:'optional-engines',threeLoaded,gsapLoaded,errors:enhancedErrors.length});
+ await enhancedContext.close();
  await fs.writeFile(path.join(out,'summary.json'),JSON.stringify(results,null,2));
  console.log('PASS portfolio Playwright QA',JSON.stringify(results));
 }
