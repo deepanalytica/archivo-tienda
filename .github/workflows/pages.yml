@@ -43,6 +43,7 @@ jobs:
           node scripts/audit-sku-production.cjs
           python scripts/verify-brand-production.py
           node scripts/verify-portfolio.cjs
+          node scripts/verify-narrative.cjs
           node scripts/verify-sin-humo-reader.cjs
           node --input-type=module --check < portafolio/experience.js
           node --input-type=module --check < portafolio/experience-three.js
