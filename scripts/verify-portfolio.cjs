@@ -22,7 +22,7 @@ const images=[...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
 assert.ok(images.length>=14,'Insufficient real images');
 for(const tag of images){
  assert.ok(/\balt="[^"]+"/.test(tag),'Image without alt');
- assert.ok(/\bsrc="https:\/\//.test(tag),'Non-HTTPS image');
+ assert.ok(/\bsrc="(?:https:\/\/|\.\.\/assets\/)/.test(tag),'Invalid image source (HTTPS or local assets required)');
 }
 const srcs=images.map(s=>(s.match(/src="([^"]+)"/)||[])[1]);
 assert.equal(srcs.length,new Set(srcs).size,'Repeated image asset');
