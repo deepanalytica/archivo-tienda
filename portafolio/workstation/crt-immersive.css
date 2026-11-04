@@ -299,3 +299,21 @@ body[data-page="home"] #shell .site-foot{margin-top:auto}
   .os-terrain,.os-terrain canvas{min-height:160px}
   .os-card{min-height:60px}
 }
+
+/* Keep the glass content height governed by the CRT, not intrinsic image sizes. */
+body[data-page="home"] #shell main{flex:1;min-height:0}
+body[data-page="home"] #shell #app{min-height:0;flex:1}
+body[data-page="home"] .os-home{height:100%;min-height:0;overflow:hidden;grid-template-rows:minmax(0,1fr) auto auto}
+body[data-page="home"] .os-content{min-height:0;overflow:hidden}
+body[data-page="home"] .os-stage{min-height:0;overflow:hidden}
+body[data-page="home"] .os-terrain{height:100%;min-height:0}
+body[data-page="home"] .os-terrain canvas{height:100%;min-height:0}
+body[data-page="home"] .os-cards{margin-bottom:0}
+@media(max-width:920px){
+  body[data-page="home"] #shell main{flex:initial;min-height:auto}
+  body[data-page="home"] #shell #app{flex:initial;min-height:auto}
+  body[data-page="home"] .os-home{height:auto;min-height:auto;overflow:visible;grid-template-rows:auto auto auto}
+  body[data-page="home"] .os-content,body[data-page="home"] .os-stage{overflow:visible}
+  body[data-page="home"] .os-terrain{height:240px;min-height:240px}
+  body[data-page="home"] .os-terrain canvas{height:100%;min-height:240px}
+}

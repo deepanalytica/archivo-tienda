@@ -36,6 +36,14 @@ async function run(){
   await page.waitForFunction(()=>document.querySelector('#crtTerrain')?.width>100);
   const leaked=await page.evaluate(()=>[...document.querySelectorAll('a,button,input,select,textarea')].filter(el=>!el.closest('#shell')).map(el=>el.outerHTML.slice(0,120)));
   assert.deepEqual(leaked,[],'Interactive controls leaked outside CRT glass');
+  if(type==='desktop'){
+    const layout=await page.evaluate(()=>{
+      const shell=document.querySelector('#shell'),cards=document.querySelector('.os-cards'),foot=document.querySelector('.site-foot');
+      return {shellScroll:shell.scrollHeight,shellHeight:shell.clientHeight,cardBottom:cards.getBoundingClientRect().bottom,footerTop:foot.getBoundingClientRect().top};
+    });
+    assert.ok(layout.shellScroll-layout.shellHeight<=4,'Desktop home must fit CRT without clipping: '+JSON.stringify(layout));
+    assert.ok(layout.cardBottom<layout.footerTop,'Four project cards must be visible: '+JSON.stringify(layout));
+  }
   await page.screenshot({path:path.join(out,'ar-'+type+'-home.png'),animations:'disabled',fullPage:true});
   await page.goto(base+'proyectos/',{waitUntil:'domcontentloaded'});
   await page.locator('.project-tile').first().waitFor();
