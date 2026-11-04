@@ -45,6 +45,25 @@ async function main(){
   assert.equal(await page.locator('.experience-step').count(),4,'Four interactive stages required');
   assert.match(await page.locator('.hero h1').innerText(),/análisis de datos/i,'Data-centered professional positioning must be visible');
   assert.ok(await page.locator('a[href^="https://wa.me/"]').count()>=2,'Direct WhatsApp contact');
+  const sectionOrder=await page.locator('main > section').evaluateAll(nodes=>nodes.map(n=>n.id));
+  assert.deepEqual(sectionOrder.slice(0,3),['inicio','laboratorio','casos'],'Project gallery must be first');
+  assert.equal(await page.locator('.arsenal-card').count(),18,'All project cards retained');
+  assert.equal(await page.locator('#project-gallery .arsenal-card:visible').count(),6,'Six featured projects on first load');
+  assert.equal(await page.locator('.profile-expand').getAttribute('open'),null,'Detailed biography should start collapsed');
+  assert.equal(await page.locator('.governanza-expand').getAttribute('open'),null,'Detailed AI governance starts collapsed');
+  await page.locator('#laboratorio').screenshot({path:path.join(out,name+'-gallery-first.png'),animations:'disabled',timeout:30000});
+  await page.locator('#project-gallery .arsenal-card:visible').first().locator('summary').click();
+  assert.ok(await page.locator('#project-gallery .arsenal-card:visible').first().locator('.arsenal-details').getAttribute('open')!==null,
+    'Project evidence must expand on click');
+  await page.locator('.arsenal-filter[data-filter="all"]').click();
+  assert.equal(await page.locator('#project-gallery .arsenal-card:visible').count(),18,'All projects available on demand');
+  assert.ok(!(await page.locator('#project-gallery').evaluate(n=>n.classList.contains('is-featured'))),
+    'All mode must show a grid');
+  await page.locator('.arsenal-filter[data-filter="featured"]').click();
+  assert.equal(await page.locator('#project-gallery .arsenal-card:visible').count(),6,'Featured mode restored');
+  await page.locator('.estudio-expand > summary').click();
+  assert.ok(await page.locator('.estudio-expand').evaluate(n=>n.open),'Interactive studio must open');
+
   await page.locator('#experience-step-1').click();
   assert.equal(await page.locator('#experience-step-1').getAttribute('aria-selected'),'true','Stage selection update');
   assert.match(await page.locator('#experience-title').innerText(),/consulta|contexto/i,'Content changes after stage');
@@ -96,7 +115,11 @@ async function main(){
   assert.equal(await page.locator('.profile-areas a').count(),8,'Eight interdisciplinary capabilities');
   assert.equal(await page.locator('.arsenal-card .arsenal-dossier-link').count(),18,'Every project must link to its decision dossier');
   await page.locator('#perfil').screenshot({path:path.join(out,name+'-profile.png'),animations:'disabled',timeout:30000});
+  await page.locator('.profile-expand > summary').click();
+  assert.ok(await page.locator('.profile-expand').evaluate(n=>n.open),'Profile details can be expanded');
   await page.locator('#gobernanza').screenshot({path:path.join(out,name+'-governance.png'),animations:'disabled',timeout:30000});
+  await page.locator('.gobernanza-expand > summary').click();
+  assert.ok(await page.locator('.gobernanza-expand').evaluate(n=>n.open),'Governance diagram can be expanded');
   await page.goto(url+'/portafolio/criterio/',{waitUntil:'domcontentloaded',timeout:30000});
   await page.addStyleTag({content:'.site-header{position:static!important}'});
   assert.equal(await page.locator('.practice-item').count(),8,'Eight documented disciplines');
@@ -129,6 +152,7 @@ async function main(){
  const enhancedErrors=[];
  enhanced.on('pageerror',e=>enhancedErrors.push(e.message));
  await enhanced.goto(url+'/portafolio/',{waitUntil:'domcontentloaded',timeout:30000});
+ await enhanced.locator('.estudio-expand > summary').click();
  await enhanced.locator('#estudio').scrollIntoViewIfNeeded();
  await enhanced.waitForTimeout(5200);
  const threeLoaded=await enhanced.locator('#experience-canvas-frame[data-visual-engine="threejs"] canvas').count()>0;
