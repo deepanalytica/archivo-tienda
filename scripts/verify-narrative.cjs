@@ -1,7 +1,7 @@
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
 const file=path=>fs.readFileSync('_site/portafolio/'+path,'utf8');
-const main=file('index.html');
+const main=file('original.html');
 const dossier=file('criterio/index.html');
 const stylesheet=file('narrative.css');
 const dossierStyles=file('criterio/styles.css');
