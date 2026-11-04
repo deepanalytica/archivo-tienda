@@ -15,29 +15,29 @@
   const stages=[
     {
       phase:'ESTRATEGIA EDITORIAL',
-      title:'Un mensaje que vale la pena detenerse a mirar.',
-      desc:'Diseñar hooks, piezas, adaptaciones por canal y una razón clara para iniciar una conversación.',
+      title:'Un mensaje claro para la persona adecuada.',
+      desc:'Definir qué necesita la audiencia, preparar variantes por canal y facilitar una consulta.',
       deliver:'Un Reel + dos variantes + CTA explícito',
       related:'Campañas ARCHIVO ↗', href:'#caso-archivo'
     },
     {
       phase:'CONVERSACIÓN Y CAPTACIÓN',
-      title:'De un comentario a una oportunidad real.',
-      desc:'Proponer una secuencia de respuesta, consentimiento, etiquetado y traspaso comercial. El flujo se valida antes de activarlo.',
+      title:'Seguir una consulta sin perder su contexto.',
+      desc:'Diseñar respuestas, consentimiento, registro de interés y derivación comercial. Revisar el flujo antes de ponerlo en uso.',
       deliver:'Mapa de DM, trigger, segmentación y derivación',
       related:'Arquitectura MSJ ↗',href:'#ar-msj'
     },
     {
       phase:'PRODUCCIÓN Y COORDINACIÓN',
-      title:'Más claridad para el equipo. Menos tareas perdidas.',
-      desc:'Traducir objetivos en briefs, responsables, revisiones y fechas verificables. La calidad no debe depender de improvisar.',
+      title:'Un responsable y un estado para cada tarea.',
+      desc:'Organizar briefs, versiones, responsables y fechas para que el equipo pueda revisar cada entrega.',
       deliver:'Pipeline de piezas, QA, calendarios y responsables',
       related:'Praxios OS ↗',href:'#ar-prax'
     },
     {
       phase:'MÉTRICAS Y VERIFICACIÓN',
-      title:'La IA puede proponer. La evidencia tiene que sostener.',
-      desc:'Contrastar cifras con la fuente, separar hipótesis de hechos y decidir qué iterar sin inventar resultados comerciales.',
+      title:'Comprobar los datos antes de decidir qué cambiar.',
+      desc:'Cruzar resultados con sus fuentes, distinguir hipótesis de hechos y revisar alternativas antes de ajustar una campaña.',
       deliver:'Hipótesis, fuente, KPI observado y revisión humana',
       related:'Meta Harness ↗',href:'#ar-harness'
     }
