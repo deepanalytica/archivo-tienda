@@ -25,7 +25,7 @@ for(const term of ['id="caso-visual"','id="caso-wal"','id="caso-archivo"',
  have(dossier,term,'dossier content');
 // Editorial contract: keep the profile anchored in analysis and visible engineering work.
 for(const t of [
- 'Análisis de datos, software','Cruzo información de distintas fuentes',
+ 'Análisis de datos, software','Cruzo datos y desarrollo sistemas',
  'Soy Alexis Reyes Saavedra','Distintas áreas de trabajo que se complementan',
  'Cómo compruebo lo que','decisiones','Conversemos sobre'
 ])assert.ok(main.includes(t),'Missing grounded editorial positioning: '+t);
