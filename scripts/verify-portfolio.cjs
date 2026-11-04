@@ -32,7 +32,7 @@ for(const bad of ['nanobanana','01 / 29','navbox','Imagen original de repositori
 assert.ok(html.includes('prefers-reduced-motion'),'Missing reduced motion');
 assert.ok(html.includes('aria-selected="true"'),'Missing accessible tab selection');
 assert.ok(html.includes('loading="lazy"'),'Missing deferred gallery images');
-const order=['id="inicio"','id="casos"','id="operacion"','id="laboratorio"','id="contacto"'].map(s=>html.indexOf(s));
+const order=['id="inicio"','id="laboratorio"','id="casos"','id="perfil"','id="operacion"','id="contacto"'].map(s=>html.indexOf(s));
 assert.ok(order.every((v,i)=>i===0||v>order[i-1]),'Relevance-based section order changed');
 // Verify additional research and proprietary-system layer remains discoverable.
 for(const term of ['id="impacto"','id="ar-conv"','id="ar-msj"','id="ar-radar"','id="ar-living"','id="ar-prax"','id="ar-harness"','id="ar-atalaya"','id="ar-eureka"','id="ar-tiburon"','id="ar-escalera"','id="ar-euler"','id="ar-geo"','id="ar-geoanalytica"','id="ar-inverse"','id="ar-deeplicita"','id="ar-book"','id="ar-puente"','id="ar-audio"','data-filter="featured"','data-filter="all"','id="laboratorio"','MSJ','Deep Audio','Deep Licita','GeoAnalytica','Super Prompt Euler','Atlas']){ if(term==='Atlas')continue;need(term); }
@@ -164,5 +164,25 @@ const order2=['id="operacion"','id="impacto"','id="estudio"','id="laboratorio"',
 assert.ok(order2.every((v,i)=>v>=0&&(i===0||v>order2[i-1])),'Experience studio is out of sequence');
 for(const name of ['neblina-jardin-campaign.webp','logic-frecuencia-campaign.webp','umbral-patio-campaign.webp'])
  assert.ok(html.includes(name),'Missing original storyboard artwork: '+name);
+
+// Progressive disclosure, accessible high-priority project rail.
+for(const term of ['href="./concise.css"','src="./gallery-controls.js"',
+ 'id="project-gallery"','class="arsenal-grid is-featured"',
+ 'class="project-gallery-arrows"','class="section-more profile-expand"',
+ 'class="section-more operacion-expand"','class="section-more impacto-expand"',
+ 'class="section-more estudio-expand"','class="section-more gobernanza-expand"',
+ 'class="case-more"','href="#laboratorio"'])
+ need(term);
+assert.ok(html.indexOf('id="laboratorio"')>html.indexOf('id="inicio"')
+ && html.indexOf('id="laboratorio"')<html.indexOf('id="casos"'),
+ 'Project gallery must be directly after the hero');
+const conciseCSS=fs.readFileSync('_site/portafolio/concise.css','utf8');
+const galleryControls=fs.readFileSync('_site/portafolio/gallery-controls.js','utf8');
+for(const token of ['.arsenal-grid.is-featured','scroll-snap-type:x mandatory',
+ '.section-more>summary','@media(max-width:600px)','prefers-reduced-motion'])
+ assert.ok(conciseCSS.includes(token),'Missing compact gallery treatment: '+token);
+for(const token of ['gallery.scrollBy','requestAnimationFrame','aria-pressed',
+ "gallery.classList.toggle('is-featured'"])
+ assert.ok(galleryControls.includes(token),'Missing gallery control: '+token);
 
 console.log('PASS recruiter-first portfolio:',{imageCount:images.length,internalLinks:[...html.matchAll(/href="#/g)].length,sections:order.length});
