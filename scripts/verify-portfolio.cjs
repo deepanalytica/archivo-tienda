@@ -1,7 +1,7 @@
 // Recruiter portfolio regression checks. Structural only; not a substitute for visual device testing.
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
-const html=fs.readFileSync('_site/portafolio/index.html','utf8');
+const html=fs.readFileSync('_site/portafolio/original.html','utf8');
 const need=(s)=>assert.ok(html.includes(s),'Missing required portfolio element: '+s);
 for(const s of [
   '<html lang="es">','id="inicio"','id="casos"','id="operacion"','id="laboratorio"','id="contacto"',

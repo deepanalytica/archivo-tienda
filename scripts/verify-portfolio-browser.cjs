@@ -37,7 +37,7 @@ async function main(){
   const page=await context.newPage();
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(url+'/portafolio/',{waitUntil:'domcontentloaded',timeout:30000});
+  await page.goto(url+'/portafolio/original.html',{waitUntil:'domcontentloaded',timeout:30000});
   await page.locator('#estudio').waitFor({state:'visible'});
   assert.equal(await page.locator('#caso-archivo .brand-mosaic .mosaic-tile').count(),12,'All 12 brand examples required');
   assert.equal(await page.locator('#caso-wal .wal-mosaic .mosaic-tile').count(),6,'All 6 WAL campaigns required');
@@ -153,7 +153,7 @@ async function main(){
  const enhanced=await enhancedContext.newPage();
  const enhancedErrors=[];
  enhanced.on('pageerror',e=>enhancedErrors.push(e.message));
- await enhanced.goto(url+'/portafolio/',{waitUntil:'domcontentloaded',timeout:30000});
+ await enhanced.goto(url+'/portafolio/original.html',{waitUntil:'domcontentloaded',timeout:30000});
  await enhanced.locator('.estudio-expand > summary').click();
  await enhanced.locator('#estudio').scrollIntoViewIfNeeded();
  await enhanced.waitForTimeout(5200);
