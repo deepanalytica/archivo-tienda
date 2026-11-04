@@ -160,7 +160,7 @@ for(const t of ['three@0.180.0','WebGLRenderer','getPixelRatio','setPixelRatio',
 }
 assert.ok(roadmap.includes('Remotion')&&roadmap.includes('React Flow'),
  'Technology roadmap must distinguish built effects from planned engines');
-const order2=['id="operacion"','id="impacto"','id="estudio"','id="laboratorio"','id="contacto"'].map(t=>html.indexOf(t));
+const order2=['id="laboratorio"','id="casos"','id="perfil"','id="operacion"','id="impacto"','id="estudio"','id="gobernanza"','id="contacto"'].map(t=>html.indexOf(t));
 assert.ok(order2.every((v,i)=>v>=0&&(i===0||v>order2[i-1])),'Experience studio is out of sequence');
 for(const name of ['neblina-jardin-campaign.webp','logic-frecuencia-campaign.webp','umbral-patio-campaign.webp'])
  assert.ok(html.includes(name),'Missing original storyboard artwork: '+name);
