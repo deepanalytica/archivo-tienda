@@ -50,7 +50,7 @@ async function main(){
   assert.equal(await page.locator('.arsenal-card').count(),18,'All project cards retained');
   assert.equal(await page.locator('#project-gallery .arsenal-card:visible').count(),6,'Six featured projects on first load');
   assert.equal(await page.locator('.profile-expand').getAttribute('open'),null,'Detailed biography should start collapsed');
-  assert.equal(await page.locator('.governanza-expand').getAttribute('open'),null,'Detailed AI governance starts collapsed');
+  assert.equal(await page.locator('.gobernanza-expand').getAttribute('open'),null,'Detailed AI governance starts collapsed');
   await page.locator('#laboratorio').screenshot({path:path.join(out,name+'-gallery-first.png'),animations:'disabled',timeout:30000});
   await page.locator('#project-gallery .arsenal-card:visible').first().locator('summary').click();
   assert.ok(await page.locator('#project-gallery .arsenal-card:visible').first().locator('.arsenal-details').getAttribute('open')!==null,
