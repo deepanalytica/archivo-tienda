@@ -43,10 +43,11 @@ async function main(){
   assert.equal(await page.locator('#caso-wal .wal-mosaic .mosaic-tile').count(),6,'All 6 WAL campaigns required');
   assert.equal(await page.locator('.collection-list span').count(),16,'All 16 ARCHIVO collections required');
   assert.equal(await page.locator('.experience-step').count(),4,'Four interactive stages required');
+  assert.match(await page.locator('.hero h1').innerText(),/análisis de datos/i,'Data-centered professional positioning must be visible');
   assert.ok(await page.locator('a[href^="https://wa.me/"]').count()>=2,'Direct WhatsApp contact');
   await page.locator('#experience-step-1').click();
   assert.equal(await page.locator('#experience-step-1').getAttribute('aria-selected'),'true','Stage selection update');
-  assert.match(await page.locator('#experience-title').innerText(),/comentario|oportunidad/i,'Content changes after stage');
+  assert.match(await page.locator('#experience-title').innerText(),/consulta|contexto/i,'Content changes after stage');
   await page.locator('#experience-step-1').press('ArrowRight');
   assert.equal(await page.locator('#experience-step-2').getAttribute('aria-selected'),'true','Keyboard next stage');
   await page.locator('.experience-storyboard summary').click();
