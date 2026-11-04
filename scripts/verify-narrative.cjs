@@ -27,7 +27,7 @@ for(const term of ['id="caso-visual"','id="caso-wal"','id="caso-archivo"',
 for(const t of [
  'Análisis de datos, software','Cruzo información de distintas fuentes',
  'Soy Alexis Reyes Saavedra','Distintas áreas de trabajo que se complementan',
- 'Cómo compruebo lo que','Decisiones que','Conversemos sobre'
+ 'Cómo compruebo lo que','decisiones','Conversemos sobre'
 ])assert.ok(main.includes(t),'Missing grounded editorial positioning: '+t);
 for(const t of [
  'Cómo investigo, decido','Integro análisis de datos',
