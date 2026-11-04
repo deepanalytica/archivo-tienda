@@ -10,12 +10,58 @@ const btn=(path,text,kind="")=>`<a class="btn ${kind}" href="${e(path)}">${e(tex
 const label=(n,t,d)=>`<div class="page-head"><div><span class="eyebrow f">${n} / AR WORKSTATION</span><h1>${t}<span class="f">.</span></h1><p>${e(d)}</p></div><span class="corner-id">AR / 2026</span></div>`;
 function navShell(page){
  let current=page.startsWith("case-")?"cases":page==="detail"?"projects":page;
- return `<a class="skip" href="#main">Saltar al contenido</a><div id="shell"><header class="site-head"><a class="brand" href="${B}" aria-label="Inicio AR Workstation">${im(B+"ar-assets/ui/ar-mark.svg","")}<span><b>AR</b> / WORKSTATION</span></a><nav class="head-nav" aria-label="Navegación principal">${nav.map(([n,path,id])=>`<a class="nav-link" href="${B+path}" ${current===id?'aria-current="page"':""}>${n}</a>`).join("")}</nav><div class="head-actions"><a class="nav-link head-contact" href="${B}contacto/">HABLEMOS ↗</a><button class="crt-toggle" id="crtToggle" type="button" aria-label="Cambiar intensidad del efecto CRT">CRT / SUTIL</button></div></header><main id="main" tabindex="-1"><div id="app"></div></main><nav class="mobile-nav" aria-label="Navegación móvil"><a href="${B}" ${page==="home"?'aria-current="page"':""}>Inicio</a>${[nav[0],nav[1],nav[2],nav[5]].map(([n,path,id])=>`<a href="${B+path}" ${current===id?'aria-current="page"':""}>${n}</a>`).join("")}<a href="${B}contacto/" class="more">Contacto</a></nav><footer class="site-foot"><span>© 2026 AR / WORKSTATION</span><span class="foot-right"><a href="${B}original.html">VERSIÓN ORIGINAL</a><a href="${B}contacto/">CONTACTO</a><span>ES / CL</span></span></footer></div>`;
+ return `<div class="crt-unit" id="crtUnit"><div id="shell"><a class="skip" href="#main">Saltar al contenido</a><header class="site-head"><a class="brand" href="${B}" aria-label="Inicio AR Workstation">${im(B+"ar-assets/ui/ar-mark.svg","")}<span><b>AR</b> / WORKSTATION</span></a><nav class="head-nav" aria-label="Navegación principal">${nav.map(([n,path,id])=>`<a class="nav-link" href="${B+path}" ${current===id?'aria-current="page"':""}>${n}</a>`).join("")}</nav><div class="head-actions"><a class="nav-link head-contact" href="${B}contacto/">HABLEMOS ↗</a><button class="crt-toggle" id="crtToggle" type="button" aria-label="Cambiar intensidad del efecto CRT">CRT / SUTIL</button></div></header><main id="main" tabindex="-1"><div id="app"></div></main><nav class="mobile-nav" aria-label="Navegación móvil"><a href="${B}" ${page==="home"?'aria-current="page"':""}>Inicio</a>${[nav[0],nav[1],nav[2],nav[5]].map(([n,path,id])=>`<a href="${B+path}" ${current===id?'aria-current="page"':""}>${n}</a>`).join("")}<a href="${B}contacto/" class="more">Contacto</a></nav><footer class="site-foot"><span>© 2026 AR / WORKSTATION</span><span class="foot-right"><a href="${B}original.html">VERSIÓN ORIGINAL</a><a href="${B}contacto/">CONTACTO</a><span>ES / CL</span></span></footer><div class="crt-boot" id="crtBoot" aria-label="Animación de encendido"><div class="crt-boot-line" aria-hidden="true"></div><span class="crt-boot-name">AR/</span><span class="crt-boot-copy">INICIALIZANDO WORKSTATION...</span><button type="button" class="crt-skip" id="skipBoot">SALTAR INTRO ↗</button></div></div><div class="crt-glass-overlay" aria-hidden="true"></div></div>`;
 }
 const h2=(n,title,desc)=>`<div class="section-intro"><div><span class="eyebrow f">${e(n)}</span><h2>${title}</h2></div><p>${e(desc)}</p></div>`;
 function caseTile(c){return `<a class="case-tile" href="${B}casos/${c.id}/">${im(resolved(c.hero),"Trabajo visual original de "+c.name,"",cover("conv-os"))}<div class="tile-body"><span class="card-overline">${e(c.tag)}</span><h3>${e(c.name)}</h3><p>${e(c.line)}</p><span class="tile-arrow">EXPLORAR CASO ↗</span></div></a>`;}
 function home(cases){
-return `<section class="hero"><div class="hero-stage"><div class="hero-left"><div class="hero-status"><span class="pulse"></span> ESTACIÓN CREATIVA / ACCESO DIRECTO</div><div class="hero-monogram" aria-hidden="true">AR<i>_</i></div><h1 class="hero-title">DATOS. SOFTWARE.<br><em>DISEÑO.</em> COMUNICACIÓN.</h1><p class="hero-desc">Desarrollo proyectos que conectan información, decisiones y experiencias digitales.</p><div class="button-row">${btn(B+"casos/","EXPLORAR TRABAJOS ↗")}${btn(B+"perfil/","PERFIL / CV","outline")}</div><p class="eyebrow muted" style="margin-top:27px">PROYECTOS REALES · SISTEMAS · EVIDENCIA</p></div><div class="hero-visual" aria-hidden="true"><div class="system-plate"><span class="plate-symbol">A R</span><span class="plate-meta">ANÁLISIS ↔ CONSTRUCCIÓN</span><span class="plate-meta bottom">DISEÑO / SISTEMAS / 2026</span></div></div></div><div class="hero-shots"><a class="shot" href="${B}casos/archivo/">${im(R+"assets/brands/ownform-editorial.webp","Imagen original ARCHIVO","photo")}<div class="copy"><small>01 / CAMPAÑAS</small><strong>ARCHIVO</strong><span>Dirección de arte</span></div><b class="go">↗</b></a><a class="shot" href="${route("deep-geo")}">${im(cover("deep-geo"),"Ilustración conceptual Deep Geo","photo")}<div class="copy"><small>02 / TERRITORIO</small><strong>DEEP GEO</strong><span>Datos y cartografía</span></div><b class="go">↗</b></a><a class="shot" href="${B}casos/visual-art-ai/">${im(resolved(cases[2].hero),"Logotipo Visual Art AI","photo",cover("conv-os"))}<div class="copy"><small>03 / COMUNICACIÓN</small><strong>VISUAL ART AI</strong><span>Visibilidad y consulta</span></div><b class="go">↗</b></a></div></section>`;
+ const cards=[
+   {id:"01",title:"ARCHIVO",hint:"CAMPAÑAS",note:"Dirección editorial",image:R+"assets/brands/ownform-editorial.webp",url:B+"casos/archivo/"},
+   {id:"02",title:"DEEP GEO",hint:"TERRITORIO",note:"Inteligencia territorial",image:cover("deep-geo"),url:route("deep-geo")},
+   {id:"03",title:"PRAXIOS",hint:"SISTEMAS",note:"Arquitectura de agentes",image:cover("praxios-os"),url:route("praxios-os")},
+   {id:"04",title:"VISUAL AI",hint:"COMUNICACIÓN",note:"Estrategia y diseño",image:resolved(cases[2].hero),url:B+"casos/visual-art-ai/"}
+ ];
+ return `<section class="os-home" aria-label="Estación creativa AR">
+   <div class="os-content">
+     <aside class="os-rail" aria-label="Accesos de la estación">
+       <div class="os-rail-logo" aria-label="AR Workstation">AR/</div>
+       <div class="os-rail-caption">WORKSTATION / 2026<br>PORTAFOLIO INTERACTIVO</div>
+       <div class="rail-label">MENU PRINCIPAL_</div>
+       <nav class="os-links" aria-label="Explorar portafolio">
+         <a href="${B}" aria-current="page">Inicio <span>01</span></a>
+         <a href="${B}proyectos/">Proyectos <span>02</span></a>
+         <a href="${B}casos/">Casos <span>03</span></a>
+         <a href="${B}laboratorio/">Laboratorio <span>04</span></a>
+         <a href="${B}metodo/">Método <span>05</span></a>
+         <a href="${B}perfil/">Perfil <span>06</span></a>
+         <a href="${B}contacto/">Contacto <span>07</span></a>
+       </nav>
+       <div class="os-rail-status"><b>● SISTEMA ACTIVO</b><br>INTERFAZ / FÓSFORO VERDE<br>TODO DENTRO DEL CRT</div>
+     </aside>
+     <div class="os-stage">
+       <div class="os-intro">
+         <div class="os-overline">ESTACIÓN CREATIVA / CONEXIÓN ESTABLECIDA</div>
+         <h1>Ideas que<br>funcionan<span aria-hidden="true">_</span></h1>
+         <p class="os-lead">Datos, software, diseño y comunicación conectados para resolver problemas reales.</p>
+         <a class="os-cta" href="${B}proyectos/">EXPLORAR PORTAFOLIO <span aria-hidden="true">→</span></a>
+         <span class="os-sub">18 PROYECTOS · 3 CASOS VISUALES · INVESTIGACIÓN</span>
+       </div>
+       <figure class="os-terrain" aria-label="Paisaje topográfico de líneas verdes generado en tiempo real">
+         <canvas id="crtTerrain" role="img" aria-label="Paisaje topográfico verde sobre una retícula digital"></canvas>
+         <span class="os-terrain-num" aria-hidden="true">TERRAIN / VECTOR FIELD 01</span>
+         <figcaption class="os-terrain-label">DEEP GEO <b>/ REPRESENTACIÓN CONCEPTUAL</b></figcaption>
+       </figure>
+     </div>
+   </div>
+   <div>
+     <div class="os-strip-head"><span>PROYECTOS DESTACADOS / 001-004</span><a href="${B}proyectos/">VER ÍNDICE COMPLETO ↗</a></div>
+     <div class="os-cards">${cards.map(c=>`<a class="os-card" href="${c.url}">
+       ${im(c.image,"Imagen de "+c.title,"",cover(c.id==="02"?"deep-geo":"conv-os"))}
+       <div class="os-card-copy"><small>${c.id} / ${c.hint}</small><strong>${c.title}</strong><em>${c.note}</em></div><span class="os-card-arrow" aria-hidden="true">↗</span>
+       </a>`).join("")}</div>
+   </div>
+   <div class="os-systemline"><span><b>READY</b> / AR WORKSTATION V2</span><span>DATA · DESIGN · SOFTWARE · COMMUNICATION · TERRITORY</span></div>
+ </section>`;
 }
 function projectsPage(){
  return `<div class="page-wrap">${label("01","Proyectos","Dieciocho sistemas, campañas e investigaciones. Dos maneras de explorarlos: visualmente o como índice compacto.")}<div class="toolbar"><div class="filters" id="filters" aria-label="Filtros"><button class="filter" data-filter="all" aria-pressed="true">Todos</button>${[["growth","Growth / operación"],["control","Agentes / control"],["data","Datos / territorio"],["research","Investigación"]].map(([id,x])=>`<button class="filter" data-filter="${id}" aria-pressed="false">${x}</button>`).join("")}</div><div class="view-switch"><button class="filter" id="viewVisual" aria-pressed="true">Visual</button><button class="filter" id="viewList" aria-pressed="false">Índice</button></div></div><div class="toolbar"><label class="sr" for="projectSearch">Buscar proyecto o problema</label><input type="search" id="projectSearch" class="input-search" placeholder="> Buscar proyecto, problema, capacidad..."><span id="filterCount" class="filter-count" aria-live="polite">18 PROYECTOS</span></div><div id="projectsGrid" class="project-grid"></div><p class="footnote">Las portadas SVG son ilustraciones conceptuales, no capturas funcionales. Las evidencias se distinguen por proyecto.</p></div>`;
