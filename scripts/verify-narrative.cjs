@@ -21,8 +21,24 @@ for(const term of ['Comunicación y copy','Branding y dirección de arte',
  have(main,term,'biography/competence');
 for(const term of ['id="caso-visual"','id="caso-wal"','id="caso-archivo"',
  'MH-FC-003','Sin Humo','EUREKA','La Escalera','Deep Audio',
- 'No parto por la herramienta','No existe garantía','Ingeniería determinista'])
+ 'Integro análisis de datos','No pueden garantizar','Ingeniería determinista'])
  have(dossier,term,'dossier content');
+// Editorial contract: keep the profile anchored in analysis and visible engineering work.
+for(const t of [
+ 'Análisis de datos, software','Cruzo información de distintas fuentes',
+ 'Soy Alexis Reyes Saavedra','Distintas áreas de trabajo que se complementan',
+ 'Cómo compruebo lo que','Decisiones que','Conversemos sobre'
+])assert.ok(main.includes(t),'Missing grounded editorial positioning: '+t);
+for(const t of [
+ 'Cómo investigo, decido','Integro análisis de datos',
+ 'reúno información','Cómo verifico respuestas',
+ '18 proyectos','fuentes','Rust'
+])assert.ok(dossier.toLowerCase().includes(t.toLowerCase()),'Missing natural professional narrative: '+t);
+for(const banned of [
+ 'Un arsenal de capacidades','El trabajo habla antes que el currículum',
+ 'No parto por la herramienta','Me gusta entender el problema antes de empezar a diseñar'
+])assert.ok(!main.includes(banned)&&!dossier.includes(banned),'Avoid generic or inflated copy: '+banned);
+
 const dossierCards=[...dossier.matchAll(/class="dossier" id="proyecto-([a-z0-9-]+)"/g)].map(x=>x[1]);
 const expected=['conv','msj','radar','living','prax','harness','atalaya','eureka',
  'tiburon','escalera','euler','geo','geoanalytica','inverse','deeplicita','book','puente','audio'];
@@ -38,7 +54,7 @@ const areas=[...dossier.matchAll(/class="practice-item"/g)].length;
 assert.equal(areas,8,'Expected eight professional disciplines');
 assert.equal((dossier.match(/class="feature" id="caso-/g)||[]).length,3,'Three real main cases missing');
 assert.ok(dossier.includes('repositorio sin código publicado'),'Must disclose conceptual Deep Licita status');
-assert.ok(dossier.includes('No existe')||dossier.includes('no garantizan'),'Must disclose limits of anti-hallucination controls');
+assert.ok(dossier.includes('No pueden garantizar')&&dossier.includes('bloqueo'),'Must explain the limits and actual checks of anti-hallucination controls');
 for(const v of ['@media(max-width:600px)','prefers-reduced-motion','governance-section','profile-areas'])have(stylesheet,v,'responsive main');
 for(const v of ['@media(max-width:600px)','prefers-reduced-motion','rust-board','dossier'])have(dossierStyles,v,'responsive dossier');
 for(const v of ['aria-pressed','search-project','normalize','hash','details.open=true'])have(dossierJS,v,'dossier interactions');
