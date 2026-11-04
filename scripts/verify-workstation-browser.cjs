@@ -28,9 +28,14 @@ async function run(){
   const page=await context.newPage();const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base,{waitUntil:'domcontentloaded'});
-  await page.locator('.hero-title').waitFor({state:'visible'});
-  assert.match(await page.locator('.hero-title').innerText(),/DATOS.*SOFTWARE/s);
-  assert.equal(await page.locator('.hero-shots .shot').count(),3,'Three visual entry points required');
+  await page.locator('.os-intro h1').waitFor({state:'visible'});
+  assert.match(await page.locator('.os-intro h1').innerText(),/Ideas que.*funcionan/s);
+  assert.equal(await page.locator('.os-card').count(),4,'Four visual projects must be inside CRT');
+  assert.equal(await page.locator('.crt-glass-overlay').count(),1,'Glass layer missing');
+  assert.ok(await page.locator('#crtUnit').isVisible(),'Physical CRT frame missing');
+  await page.waitForFunction(()=>document.querySelector('#crtTerrain')?.width>100);
+  const leaked=await page.evaluate(()=>[...document.querySelectorAll('a,button,input,select,textarea')].filter(el=>!el.closest('#shell')).map(el=>el.outerHTML.slice(0,120)));
+  assert.deepEqual(leaked,[],'Interactive controls leaked outside CRT glass');
   await page.screenshot({path:path.join(out,'ar-'+type+'-home.png'),animations:'disabled',fullPage:true});
   await page.goto(base+'proyectos/',{waitUntil:'domcontentloaded'});
   await page.locator('.project-tile').first().waitFor();
