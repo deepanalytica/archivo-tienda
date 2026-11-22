@@ -50,6 +50,8 @@ async function build() {
   }
   // Portafolio profesional público: solo archivos estáticos, sin afectar la tienda.
   await fs.cp(path.join(root, 'portafolio'), path.join(destination, 'portafolio'), { recursive: true });
+  // AURALIS web/PWA: publish the studio and 28 original audio samples as a self-contained folder.
+  await fs.cp(path.join(root, 'auralis'), path.join(destination, 'auralis'), { recursive: true });
   await fs.writeFile(path.join(destination, '.nojekyll'), '');
   console.log('Pages: catálogo estático generado en _site/. Sin servidor, panel ni datos de solicitudes.');
 }
