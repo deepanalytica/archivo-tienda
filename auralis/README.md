@@ -4,6 +4,7 @@ AURALIS is a mobile-first music workstation for Afrobeats, House and EDM. It com
 
 ## New in 4.0
 - **Recorded instrument library:** Meta Upright Piano, Meta Nylon Guitar and Meta Steel Guitar. 172 curated multisamples, with velocity layers and string zones.
+- **Synthesizer expansion:** seven-voice stereo supersaw, resonant acid bass/lead and deep sine/triangle sub patch, alongside the existing keys, pads, bells and plucks.
 - **Live performance:** 8 chord pads, 8 drum pads, touch keyboard, scene launch, tap tempo, arpeggiator (up/down/up-down/random), octave range, gate and 16-step melodic sequence.
 - **Independent layers:** drums, chords, bass, arpeggiator and lead.
 - **Mix intelligence:** sample-peak-based gain staging, role-based corrective EQ, soft compression on each drum channel and each musical bus, plus a fast master peak limiter. Manual faders remain under the user's control.
