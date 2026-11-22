@@ -1,0 +1,1219 @@
+{
+  "version": 1,
+  "source": "Meta Open Sound · Creative Audio",
+  "license": "CC0-1.0",
+  "sourceRepo": "https://github.com/facebookincubator/Meta-open-sound",
+  "instruments": {
+    "metaPiano": {
+      "name": "Meta Upright Piano",
+      "kind": "piano",
+      "sourceTag": "meta-piano-v1.0.0",
+      "sourcePath": "systems/instruments/meta-piano/ogg",
+      "sampleRate": 48000,
+      "sourceBitDepth": 24,
+      "range": [
+        36,
+        96
+      ],
+      "velocityLayers": [
+        31,
+        63,
+        95,
+        127
+      ],
+      "samples": [
+        {
+          "midi": 36,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_C2_01.wav",
+          "file": "samples/instruments/piano/36_v1.ogg"
+        },
+        {
+          "midi": 36,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_C2_01.wav",
+          "file": "samples/instruments/piano/36_v2.ogg"
+        },
+        {
+          "midi": 36,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_C2_01.wav",
+          "file": "samples/instruments/piano/36_v3.ogg"
+        },
+        {
+          "midi": 36,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_C2_01.wav",
+          "file": "samples/instruments/piano/36_v4.ogg"
+        },
+        {
+          "midi": 40,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_E2_01.wav",
+          "file": "samples/instruments/piano/40_v1.ogg"
+        },
+        {
+          "midi": 40,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_E2_01.wav",
+          "file": "samples/instruments/piano/40_v2.ogg"
+        },
+        {
+          "midi": 40,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_E2_01.wav",
+          "file": "samples/instruments/piano/40_v3.ogg"
+        },
+        {
+          "midi": 40,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_E2_01.wav",
+          "file": "samples/instruments/piano/40_v4.ogg"
+        },
+        {
+          "midi": 44,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_Gs2_01.wav",
+          "file": "samples/instruments/piano/44_v1.ogg"
+        },
+        {
+          "midi": 44,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_Gs2_01.wav",
+          "file": "samples/instruments/piano/44_v2.ogg"
+        },
+        {
+          "midi": 44,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_Gs2_01.wav",
+          "file": "samples/instruments/piano/44_v3.ogg"
+        },
+        {
+          "midi": 44,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_Gs2_01.wav",
+          "file": "samples/instruments/piano/44_v4.ogg"
+        },
+        {
+          "midi": 48,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_C3_01.wav",
+          "file": "samples/instruments/piano/48_v1.ogg"
+        },
+        {
+          "midi": 48,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_C3_01.wav",
+          "file": "samples/instruments/piano/48_v2.ogg"
+        },
+        {
+          "midi": 48,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_C3_01.wav",
+          "file": "samples/instruments/piano/48_v3.ogg"
+        },
+        {
+          "midi": 48,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_C3_01.wav",
+          "file": "samples/instruments/piano/48_v4.ogg"
+        },
+        {
+          "midi": 52,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_E3_01.wav",
+          "file": "samples/instruments/piano/52_v1.ogg"
+        },
+        {
+          "midi": 52,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_E3_01.wav",
+          "file": "samples/instruments/piano/52_v2.ogg"
+        },
+        {
+          "midi": 52,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_E3_01.wav",
+          "file": "samples/instruments/piano/52_v3.ogg"
+        },
+        {
+          "midi": 52,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_E3_01.wav",
+          "file": "samples/instruments/piano/52_v4.ogg"
+        },
+        {
+          "midi": 56,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_Gs3_01.wav",
+          "file": "samples/instruments/piano/56_v1.ogg"
+        },
+        {
+          "midi": 56,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_Gs3_01.wav",
+          "file": "samples/instruments/piano/56_v2.ogg"
+        },
+        {
+          "midi": 56,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_Gs3_01.wav",
+          "file": "samples/instruments/piano/56_v3.ogg"
+        },
+        {
+          "midi": 56,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_Gs3_01.wav",
+          "file": "samples/instruments/piano/56_v4.ogg"
+        },
+        {
+          "midi": 60,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_C4_01.wav",
+          "file": "samples/instruments/piano/60_v1.ogg"
+        },
+        {
+          "midi": 60,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_C4_01.wav",
+          "file": "samples/instruments/piano/60_v2.ogg"
+        },
+        {
+          "midi": 60,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_C4_01.wav",
+          "file": "samples/instruments/piano/60_v3.ogg"
+        },
+        {
+          "midi": 60,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_C4_01.wav",
+          "file": "samples/instruments/piano/60_v4.ogg"
+        },
+        {
+          "midi": 64,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_E4_01.wav",
+          "file": "samples/instruments/piano/64_v1.ogg"
+        },
+        {
+          "midi": 64,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_E4_01.wav",
+          "file": "samples/instruments/piano/64_v2.ogg"
+        },
+        {
+          "midi": 64,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_E4_01.wav",
+          "file": "samples/instruments/piano/64_v3.ogg"
+        },
+        {
+          "midi": 64,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_E4_01.wav",
+          "file": "samples/instruments/piano/64_v4.ogg"
+        },
+        {
+          "midi": 68,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_Gs4_01.wav",
+          "file": "samples/instruments/piano/68_v1.ogg"
+        },
+        {
+          "midi": 68,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_Gs4_01.wav",
+          "file": "samples/instruments/piano/68_v2.ogg"
+        },
+        {
+          "midi": 68,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_Gs4_01.wav",
+          "file": "samples/instruments/piano/68_v3.ogg"
+        },
+        {
+          "midi": 68,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_Gs4_01.wav",
+          "file": "samples/instruments/piano/68_v4.ogg"
+        },
+        {
+          "midi": 72,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_C5_01.wav",
+          "file": "samples/instruments/piano/72_v1.ogg"
+        },
+        {
+          "midi": 72,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_C5_01.wav",
+          "file": "samples/instruments/piano/72_v2.ogg"
+        },
+        {
+          "midi": 72,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_C5_01.wav",
+          "file": "samples/instruments/piano/72_v3.ogg"
+        },
+        {
+          "midi": 72,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_C5_01.wav",
+          "file": "samples/instruments/piano/72_v4.ogg"
+        },
+        {
+          "midi": 76,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_E5_01.wav",
+          "file": "samples/instruments/piano/76_v1.ogg"
+        },
+        {
+          "midi": 76,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_E5_01.wav",
+          "file": "samples/instruments/piano/76_v2.ogg"
+        },
+        {
+          "midi": 76,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_E5_01.wav",
+          "file": "samples/instruments/piano/76_v3.ogg"
+        },
+        {
+          "midi": 76,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_E5_01.wav",
+          "file": "samples/instruments/piano/76_v4.ogg"
+        },
+        {
+          "midi": 80,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_Gs5_01.wav",
+          "file": "samples/instruments/piano/80_v1.ogg"
+        },
+        {
+          "midi": 80,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_Gs5_01.wav",
+          "file": "samples/instruments/piano/80_v2.ogg"
+        },
+        {
+          "midi": 80,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_Gs5_01.wav",
+          "file": "samples/instruments/piano/80_v3.ogg"
+        },
+        {
+          "midi": 80,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_Gs5_01.wav",
+          "file": "samples/instruments/piano/80_v4.ogg"
+        },
+        {
+          "midi": 84,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_C6_01.wav",
+          "file": "samples/instruments/piano/84_v1.ogg"
+        },
+        {
+          "midi": 84,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_C6_01.wav",
+          "file": "samples/instruments/piano/84_v2.ogg"
+        },
+        {
+          "midi": 84,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_C6_01.wav",
+          "file": "samples/instruments/piano/84_v3.ogg"
+        },
+        {
+          "midi": 84,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_C6_01.wav",
+          "file": "samples/instruments/piano/84_v4.ogg"
+        },
+        {
+          "midi": 88,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_E6_01.wav",
+          "file": "samples/instruments/piano/88_v1.ogg"
+        },
+        {
+          "midi": 88,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_E6_01.wav",
+          "file": "samples/instruments/piano/88_v2.ogg"
+        },
+        {
+          "midi": 88,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_E6_01.wav",
+          "file": "samples/instruments/piano/88_v3.ogg"
+        },
+        {
+          "midi": 88,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_E6_01.wav",
+          "file": "samples/instruments/piano/88_v4.ogg"
+        },
+        {
+          "midi": 92,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_Gs6_01.wav",
+          "file": "samples/instruments/piano/92_v1.ogg"
+        },
+        {
+          "midi": 92,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_Gs6_01.wav",
+          "file": "samples/instruments/piano/92_v2.ogg"
+        },
+        {
+          "midi": 92,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_Gs6_01.wav",
+          "file": "samples/instruments/piano/92_v3.ogg"
+        },
+        {
+          "midi": 92,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_Gs6_01.wav",
+          "file": "samples/instruments/piano/92_v4.ogg"
+        },
+        {
+          "midi": 96,
+          "layer": 1,
+          "sourceFile": "INSPiano_Vel01_C7_01.wav",
+          "file": "samples/instruments/piano/96_v1.ogg"
+        },
+        {
+          "midi": 96,
+          "layer": 2,
+          "sourceFile": "INSPiano_Vel02_C7_01.wav",
+          "file": "samples/instruments/piano/96_v2.ogg"
+        },
+        {
+          "midi": 96,
+          "layer": 3,
+          "sourceFile": "INSPiano_Vel03_C7_01.wav",
+          "file": "samples/instruments/piano/96_v3.ogg"
+        },
+        {
+          "midi": 96,
+          "layer": 4,
+          "sourceFile": "INSPiano_Vel04_C7_01.wav",
+          "file": "samples/instruments/piano/96_v4.ogg"
+        }
+      ]
+    },
+    "nylonGuitar": {
+      "name": "Meta Nylon Guitar",
+      "kind": "nylon",
+      "sourceTag": "meta-nylon-guitar-v1.0.0",
+      "sourcePath": "systems/instruments/meta-nylon-guitar/ogg",
+      "sampleRate": 48000,
+      "sourceBitDepth": 24,
+      "range": [
+        40,
+        83
+      ],
+      "velocityLayers": [
+        "finger",
+        "light-pick",
+        "firm-pick"
+      ],
+      "strings": [
+        {
+          "id": "StringLowE",
+          "openMidi": 40,
+          "range": [
+            40,
+            60
+          ],
+          "samples": [
+            {
+              "midi": 40,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel01Finger_E2_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_40_v1.ogg"
+            },
+            {
+              "midi": 40,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel02Pick_E2_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_40_v2.ogg"
+            },
+            {
+              "midi": 40,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel03Pick_E2_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_40_v3.ogg"
+            },
+            {
+              "midi": 48,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel01Finger_C3_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_48_v1.ogg"
+            },
+            {
+              "midi": 48,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel02Pick_C3_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_48_v2.ogg"
+            },
+            {
+              "midi": 48,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel03Pick_C3_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_48_v3.ogg"
+            },
+            {
+              "midi": 56,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel01Finger_Gs3_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_56_v1.ogg"
+            },
+            {
+              "midi": 56,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel02Pick_Gs3_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_56_v2.ogg"
+            },
+            {
+              "midi": 56,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringLowE_Vel03Pick_Gs3_01.wav",
+              "file": "samples/instruments/nylon/StringLowE_56_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringA",
+          "openMidi": 45,
+          "range": [
+            45,
+            65
+          ],
+          "samples": [
+            {
+              "midi": 45,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringA_Vel01Finger_A2_01.wav",
+              "file": "samples/instruments/nylon/StringA_45_v1.ogg"
+            },
+            {
+              "midi": 45,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringA_Vel02Pick_A2_01.wav",
+              "file": "samples/instruments/nylon/StringA_45_v2.ogg"
+            },
+            {
+              "midi": 45,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringA_Vel03Pick_A2_01.wav",
+              "file": "samples/instruments/nylon/StringA_45_v3.ogg"
+            },
+            {
+              "midi": 53,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringA_Vel01Finger_F3_01.wav",
+              "file": "samples/instruments/nylon/StringA_53_v1.ogg"
+            },
+            {
+              "midi": 53,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringA_Vel02Pick_F3_01.wav",
+              "file": "samples/instruments/nylon/StringA_53_v2.ogg"
+            },
+            {
+              "midi": 53,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringA_Vel03Pick_F3_01.wav",
+              "file": "samples/instruments/nylon/StringA_53_v3.ogg"
+            },
+            {
+              "midi": 61,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringA_Vel01Finger_Cs4_01.wav",
+              "file": "samples/instruments/nylon/StringA_61_v1.ogg"
+            },
+            {
+              "midi": 61,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringA_Vel02Pick_Cs4_01.wav",
+              "file": "samples/instruments/nylon/StringA_61_v2.ogg"
+            },
+            {
+              "midi": 61,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringA_Vel03Pick_Cs4_01.wav",
+              "file": "samples/instruments/nylon/StringA_61_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringD",
+          "openMidi": 50,
+          "range": [
+            50,
+            70
+          ],
+          "samples": [
+            {
+              "midi": 50,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringD_Vel01Finger_D3_01.wav",
+              "file": "samples/instruments/nylon/StringD_50_v1.ogg"
+            },
+            {
+              "midi": 50,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringD_Vel02Pick_D3_01.wav",
+              "file": "samples/instruments/nylon/StringD_50_v2.ogg"
+            },
+            {
+              "midi": 50,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringD_Vel03Pick_D3_01.wav",
+              "file": "samples/instruments/nylon/StringD_50_v3.ogg"
+            },
+            {
+              "midi": 58,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringD_Vel01Finger_As3_01.wav",
+              "file": "samples/instruments/nylon/StringD_58_v1.ogg"
+            },
+            {
+              "midi": 58,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringD_Vel02Pick_As3_01.wav",
+              "file": "samples/instruments/nylon/StringD_58_v2.ogg"
+            },
+            {
+              "midi": 58,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringD_Vel03Pick_As3_01.wav",
+              "file": "samples/instruments/nylon/StringD_58_v3.ogg"
+            },
+            {
+              "midi": 66,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringD_Vel01Finger_Fs4_01.wav",
+              "file": "samples/instruments/nylon/StringD_66_v1.ogg"
+            },
+            {
+              "midi": 66,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringD_Vel02Pick_Fs4_01.wav",
+              "file": "samples/instruments/nylon/StringD_66_v2.ogg"
+            },
+            {
+              "midi": 66,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringD_Vel03Pick_Fs4_01.wav",
+              "file": "samples/instruments/nylon/StringD_66_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringG",
+          "openMidi": 55,
+          "range": [
+            55,
+            75
+          ],
+          "samples": [
+            {
+              "midi": 55,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringG_Vel01Finger_G3_01.wav",
+              "file": "samples/instruments/nylon/StringG_55_v1.ogg"
+            },
+            {
+              "midi": 55,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringG_Vel02Pick_G3_01.wav",
+              "file": "samples/instruments/nylon/StringG_55_v2.ogg"
+            },
+            {
+              "midi": 55,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringG_Vel03Pick_G3_01.wav",
+              "file": "samples/instruments/nylon/StringG_55_v3.ogg"
+            },
+            {
+              "midi": 63,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringG_Vel01Finger_Ds4_01.wav",
+              "file": "samples/instruments/nylon/StringG_63_v1.ogg"
+            },
+            {
+              "midi": 63,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringG_Vel02Pick_Ds4_01.wav",
+              "file": "samples/instruments/nylon/StringG_63_v2.ogg"
+            },
+            {
+              "midi": 63,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringG_Vel03Pick_Ds4_01.wav",
+              "file": "samples/instruments/nylon/StringG_63_v3.ogg"
+            },
+            {
+              "midi": 71,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringG_Vel01Finger_B4_01.wav",
+              "file": "samples/instruments/nylon/StringG_71_v1.ogg"
+            },
+            {
+              "midi": 71,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringG_Vel02Pick_B4_01.wav",
+              "file": "samples/instruments/nylon/StringG_71_v2.ogg"
+            },
+            {
+              "midi": 71,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringG_Vel03Pick_B4_01.wav",
+              "file": "samples/instruments/nylon/StringG_71_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringB",
+          "openMidi": 59,
+          "range": [
+            59,
+            79
+          ],
+          "samples": [
+            {
+              "midi": 59,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringB_Vel01Finger_B3_01.wav",
+              "file": "samples/instruments/nylon/StringB_59_v1.ogg"
+            },
+            {
+              "midi": 59,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringB_Vel02Pick_B3_01.wav",
+              "file": "samples/instruments/nylon/StringB_59_v2.ogg"
+            },
+            {
+              "midi": 59,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringB_Vel03Pick_B3_01.wav",
+              "file": "samples/instruments/nylon/StringB_59_v3.ogg"
+            },
+            {
+              "midi": 67,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringB_Vel01Finger_G4_01.wav",
+              "file": "samples/instruments/nylon/StringB_67_v1.ogg"
+            },
+            {
+              "midi": 67,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringB_Vel02Pick_G4_01.wav",
+              "file": "samples/instruments/nylon/StringB_67_v2.ogg"
+            },
+            {
+              "midi": 67,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringB_Vel03Pick_G4_01.wav",
+              "file": "samples/instruments/nylon/StringB_67_v3.ogg"
+            },
+            {
+              "midi": 75,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringB_Vel01Finger_Ds5_01.wav",
+              "file": "samples/instruments/nylon/StringB_75_v1.ogg"
+            },
+            {
+              "midi": 75,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringB_Vel02Pick_Ds5_01.wav",
+              "file": "samples/instruments/nylon/StringB_75_v2.ogg"
+            },
+            {
+              "midi": 75,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringB_Vel03Pick_Ds5_01.wav",
+              "file": "samples/instruments/nylon/StringB_75_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringHighE",
+          "openMidi": 64,
+          "range": [
+            64,
+            84
+          ],
+          "samples": [
+            {
+              "midi": 64,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel01Finger_E4_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_64_v1.ogg"
+            },
+            {
+              "midi": 64,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel02Pick_E4_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_64_v2.ogg"
+            },
+            {
+              "midi": 64,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel03Pick_E4_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_64_v3.ogg"
+            },
+            {
+              "midi": 72,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel01Finger_C5_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_72_v1.ogg"
+            },
+            {
+              "midi": 72,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel02Pick_C5_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_72_v2.ogg"
+            },
+            {
+              "midi": 72,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel03Pick_C5_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_72_v3.ogg"
+            },
+            {
+              "midi": 80,
+              "layer": 1,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel01Finger_Gs5_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_80_v1.ogg"
+            },
+            {
+              "midi": 80,
+              "layer": 2,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel02Pick_Gs5_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_80_v2.ogg"
+            },
+            {
+              "midi": 80,
+              "layer": 3,
+              "sourceFile": "INSGuitarNylon_StringHighE_Vel03Pick_Gs5_01.wav",
+              "file": "samples/instruments/nylon/StringHighE_80_v3.ogg"
+            }
+          ]
+        }
+      ]
+    },
+    "steelGuitar": {
+      "name": "Meta Steel Guitar",
+      "kind": "steel",
+      "sourceTag": "meta-steel-guitar-v1.0.0",
+      "sourcePath": "systems/instruments/meta-steel-guitar/ogg",
+      "sampleRate": 48000,
+      "sourceBitDepth": 24,
+      "range": [
+        40,
+        84
+      ],
+      "velocityLayers": [
+        1,
+        2,
+        3
+      ],
+      "strings": [
+        {
+          "id": "StringLowE",
+          "openMidi": 40,
+          "range": [
+            40,
+            60
+          ],
+          "samples": [
+            {
+              "midi": 40,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel01_E2_01.wav",
+              "file": "samples/instruments/steel/StringLowE_40_v1.ogg"
+            },
+            {
+              "midi": 40,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel02_E2_01.wav",
+              "file": "samples/instruments/steel/StringLowE_40_v2.ogg"
+            },
+            {
+              "midi": 40,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel03_E2_01.wav",
+              "file": "samples/instruments/steel/StringLowE_40_v3.ogg"
+            },
+            {
+              "midi": 48,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel01_C3_01.wav",
+              "file": "samples/instruments/steel/StringLowE_48_v1.ogg"
+            },
+            {
+              "midi": 48,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel02_C3_01.wav",
+              "file": "samples/instruments/steel/StringLowE_48_v2.ogg"
+            },
+            {
+              "midi": 48,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel03_C3_01.wav",
+              "file": "samples/instruments/steel/StringLowE_48_v3.ogg"
+            },
+            {
+              "midi": 56,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel01_Gs3_01.wav",
+              "file": "samples/instruments/steel/StringLowE_56_v1.ogg"
+            },
+            {
+              "midi": 56,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel02_Gs3_01.wav",
+              "file": "samples/instruments/steel/StringLowE_56_v2.ogg"
+            },
+            {
+              "midi": 56,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringLowE_Vel03_Gs3_01.wav",
+              "file": "samples/instruments/steel/StringLowE_56_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringA",
+          "openMidi": 45,
+          "range": [
+            45,
+            65
+          ],
+          "samples": [
+            {
+              "midi": 45,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringA_Vel01_A2_01.wav",
+              "file": "samples/instruments/steel/StringA_45_v1.ogg"
+            },
+            {
+              "midi": 45,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringA_Vel02_A2_01.wav",
+              "file": "samples/instruments/steel/StringA_45_v2.ogg"
+            },
+            {
+              "midi": 45,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringA_Vel03_A2_01.wav",
+              "file": "samples/instruments/steel/StringA_45_v3.ogg"
+            },
+            {
+              "midi": 53,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringA_Vel01_F3_01.wav",
+              "file": "samples/instruments/steel/StringA_53_v1.ogg"
+            },
+            {
+              "midi": 53,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringA_Vel02_F3_01.wav",
+              "file": "samples/instruments/steel/StringA_53_v2.ogg"
+            },
+            {
+              "midi": 53,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringA_Vel03_F3_01.wav",
+              "file": "samples/instruments/steel/StringA_53_v3.ogg"
+            },
+            {
+              "midi": 61,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringA_Vel01_Cs4_01.wav",
+              "file": "samples/instruments/steel/StringA_61_v1.ogg"
+            },
+            {
+              "midi": 61,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringA_Vel02_Cs4_01.wav",
+              "file": "samples/instruments/steel/StringA_61_v2.ogg"
+            },
+            {
+              "midi": 61,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringA_Vel03_Cs4_01.wav",
+              "file": "samples/instruments/steel/StringA_61_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringD",
+          "openMidi": 50,
+          "range": [
+            50,
+            70
+          ],
+          "samples": [
+            {
+              "midi": 50,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringD_Vel01_D3_01.wav",
+              "file": "samples/instruments/steel/StringD_50_v1.ogg"
+            },
+            {
+              "midi": 50,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringD_Vel02_D3_01.wav",
+              "file": "samples/instruments/steel/StringD_50_v2.ogg"
+            },
+            {
+              "midi": 50,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringD_Vel03_D3_01.wav",
+              "file": "samples/instruments/steel/StringD_50_v3.ogg"
+            },
+            {
+              "midi": 58,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringD_Vel01_As3_01.wav",
+              "file": "samples/instruments/steel/StringD_58_v1.ogg"
+            },
+            {
+              "midi": 58,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringD_Vel02_As3_01.wav",
+              "file": "samples/instruments/steel/StringD_58_v2.ogg"
+            },
+            {
+              "midi": 58,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringD_Vel03_As3_01.wav",
+              "file": "samples/instruments/steel/StringD_58_v3.ogg"
+            },
+            {
+              "midi": 66,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringD_Vel01_Fs4_01.wav",
+              "file": "samples/instruments/steel/StringD_66_v1.ogg"
+            },
+            {
+              "midi": 66,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringD_Vel02_Fs4_01.wav",
+              "file": "samples/instruments/steel/StringD_66_v2.ogg"
+            },
+            {
+              "midi": 66,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringD_Vel03_Fs4_01.wav",
+              "file": "samples/instruments/steel/StringD_66_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringG",
+          "openMidi": 55,
+          "range": [
+            55,
+            75
+          ],
+          "samples": [
+            {
+              "midi": 55,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringG_Vel01_G3_01.wav",
+              "file": "samples/instruments/steel/StringG_55_v1.ogg"
+            },
+            {
+              "midi": 55,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringG_Vel02_G3_01.wav",
+              "file": "samples/instruments/steel/StringG_55_v2.ogg"
+            },
+            {
+              "midi": 55,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringG_Vel03_G3_01.wav",
+              "file": "samples/instruments/steel/StringG_55_v3.ogg"
+            },
+            {
+              "midi": 63,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringG_Vel01_Ds4_01.wav",
+              "file": "samples/instruments/steel/StringG_63_v1.ogg"
+            },
+            {
+              "midi": 63,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringG_Vel02_Ds4_01.wav",
+              "file": "samples/instruments/steel/StringG_63_v2.ogg"
+            },
+            {
+              "midi": 63,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringG_Vel03_Ds4_01.wav",
+              "file": "samples/instruments/steel/StringG_63_v3.ogg"
+            },
+            {
+              "midi": 71,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringG_Vel01_B4_01.wav",
+              "file": "samples/instruments/steel/StringG_71_v1.ogg"
+            },
+            {
+              "midi": 71,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringG_Vel02_B4_01.wav",
+              "file": "samples/instruments/steel/StringG_71_v2.ogg"
+            },
+            {
+              "midi": 71,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringG_Vel03_B4_01.wav",
+              "file": "samples/instruments/steel/StringG_71_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringB",
+          "openMidi": 59,
+          "range": [
+            59,
+            79
+          ],
+          "samples": [
+            {
+              "midi": 59,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringB_Vel01_B3_01.wav",
+              "file": "samples/instruments/steel/StringB_59_v1.ogg"
+            },
+            {
+              "midi": 59,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringB_Vel02_B3_01.wav",
+              "file": "samples/instruments/steel/StringB_59_v2.ogg"
+            },
+            {
+              "midi": 59,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringB_Vel03_B3_01.wav",
+              "file": "samples/instruments/steel/StringB_59_v3.ogg"
+            },
+            {
+              "midi": 67,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringB_Vel01_G4_01.wav",
+              "file": "samples/instruments/steel/StringB_67_v1.ogg"
+            },
+            {
+              "midi": 67,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringB_Vel02_G4_01.wav",
+              "file": "samples/instruments/steel/StringB_67_v2.ogg"
+            },
+            {
+              "midi": 67,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringB_Vel03_G4_01.wav",
+              "file": "samples/instruments/steel/StringB_67_v3.ogg"
+            },
+            {
+              "midi": 75,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringB_Vel01_Ds5_01.wav",
+              "file": "samples/instruments/steel/StringB_75_v1.ogg"
+            },
+            {
+              "midi": 75,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringB_Vel02_Ds5_01.wav",
+              "file": "samples/instruments/steel/StringB_75_v2.ogg"
+            },
+            {
+              "midi": 75,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringB_Vel03_Ds5_01.wav",
+              "file": "samples/instruments/steel/StringB_75_v3.ogg"
+            }
+          ]
+        },
+        {
+          "id": "StringHighE",
+          "openMidi": 64,
+          "range": [
+            64,
+            84
+          ],
+          "samples": [
+            {
+              "midi": 64,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel01_E4_01.wav",
+              "file": "samples/instruments/steel/StringHighE_64_v1.ogg"
+            },
+            {
+              "midi": 64,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel02_E4_01.wav",
+              "file": "samples/instruments/steel/StringHighE_64_v2.ogg"
+            },
+            {
+              "midi": 64,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel03_E4_01.wav",
+              "file": "samples/instruments/steel/StringHighE_64_v3.ogg"
+            },
+            {
+              "midi": 72,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel01_C5_01.wav",
+              "file": "samples/instruments/steel/StringHighE_72_v1.ogg"
+            },
+            {
+              "midi": 72,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel02_C5_01.wav",
+              "file": "samples/instruments/steel/StringHighE_72_v2.ogg"
+            },
+            {
+              "midi": 72,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel03_C5_01.wav",
+              "file": "samples/instruments/steel/StringHighE_72_v3.ogg"
+            },
+            {
+              "midi": 80,
+              "layer": 1,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel01_Gs5_01.wav",
+              "file": "samples/instruments/steel/StringHighE_80_v1.ogg"
+            },
+            {
+              "midi": 80,
+              "layer": 2,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel02_Gs5_01.wav",
+              "file": "samples/instruments/steel/StringHighE_80_v2.ogg"
+            },
+            {
+              "midi": 80,
+              "layer": 3,
+              "sourceFile": "INSGuitarSteel_StringHighE_Vel03_Gs5_01.wav",
+              "file": "samples/instruments/steel/StringHighE_80_v3.ogg"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sampleCount": 172
+}
