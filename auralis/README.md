@@ -1,32 +1,24 @@
-# AURALIS Studio 2.0 · Web / PWA
+# AURALIS Studio 4 · Live Music Workstation
 
-Versión web del AURALIS Studio 2.0 original, para GitHub Pages.
+AURALIS is a mobile-first music workstation for Afrobeats, House and EDM. It combines an offline Web Audio engine, original drum kits, sampled instruments, chord pads, a tempo-synchronised arpeggiator, a 16-step lead sequencer, DJ performance effects and WAV/MIDI export.
 
-- Sin servidor ni registro; Web Audio API.
-- 28 muestras WAV PCM 24-bit / 48 kHz sintetizadas en el proyecto, descargables localmente.
-- Afrobeats / House / EDM, 8 canales y 16 pasos, 4 escenas.
-- Sintetizador polifónico, DJ FX, exportación WAV, MIDI y JSON.
-- Interfaz responsive, instalable como PWA cuando el navegador lo permite.
-- Funciona sin conexión tras la primera carga completa y cuando el service worker cachea los sonidos; algunos navegadores restringen caché offline.
-- Audio se inicia tras interacción del usuario.
+## New in 4.0
+- **Recorded instrument library:** Meta Upright Piano, Meta Nylon Guitar and Meta Steel Guitar. 172 curated multisamples, with velocity layers and string zones.
+- **Synthesizer expansion:** seven-voice stereo supersaw, resonant acid bass/lead and deep sine/triangle sub patch, alongside the existing keys, pads, bells and plucks.
+- **Live performance:** 8 chord pads, 8 drum pads, touch keyboard, scene launch, tap tempo, arpeggiator (up/down/up-down/random), octave range, gate and 16-step melodic sequence.
+- **Independent layers:** drums, chords, bass, arpeggiator and lead.
+- **Mix intelligence:** sample-peak-based gain staging, role-based corrective EQ, soft compression on each drum channel and each musical bus, plus a fast master peak limiter. Manual faders remain under the user's control.
+- **DJ rack:** tempo-aware filter, echo send, reverb, master fader, echo-out, filter sweep, beat roll, riser, impact and brake.
+- **Progressive offline library:** samples are loaded on demand and cached by the service worker. “Preparar biblioteca” downloads all 172 OGG previews for offline sessions.
 
-## Limitaciones
+## Audio and sample provenance
+The Meta Open Sound instrument source recordings are 48 kHz / 24-bit WAV under CC0 1.0. The drum engine now includes 24 original procedural alternates across kicks, clap/snare, hats, shakers, congas, rims and crash/percussion accents. The browser app uses the source collection's mono OGG Vorbis web previews to keep the mobile footprint manageable. The Pages build downloads the pinned CC0 files into the static site; playback never streams from the third-party repository. See [SAMPLE-LICENSES.md](SAMPLE-LICENSES.md).
 
-No es DAW profesional comparable a Ableton/Logic, no incluye instrumentos grabados, VST ni automatización de stems completa; el rendimiento y la exportación dependen del dispositivo. Los navegadores móviles pueden suspender audio al cambiar de pestaña.
+## Run locally
+From the repository root, fetch the CC0 samples and serve the site over HTTP (required for AudioContext, service worker and sample fetches):
+`python scripts/fetch-auralis-instruments.py`
+`python -m http.server 8000`
+Then open `http://localhost:8000/auralis/`.
 
-## Desarrollo
-
-Sirve el directorio por HTTP: `python -m http.server 8000` y abre `http://localhost:8000`.
-
-Fuente: adaptación del código Android 2.0 en ZIP entregado en la conversación, sin bibliotecas de terceros.
-
-
-## 3.0 — Stereo Sound Lab
-- 8 mezclas independientes: panorámica, filtro high-pass, tono low-pass, fader, muestras alternativas.
-- 28 archivos PCM WAV de 24-bit / 48 kHz + 18 sonidos alternativos generados localmente a 32-bit flotante dentro del navegador, incluidos en el render final de 24 bits.
-- Ancho estéreo 0% mono / 100% natural / 150% ampliado. Control L/R de peak por muestra, no LUFS.
-- Echo estéreo Clean, Tape (wobble), Dub (filtrado) y Ping Pong, divisiones de tempo y feedback.
-- Humanización reproducible por step/bar y conducción de voces entre acordes. Reproducible también en MIDI.
-- 12 patches de osciladores/ FM, no muestreo multisample ni VST.
-- Los proyectos v2 se conservan y siguen siendo importables. No es una DAW multipista comercial.
-- Calidad final depende de control acústico, monitorización y mezcla; WAV 24-bit no implica mastering profesional.
+## Honest technical limits
+This is a browser-based performance workstation, not yet a full commercial DAW. It does not host VST/AU plugins, multitrack audio recording or the original 24-bit WAV masters in the browser. OGG instrument previews are decoded to browser AudioBuffers; the final export engine renders stereo WAV 48 kHz / 24-bit. Auto-mix is a local rules-based gain/EQ assistant, not an AI mastering service. A limiter reduces peaks but does not replace monitoring, arrangement and mastering by an audio engineer.
