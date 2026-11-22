@@ -1,7 +1,7 @@
 const fs=require('node:fs');const assert=require('node:assert/strict');const cp=require('node:child_process');
 const root='_site/auralis';const read=p=>fs.readFileSync(root+'/'+p,'utf8');
 const html=read('index.html'),app=read('app.js'),sampler=read('sampler.js'),live=read('live.js'),sw=read('sw.js');
-assert.ok(html.includes('id="view-live"'),'Live performance view missing');assert.ok(html.includes('id="liveChordPads"')&&html.includes('id="liveDrumPads"'),'Live pads missing');assert.ok(html.includes('id="smartMixApply"'),'Smart mix control missing');
+assert.ok(html.includes('id="view-live"'),'Live performance view missing');assert.ok(html.includes('id="liveChordPads"')&&html.includes('id="liveDrumPads"'),'Live pads missing');assert.ok(html.includes('id="smartMixApply"'),'Smart mix control missing');assert.ok(['supersaw','acid303','subbass'].every(p=>html.includes('value="'+p+'"')),'New synth patches missing');
 assert.ok(html.includes('src="sampler.js"')&&html.includes('src="live.js"'),'Live audio scripts missing');
 assert.ok(app.includes('window.AURALIS_API=')&&app.includes('AURALIS_LIVE')&&app.includes('onStep'),'App/live API integration missing');
 const manifest=JSON.parse(read('instrument-manifest.json'));assert.equal(manifest.sampleCount,172,'Expected curated 172-sample library');
