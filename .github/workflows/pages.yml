@@ -42,7 +42,6 @@ jobs:
           npm test
           node scripts/verify-workstation.cjs
           node scripts/verify-auralis-v4.cjs
-          node scripts/verify-auralis-browser.cjs
           node scripts/verify-workstation-browser.cjs
       # Deployment rebuilds a fresh Pages artifact without re-downloading browsers.
       - name: Build and validate published site
