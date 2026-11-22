@@ -29,7 +29,9 @@ jobs:
         with:
           path: auralis/samples/instruments
           key: auralis-instruments-v1-${{ hashFiles('auralis/instrument-manifest.json') }}
-      - name: Fetch pinned CC0 instruments for offline Pages build\n        run: python scripts/fetch-auralis-instruments.py\n      - run: npm ci
+      - name: Fetch pinned CC0 instruments for offline Pages build
+        run: python scripts/fetch-auralis-instruments.py
+      - run: npm ci
       # Full browser regression on PRs/manual runs. Main has already passed PR checks.
       - name: Install Playwright for full validation
         if: github.event_name != 'push'
