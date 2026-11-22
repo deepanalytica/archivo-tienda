@@ -6,7 +6,7 @@ AURALIS is a mobile-first music workstation for Afrobeats, House and EDM. It com
 - **Recorded instrument library:** Meta Upright Piano, Meta Nylon Guitar and Meta Steel Guitar. 172 curated multisamples, with velocity layers and string zones.
 - **Live performance:** 8 chord pads, 8 drum pads, touch keyboard, scene launch, tap tempo, arpeggiator (up/down/up-down/random), octave range, gate and 16-step melodic sequence.
 - **Independent layers:** drums, chords, bass, arpeggiator and lead.
-- **Mix intelligence:** sample-peak-based gain staging, role-based corrective EQ, soft per-channel compression and master lookahead limiting. Manual faders remain under the user's control.
+- **Mix intelligence:** sample-peak-based gain staging, role-based corrective EQ, soft compression on each drum channel and each musical bus, plus a fast master peak limiter. Manual faders remain under the user's control.
 - **DJ rack:** tempo-aware filter, echo send, reverb, master fader, echo-out, filter sweep, beat roll, riser, impact and brake.
 - **Progressive offline library:** samples are loaded on demand and cached by the service worker. “Preparar biblioteca” downloads all 172 OGG previews for offline sessions.
 
