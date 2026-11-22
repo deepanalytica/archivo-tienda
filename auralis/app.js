@@ -193,12 +193,11 @@ class AudioEngine{
   const pitch=1+(unitNoise(r,bar,step,17)*2-1)*(state.humanize/100)*.036*(r===0?.10:1);
   return this.source(name,when,dyn,this.chVolume[r],pitch)}
  fx(name,when,volume=.6){return this.source(name,when,volume,this.masterMix)}
- voice(note,at,hold=.6,vel=.6,patch=state.patch,panOffset=0,destination=this.musicChords){const c=this.ctx,frequency=noteHz(note),t=Math.max(at,c.currentTime+.001),v=clamp(vel,0,1),bright=state.brightness/100;if(this.instrumentSampler?.has(patch))return this.instrumentSampler.play(patch,note,Math.round(v*127),t,hold,panOffset,destination);if(patch==='supersaw')return this.voiceSupersaw(note,t,hold,v,panOffset,destination);
+ voice(note,at,hold=.6,vel=.6,patch=state.patch,panOffset=0,destination=this.musicChords){const c=this.ctx,frequency=noteHz(note),t=Math.max(at,c.currentTime+.001),v=clamp(vel,0,1),bright=state.brightness/100,p=patch;if(this.instrumentSampler?.has(patch))return this.instrumentSampler.play(patch,note,Math.round(v*127),t,hold,panOffset,destination);if(patch==='supersaw')return this.voiceSupersaw(note,t,hold,v,panOffset,destination);
   const filter=c.createBiquadFilter();filter.type='lowpass';filter.frequency.value=250+Math.pow(bright,1.4)*12200;filter.Q.value=.5;
   const amp=c.createGain(),out=c.createGain(),osc1=c.createOscillator(),osc2=c.createOscillator(),panner=typeof c.createStereoPanner==='function'?c.createStereoPanner():c.createGain();
   filter.connect(amp);amp.connect(panner);panner.connect(out);out.connect(destination);osc1.connect(filter);osc2.connect(filter);if(p==='acid303'){filter.Q.value=10.5;filter.frequency.setValueAtTime(320,t);filter.frequency.exponentialRampToValueAtTime(2200+bright*4800,t+.09);filter.frequency.exponentialRampToValueAtTime(430+bright*1500,t+Math.max(.12,hold))}if(p==='subbass'){filter.frequency.value=185;filter.Q.value=.72}
   if(panner.pan)panner.pan.value=clamp(panOffset,-.58,.58);
-  const p=patch;
   const preset={rhodes:['sine','triangle',2],analog:['sawtooth','sawtooth',1.004],glass:['sine','sine',2.006],organ:['sawtooth','sine',2],pluck:['triangle','sine',1.004],pad:['sawtooth','sawtooth',1.003],fmkeys:['sine','sine',2.003],brass:['sawtooth','square',1.007],strings:['sawtooth','triangle',1.002],marimba:['sine','triangle',3.005],vibes:['sine','sine',3.995],warmlead:['sawtooth','square',1.008],acid303:['sawtooth','sawtooth',1.006],subbass:['sine','triangle',2]}[p]||['triangle','sine',1.003];
   osc1.type=preset[0];osc2.type=preset[1];osc1.frequency.value=frequency;osc2.frequency.value=frequency*preset[2];
   osc1.detune.value=(unitNoise(note,Math.floor(at*19),7,8)*2-1)*state.humanize*.035;
