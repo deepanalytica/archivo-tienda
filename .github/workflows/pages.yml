@@ -42,6 +42,7 @@ jobs:
           npm test
           node scripts/verify-workstation.cjs
           node scripts/verify-auralis-v4.cjs
+          node scripts/verify-auralis-browser.cjs
           node scripts/verify-workstation-browser.cjs
       # Deployment rebuilds a fresh Pages artifact without re-downloading browsers.
       - name: Build and validate published site
@@ -63,6 +64,8 @@ jobs:
       - name: Install Chromium for live portfolio UI checks
         if: github.event_name == 'push'
         run: npx playwright install --with-deps chromium
+      - name: Verify AURALIS live performance and sampled audio in Chromium
+        run: node scripts/verify-auralis-browser.cjs
       - name: Verify recruiter portfolio in desktop and mobile Chromium
         if: github.event_name == 'push'
         run: |
