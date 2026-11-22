@@ -12,7 +12,7 @@ AURALIS is a mobile-first music workstation for Afrobeats, House and EDM. It com
 - **Progressive offline library:** samples are loaded on demand and cached by the service worker. “Preparar biblioteca” downloads all 172 OGG previews for offline sessions.
 
 ## Audio and sample provenance
-The Meta Open Sound instrument source recordings are 48 kHz / 24-bit WAV under CC0 1.0. The browser app uses the source collection's mono OGG Vorbis web previews to keep the mobile footprint manageable. The Pages build downloads the pinned CC0 files into the static site; playback never streams from the third-party repository. See [SAMPLE-LICENSES.md](SAMPLE-LICENSES.md).
+The Meta Open Sound instrument source recordings are 48 kHz / 24-bit WAV under CC0 1.0. The drum engine now includes 24 original procedural alternates across kicks, clap/snare, hats, shakers, congas, rims and crash/percussion accents. The browser app uses the source collection's mono OGG Vorbis web previews to keep the mobile footprint manageable. The Pages build downloads the pinned CC0 files into the static site; playback never streams from the third-party repository. See [SAMPLE-LICENSES.md](SAMPLE-LICENSES.md).
 
 ## Run locally
 From the repository root, fetch the CC0 samples and serve the site over HTTP (required for AudioContext, service worker and sample fetches):

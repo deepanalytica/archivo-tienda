@@ -62,7 +62,7 @@ function renderPiano(){const piano=$('piano');if(piano.children.length)return;co
 function renderFX(){const sliders=[['djFilter','filter'],['echoSend','echo'],['crossfader','crossfade']];sliders.forEach(([id,k])=>$(id).value=state[k]);$('autoFX').checked=state.autoFX;$('filterVal').textContent=state.filter===50?'NEUTRO':state.filter<50?'LP '+(50-state.filter)*2+'%':'HP '+(state.filter-50)*2+'%';$('echoVal').textContent=state.echo+'%';$('crossVal').textContent=state.crossfade===50?'CENTRO':state.crossfade<50?'DRUMS '+(50-state.crossfade)*2+'%':'MUSIC '+(state.crossfade-50)*2+'%';for(const k of ['eqLow','eqMid','eqHigh']){$(k).value=state[k];$(k+'Val').textContent=state[k]+' dB'}$('drive').value=state.drive;$('driveVal').textContent=state.drive+'%';}
 function renderMixer(){const root=$('mixChannelRows');if(!root)return;root.replaceChildren();const variants=state.sampleVariants[state.genre];
  TRACKS.forEach(([id,name,icon],r)=>{const row=document.createElement('div');row.className='mix-strip';row.innerHTML=`<div class="mix-strip-name"><span class="mix-strip-icon">${icon}</span><div><strong>${name}</strong><small>CH ${(r+1).toString().padStart(2,'0')}</small></div></div>
- <label class="mix-small">FUENTE<select class="mix-select" data-mix="sample" data-r="${r}" ${r>5?'disabled':''}><option value="0">KIT ORIGINAL</option><option value="1">ALT / STUDIO</option></select></label>
+ <label class="mix-small">FUENTE<select class="mix-select" data-mix="sample" data-r="${r}" ><option value="0">KIT ORIGINAL</option><option value="1">ALT / STUDIO</option></select></label>
  <label class="mix-small">PAN <output>${state.pans[r]>0?'R':state.pans[r]<0?'L':'C'} ${Math.abs(state.pans[r])}</output><input data-mix="pan" data-r="${r}" type="range" min="-100" max="100" value="${state.pans[r]}"></label>
  <label class="mix-small">LOW CUT <output>${Math.round(20*Math.pow(22,state.cuts[r]/100))} Hz</output><input data-mix="cut" data-r="${r}" type="range" min="0" max="100" value="${state.cuts[r]}"></label>
  <label class="mix-small">TONE <output>${state.tones[r]}%</output><input data-mix="tone" data-r="${r}" type="range" min="0" max="100" value="${state.tones[r]}"></label>
@@ -189,7 +189,7 @@ class AudioEngine{
   this.echoModDepth.gain.setTargetAtTime(mode==='tape'?.0019:mode==='dub'?.0008:0,t,.04);
  }
  source(name,when,vol=1,to=this.drumsBus,rate=1){const buff=this.samples[name];if(!buff)return null;const c=this.ctx,s=c.createBufferSource(),gain=c.createGain();s.buffer=buff;s.playbackRate.value=rate;s.connect(gain);gain.gain.value=vol;gain.connect(to);const start=Math.max(when,c.currentTime+.001);try{s.start(start)}catch(err){console.warn('Sample start',err)}if(!this.contextOffline){this.active.add(s);s.onended=()=>{this.active.delete(s);try{s.disconnect();gain.disconnect()}catch(e){}}}return s;}
- drum(r,when,velocity,genre=state.genre,bar=0,step=0){if(velocity<=0||state.mutes[r])return;const base=KIT[genre][r];const variant=state.sampleVariants?.[genre]?.[r]===1&&r<6?`${base}_alt`:base;const name=this.samples[variant]?variant:base;const dyn=(velocity/127)**1.55*.92;
+ drum(r,when,velocity,genre=state.genre,bar=0,step=0){if(velocity<=0||state.mutes[r])return;const base=KIT[genre][r];const variant=state.sampleVariants?.[genre]?.[r]===1?`${base}_alt`:base;const name=this.samples[variant]?variant:base;const dyn=(velocity/127)**1.55*.92;
   const pitch=1+(unitNoise(r,bar,step,17)*2-1)*(state.humanize/100)*.036*(r===0?.10:1);
   return this.source(name,when,dyn,this.chVolume[r],pitch)}
  fx(name,when,volume=.6){return this.source(name,when,volume,this.masterMix)}
@@ -229,7 +229,7 @@ class AudioEngine{
 /* High-quality deterministic floating-point synthesis for 18 alternative one-shots.
  * Generated on the device at the audio context sample rate. No samples/licenses downloaded.
  */
-function proceduralSample(c,name){const tokens=name.split('_');const genre=tokens[0],type=tokens[1];const seconds={kick:.69,clap:.43,hat:.21,open:.62,shaker:.34,conga:.48}[type]||.3,rate=c.sampleRate,n=Math.floor(seconds*rate),out=c.createBuffer(2,n,rate);
+function proceduralSample(c,name){const tokens=name.split('_');const genre=tokens[0],type=tokens[1];const seconds={kick:.69,clap:.43,hat:.21,open:.62,shaker:.34,conga:.48,rim:.24,perc:.42,crash:1.18}[type]||.3,rate=c.sampleRate,n=Math.floor(seconds*rate),out=c.createBuffer(2,n,rate);
  let seed=0x9e3779b9;for(const ch of name)seed=(Math.imul(seed^ch.charCodeAt(0),1664525)+1013904223)>>>0;
  const rand=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return((seed>>>0)/2147483648-1)};
  let phase=0,smooth=0;const lr=[out.getChannelData(0),out.getChannelData(1)],raw=new Float64Array(n),air=new Float64Array(n);
@@ -237,11 +237,14 @@ function proceduralSample(c,name){const tokens=name.split('_');const genre=token
  for(let i=0;i<n;i++){const t=i/rate,noise=rand(),noise2=rand();smooth=smooth*.88+noise*.12;let x=0;
   if(type==='kick'){const f=41+shift*4+(112+shift*57)*Math.exp(-t*26);phase+=2*Math.PI*f/rate;x=(Math.sin(phase)+.16*Math.sin(phase*2))*Math.exp(-t*(genre==='edm'?7.7:9.8))+.11*(noise-smooth)*Math.exp(-t*100)}
   else if(type==='conga'){const f=180+shift*42+75*Math.exp(-t*17);phase+=2*Math.PI*f/rate;x=(Math.sin(phase)+.28*Math.sin(phase*2.01))*Math.exp(-t*12)+.12*(noise-smooth)*Math.exp(-t*91)}
-  else if(type==='clap'){const spikes=[0,.012,.022,.036];x=spikes.reduce((sum,delay)=>sum+(t>=delay?(noise-smooth)*Math.exp(-(t-delay)*36)*(delay?.55:1):0),0);x+=.16*(noise-smooth)*Math.exp(-t*8)}
+  else if(type==='clap'){const spikes=[0,.012,.022,.036];x=spikes.reduce((sum,delay)=>sum+(t>=delay?(noise-smooth)*Math.exp(-(t-delay)*36)*(delay?.55:1):0),0);x+=.16*(noise-smooth)*Math.exp(-t*8)+.18*Math.sin(2*Math.PI*185*t)*Math.exp(-t*18)+.12*(noise-smooth)*Math.exp(-t*28)}
+  else if(type==='rim'){phase+=2*Math.PI*(1820+shift*90)/rate;x=(noise-smooth)*Math.exp(-t*64)+.34*Math.sin(phase)*Math.exp(-t*24)+.16*Math.sin(phase*1.57)*Math.exp(-t*34)}
+  else if(type==='perc'){const f=280+shift*35+95*Math.exp(-t*19);phase+=2*Math.PI*f/rate;x=(Math.sin(phase)+.31*Math.sin(phase*2.71))*Math.exp(-t*16)+.15*(noise-smooth)*Math.exp(-t*70)}
+  else if(type==='crash'){x=(noise-smooth)*Math.exp(-t*4.8)+.12*Math.sin(2*Math.PI*7200*t)*Math.exp(-t*7.5)+.08*Math.sin(2*Math.PI*9800*t)*Math.exp(-t*9)}
   else if(type==='hat'){x=(noise-smooth+.12*Math.sin(t*2*Math.PI*6432)+.09*Math.sin(t*2*Math.PI*9443))*Math.exp(-t*(genre==='afro'?34:42))}
   else if(type==='open'){x=(noise-smooth)*Math.exp(-t*(genre==='afro'?10:7.5))+.13*Math.sin(t*2*Math.PI*7000)*Math.exp(-t*26)}
   else if(type==='shaker'){x=(noise-smooth)*Math.exp(-t*22)*(1+.45*Math.sin(2*Math.PI*28*t))}
-  raw[i]=x;air[i]=(noise2-smooth)*Math.exp(-t*(type==='open'?11:type==='hat'?39:24));}
+  raw[i]=x;air[i]=(noise2-smooth)*Math.exp(-t*(type==='crash'?5:type==='open'?11:type==='hat'?39:24));}
  let peak=0;for(let i=0;i<n;i++)peak=Math.max(peak,Math.abs(raw[i])+Math.abs(air[i])*.035);
  const gain=(type==='kick'?.81:.72)/Math.max(.0001,peak),fade=Math.min(350,Math.floor(n/6));
  for(let i=0;i<n;i++){const tail=i>n-fade?(n-i)/fade:1,x=raw[i]*gain*tail,side=(type==='kick'?0:air[i]*.031*gain*tail);lr[0][i]=x+side;lr[1][i]=x-side}
