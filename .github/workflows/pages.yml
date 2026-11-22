@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
+      - name: Cache AURALIS multisample library\n        uses: actions/cache@v4\n        with:\n          path: auralis/samples/instruments\n          key: auralis-instruments-v1-${{ hashFiles('auralis/instrument-manifest.json') }}\n      - name: Fetch pinned CC0 instruments for offline Pages build\n        run: python scripts/fetch-auralis-instruments.py\n      - run: npm ci
       # Full browser regression on PRs/manual runs. Main has already passed PR checks.
       - name: Install Playwright for full validation
         if: github.event_name != 'push'
