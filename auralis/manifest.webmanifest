@@ -1,13 +1,13 @@
 {
-  "name": "AURALIS Studio 2.0 · Music Production",
-  "short_name": "AURALIS",
+  "name": "AURALIS Studio 4 · Live Music Workstation",
+  "short_name": "AURALIS Live",
   "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0c0d12",
   "theme_color": "#0c0d12",
-  "description": "Estudio musical móvil: Afrobeats, House, EDM, armonías, efectos DJ y exportación WAV/MIDI.",
+  "description": "Live music workstation: sampled instruments, chord pads, arpeggiator, lead sequencer and DJ effects.",
   "icons": [
     {
       "src": "icons/icon-192.png",
